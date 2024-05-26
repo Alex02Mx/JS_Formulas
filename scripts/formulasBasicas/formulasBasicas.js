@@ -144,7 +144,7 @@ function cerrarOpc(){
 }
 function menuPrinc(){
     blurFnc();
-    location.href="/index.html";
+    location.href="/";
 
     // setTimeout(menuPrincFnc, 600);
 }
