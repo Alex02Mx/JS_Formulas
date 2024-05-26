@@ -1,0 +1,101 @@
+.contactanosCont{
+    display: flex;
+    justify-content: center;
+}
+.formCont{
+    width: 340px;
+    padding: 10px;
+    margin: 20px 0px;
+    gap: 5px;
+}
+.formCl{
+    display: flex;
+    flex-direction: column;
+}
+.formCl label{
+    margin-bottom: 5px;
+}
+#inputEmail,
+#inputName{
+    width: 320px;
+    height: 30px;
+    font-size: 18px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+#labelTexArea{
+    height: 110px;
+    max-width: 320px;
+    max-height: 110px;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.btnSubmitCont{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+.btnBorrar,
+.btnSubmit{
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--naranja);
+    background: var(--background_linear_1);
+    color: var(--naranja);
+    font-size: 18px;
+    font-weight: 700;
+}
+.btnView{
+    cursor: pointer;
+}
+.btnView:active {
+    background-color: var(--terciario);
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+
+.winMesSendInfoCont{
+    height: 390px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.winMesSendInfo{
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color:#ffffff; */
+    background: radial-gradient(circle at 46.98% 67.12%, var(--blue) 0, var(--secundario) 50%, var(--primario) 100%);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.527);
+}
+.tituloSobre {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    color: #0cc14c;
+}
+.winMesSendInfo img{
+    width: 200px;
+}
+.parrafoSobre {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+}

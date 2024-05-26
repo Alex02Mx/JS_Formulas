@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+:root {
+    --primario: #092547;
+    --secundario: #093973;
+    --terciario: #69A2E7;
+
+    --black: #000000;
+    --white: #ffffff;
+
+    --darkGrey: #4f5052;
+    --grey: #6895CB;
+    --blue: #105dbb;
+    --lightGrey: #e6e6e6;
+    --naranja: #ffc003;
+    --red: #bb3232;
+    --verde: #0cc14c;
+
+    --background_radial_1: radial-gradient(circle at 50% 9%, var(--blue) 15%, var(--primario) 70%, var(--secundario) 1000%);
+    --background_radial_2: radial-gradient(circle at 46.98% 67.12%, var(--blue) 0, var(--secundario) 50%, var(--primario) 100%);
+    
+    --background_linear_1: linear-gradient(var(--blue), 40%, var(--secundario), var(--blue));
+    --background_linear_2: linear-gradient(var(--primario), 40%, var(--secundario), var(--primario));
+    --background_linear_3: linear-gradient(var(--blue), 40%, var(--terciario), var(--blue));
+    --background_linear_4: linear-gradient(var(--primario), 40%, var(--blue), var(--primario));
+}
+body {
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--lightGrey);
+
+    /* background-color: var(--terciario); */
+    position: relative;
+    min-width: 360px;
+    min-height: 100vh;
+}
+
+.body::-webkit-scrollbar,
+.listIcons::-webkit-scrollbar{
+    display: none;
+}
+/* ################# nav ################# */
+.navCont{
+    width: 100%;
+    height: 62px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--verde);
+    background-color: var(--secundario);
+    z-index: 1;
+}
+.imgCont{
+    margin: 0;
+    height: 50px;
+}
+.logo{
+    height: 100%;
+}
+
+/* ############  contentIndex  ############ */
+.contentIndex {
+    padding-top: 61px;
+}
+/* ----- titlexIndex ----- */
+.titlesIndex {
+    text-align: center;
+    /* background-color: var(--primario); */
+}
+.titlesIndex p {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--black);
+    padding: 10px 0px;
+    margin: 0px;
+    margin: 0px 20px;
+    border-bottom: 2px solid var(--verde);
+
+    /* font-size: 26px;
+    color: var(--terciario);
+    padding: 10px;
+    margin: 0px; */
+}
+
+/* ------ containerMainIcons ------ */
+
+.mainIcons{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px 81px 10px;
+}
+.listIcons {
+    width: 620px;
+    /* min-width: 620px;
+    max-width: 830px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    gap: 10px;
+    justify-content: center;
+
+}
+.listIcons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    width: 158px;
+    height: 158px;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    background: var(--background_linear_2);
+    color: var(--naranja);
+    border: 1px solid var(--naranja);
+}
+.listIcons a:hover {
+    border: 1px solid var(--lightGrey);
+    color: var(--lightGrey);
+    .imgAP {
+        background: var(--background_linear_3);
+        border: 1px solid var(--lightGrey); 
+    }
+}
+.imgAP {
+    width: 100px;
+    padding: 10px 29px;
+    border: 1px solid var(--naranja);
+    border-radius: 10px;
+    background: var(--background_linear_4);
+
+}
+/* ################# footer ################## */
+.footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+    /* border-top: 1px solid var(--red); */
+    background-color: var(--secundario);
+}
+/* ############  mediaqueries  ############ */
+
+@media screen and (max-width: 830px){
+    .listIcons {
+        width: 340px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .listIcons a {
+        flex-direction: row;
+        width: 278px;
+        height: 47px;
+        gap: 10px;
+        padding: 5px 30px;
+    }
+    .imgAP {
+        width: 50px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+    }
+    .listIcons a:hover {
+        .imgAP {
+            background: transparent;
+            border: 0px; 
+        }
+    }
+}
