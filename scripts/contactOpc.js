@@ -1,6 +1,6 @@
 // --- Contáctanos ---
 function emailForm(){
-    titlesIndex.innerText = "Contáctanos";
+    titlesIndexText.innerText = "Contáctanos";
     const contactanosCont = document.createElement("div");
     contactanosCont.classList.add("contactanosCont");
 

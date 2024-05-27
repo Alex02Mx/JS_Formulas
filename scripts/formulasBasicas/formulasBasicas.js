@@ -15,7 +15,7 @@ const contDesktop = document.querySelector(".contDesktop");
 const containerFiguras = document.querySelector(".containerFiguras");
 const containerIntro = document.createElement("section");
 const containerResponsive = document.createElement("section");
-const titlesIndex = document.querySelector(".titlesIndex");
+const titlesIndexText = document.querySelector(".titlesIndexText");
 const email = document.querySelectorAll(".email");
 const seleccion = document.querySelectorAll(".seleccion");
 const socMedDesktop = document.querySelector(".socMedDesktop");
@@ -147,6 +147,7 @@ function menuPrinc(){
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
+    // location.href="../../index.html";
     location.href="/JS_Formulas/index.html";
 }
 function selecFnc(event){
@@ -179,7 +180,7 @@ function dispContactanos(){
 //================================  Funciones renderizado ================================
 function renderIntroduccion(){
     cleanCont();
-    titlesIndex.innerText = "Áreas y Perímetros";
+    titlesIndexText.innerText = "Áreas y Perímetros";
     containerFiguras.appendChild(containerIntro);
     containerIntro.classList.add("containerIntro");
 
@@ -205,7 +206,7 @@ function renderIntroduccion(){
 };
 function renderFigura(objeto){
     cleanCont();
-    titlesIndex.innerText = "Áreas y Perímetros";
+    titlesIndexText.innerText = "Áreas y Perímetros";
     // --- id del objeto en proceso ---
     idFigVr = objeto["idDb"];
     // --- ciclo de repeticion del objeto ---
