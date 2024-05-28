@@ -22,15 +22,10 @@ const intro = [
     },
     {
         value2 : [
-            "Nota :",
-            "Para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una",
-        ],
-    },
-    {
-        value3 : [
-            "Forma de uso :",
-            "Con el botón de <span class='btnImg'>Figuras</span> seleccionas figuras geométricas basicas, mostrará fórmulas y calculadoras para áreas y perímetros, entre otras opciones.",
-            "Con el botón <span class='btnImg'>Menú</span> regresarás al menú principal."
+            "Conclución :",
+            "El área y el perímetro son dos conceptos fundamentales en geometría que describen las propiedades de las figuras planas.",
+            "Estos conceptos son esenciales para entender y calcular las propiedades de las formas geométricas en diversos campos, desde la matemática básica hasta la arquitectura y la ingeniería.",
+            "Para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una.",
         ],
     },
 ] ;

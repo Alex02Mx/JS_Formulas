@@ -1,25 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
-:root {
-    --primario: #092547;
-    --secundario: #093973;
-    --terciario: #69A2E7;
-    --black: #000000;
-    --white: #ffffff;
-    --darkGrey: #4f5052;
-    --grey: #6895CB;
-    --blue: #105dbb;
-    --lightGrey: #e6e6e6;
-    --naranja: #ffc003;
-    --red: #bb3232;
-    --verde: #0cc14c;
-    --background_radial_1: radial-gradient(circle at 50% 9%, var(--blue) 15%, var(--primario) 70%, var(--secundario) 1000%);
-    --background_radial_2: radial-gradient(circle at 46.98% 67.12%, var(--blue) 0, var(--secundario) 50%, var(--primario) 100%);
-    --background_linear_1: linear-gradient(var(--blue), 40%, var(--secundario), var(--blue));
-    --background_linear_2: linear-gradient(var(--primario), 40%, var(--secundario), var(--primario));
-    --background_linear_3: linear-gradient(var(--blue), 40%, var(--terciario), var(--blue));
-    --background_linear_4: linear-gradient(var(--primario), 40%, var(--blue), var(--primario));
-}
 body {
     margin: 0px;
     padding: 0px;
@@ -35,7 +13,7 @@ body {
 *::-webkit-scrollbar{
     display: none;
 }
-/* ################# nav ################# */
+/* ################# navbar ################# */
 .navCont{
     width: 100%;
     height: 62px;
@@ -60,12 +38,10 @@ body {
 .logo{
     height: 100%;
 }
-
 /* ############  contentIndex  ############ */
 .contentIndex {
     padding-top: 61px;
 }
-/* ----- titlexIndex ----- */
 .titlesIndex {
     text-align: center;
 }
@@ -78,7 +54,7 @@ body {
     margin: 0px 20px;
     border-bottom: 2px solid var(--lightGrey);
 }
-/* ------ containerMainIcons ------ */
+/* ############  containerMainIcons  ############ */
 .mainIcons{
     height: 100%;
     display: flex;
@@ -124,7 +100,7 @@ body {
     border-radius: 10px;
     background: var(--background_linear_4);
 }
-/* ############  mediaqueries  ############ */
+
 .footer {
     position: absolute;
     left: 0px;
@@ -152,6 +128,7 @@ body {
 .footerSpan2{
     color: var(--verde);
 }
+/* ############  mediaqueries  ############ */
 @media screen and (max-width: 830px){
     .listIcons {
         width: 340px;

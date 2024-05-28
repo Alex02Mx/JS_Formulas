@@ -1,19 +1,31 @@
+const intro = [
+    {
+        value0 : [
+            "Qué es la Altura ?",
+            "La altura de una figura geométrica se refiere a la medida de la distancia vertical desde la base de la figura hasta su punto más alto. La forma en que se define la altura puede variar dependiendo del tipo de figura:",
+            "Triángulo: La altura de un triángulo es la distancia perpendicular desde una base hasta el vértice opuesto. Cada lado del triángulo puede servir como base, y la altura correspondiente es siempre perpendicular a esa base.",
+            "Rectángulo: La altura de un rectángulo es la distancia entre dos lados opuestos que no son la base. Si consideramos uno de los lados más largos como la base, entonces la altura será la longitud de uno de los lados más cortos.",
+            "Paralelogramo: Similar al rectángulo, la altura de un paralelogramo es la distancia perpendicular entre las bases opuestas.",
+            "Trapezoide: En un trapezoide (trapecio), la altura es la distancia perpendicular entre las dos bases paralelas.",
+            "Círculo: En el caso de figuras tridimensionales, como un cilindro, la altura es la distancia entre las dos bases circulares.",
+        ],
+    },
+    {
+        value1 : [
+            "Qué es la base ?",
+            "La base de una figura geométrica es uno de sus lados o superficies fundamentales sobre el cual se mide o se apoya la altura. La definición de la base puede variar dependiendo del tipo de figura geométrica",
+        ],
+    },
+    {
+        value2 : [
+            "Conclución :",
+            "En general, la altura es una medida crucial en muchos cálculos geométricos, como el área y el volumen. Es importante señalar que la altura siempre se mide de manera perpendicular a la base o a la línea sobre la que se proyecta la figura.",
+        ],
+    },
+] ;
+// --- Array de figuras geometricas y valores ---
 const AlturasArray = [];
-
-const introAlturas = {
-    defImg: "../assets/altura_img.svg",
-    defTitulo: "introducción",
-
-    defAlturaTitulo: "Qué es la Altura ?",
-    defAltura: "La altura de una figura geométrica es la longitud o distancia de una dimensión geométrica, vertical o dirección de la gravedad. Este término se utiliza para designar la coordenada vertical de la parte más elevada de la figura a su base.",
-    defAltura2Titulo: "Qué es la Base ?",
-    defAltura2: "Base es un lado o cara elegido ( en algunos casos arbitrariamente) para realizar el cálculo de área o volumen.",
-
-    defNotaTitulo: "Nota:",
-    defNota: "Se pueden usar diferentes fórmulas para obtener un resultado como: el teorema de pitágoras, la fórmula de herón, fórmula del área. etc",
-    defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el botón de <span>Figuras</span> seleccionas figuras geométricas, mostrará fórmulas y calculadoras para encontrar su altura.<br>Con el botón <span>Menú</span> regresarás al menú principal."
-};
+// --- Objetos con los Valores de figuras Geometricas ---
 const trianguloEquilateroObj = {
     id: "triángulo_equilátero",
     mh: "s",
@@ -110,8 +122,7 @@ const trapecioObj = {
     funcionAltura: "hTrapecio",
     clearWindowH: "clearHFig",
 };
-
-AlturasArray.push(introAlturas);
+// --- Guardado de objetos de valores al array ---
 AlturasArray.push(trianguloEquilateroObj);
 AlturasArray.push(trianguloIsoscelesObj);
 AlturasArray.push(trianguloEscalenoObj);

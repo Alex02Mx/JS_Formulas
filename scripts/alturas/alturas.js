@@ -1,230 +1,228 @@
-
+//==============================  variables y constantes ==================================
 const body = document.querySelector(".body");
-const figuras = document.querySelector(".figuras");
-const listIndex = document.querySelector(".listIndex");
 const blurC = document.querySelector(".blurC");
-
-figuras.addEventListener("click", figurasFnc);
-blurC.addEventListener("click", blurFnc);
-
+const menuMobile = document.querySelector("#moblilCont");
+const topL = document.querySelector("#top");
+const middleL = document.querySelector("#middle");
+const bottomL = document.querySelector("#bottom");
+const listIndex = document.querySelector(".listIndex");
+const aMenu = document.querySelector(".aMenu");
+const textMenu = document.querySelector(".textMenu");
+const calcText = document.querySelector(".calcText");
+const calcDesktop = document.querySelector(".calcDesktop");
+const contactText = document.querySelector(".contactText");
+const contDesktop = document.querySelector(".contDesktop");
+const containerFiguras = document.querySelector(".containerFiguras");
+const containerIntro = document.createElement("section");
+const containerResponsive = document.createElement("section");
+const titlesIndexText = document.querySelector(".titlesIndexText");
+const email = document.querySelectorAll(".email");
 const seleccion = document.querySelectorAll(".seleccion");
+const socMedDesktop = document.querySelector(".socMedDesktop");
+const socMedMainCont =  document.querySelector(".socMedMainCont");
+
+
+
+// const sectionDtop = document.createElement("div");
+// const defTitulo = document.createElement("h2");
+// const defImg = document.createElement("img");
+// const sectionDmiddle = document.createElement("div");
+// const defAlturaTitulo = document.createElement("p");
+// const defAltura = document.createElement("p");
+// const defAltura2Titulo = document.createElement("p");
+// const defAltura2 = document.createElement("p");
+// const sectionDbottom = document.createElement("div");
+// const defNotaTitulo = document.createElement("p");
+// const defNota = document.createElement("p");
+// const defGuiaTitulo = document.createElement("p");
+// const defGuia = document.createElement("p");
+// const formulaImg = document.createElement("div");
+// const titleFig = document.createElement("h2");
+// const imgFigura = document.createElement("img");
+// const containerAltura = document.createElement("div");
+// const divAltura = document.createElement("div");
+// const sectionHtop = document.createElement("section");
+// const pTitleH = document.createElement("p");
+// const pformulaH = document.createElement("p");
+// const sectionHmiddle = document.createElement("section");
+// const divRadioH = document.createElement("div");
+// const inputRadioHC = document.createElement("input");
+// const inputRadioHM = document.createElement("input");
+// const inputLabelHC = document.createElement("label");
+// const inputLabelHM = document.createElement("label");
+// const sectionHbottom = document.createElement("section");
+// const pResultH = document.createElement("p");
+// const btnResultH = document.createElement("button");
+// const btnClearH = document.createElement("button");
+
+// let btnClearHReg;
+// let btnResultHReg;
+// let pResultHReg;
+// let mensAltura;
+// let rutaFH;
+// let rutaFHClear;
+// let winH1 = null;
+// let winH2 = null;
+// let winH3 = null;
+// let idFig = "";
+
+//===============================  asignacion de valores ==================================
+socMedDesktop.innerHTML = socialMedImg;
+socMedMainCont.append(socialMedCont);
+//====================================  Escuchadores ======================================
+blurC.addEventListener("click", blurFnc);
+menuMobile.addEventListener("click", showHideCalc);
+aMenu.addEventListener("click", menuPrinc);
+textMenu.addEventListener("click", menuPrinc);
+calcText.addEventListener("click", showHideCalc);
+contactText.addEventListener("click", showHideCalc);
+//=======================================  Ciclos =========================================
+email.forEach((itemClass) => {
+    itemClass.addEventListener("click", dispContactanos);
+})
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
-function figurasFnc(){
-    listIndex.scrollTop = 0;
-    listIndex.classList.toggle("listIndexShow");
-    blurC.classList.toggle("off");
-    body.classList.toggle("noMove");
-}
-//----Funcion opacar background----------------------------------------------------------
-function blurFnc(){
-    listIndex.classList.remove("listIndexShow");
-    blurC.classList.add("off");
-    body.classList.remove("noMove");
-}
-//----Funcion de seleccion en menu-------------------------------------------------------
-function selecFnc(event){
-    listIndex.classList.remove("listIndexShow");
-    const target = event.target.innerText.toLowerCase();
-    const figura = target.replaceAll(" ","_");
-    const figSelect = AlturasArray.find(obj => obj.id === figura);
-    if(figSelect){
-        renderFigura(figSelect);
-    }else{
-        renderIntroduccion();
-    };
-    blurFnc();
-
-    // listIndex.classList.remove("listIndexShow");
-    // const figura = event.target.innerText.toLowerCase();
-    // const cid = document.getElementById(figura);
-    // const topOffset = cid.offsetTop - 70;
-    // window.scroll(0, topOffset);
-    // blurFnc();
-}
-//----Funciones de borrado, activacion y desactivacion de bentanas y radios--------------
-function borrar(){
-    // ---- Limpieza de valor de medida ----
-    mensAltura = "";
-    // ----  ----
-    sectionHmiddle.innerHTML = "";
-    // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
-    pResultH.innerHTML = "";
-    pResultH.classList.remove(pResultHReg);
-    pResultH.classList.remove("bgChange");
-    // ---- Borrado de clases y abilitar botones ----
-    btnResultH.classList.remove(btnResultHReg);
-    btnClearH.classList.remove(btnClearHReg);
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
-    // ----  ----
-    containerFiguras.innerHTML = "";
-    divAltura.innerHTML = "";
-    // ---- Deseleccionar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
-}
-//--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
-function disableOptions(){
-    if(idFig == "triángulo_equilátero"){
-        winH1.disabled = true;
-    }else if(idFig == "triángulo_isósceles"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-        winH3.disabled = true;
-    }
-    btnResultH.disabled = true;
-    btnResultH.classList.remove("btnResult");
-    btnResultH.classList.add("btnInactive");
-}
-//--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
-function clearHFig(){
-    pResultH.classList.remove("bgChange");
-    if(idFig == "triángulo_equilátero"){
-        winH1.disabled = false;
-        winH1.value = "";
-        winH1.classList.remove("resultColor");
-    }else if(idFig == "triángulo_isósceles"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH3.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH3.value = "";  
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-        winH3.classList.remove("resultColor");     
-    };
-    medDisableUnchecked();
-    abilitarIntercambiar();
-    pResultH.innerHTML = itrValH(); 
-};
-function medDisableUnchecked(){
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
-    // ---- Limpiar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-};
-function abilitarIntercambiar(){
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
-    btnResultH.classList.add("btnResult");
-};
-//----Funcion asignaciones --------------------------------------------------------------
-function asignacionesWindows(){
-    if(idFig == "triángulo_equilátero"){
-        winH1 = document.querySelector("#winHTriEquiSide");
-    }else if(idFig == "triángulo_isósceles"){
-        winH1 = document.querySelector("#winHTriIsoSideEq");
-        winH2 = document.querySelector("#winHTriIsoBase");
-    }else if(idFig == "triángulo_escaleno"){
-        winH1 = document.querySelector("#winHTriEscSide1");
-        winH2 = document.querySelector("#winHTriEscSide2");
-        winH3 = document.querySelector("#winHTriEscBase");
-    }else if(idFig == "trapecio"){
-        winH1 = document.querySelector("#winHTrapecioSide1");
-        winH2 = document.querySelector("#winHTrapeciobase");
-        winH3 = document.querySelector("#winHTrapecioBase");
-    }
-};
-//----Funciones seleccion y vaciado medida-----------------------------------------------
-function medSeleccion() {
-    if(inputRadioHC.checked) {
-        return "cm";
-    }else if(inputRadioHM.checked) {
-        return "m";
-    };
-};
-function medEnableDisable(){
-    if(inputRadioHC.checked){
-        inputRadioHM.disabled = true;
-    }else if(inputRadioHM.checked){
-        inputRadioHC.disabled = true;
-    };
-};
-//----Funcion formato ----------------------------------------------------------------
+//================================  funciones anonimas ====================================
 const formato = (number) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
     const rep = '$1,';
     let arr = number.toString().split('.');
     arr[0] = arr[0].replace(exp,rep);
     return arr[1] ? arr.join('.'): arr[0];
-  }
-//----Funciones mensajes ----------------------------------------------------------------
-function mesCmM(){
-    return "Elegir centímetros o metros";
-};
-// --- mensajes valores mayor que 0 -----------------------------------------------------
-function mesValH(){
-    if(mensAltura == "s"){
-        return "Valor debe de ser mayor a 0";
-    }else if(mensAltura == "p"){
-        return "Valores deben de ser<br>mayores a 0";
-    }
-};
-//--- mensajes introducir valores -------------------------------------------------------
-function itrValH(){
-    if(mensAltura == "s"){
-        return "Intruducir valor requerido";
-    }else if(mensAltura == "p"){
-        return "Intruducir valores requeridos";
-    }
-};
-//----Funciones renderizado--------------------------------------------------------------
-function renderIntroduccion(){
-    borrar();
-    containerFiguras.appendChild(containerIntro);
+}
+//=====================================  funciones ========================================
+// --- opacar pantalla ---
+function blurFnc(){
+    listIndex.classList.remove("listIndexShow");
+    calcDesktop.classList.remove("calcDesktopShow");
+    contDesktop.classList.remove("contDesktopShow");
+    topL.classList.remove("cross2");
+    middleL.classList.remove("cross");
+    bottomL.classList.remove("cross3");
+    body.classList.remove("noMove");
+    blurC.classList.add("off");
+}
+// --- Mostrar, esconder, opacar, aclarar ---
+function showHideCalc(event){
 
+    if(event.srcElement.innerHTML == "Calculadoras"){
+        calcDesktop.classList.toggle("calcDesktopShow");
+        if(calcDesktop.classList.contains("calcDesktopShow")){
+            contDesktop.classList.remove("contDesktopShow");
+            abrirOpc();
+        }
+        else{
+            cerrarOpc();
+        }
+    }
+    else if(event.srcElement.innerHTML == "Contáctanos"){
+        contDesktop.classList.toggle("contDesktopShow");
+        if(contDesktop.classList.contains("contDesktopShow")){
+            calcDesktop.classList.remove("calcDesktopShow");
+            abrirOpc();
+        }
+        else{
+            cerrarOpc();
+        }
+    }
+    else{
+        listIndex.classList.toggle("listIndexShow");
+        if(listIndex.classList.contains("listIndexShow")){
+            contDesktop.classList.remove("contDesktopShow");
+            calcDesktop.classList.add("calcDesktopShow");
+            abrirOpc();
+        }
+        else{
+            contDesktop.classList.remove("contDesktopShow");
+            calcDesktop.classList.remove("calcDesktopShow");
+            cerrarOpc();
+        }
+    }
+};
+function abrirOpc(){
+    listIndex.classList.add("listIndexShow");
+    body.classList.add("noMove");
+    blurC.classList.remove("off");
+    topL.classList.add("cross2");
+    middleL.classList.add("cross");
+    bottomL.classList.add("cross3");
+    listIndex.scrollTop = 0;
+}
+function cerrarOpc(){
+    listIndex.classList.remove("listIndexShow");
+    body.classList.remove("noMove");
+    blurC.classList.add("off");
+    topL.classList.remove("cross2");
+    middleL.classList.remove("cross");
+    bottomL.classList.remove("cross3");
+}
+// --- Retornar a menu principal ---
+function menuPrinc(){
+    blurFnc();
+    setTimeout(menuPrincFnc, 600);
+}
+function menuPrincFnc(){
+    location.href="../../index.html";
+    // location.href="/JS_Formulas/index.html";
+}
+// --- Selección ---
+function selecFnc(event){
+    listIndex.classList.remove("listIndexShow");
+    const figura = event.target.innerText.toLowerCase();
+
+    const figSelect = AlturasArray.find(obj => obj.idDb === figura);
+    if(figSelect){
+        renderFigura(figSelect);
+    }else{
+        renderIntroduccion();
+    };
+    blurFnc();
+}
+function dispContactanos(){
+    listIndex.classList.remove("listIndexShow");
+    blurFnc();
+    cleanCont();
+    containerFiguras.append(emailForm());
+
+    winEmail = document.querySelector("#inputEmail");
+    winNombre = document.querySelector("#inputName");
+    winDescripcion = document.querySelector("#labelTexArea");
+
+    const btnBorrar = document.querySelector(".btnBorrar");
+    btnBorrar.addEventListener("click", dataClear);
+    btnSubmit = document.querySelector(".btnSubmit");
+    btnSubmit.addEventListener("click", dataSend);
+}
+// --- Funciones renderizado ---
+function renderIntroduccion(){
+    cleanCont();
+    titlesIndexText.innerText = "Alturas";
+    containerFiguras.appendChild(containerIntro);
     containerIntro.classList.add("containerIntro");
 
-    defTitulo.classList.add("tituloIntro");
-    defTitulo.innerHTML = AlturasArray[0].defTitulo;
-    defImg.classList.add("imgIntro");
-    defImg.setAttribute("src", AlturasArray[0].defImg);
-    sectionDtop.classList.add("sectionDtop", "secD");
-    sectionDtop.append(defTitulo, defImg);
+    intro.forEach((value, index) => {
+        const valueLength = value["value" + index].length;
+        const defTitulo = document.createElement("p");
+        const selectionCont = document.createElement("div");
 
-    defAlturaTitulo.classList.add("defAlturaTitulo", "defT");
-    defAlturaTitulo.innerHTML = AlturasArray[0].defAlturaTitulo;
-    defAltura.classList.add("defAltura", "defC");
-    defAltura.innerHTML = AlturasArray[0].defAltura;
-    defAltura2Titulo.classList.add("defBaseHTitulo", "defT");
-    defAltura2Titulo.innerHTML = AlturasArray[0].defAltura2Titulo;
-    defAltura2.classList.add("defPerimetro", "defC");
-    defAltura2.innerHTML = AlturasArray[0].defAltura2;
-    sectionDmiddle.classList.add("sectionDmiddle", "secD");
-    sectionDmiddle.append(defAlturaTitulo, defAltura, defAltura2Titulo, defAltura2);
+        defTitulo.classList.add("tituloIntro");
+        defTitulo.innerText = value["value" + index][0];
+        selectionCont.classList.add("defParrafo");
+        selectionCont.append(defTitulo);
 
-    defNotaTitulo.classList.add("defNotaTitulo", "defT");
-    defNotaTitulo.innerHTML = AlturasArray[0].defNotaTitulo;
-    defNota.classList.add("defNota", "defC");
-    defNota.innerHTML = AlturasArray[0].defNota;
-    defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
-    defGuiaTitulo.innerHTML = AlturasArray[0].defGuiaTitulo;
-    defGuia.classList.add("defGuia", "defC");
-    defGuia.innerHTML = AlturasArray[0].defGuia;
-    sectionDbottom.classList.add("sectionDbottom", "secD");
-    sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
-
-    containerIntro.append(sectionDtop, sectionDmiddle, sectionDbottom);
+        for(let i=1; i<valueLength; i++){
+            const defSelection = document.createElement("P");
+            defSelection.classList.add("defIntro");
+            defSelection.innerHTML = value["value"+ index][i];
+            selectionCont.append(defSelection);
+        };
+        containerIntro.append(selectionCont);
+    });
     document.documentElement.scrollTop = 0;
 };
+
+
 function renderFigura(objeto){
     borrar();
     idFig = objeto.id;
@@ -313,8 +311,152 @@ function renderFigura(objeto){
     asignacionesWindows();
     document.documentElement.scrollTop = 0;
 };
-// ------------------------ Alturas -----------------------------------------------------
-// ------------- altura de triangulo equilatero ------------------------------------------
+
+
+// --- Limpieza de div ---
+function cleanCont(){
+    containerFiguras.innerHTML = "";
+    containerIntro.innerHTML = "";
+    containerResponsive.innerHTML = "";
+};
+
+
+
+function asignacionesWindows(){
+    if(idFig == "triángulo_equilátero"){
+        winH1 = document.querySelector("#winHTriEquiSide");
+    }else if(idFig == "triángulo_isósceles"){
+        winH1 = document.querySelector("#winHTriIsoSideEq");
+        winH2 = document.querySelector("#winHTriIsoBase");
+    }else if(idFig == "triángulo_escaleno"){
+        winH1 = document.querySelector("#winHTriEscSide1");
+        winH2 = document.querySelector("#winHTriEscSide2");
+        winH3 = document.querySelector("#winHTriEscBase");
+    }else if(idFig == "trapecio"){
+        winH1 = document.querySelector("#winHTrapecioSide1");
+        winH2 = document.querySelector("#winHTrapeciobase");
+        winH3 = document.querySelector("#winHTrapecioBase");
+    }
+};
+
+
+
+
+function borrar(){
+    // ---- Limpieza de valor de medida ----
+    mensAltura = "";
+    // ----  ----
+    sectionHmiddle.innerHTML = "";
+    // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
+    pResultH.innerHTML = "";
+    pResultH.classList.remove(pResultHReg);
+    pResultH.classList.remove("bgChange");
+    // ---- Borrado de clases y abilitar botones ----
+    btnResultH.classList.remove(btnResultHReg);
+    btnClearH.classList.remove(btnClearHReg);
+    btnResultH.disabled = false;
+    btnResultH.classList.remove("btnInactive");
+    // ----  ----
+    containerFiguras.innerHTML = "";
+    divAltura.innerHTML = "";
+    // ---- Deseleccionar radios ----
+    inputRadioHC.checked = false;
+    inputRadioHM.checked = false;
+    // ---- Abilitar radios ----
+    inputRadioHC.disabled = false;
+    inputRadioHM.disabled = false;
+}
+function disableOptions(){
+    if(idFig == "triángulo_equilátero"){
+        winH1.disabled = true;
+    }else if(idFig == "triángulo_isósceles"){
+        winH1.disabled = true;
+        winH2.disabled = true;
+    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
+        winH1.disabled = true;
+        winH2.disabled = true;
+        winH3.disabled = true;
+    }
+    btnResultH.disabled = true;
+    btnResultH.classList.remove("btnResult");
+    btnResultH.classList.add("btnInactive");
+}
+function clearHFig(){
+    pResultH.classList.remove("bgChange");
+    if(idFig == "triángulo_equilátero"){
+        winH1.disabled = false;
+        winH1.value = "";
+        winH1.classList.remove("resultColor");
+    }else if(idFig == "triángulo_isósceles"){
+        winH1.disabled = false;
+        winH2.disabled = false;
+        winH1.value = "";
+        winH2.value = "";
+        winH1.classList.remove("resultColor");
+        winH2.classList.remove("resultColor");
+    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
+        winH1.disabled = false;
+        winH2.disabled = false;
+        winH3.disabled = false;
+        winH1.value = "";
+        winH2.value = "";
+        winH3.value = "";  
+        winH1.classList.remove("resultColor");
+        winH2.classList.remove("resultColor");
+        winH3.classList.remove("resultColor");     
+    };
+    medDisableUnchecked();
+    abilitarIntercambiar();
+    pResultH.innerHTML = itrValH(); 
+};
+function medDisableUnchecked(){
+    // ---- Abilitar radios ----
+    inputRadioHC.disabled = false;
+    inputRadioHM.disabled = false;
+    // ---- Limpiar radios ----
+    inputRadioHC.checked = false;
+    inputRadioHM.checked = false;
+};
+function abilitarIntercambiar(){
+    btnResultH.disabled = false;
+    btnResultH.classList.remove("btnInactive");
+    btnResultH.classList.add("btnResult");
+};
+
+function medSeleccion() {
+    if(inputRadioHC.checked) {
+        return "cm";
+    }else if(inputRadioHM.checked) {
+        return "m";
+    };
+};
+function medEnableDisable(){
+    if(inputRadioHC.checked){
+        inputRadioHM.disabled = true;
+    }else if(inputRadioHM.checked){
+        inputRadioHC.disabled = true;
+    };
+};
+function mesCmM(){
+    return "Elegir centímetros o metros";
+};
+function mesValH(){
+    if(mensAltura == "s"){
+        return "Valor debe de ser mayor a 0";
+    }else if(mensAltura == "p"){
+        return "Valores deben de ser<br>mayores a 0";
+    }
+};
+function itrValH(){
+    if(mensAltura == "s"){
+        return "Intruducir valor requerido";
+    }else if(mensAltura == "p"){
+        return "Intruducir valores requeridos";
+    }
+};
+
+
+// --- Triangulo Equilatero ---
 function hTriangleEqui(){
     const w1Es = Number(winH1.value);
     if(w1Es > 0){
@@ -335,7 +477,7 @@ function hTriangleEqui(){
         pResultH.innerHTML = mesValH();
     }
 }
-// ------------- altura de triangulo isosceles ------------------------------------------
+// --- Triangulo Isosceles ---
 function hTriangleIso(){
     const w1Is = Number(winH1.value);
     const w2Is = Number(winH2.value);
@@ -362,7 +504,7 @@ function hTriangleIso(){
         pResultH.innerHTML = mesValH();
     }
 }
-// ------------- altura de triangulo escaleno -------------------------------------------
+// --- Triangulo Escaleno ---
 function hTriEsc(){
     const w1Es = Number(winH1.value);
     const w2Es = Number(winH2.value);
@@ -396,7 +538,7 @@ function hTriEsc(){
         pResultH.innerHTML = mesValH();
     }
 }
-// ------------- altura de trapecio -------------------------------------------
+// --- Trapecio ---
 function hTrapecio(){
     const w1Trap = Number(winH1.value);
     const w2Trap = Number(winH2.value);
@@ -426,67 +568,6 @@ function hTrapecio(){
         pResultH.innerHTML = mesValH();
     }
 }
-// ================================= Constantes =========================================
-// =========================== Constantes Container fig =================================
-const containerFiguras = document.querySelector(".containerFiguras");
-// -------------------------------- containerIntro --------------------------------------
-const containerIntro = document.createElement("section");
-// ---------------------------------- sectionDtop ---------------------------------------
-const sectionDtop = document.createElement("div");
-const defTitulo = document.createElement("h2");
-const defImg = document.createElement("img");
-// --------------------------------- sectionDmiddle -------------------------------------
-const sectionDmiddle = document.createElement("div");
-const defAlturaTitulo = document.createElement("p");
-const defAltura = document.createElement("p");
-const defAltura2Titulo = document.createElement("p");
-const defAltura2 = document.createElement("p");
-// --------------------------------- sectionDbottom -------------------------------------
-const sectionDbottom = document.createElement("div");
-const defNotaTitulo = document.createElement("p");
-const defNota = document.createElement("p");
-const defGuiaTitulo = document.createElement("p");
-const defGuia = document.createElement("p");
-// ------------------------------ containerResponsive -----------------------------------
-const containerResponsive = document.createElement("section");
-// ---------------------------------- formulaImg ----------------------------------------
-const formulaImg = document.createElement("div");
-const titleFig = document.createElement("h2");
-const imgFigura = document.createElement("img");
-// ------------------------------ containerAltura ----------------------------------------
-const containerAltura = document.createElement("div");
-// ----------------------------------- divAltura -----------------------------------------
-const divAltura = document.createElement("div");
-// --------------------------------- sectionHtop -----------------------------------------
-const sectionHtop = document.createElement("section");
-const pTitleH = document.createElement("p");
-const pformulaH = document.createElement("p");
-// -------------------------------- sectionHmiddle ---------------------------------------
-const sectionHmiddle = document.createElement("section");
-const divRadioH = document.createElement("div");
-const inputRadioHC = document.createElement("input");
-const inputRadioHM = document.createElement("input");
-const inputLabelHC = document.createElement("label");
-const inputLabelHM = document.createElement("label");
-// -------------------------------- sectionHbottom ---------------------------------------
-const sectionHbottom = document.createElement("section");
-const pResultH = document.createElement("p");
-const btnResultH = document.createElement("button");
-const btnClearH = document.createElement("button");
-
-let btnClearHReg;
-let btnResultHReg;
-let pResultHReg;
-// ---- Variable mensajes --------------------------------------------------------------
-let mensAltura;
-
-let rutaFH;
-let rutaFHClear;
-
-let winH1 = null;
-let winH2 = null;
-let winH3 = null;
-// --- Variable de identificacion de figura ----------------------------------------------
-let idFig = "";
+// ---Inicio ---
 renderIntroduccion();
 

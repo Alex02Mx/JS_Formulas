@@ -1,25 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
-:root {
-    --primario: #092547;
-    --secundario: #093973;
-    --terciario: #69A2E7;
-    --black: #000000;
-    --white: #ffffff;
-    --darkGrey: #6e6e6e;
-    --grey: #6895CB;
-    --blue: #105dbb;
-    --lightGrey: #e6e6e6;
-    --naranja: #ffc003;
-    --red: #bb3232;
-    --verde: #0cc14c;
-    --background_radial_1: radial-gradient(circle at 50% 9%, var(--blue) 15%, var(--primario) 70%, var(--secundario) 1000%);
-    --background_radial_2: radial-gradient(circle at 46.98% 67.12%, var(--blue) 0, var(--secundario) 50%, var(--primario) 100%);
-    --background_linear_1: linear-gradient(var(--blue), 40%, var(--secundario), var(--blue));
-    --background_linear_2: linear-gradient(var(--primario), 40%, var(--secundario), var(--primario));
-    --background_linear_3: linear-gradient(var(--blue), 40%, var(--terciario), var(--blue));
-    --background_linear_4: linear-gradient(var(--primario), 40%, var(--blue), var(--primario));
-}
 body {
     margin: 0px;
     padding: 0px;
@@ -27,7 +5,6 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
-    /* background-color: var(--lightGrey); */
     background: var(--background_linear_3);
     position: relative;
     min-width: 360px;
@@ -36,8 +13,7 @@ body {
 *::-webkit-scrollbar {
     display: none;
 }
-/* ############### nav #################### */
-/* --------------- blur ------------------  */
+/* ################ blur #################### */
 .noMove {
     overflow: hidden;
 }
@@ -54,6 +30,7 @@ body {
     display: none;
     transition: 600ms ease-in-out;
 }
+/* ############### navbar #################### */
 .navCont{
     width: 100%;
     height: 62px;
@@ -120,6 +97,7 @@ body {
     right: 0px;
     transition: 600ms ease-in-out;
 }
+/* --- Seleccion --- */
 .estText{
     cursor: pointer;
     font-size: 18px;
@@ -160,6 +138,7 @@ body {
     color: var(--verde);
     margin: 10px 27px 0px 27px;
 }
+/* ---Division --- */
 .listIndexOption{
     display: flex;
     padding: 0px;
@@ -177,19 +156,13 @@ body {
     width: 100%;
     border-bottom: 1px solid var(--verde);
 }
-.textMenu{
-    display: none;
-}
-.mblColor{
-    color: var(--naranja);
-    margin: 0px 5px;
-}
-.mblColor:active{
-    color: var(--white);
-}
+/* --- menu desktop --- */
 .menuDesktop{
     display: none;
     background-color: var(--secundario);
+}
+.textContainer{
+    width: 160px;
 }
 .calCont{
     position: relative;
@@ -227,29 +200,27 @@ body {
     top: 50px;
     transition: 600ms ease-in-out;
 }
-.textContainer{
-    width: 160px;
-}
 .socMedDesktop{
     display: flex;
     justify-content: center;
 }
+.textMenu{
+    display: none;
+}
+/* ############### contentIndex ############## */
 .contentIndex {
     padding-top: 61px;
 }
 .titlesIndex{
     text-align: center;
-     /* background-color: var(--primario); */
 }
 .titlesIndex p {
     font-size: 26px;
     font-weight: bold;
-    /* color: var(--black); */
     color: var(--lightGrey);
     padding: 10px 0px;
     margin: 0px;
     margin: 0px 20px;
-    /* border-bottom: 2px solid var(--verde); */
     border-bottom: 2px solid var(--lightGrey);
 }
 
@@ -304,7 +275,7 @@ body {
 }
 .defIntro {
     font-family: "Roboto", sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 25px;
     padding: 10px;
     margin: 0px;
@@ -335,7 +306,7 @@ span {
     background-color: var(--secundario);
     color: var(--naranja);
 }
-/* ######### containerResponsive #########  */
+/* ########## containerResponsive #########  */
 /* --- Areas-Perimetro  / imagen-formula --- */
 .containerResponsive {
     display: grid;
@@ -419,7 +390,6 @@ span {
     border: 1px solid rgba(0,0,0,0.3);
 }
 .resultColor {
-    /* background-color: var(--background_linear_2); */
     background-color: var(--lightGrey);
     color: var(--darkGrey);
 }
@@ -493,7 +463,6 @@ span {
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
     background-color: rgb(192, 192, 192);
 }
-/*================ */
 /* ################# footer ################# */
 .footer {
     position: absolute;
@@ -504,7 +473,7 @@ span {
     background-color: var(--secundario);
     z-index: -2;
 }
-
+/* ############## media queries ############## */
 @media screen and (min-width: 830px) {
     .listIndex{
         display: none;

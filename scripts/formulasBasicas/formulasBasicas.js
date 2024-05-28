@@ -1,4 +1,4 @@
-// --- variables y constantes ---
+//==============================  variables y constantes ==================================
 const body = document.querySelector(".body");
 const blurC = document.querySelector(".blurC");
 const menuMobile = document.querySelector("#moblilCont");
@@ -48,28 +48,24 @@ var perimWin2Vr;
 var perimWin3Vr;
 var perimWin4Vr;
 var btnSubmit;
-
-// --- asignacion de valores ---
+//===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
 socMedMainCont.append(socialMedCont);
-
-// --- listeners ---
+//====================================  Escuchadores ======================================
 blurC.addEventListener("click", blurFnc);
 menuMobile.addEventListener("click", showHideCalc);
 aMenu.addEventListener("click", menuPrinc);
 textMenu.addEventListener("click", menuPrinc);
 calcText.addEventListener("click", showHideCalc);
 contactText.addEventListener("click", showHideCalc);
-
-// --- forEach ---
+//=======================================  Ciclos =========================================
 email.forEach((itemClass) => {
     itemClass.addEventListener("click", dispContactanos);
 })
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
-
-// --- funciones anonimas ---
+//================================  funciones anonimas ====================================
 const formato = (number) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
     const rep = '$1,';
@@ -77,8 +73,8 @@ const formato = (number) => {
     arr[0] = arr[0].replace(exp,rep);
     return arr[1] ? arr.join('.'): arr[0];
 };
-
-// --- funciones ---
+//=====================================  funciones ========================================
+// --- opacar pantalla ---
 function blurFnc(){
     listIndex.classList.remove("listIndexShow");
     calcDesktop.classList.remove("calcDesktopShow");
@@ -89,6 +85,7 @@ function blurFnc(){
     body.classList.remove("noMove");
     blurC.classList.add("off");
 }
+// --- Mostrar, esconder, opacar, aclarar ---
 function showHideCalc(event){
 
     if(event.srcElement.innerHTML == "Calculadoras"){
@@ -142,14 +139,16 @@ function cerrarOpc(){
     middleL.classList.remove("cross");
     bottomL.classList.remove("cross3");
 }
+// --- Retornar a menu principal ---
 function menuPrinc(){
     blurFnc();
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
-    // location.href="../../index.html";
-    location.href="/JS_Formulas/index.html";
+    location.href="../../index.html";
+    // location.href="/JS_Formulas/index.html";
 }
+// --- Selección ---
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const figura = event.target.innerText.toLowerCase();
@@ -177,7 +176,7 @@ function dispContactanos(){
     btnSubmit = document.querySelector(".btnSubmit");
     btnSubmit.addEventListener("click", dataSend);
 }
-//================================  Funciones renderizado ================================
+// --- Funciones renderizado ---
 function renderIntroduccion(){
     cleanCont();
     titlesIndexText.innerText = "Áreas y Perímetros";
@@ -323,7 +322,7 @@ function renderFigura(objeto){
     asignacionBtns();
     document.documentElement.scrollTop = 0;
 };
-// =======================================================================================
+// --- Limpieza de div ---
 function cleanCont(){
     containerFiguras.innerHTML = "";
     containerIntro.innerHTML = "";
@@ -523,7 +522,7 @@ function printResult(string, result){
         windowResultPerim.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSel(string)}`;
     }
 };
-// ================================= Triangulo ======================================
+// --- Triangulo ---
 function aTriangleFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -560,7 +559,7 @@ function pTriangleFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// =================================== Square =======================================
+// --- Square ---
 function aSquareFn(){
     if(areaWin1Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -591,7 +590,7 @@ function pSquareFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// ================================ Rectangulo ======================================
+// --- Rectangulo ---
 function aRectanguloFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -626,7 +625,7 @@ function pRectanguloFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// =============================== Paralelogramo ====================================
+// --- Paralelogramo ---
 function aParalelogramoFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -661,7 +660,7 @@ function pParalelogramoFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// ================================== Trapecio ======================================
+// --- Trapecio ---
 function aTrapecioFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0 && areaWin3Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -702,7 +701,7 @@ function pTrapecioFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// ==================================== Rombo =======================================
+// --- Rombo ---
 function aRomboFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -735,7 +734,7 @@ function pRomboFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// ================================= Pentagono ======================================
+// --- Pentagono ---
 function aPentagonoFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -768,7 +767,7 @@ function pPentagonoFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// ================================== Hexagono ======================================
+// --- Hexagono ---
 function aHexagonoFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
@@ -801,7 +800,7 @@ function pHexagonoFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// =================================== Circulo ======================================
+// --- Circulo ---
 function aCirculoFn(){
     if(areaWin1Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
