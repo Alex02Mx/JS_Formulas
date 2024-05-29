@@ -21,51 +21,26 @@ const seleccion = document.querySelectorAll(".seleccion");
 const socMedDesktop = document.querySelector(".socMedDesktop");
 const socMedMainCont =  document.querySelector(".socMedMainCont");
 
+let idFigVr;
+let mensajeSigPlurVr;
+let indAlturaVr;
+let radAlturaCmVr;
+let radAlturaMtVr;
+let windowResultAltura;
+let btnClearAltura;
+let btnResultAltura;
 
+let winEmail;
+let winNombre;
+let winDescripcion;
 
-// const sectionDtop = document.createElement("div");
-// const defTitulo = document.createElement("h2");
-// const defImg = document.createElement("img");
-// const sectionDmiddle = document.createElement("div");
-// const defAlturaTitulo = document.createElement("p");
-// const defAltura = document.createElement("p");
-// const defAltura2Titulo = document.createElement("p");
-// const defAltura2 = document.createElement("p");
-// const sectionDbottom = document.createElement("div");
-// const defNotaTitulo = document.createElement("p");
-// const defNota = document.createElement("p");
-// const defGuiaTitulo = document.createElement("p");
-// const defGuia = document.createElement("p");
-// const formulaImg = document.createElement("div");
-// const titleFig = document.createElement("h2");
-// const imgFigura = document.createElement("img");
-// const containerAltura = document.createElement("div");
-// const divAltura = document.createElement("div");
-// const sectionHtop = document.createElement("section");
-// const pTitleH = document.createElement("p");
-// const pformulaH = document.createElement("p");
-// const sectionHmiddle = document.createElement("section");
-// const divRadioH = document.createElement("div");
-// const inputRadioHC = document.createElement("input");
-// const inputRadioHM = document.createElement("input");
-// const inputLabelHC = document.createElement("label");
-// const inputLabelHM = document.createElement("label");
-// const sectionHbottom = document.createElement("section");
-// const pResultH = document.createElement("p");
-// const btnResultH = document.createElement("button");
-// const btnClearH = document.createElement("button");
+var funcion1Fn;
+var funcion2Fn;
 
-// let btnClearHReg;
-// let btnResultHReg;
-// let pResultHReg;
-// let mensAltura;
-// let rutaFH;
-// let rutaFHClear;
-// let winH1 = null;
-// let winH2 = null;
-// let winH3 = null;
-// let idFig = "";
+var alturaWin1Vr;
+var alturaWin2Vr;
 
+var btnSubmit;
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
 socMedMainCont.append(socialMedCont);
@@ -163,13 +138,14 @@ function menuPrinc(){
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
-    location.href="../../index.html";
-    // location.href="/JS_Formulas/index.html";
+    // location.href="../../index.html";
+    location.href="/JS_Formulas/index.html";
 }
 // --- Selección ---
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
-    const figura = event.target.innerText.toLowerCase();
+    const target = event.target.innerText.toLowerCase();
+    const figura = target.replaceAll(" ","_");
 
     const figSelect = AlturasArray.find(obj => obj.idDb === figura);
     if(figSelect){
@@ -221,261 +197,343 @@ function renderIntroduccion(){
     });
     document.documentElement.scrollTop = 0;
 };
-
-
 function renderFigura(objeto){
-    borrar();
-    idFig = objeto.id;
-    mensAltura = objeto.mh;
+    cleanCont();
+    titlesIndexText.innerText = "Alturas";
+    // --- id del objeto en proceso ---
+    idFigVr = objeto["idDb"];
+    // --- ciclo de repeticion del objeto ---
+    objeto["datosDb"].forEach((obj, index) => {
+        // --- variable del singular o plural y variable de area o perimetro --- 
+        mensajeSigPlurVr = obj["mensajeSigPlurDb"];
+        indAlturaVr = obj["titleFigDb"];
+        // --- asigna valor de funcion para la logica del objeto en proceso ---
+        let funcionFgra = "funcion" + (index + 1) + "Fn";
+        window[funcionFgra] = obj["logicaDb"];
+        // --- bloque 1 ---
+        // --- titulo procedimiento ---
+        const titleFigCn = document.createElement("h2");
+        titleFigCn.classList.add("titleFigCl");
+        titleFigCn.innerHTML = obj["titleFigDb"];
+        // --- imagen procedimiento ---
+        const imgFiguraCn = document.createElement("img");
+        imgFiguraCn.setAttribute("src", obj["imgFiguraDb"]);
+        // --- contenedor del titulo y la imagen ---
+        const tituloImgCn = document.createElement("div");
+        tituloImgCn.classList.add("tituloImgCl");
+        tituloImgCn.append(titleFigCn, imgFiguraCn);
+        // --- contenedor BG del cont/titulo/imagen ---
+        const tituloImgContCn = document.createElement("div");
+        tituloImgContCn.classList.add("tituloImgContCl");
+        tituloImgContCn.append(tituloImgCn);
+        // --- bloque 2 ---
+        // --- titulo Calculadora ---
+        const calcTitleCn = document.createElement("p");
+        calcTitleCn.classList.add("calcTitleCl");
+        calcTitleCn.innerHTML = obj["titleDb"];
+        // --- subtitulo Calculadora ---
+        const calSubTitleCn = document.createElement("p");
+        calSubTitleCn.classList.add("calSubTitleCl");
+        calSubTitleCn.innerHTML = "Calculadora";
+        // --- contenedor de titulo y subtitulo calculadora ---
+        const secTopCalcCn = document.createElement("section");
+        secTopCalcCn.classList.add("secTopCalcCl");
+        secTopCalcCn.append(calcTitleCn, calSubTitleCn);
+        // --- Radios Areas y sus labels CM---
+        const inputRadCmCn = document.createElement("input");
+        inputRadCmCn.setAttribute("type", "radio");
+        inputRadCmCn.setAttribute("name", obj["grupoDb"]);
+        inputRadCmCn.setAttribute("id", obj["inputRadCmDb"]);
+        const inputLabelCmCn = document.createElement("label");
+        inputLabelCmCn.setAttribute("for", obj["inputRadCmDb"]);
+        inputLabelCmCn.innerHTML = "centímetros";
+        // --- Radios Areas y sus labels MT---
+        const inputRadioMtCn = document.createElement("input");
+        inputRadioMtCn.setAttribute("type", "radio");
+        inputRadioMtCn.setAttribute("name", obj["grupoDb"]);
+        inputRadioMtCn.setAttribute("id", obj["inputRadMtDb"]);
+        const inputLabelMtCn = document.createElement("label");
+        inputLabelMtCn.setAttribute("for", obj["inputRadMtDb"]);
+        inputLabelMtCn.innerHTML = "metros";
+        // --- Contenedor de radios y labels ---
+        const radioLabelsContCn = document.createElement("div");
+        radioLabelsContCn.classList.add("radioLabelsContCl");
+        radioLabelsContCn.append(inputRadCmCn, inputLabelCmCn, inputRadioMtCn, inputLabelMtCn);
 
-    containerFiguras.appendChild(containerResponsive);
-    containerResponsive.classList.add("containerResponsive");
+        const secMiddleCalcCn = document.createElement("section");
+        secMiddleCalcCn.classList.add("secMiddleCalcCl");
+        secMiddleCalcCn.appendChild(radioLabelsContCn);
+        // --- windows Areas ---
+        obj["inputDb"].forEach(winInput => {
+            const labelWinInpCn = document.createElement("label");
+            labelWinInpCn.setAttribute("for", winInput["inputIdDb"]);
+            labelWinInpCn.innerHTML = winInput["inputLabelDb"];
 
-    containerResponsive.appendChild(formulaImg);
-    formulaImg.classList.add("formulaImg");
+            const inputWinCn = document.createElement("input");
+            inputWinCn.setAttribute("type", "number");
+            inputWinCn.setAttribute("id", winInput["inputIdDb"]);
+            inputWinCn.classList.add("inputStyleCl");
+            const windLabelContCn = document.createElement("div");
 
-    formulaImg.appendChild(titleFig);
-    titleFig.classList.add("titleFig");
-    titleFig.innerHTML = objeto.titleFig;
+            windLabelContCn.classList.add("windLabelContCl");
+            windLabelContCn.append(labelWinInpCn, inputWinCn);
 
-    formulaImg.appendChild(imgFigura);
-    imgFigura.setAttribute("src", objeto.imgFig);
+            secMiddleCalcCn.appendChild(windLabelContCn);
+        });
+        // --- window resultados y mensajes ---
+        const winResMensCn = document.createElement("p");
+        winResMensCn.classList.add("winStyleCl", obj["winResMensDb"]);
+        winResMensCn.innerText = introducirValMsgFn();
+        // --- Boton Borrar ---
+        const btnClearCn = document.createElement("button");
+        btnClearCn.classList.add("btnClearCl", obj["btnClearDb"]);
+        btnClearCn.innerHTML = "Borrar";
+        // --- Boton Resultado ---
+        const btnResultCn = document.createElement("button");
+        btnResultCn.classList.add("btnResultCl", obj["btnResultDb"]);
+        btnResultCn.innerHTML = "Resultado";
 
-    containerResponsive.appendChild(containerAltura);
-    containerAltura.classList.add("containerAltura");
-    containerAltura.appendChild(divAltura);
-    divAltura.classList.add("containerFormules");
+        const secBottomCalcCn = document.createElement("section");
+        secBottomCalcCn.classList.add("secBottomCalcCl");
+        secBottomCalcCn.append(winResMensCn, btnClearCn, btnResultCn);
 
-    pTitleH.classList.add("titlesFormules");
-    pTitleH.innerHTML = objeto.titleAltura;
-    pformulaH.classList.add("textFormule");
-    pformulaH.innerHTML = "Calculadora";
-    sectionHtop.classList.add("sectionHtop");
-    sectionHtop.append(pTitleH, pformulaH);
+        // --- Agregando a containerFiguras ---
+        const calCn = document.createElement("div");
+        calCn.classList.add("calCl");
+        calCn.append(secTopCalcCn, secMiddleCalcCn, secBottomCalcCn);
 
-    divRadioH.classList.add("divRadioH");
-    inputRadioHC.setAttribute("type", "radio");
-    inputRadioHC.setAttribute("name", "radH");
-    inputRadioHC.setAttribute("id", "radHC");
-    inputLabelHC.setAttribute("for", "radHC");
-    inputLabelHC.innerHTML = "centímetros";
-    inputRadioHM.setAttribute("type", "radio");
-    inputRadioHM.setAttribute("name", "radH");
-    inputRadioHM.setAttribute("id", "radHM");
-    inputLabelHM.setAttribute("for", "radHM");
-    inputLabelHM.innerHTML = "metros";
-    divRadioH.append(inputRadioHC, inputLabelHC, inputRadioHM, inputLabelHM);
-    sectionHmiddle.classList.add("sectionHmiddle");
-    sectionHmiddle.appendChild(divRadioH);
+        const CalcContCn = document.createElement("div");
+        CalcContCn.classList.add("CalcContCl");
+        CalcContCn.appendChild(calCn);
 
-    objeto.inputAltura.forEach(winInput => {
-        const divWin = document.createElement("div");
-        divWin.classList.add("winPosition");
-
-        const labelArea = document.createElement("label");
-        labelArea.setAttribute("for", winInput.inputId);
-        labelArea.innerHTML = winInput.inputLabel;
-        divWin.appendChild(labelArea);
-        const inputHeightWindow = document.createElement("input");
-        inputHeightWindow.setAttribute("type", "number");
-        inputHeightWindow.setAttribute("id", winInput.inputId);
-        inputHeightWindow.classList.add("inputStyle");
-        divWin.appendChild(inputHeightWindow);
-        sectionHmiddle.appendChild(divWin);
+        containerResponsive.classList.add("containerResponsive");
+        containerResponsive.append(tituloImgContCn, CalcContCn);
+        containerFiguras.append(containerResponsive);
     });
-
-    btnClearHReg = objeto.btn2ClH;
-    btnClearH.classList.add("btnClear", btnClearHReg);
-    btnClearH.innerHTML = "Borrar";
-
-    btnResultHReg = objeto.btnClH;
-    btnResultH.classList.add("btnResult", btnResultHReg);
-    btnResultH.innerHTML = "Resultado";
-
-    btnClearH.removeEventListener("click", rutaFHClear);
-    rutaFHClear = (eval(objeto.clearWindowH));
-    btnClearH.addEventListener("click", rutaFHClear);
-
-    btnResultH.removeEventListener("click", rutaFH);
-    rutaFH = (eval(objeto.funcionAltura));
-    btnResultH.addEventListener("click", rutaFH);
-
-    pResultHReg = objeto.resultClH
-    pResultH.classList.add("winStyle", pResultHReg);
-    pResultH.innerHTML = itrValH();
-
-    sectionHbottom.classList.add("sectionHbottom");
-    sectionHbottom.append(pResultH, btnClearH, btnResultH);
-    divAltura.append(sectionHtop, sectionHmiddle, sectionHbottom);
-
-    asignacionesWindows();
+    asignacionesRadios();
+    asignacionesWindows(objeto);
+    asignacionWinResult();
+    asignacionBtns();
     document.documentElement.scrollTop = 0;
 };
-
-
 // --- Limpieza de div ---
 function cleanCont(){
     containerFiguras.innerHTML = "";
     containerIntro.innerHTML = "";
     containerResponsive.innerHTML = "";
 };
+// -- funciones de asignacion ---
+function asignacionesRadios(){
+    radAlturaCmVr = document.getElementById("radAlturaCmId");
+    radAlturaMtVr = document.getElementById("radAlturaMtId");
+};
+function asignacionesWindows(objeto){
+    objeto["datosDb"].forEach((obj1, index1) => {
+        obj1["inputDb"].forEach((obj2,index2) =>{
+            let alturaName = "alturaWin" + (index2 + 1) + "Vr";
+            let claseWin = obj2["inputIdDb"];
+            if(index1 == 0){
+                window[alturaName] = document.getElementById(claseWin);
+            }
+            // else if(index1 == 1){
+            //     window[perimName] = document.getElementById(claseWin);
+            // }
+        })
+    })
+};
+function asignacionWinResult(){
+    windowResultAltura = document.querySelector(".winResMensAlturaCl");
+};
+function asignacionBtns(){
+    btnClearAltura = document.querySelector(".btnClearAlturaCl");
+    btnClearAltura.addEventListener("click", clearValCalc );
 
-
-
-function asignacionesWindows(){
-    if(idFig == "triángulo_equilátero"){
-        winH1 = document.querySelector("#winHTriEquiSide");
-    }else if(idFig == "triángulo_isósceles"){
-        winH1 = document.querySelector("#winHTriIsoSideEq");
-        winH2 = document.querySelector("#winHTriIsoBase");
-    }else if(idFig == "triángulo_escaleno"){
-        winH1 = document.querySelector("#winHTriEscSide1");
-        winH2 = document.querySelector("#winHTriEscSide2");
-        winH3 = document.querySelector("#winHTriEscBase");
-    }else if(idFig == "trapecio"){
-        winH1 = document.querySelector("#winHTrapecioSide1");
-        winH2 = document.querySelector("#winHTrapeciobase");
-        winH3 = document.querySelector("#winHTrapecioBase");
+    btnResultAltura = document.querySelector(".btnResultAlturaCl");
+    btnResultAltura.addEventListener("click", window[funcion1Fn]);
+};
+// --- funciones de mensajes ---
+function introducirValMsgFn(){
+    if(mensajeSigPlurVr == "s"){
+        return "Intruducir valor requerido";
+    }else if(mensajeSigPlurVr == "p"){
+        return "Intruducir valores requeridos";
     }
 };
-
-
-
-
-function borrar(){
-    // ---- Limpieza de valor de medida ----
-    mensAltura = "";
-    // ----  ----
-    sectionHmiddle.innerHTML = "";
-    // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
-    pResultH.innerHTML = "";
-    pResultH.classList.remove(pResultHReg);
-    pResultH.classList.remove("bgChange");
-    // ---- Borrado de clases y abilitar botones ----
-    btnResultH.classList.remove(btnResultHReg);
-    btnClearH.classList.remove(btnClearHReg);
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
-    // ----  ----
-    containerFiguras.innerHTML = "";
-    divAltura.innerHTML = "";
-    // ---- Deseleccionar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
-}
-function disableOptions(){
-    if(idFig == "triángulo_equilátero"){
-        winH1.disabled = true;
-    }else if(idFig == "triángulo_isósceles"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-        winH3.disabled = true;
-    }
-    btnResultH.disabled = true;
-    btnResultH.classList.remove("btnResult");
-    btnResultH.classList.add("btnInactive");
-}
-function clearHFig(){
-    pResultH.classList.remove("bgChange");
-    if(idFig == "triángulo_equilátero"){
-        winH1.disabled = false;
-        winH1.value = "";
-        winH1.classList.remove("resultColor");
-    }else if(idFig == "triángulo_isósceles"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH3.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH3.value = "";  
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-        winH3.classList.remove("resultColor");     
-    };
-    medDisableUnchecked();
-    abilitarIntercambiar();
-    pResultH.innerHTML = itrValH(); 
-};
-function medDisableUnchecked(){
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
-    // ---- Limpiar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-};
-function abilitarIntercambiar(){
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
-    btnResultH.classList.add("btnResult");
-};
-
-function medSeleccion() {
-    if(inputRadioHC.checked) {
-        return "cm";
-    }else if(inputRadioHM.checked) {
-        return "m";
-    };
-};
-function medEnableDisable(){
-    if(inputRadioHC.checked){
-        inputRadioHM.disabled = true;
-    }else if(inputRadioHM.checked){
-        inputRadioHC.disabled = true;
-    };
-};
-function mesCmM(){
+function elegirCmMtMsgFn(){
     return "Elegir centímetros o metros";
 };
-function mesValH(){
-    if(mensAltura == "s"){
+function valorMayorMsgFc(){
+    if(mensajeSigPlurVr == "s"){
         return "Valor debe de ser mayor a 0";
-    }else if(mensAltura == "p"){
+    }else if(mensajeSigPlurVr == "p"){
         return "Valores deben de ser<br>mayores a 0";
     }
 };
-function itrValH(){
-    if(mensAltura == "s"){
-        return "Intruducir valor requerido";
-    }else if(mensAltura == "p"){
-        return "Intruducir valores requeridos";
+// --- habilitar y deshabilitar boton de resultado ---
+function disableBtnResult(string){
+    if(string == "altura"){
+        btnResultAltura.disabled = true;
+        btnResultAltura.classList.remove("btnResultCl");
+        btnResultAltura.classList.add("btnInactive");
     }
+    // else if(string == "perim"){
+    //     btnResultPerim.disabled = true;
+    //     btnResultPerim.classList.remove("btnResultCl");
+    //     btnResultPerim.classList.add("btnInactive");
+    // };
+};
+function enableBtnResult(eventForward){ 
+    if(eventForward.target.classList[1] == "btnClearAlturaCl"){
+        btnResultAltura.disabled = false;
+        btnResultAltura.classList.remove("btnInactive");
+        btnResultAltura.classList.add("btnResultCl");
+    }
+    // else if (eventForward.target.classList[1] == "btnClearPerimCl"){
+    //     btnResultPerim.disabled = false;
+    //     btnResultPerim.classList.remove("btnInactive");
+    //     btnResultPerim.classList.add("btnResultCl");
+    // };
+};
+// --- seleccion de medida de centinmetros o metros ---
+function medSel(string) {
+    if(string == "altura"){
+        if(radAlturaCmVr.checked) {
+            return "cm";
+        }else if(radAlturaMtVr.checked) {
+            return "m";
+        };
+    }
+    // else if(string == "perim"){
+    //     if(radPerimCmVr.checked) {
+    //         return "cm";
+    //     }else if(radPerimMtVr.checked) {
+    //         return "m";
+    //     };
+    // }
+};
+// --- borrado de valores de calculadora ---
+function clearValCalc(eventOrigin){
+    radEnableUncheck(eventOrigin);
+
+    let figValues = AlturasArray.find((obj) => obj["idDb"] == idFigVr);
+    let arrayWin;
+    let name;
+    var winInput;
+    if(eventOrigin.target.classList[1] == "btnClearAlturaCl"){
+        arrayWin = figValues["datosDb"][0]["inputDb"];
+        name = "alturaWin";
+    }
+    // else if (eventOrigin.target.classList[1] == "btnClearPerimCl"){
+    //     arrayWin = figValues["datosDb"][1]["inputDb"];
+    //     name = "perimWin";
+    // };
+    for(let i=0; i<arrayWin.length; i++){
+        winInput = name + (i + 1) +"Vr";
+        window[winInput].disabled = false;
+        window[winInput].value = "";
+        window[winInput].classList.remove("resultColor");
+    }
+
+    disablWindowResult(eventOrigin);
+    enableBtnResult(eventOrigin);
+};
+// --- radios activos y desmarcados ---
+function radEnableUncheck(eventForward){
+    if(eventForward.target.classList[1] == "btnClearAlturaCl"){
+        radAlturaCmVr.disabled = false;
+        radAlturaMtVr.disabled = false;
+        radAlturaCmVr.checked = false;
+        radAlturaMtVr.checked = false;
+    }
+    // else if (eventForward.target.classList[1] == "btnClearPerimCl"){
+    //     radPerimCmVr.disabled = false;
+    //     radPerimMtVr.disabled = false;
+    //     radPerimCmVr.checked = false;
+    //     radPerimMtVr.checked = false;
+    // };
+
+};
+// --- selecciona que radio se desactiva ---
+function radSelectDisable(string){
+    if(string == "altura"){
+        if(radAlturaCmVr.checked){
+            radAlturaMtVr.disabled = true;
+        }else if(radAlturaMtVr.checked){
+            radAlturaCmVr.disabled = true;
+        };
+    }
+    // else if(string == "perim"){
+    //     if(radPerimCmVr.checked){
+    //         radPerimMtVr.disabled = true;
+    //     }else if(radPerimMtVr.checked){
+    //         radPerimCmVr.disabled = true;
+    //     };
+    // }
+};
+// --- desactiva la ventana de resultados y mensajes ---
+function disablWindowResult(eventForward){
+    if(eventForward.target.classList[1] == "btnClearAlturaCl"){
+        windowResultAltura.classList.remove("bgChange");
+        windowResultAltura.innerHTML = introducirValMsgFn();
+    }
+    // else if (eventForward.target.classList[1] == "btnClearPerimCl"){
+    //     windowResultPerim.classList.remove("bgChange");
+    //     windowResultPerim.innerHTML = introducirValMsgFn();
+    // };
+};
+// --- desactiva las ventanas inputs ---
+function disableWinInp(string){
+    let currentObj = AlturasArray.find((obj) => obj["idDb"] == idFigVr);
+    let arrayWin;
+    let name;
+    var winInput;
+    if(string == "altura"){
+        arrayWin = currentObj["datosDb"][0]["inputDb"];
+        name = "alturaWin";
+    }
+    // else if (string == "perim"){
+    //     arrayWin = currentObj["datosDb"][1]["inputDb"];
+    //     name = "perimWin";
+    // };
+    for(let i=0; i<arrayWin.length; i++){
+        winInput = name + (i + 1) +"Vr";
+        window[winInput].disabled = true;
+    }
+};
+function grupFuncLog(string){
+    radSelectDisable(string);
+    disableWinInp(string);
+    disableBtnResult(string);
+}
+function printResult(string, result){
+    if(string == "altura"){
+        windowResultAltura.classList.add("bgChange");
+        windowResultAltura.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSel(string)}`;
+    }
+    // else if(string == "perim"){
+    //     windowResultPerim.classList.add("bgChange");
+    //     windowResultPerim.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSel(string)}`;
+    // }
 };
 
 
 // --- Triangulo Equilatero ---
 function hTriangleEqui(){
-    const w1Es = Number(winH1.value);
-    if(w1Es > 0){
-        if(inputRadioHC.checked || inputRadioHM.checked){
-            const lado = w1Es;
+    if(alturaWin1Vr.value > 0){
+        if(radAlturaCmVr.checked || radAlturaMtVr.checked){
+            const lado = Number(alturaWin1Vr.value);
             const semiPerimeter = (lado + lado + lado) / 2;
             const process =  (2 / lado) * Math.sqrt((semiPerimeter * (semiPerimeter - lado) * (semiPerimeter - lado) * (semiPerimeter - lado)));
             const result =  process;
-            medEnableDisable()
-            disableOptions();
-            winH1.classList.add("resultColor");
-            pResultH.classList.add("bgChange");
-            pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
+            grupFuncLog("altura");
+            alturaWin1Vr.classList.add("resultColor");
+            printResult("altura", result);
         }else{
-            pResultH.innerHTML = mesCmM();
+            windowResultAltura.innerHTML = elegirCmMtMsgFn();
         }
     }else{
-        pResultH.innerHTML = mesValH();
-    }
+        windowResultAltura.innerHTML = valorMayorMsgFc();
+    };
 }
 // --- Triangulo Isosceles ---
 function hTriangleIso(){
@@ -570,4 +628,142 @@ function hTrapecio(){
 }
 // ---Inicio ---
 renderIntroduccion();
+
+
+
+
+// function asignacionesWindows(){
+//     if(idFig == "triángulo_equilátero"){
+//         winH1 = document.querySelector("#winHTriEquiSide");
+//     }else if(idFig == "triángulo_isósceles"){
+//         winH1 = document.querySelector("#winHTriIsoSideEq");
+//         winH2 = document.querySelector("#winHTriIsoBase");
+//     }else if(idFig == "triángulo_escaleno"){
+//         winH1 = document.querySelector("#winHTriEscSide1");
+//         winH2 = document.querySelector("#winHTriEscSide2");
+//         winH3 = document.querySelector("#winHTriEscBase");
+//     }else if(idFig == "trapecio"){
+//         winH1 = document.querySelector("#winHTrapecioSide1");
+//         winH2 = document.querySelector("#winHTrapeciobase");
+//         winH3 = document.querySelector("#winHTrapecioBase");
+//     }
+// };
+
+function cborrar(){
+    // ---- Limpieza de valor de medida ----
+    mensAltura = "";
+    // ----  ----
+    sectionHmiddle.innerHTML = "";
+    // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
+    pResultH.innerHTML = "";
+    pResultH.classList.remove(pResultHReg);
+    pResultH.classList.remove("bgChange");
+    // ---- Borrado de clases y abilitar botones ----
+    btnResultH.classList.remove(btnResultHReg);
+    btnClearH.classList.remove(btnClearHReg);
+    btnResultH.disabled = false;
+    btnResultH.classList.remove("btnInactive");
+    // ----  ----
+    containerFiguras.innerHTML = "";
+    divAltura.innerHTML = "";
+    // ---- Deseleccionar radios ----
+    inputRadioHC.checked = false;
+    inputRadioHM.checked = false;
+    // ---- Abilitar radios ----
+    inputRadioHC.disabled = false;
+    inputRadioHM.disabled = false;
+}
+function cdisableOptions(){
+    if(idFig == "triángulo_equilátero"){
+        winH1.disabled = true;
+    }else if(idFig == "triángulo_isósceles"){
+        winH1.disabled = true;
+        winH2.disabled = true;
+    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
+        winH1.disabled = true;
+        winH2.disabled = true;
+        winH3.disabled = true;
+    }
+    btnResultH.disabled = true;
+    btnResultH.classList.remove("btnResult");
+    btnResultH.classList.add("btnInactive");
+}
+function cclearHFig(){
+    pResultH.classList.remove("bgChange");
+    if(idFig == "triángulo_equilátero"){
+        winH1.disabled = false;
+        winH1.value = "";
+        winH1.classList.remove("resultColor");
+    }else if(idFig == "triángulo_isósceles"){
+        winH1.disabled = false;
+        winH2.disabled = false;
+        winH1.value = "";
+        winH2.value = "";
+        winH1.classList.remove("resultColor");
+        winH2.classList.remove("resultColor");
+    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
+        winH1.disabled = false;
+        winH2.disabled = false;
+        winH3.disabled = false;
+        winH1.value = "";
+        winH2.value = "";
+        winH3.value = "";  
+        winH1.classList.remove("resultColor");
+        winH2.classList.remove("resultColor");
+        winH3.classList.remove("resultColor");     
+    };
+    medDisableUnchecked();
+    abilitarIntercambiar();
+    pResultH.innerHTML = itrValH(); 
+};
+function cmedDisableUnchecked(){
+    // ---- Abilitar radios ----
+    inputRadioHC.disabled = false;
+    inputRadioHM.disabled = false;
+    // ---- Limpiar radios ----
+    inputRadioHC.checked = false;
+    inputRadioHM.checked = false;
+};
+function cabilitarIntercambiar(){
+    btnResultH.disabled = false;
+    btnResultH.classList.remove("btnInactive");
+    btnResultH.classList.add("btnResult");
+};
+
+function cmedSeleccion() {
+    if(inputRadioHC.checked) {
+        return "cm";
+    }else if(inputRadioHM.checked) {
+        return "m";
+    };
+};
+function cmedEnableDisable(){
+    if(inputRadioHC.checked){
+        inputRadioHM.disabled = true;
+    }else if(inputRadioHM.checked){
+        inputRadioHC.disabled = true;
+    };
+};
+function cmesCmM(){
+    return "Elegir centímetros o metros";
+};
+function cmesValH(){
+    if(mensAltura == "s"){
+        return "Valor debe de ser mayor a 0";
+    }else if(mensAltura == "p"){
+        return "Valores deben de ser<br>mayores a 0";
+    }
+};
+function citrValH(){
+    if(mensAltura == "s"){
+        return "Intruducir valor requerido";
+    }else if(mensAltura == "p"){
+        return "Intruducir valores requeridos";
+    }
+};
+
+
+
+
+
 

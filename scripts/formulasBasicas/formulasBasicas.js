@@ -145,8 +145,8 @@ function menuPrinc(){
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
-    location.href="../../index.html";
-    // location.href="/JS_Formulas/index.html";
+    // location.href="../../index.html";
+    location.href="/JS_Formulas/index.html";
 }
 // --- Selección ---
 function selecFnc(event){
@@ -209,6 +209,7 @@ function renderFigura(objeto){
     // --- id del objeto en proceso ---
     idFigVr = objeto["idDb"];
     // --- ciclo de repeticion del objeto ---
+
     objeto["datosDb"].forEach((obj, index) => {
         // --- variable del singular o plural y variable de area o perimetro --- 
         mensajeSigPlurVr = obj["mensajeSigPlurDb"];

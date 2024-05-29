@@ -1,3 +1,4 @@
+// --- array de valores definicion alturas ---
 const intro = [
     {
         value0 : [
@@ -27,24 +28,35 @@ const intro = [
 const AlturasArray = [];
 // --- Objetos con los Valores de figuras Geometricas ---
 const trianguloEquilateroObj = {
-    id: "triángulo_equilátero",
-    mh: "s",
-    titleFig: "Triángulo Equilátero",
-    imgFig: "../assets/triangulo_equilatero_altura.png",
-
-    titleAltura: "Altura Triángulo Equilátero",
-    inputAltura: [
+    idDb: "triángulo_equilátero",
+    datosDb : [
         {
-            inputLabel: "Medida lado",
-            inputId: "winHTriEquiSide"
+            mensajeSigPlurDb: "s",
+            titleFigDb: "Altura",
+            imgFiguraDb: "../assets/triangulo_equilatero_altura.png",
+
+            titleDb: "Altura Triángulo Equilátero",
+
+            grupoDb: "grupoAltura",
+            inputRadCmDb: "radAlturaCmId",
+            inputRadMtDb: "radAlturaMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winHTriEquiSide"
+                },
+            ],
+            winResMensDb: "winResMensAlturaCl",
+            btnClearDb: "btnClearAlturaCl",
+            btnResultDb: "btnResultAlturaCl",
+            logicaDb: "hTriangleEqui",
         },
-    ],
-    resultClH: "resultHTriEqui",
-    btnClH: "btnResultHTriEqui",
-    btn2ClH: "btnClearHTriEqui",
-    funcionAltura: "hTriangleEqui",
-    clearWindowH: "clearHFig",
+    ]
 };
+
+
+
 const trianguloIsoscelesObj = {
     id: "triángulo_isósceles",
     mh: "p",
@@ -124,8 +136,8 @@ const trapecioObj = {
 };
 // --- Guardado de objetos de valores al array ---
 AlturasArray.push(trianguloEquilateroObj);
-AlturasArray.push(trianguloIsoscelesObj);
-AlturasArray.push(trianguloEscalenoObj);
-AlturasArray.push(trapecioObj);
+// AlturasArray.push(trianguloIsoscelesObj);
+// AlturasArray.push(trianguloEscalenoObj);
+// AlturasArray.push(trapecioObj);
 
 
