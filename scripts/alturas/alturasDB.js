@@ -33,7 +33,7 @@ const trianguloEquilateroObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Altura",
-            imgFiguraDb: "../assets/triangulo_equilatero_altura.png",
+            imgFiguraDb: "../../assets2/triangulo_equilatero_altura.png",
 
             titleDb: "Altura Triángulo Equilátero",
 
@@ -54,90 +54,111 @@ const trianguloEquilateroObj = {
         },
     ]
 };
-
-
-
 const trianguloIsoscelesObj = {
-    id: "triángulo_isósceles",
-    mh: "p",
-    titleFig: "Triángulo Isósceles",
-    imgFig: "../assets/triangulo_isosceles_altura.png",
+    idDb: "triángulo_isósceles",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Altura",
+            imgFiguraDb: "../assets/triangulo_isosceles_altura.png",
 
-    titleAltura: "Altura Triángulo Isósceles",
-    inputAltura: [
-        {
-            inputLabel: "Medida lados iguales",
-            inputId: "winHTriIsoSideEq"
+            titleDb: "Altura Triángulo Isósceles",
+
+            grupoDb: "grupoAltura",
+            inputRadCmDb: "radAlturaCmId",
+            inputRadMtDb: "radAlturaMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lados iguales",
+                    inputIdDb: "winHTriIsoSideEq"
+                },
+                {
+                    inputLabelDb: "Medida de base",
+                    inputIdDb: "winHTriIsoBase"
+                },
+            ],
+            winResMensDb: "winResMensAlturaCl",
+            btnClearDb: "btnClearAlturaCl",
+            btnResultDb: "btnResultAlturaCl",
+            logicaDb: "hTriangleIso",
         },
-        {
-            inputLabel: "Medida de base",
-            inputId: "winHTriIsoBase"
-        }
-    ],
-    resultClH: "resultHTriIso",
-    btnClH: "btnResultHTriIso",
-    btn2ClH: "btnClearHTriIso",
-    funcionAltura: "hTriangleIso",
-    clearWindowH: "clearHFig",
+    ]
 };
 const trianguloEscalenoObj = {
-    id: "triángulo_escaleno",
-    mh: "p",
-    titleFig: "Triángulo Escaleno",
-    imgFig: "../assets/triangulo_escaleno_altura.png",
+    idDb: "triángulo_escaleno",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Altura",
+            imgFiguraDb: "../assets/triangulo_escaleno_altura.png",
 
-    titleAltura: "Atura Triángulo Escaleno",
-    inputAltura: [
-        {
-            inputLabel: "Medida lado 1",
-            inputId: "winHTriEscSide1"
+            titleDb: "Atura Triángulo Escaleno",
+
+            grupoDb: "grupoAltura",
+            inputRadCmDb: "radAlturaCmId",
+            inputRadMtDb: "radAlturaMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado 1",
+                    inputIdDb: "winHTriEscSide1"
+                },
+                {
+                    inputLabelDb: "Medida lado 2",
+                    inputIdDb: "winHTriEscSide2"
+                },
+                {
+                    inputLabelDb: "Medida Base",
+                    inputIdDb: "winHTriEscBase"
+                },
+            ],
+            winResMensDb: "winResMensAlturaCl",
+            btnClearDb: "btnClearAlturaCl",
+            btnResultDb: "btnResultAlturaCl",
+            logicaDb: "hTriEsc",
         },
-        {
-            inputLabel: "Medida lado 2",
-            inputId: "winHTriEscSide2"
-        },
-        {
-            inputLabel: "Medida Base",
-            inputId: "winHTriEscBase"
-        }
-    ],
-    resultClH: "resultHTriEsc",
-    btnClH: "btnResultHTriEsc",
-    btn2ClH: "btnClearHTriEsc",
-    funcionAltura: "hTriEsc",
-    clearWindowH: "clearHFig",
+    ]
 };
 const trapecioObj = {
-    id: "trapecio",
-    mh: "p",
-    titleFig: "Trapecio",
-    imgFig: "../assets/trapecio_altura.png",
+    idDb: "trapecio",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Altura",
+            imgFiguraDb: "../assets/trapecio_altura.png",
 
-    titleAltura: "Atura Trapecio",
-    inputAltura: [
-        {
-            inputLabel: "Medida L",
-            inputId: "winHTrapecioSide1"
+            titleDb: "Atura Trapecio",
+
+            grupoDb: "grupoAltura",
+            inputRadCmDb: "radAlturaCmId",
+            inputRadMtDb: "radAlturaMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida L",
+                    inputIdDb: "winHTrapecioSide1"
+                },
+                {
+                    inputLabelDb: "Medida b",
+                    inputIdDb: "winHTrapeciobase"
+                },
+                {
+                    inputLabelDb: "Medida Base",
+                    inputIdDb: "winHTrapecioBase"
+                },
+            ],
+            winResMensDb: "winResMensAlturaCl",
+            btnClearDb: "btnClearAlturaCl",
+            btnResultDb: "btnResultAlturaCl",
+            logicaDb: "hTrapecio",
         },
-        {
-            inputLabel: "Medida b",
-            inputId: "winHTrapeciobase"
-        },
-        {
-            inputLabel: "Medida Base",
-            inputId: "winHTrapecioBase"
-        }
-    ],
-    resultClH: "resultHTrapecio",
-    btnClH: "btnResultHTrapecio",
-    btn2ClH: "btnClearHTrapecio",
-    funcionAltura: "hTrapecio",
-    clearWindowH: "clearHFig",
+    ]
 };
 // --- Guardado de objetos de valores al array ---
 AlturasArray.push(trianguloEquilateroObj);
-// AlturasArray.push(trianguloIsoscelesObj);
-// AlturasArray.push(trianguloEscalenoObj);
-// AlturasArray.push(trapecioObj);
+AlturasArray.push(trianguloIsoscelesObj);
+AlturasArray.push(trianguloEscalenoObj);
+AlturasArray.push(trapecioObj);
 
 

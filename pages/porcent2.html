@@ -3,79 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
     <title>Porcentaje</title>
+    <link rel="stylesheet" href="../global/variables/variables.css">
+    <link rel="stylesheet" href="../global/contactanos/contactOpc.css">
     <link rel="stylesheet" href="../styles/porcent2.css">
+    <link rel="stylesheet" href="../global/footer/footer.css">
 </head>
 <body class="body">
      <!-- ##################### blur ##################### -->
     <div class="blurC off"></div>
      <!-- ##################### navbar ##################### -->
-    <nav class="nav">
-        <img class="nav_logo" src="../assets/jslogo2.svg" alt="">
-        <div class="btnMenu">
-            <a class="homeLink" href="../index.html">Menú</a>
-            <p class="nCaso">Más..</p>
-        </div>
-    </nav>
-    <section class="listIndex">
-        <!-- ############## Seleccion ##############--> 
-        <p class="seleccion selMod" >Introducción</p>
-         <!-- ############## Division ##############--> 
-        <div class="listIndexOption">
-            <p class="optTitle">Calculadoras</p>
-            <h2 class="optLine" ></h2>
-        </div>
-        <!-- ############## Seleccion ##############--> 
-        <p class="seleccion" >Regla de 3 Simple</p>
-        <p class="seleccion" >Regla de 3 Compuesta</p>
-        <p class="seleccion" >Calcular Descuento</p>
-         <!-- ############## Division ##############--> 
-        <div class="listIndexOption">
+
+        <!-- <div class="listIndexOption">
             <p class="optTitle">Definiciones</p>
             <h2 class="optLine" ></h2>
         </div>
-        <!-- ############## Seleccion ##############--> 
+
         <p class="seleccion" >Regla de 3 Simple Directa</p>
         <p class="seleccion" >Regla de 3 Simple Inversa</p>
         <p class="seleccion" >Regla de 3 Compuesta Directa</p>
         <p class="seleccion" >Regla de 3 Compuesta Inversa</p>
         <p class="seleccion" >Regla de 3 Compuesta Mixta</p>
-        <p class="seleccion" >Descuento</p>
-         <!-- ############## Division ##############--> 
-        <div class="listIndexOption">
-            <p class="optTitle">Referencias</p>
-            <h2 class="optLine" ></h2>
-        </div>
-        <!-- ############## Seleccion ##############--> 
-        <p class="seleccion selMod" >Contáctanos</p>
-        <p class="seleccion selMod" >Sobre Nosotros</p>
-        <p class="seleccion selMod" >Social Media</p>
-        <p class="seleccion selMod" >Créditos</p>
-         <!-- ############## Division ##############--> 
-        <div class="listIndexOption">
-            <p class="optTitle"></p>
-            <h2 class="optLine" ></h2>
-        </div>
-    </section>
+        <p class="seleccion" >Descuento</p> -->
 
+     <div class="navCont">
+        <nav class="navBar">
+            <!-- logo -->
+            <figure class="imgCont">
+                <img class="logo" src="../assets/jslogo2.svg" alt="">
+            </figure>
+            <!-- icono hamburgesa -->
+            <div class="menuMobile" id="moblilCont">
+                <div class="line" id="top"></div>
+                <div class="line" id="middle"></div>
+                <div class="line" id="bottom"></div>
+            </div>
+            <!-- menu mobile -->
+            <section class="listIndex">
+                <!--- Seleccion ---> 
+                <p class="estText colText1 aMenu">Menú</p>
+                <p class="estText colText1 seleccion" >Introducción</p>
+                <!--- Division ---> 
+                <div class="listIndexOption">
+                    <p class="optTitle">Calculadoras</p>
+                    <h2 class="optLine" ></h2>
+                </div>
+                <!--- Seleccion ---> 
+                <p class="estText colText2 seleccion" >Regla de 3 Simple</p>
+                <p class="estText colText2 seleccion" >Regla de 3 Compuesta</p>
+                <p class="estText colText2 seleccion" >Calcular Descuento</p>
+                <!--- Division ---> 
+                <div class="listIndexOption">
+                    <p class="optTitle">Contáctanos</p>
+                    <h2 class="optLine" ></h2>
+                </div>
+                <!--- Seleccion ---> 
+                <p class="estText colText2 email" >Email</p>
+                <!--- Division --->  
+                <div class="listIndexOption">
+                    <p class="optTitle">Redes&nbsp;Sociales</p>
+                    <h2 class="optLine" ></h2>
+                </div>
+                <div class="socMedMainCont"></div>
+            </section>
+
+            <!-- menu desktop -->
+            <div class="menuDesktop"> 
+                <div class="textContainer">
+                    <!--- Seleccion ---> 
+                    <p class="estText colText3 seleccion">introducción</p>
+                </div>
+    
+                <div class="textContainer calCont">
+                    <p class="estText colText3 calcText">Calculadoras</p>
+                    <div class="calcDesktop">
+                        <!--- Seleccion ---> 
+                        <p class="estText colText2 seleccion" >Regla de 3 Simple</p>
+                        <p class="estText colText2 seleccion" >Regla de 3 Compuesta</p>
+                        <p class="estText colText2 seleccion" >Calcular Descuento</p>
+                    </div>
+                </div>
+    
+                <div class="textContainer contacCont">
+                    <p class="estText colText3 contactText">Contáctanos</p>
+                    <div class="contDesktop">
+                        <p class="estText colText2 email">Email</p>
+                        <p class="estText2 colText4 socMed">Redes Sociales</p>
+                        <div class="socMedDesktop"></div>
+                    </div>
+               
+                </div>
+            </div>
+            <p class="estText colText3 textMenu">Menú</p>
+        </nav>
+    </div>
     <!-- #################@ contentIndex ################## -->
     <section class="contentIndex">
         <div class="titlesIndex">
-            <p>Porcentaje</p>
+            <p class="titlesIndexText"> </p>
         </div>
     </section>
-
     <!-- ################## containerFig ################## -->
-    <section class="containerFiguras">
-
-    </section>
-
+    <section class="containerFiguras"></section>
     <!-- ################# footer ################## -->
     <footer class="footer">
         <p></p>
     </footer>
 
-    <script src="../scripts/porcent2DB.js"></script>
-    <script src="../scripts/porcent2.js"></script>
+    <script src="../global/contactanos/contactOpc.js"></script>
+    <script src="../scripts/porcentaje/porcent2DB.js"></script>
+    <script src="../scripts/porcentaje/porcent2.js"></script>
+    <script src="../global/footer/footer.js"></script>
 </body>
 </html>

@@ -362,6 +362,8 @@ span {
     margin-bottom: 8px;
 }
 .radioLabelsContCl label {
+    font-size: 18px;
+    font-weight: 500;
     color: var(--black);
     padding-right: 30px;
 }
@@ -445,7 +447,7 @@ span {
 .secMiddleCalcCl {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 .calCl {
     display: flex;

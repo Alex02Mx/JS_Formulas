@@ -29,17 +29,15 @@ let radAlturaMtVr;
 let windowResultAltura;
 let btnClearAltura;
 let btnResultAltura;
-
 let winEmail;
 let winNombre;
 let winDescripcion;
 
 var funcion1Fn;
 var funcion2Fn;
-
 var alturaWin1Vr;
 var alturaWin2Vr;
-
+var alturaWin3Vr;
 var btnSubmit;
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
@@ -376,11 +374,6 @@ function disableBtnResult(string){
         btnResultAltura.classList.remove("btnResultCl");
         btnResultAltura.classList.add("btnInactive");
     }
-    // else if(string == "perim"){
-    //     btnResultPerim.disabled = true;
-    //     btnResultPerim.classList.remove("btnResultCl");
-    //     btnResultPerim.classList.add("btnInactive");
-    // };
 };
 function enableBtnResult(eventForward){ 
     if(eventForward.target.classList[1] == "btnClearAlturaCl"){
@@ -462,13 +455,6 @@ function radSelectDisable(string){
             radAlturaCmVr.disabled = true;
         };
     }
-    // else if(string == "perim"){
-    //     if(radPerimCmVr.checked){
-    //         radPerimMtVr.disabled = true;
-    //     }else if(radPerimMtVr.checked){
-    //         radPerimCmVr.disabled = true;
-    //     };
-    // }
 };
 // --- desactiva la ventana de resultados y mensajes ---
 function disablWindowResult(eventForward){
@@ -490,15 +476,11 @@ function disableWinInp(string){
     if(string == "altura"){
         arrayWin = currentObj["datosDb"][0]["inputDb"];
         name = "alturaWin";
-    }
-    // else if (string == "perim"){
-    //     arrayWin = currentObj["datosDb"][1]["inputDb"];
-    //     name = "perimWin";
-    // };
+    };
     for(let i=0; i<arrayWin.length; i++){
         winInput = name + (i + 1) +"Vr";
         window[winInput].disabled = true;
-    }
+    };
 };
 function grupFuncLog(string){
     radSelectDisable(string);
@@ -509,14 +491,8 @@ function printResult(string, result){
     if(string == "altura"){
         windowResultAltura.classList.add("bgChange");
         windowResultAltura.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSel(string)}`;
-    }
-    // else if(string == "perim"){
-    //     windowResultPerim.classList.add("bgChange");
-    //     windowResultPerim.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSel(string)}`;
-    // }
+    };
 };
-
-
 // --- Triangulo Equilatero ---
 function hTriangleEqui(){
     if(alturaWin1Vr.value > 0){
@@ -537,233 +513,67 @@ function hTriangleEqui(){
 }
 // --- Triangulo Isosceles ---
 function hTriangleIso(){
-    const w1Is = Number(winH1.value);
-    const w2Is = Number(winH2.value);
-    const numVerIso = (w1Is * 2);
-    if(w1Is > 0 && w2Is > 0){
-        if(w2Is < numVerIso){
-            if(inputRadioHC.checked || inputRadioHM.checked){
-                const lado1 = w1Is;
-                const base = w2Is;
-                const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
-                medEnableDisable()
-                disableOptions();
-                winH1.classList.add("resultColor");
-                winH2.classList.add("resultColor");
-                pResultH.classList.add("bgChange");
-                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
-            }else{
-                pResultH.innerHTML = mesCmM();
-            }
+    if(alturaWin1Vr.value > 0 && alturaWin2Vr.value > 0){
+        if(radAlturaCmVr.checked || radAlturaMtVr.checked){
+            const lado1 = Number(alturaWin1Vr.value);
+            const base = Number(alturaWin2Vr.value);
+            const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
+            grupFuncLog("altura");
+            alturaWin1Vr.classList.add("resultColor");
+            alturaWin2Vr.classList.add("resultColor");
+            printResult("altura", result);
         }else{
-            pResultH.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
+            windowResultAltura.innerHTML = elegirCmMtMsgFn();
         }
     }else{
-        pResultH.innerHTML = mesValH();
-    }
+        windowResultAltura.innerHTML = valorMayorMsgFc();
+    };
 }
 // --- Triangulo Escaleno ---
 function hTriEsc(){
-    const w1Es = Number(winH1.value);
-    const w2Es = Number(winH2.value);
-    const w3Es = Number(winH3.value);
-    const numVerEsc = w1Es + w2Es;
-    if(w1Es > 0 && w2Es > 0 && w3Es > 0){
-        if(w3Es < numVerEsc){
-            if(inputRadioHC.checked || inputRadioHM.checked){
-                const lado1 = w1Es;
-                const lado2 = w2Es;
-                const base = w3Es;
-                const semiPerimeter = (lado1 + lado2 + base) / 2;
-                // const desestruc = [lado1, lado2, base];
-                // const [a,b,c] = desestruc.sort((a,b) => b - a);
-                const process =  (2 / base) * Math.sqrt((semiPerimeter * (semiPerimeter - lado1) * (semiPerimeter - lado2) * (semiPerimeter - base)));
-                const result =  process;
-                medEnableDisable()
-                disableOptions();
-                winH1.classList.add("resultColor");
-                winH2.classList.add("resultColor");
-                winH3.classList.add("resultColor");
-                pResultH.classList.add("bgChange");
-                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
-            }else{
-                pResultH.innerHTML = mesCmM();
-            }
+    if(alturaWin1Vr.value > 0 && alturaWin2Vr.value > 0 && alturaWin3Vr.value > 0){
+        if(radAlturaCmVr.checked || radAlturaMtVr.checked){
+            const lado1 = Number(alturaWin1Vr.value);
+            const lado2 = Number(alturaWin2Vr.value);
+            const base = Number(alturaWin3Vr.value);
+            const semiPerimeter = (lado1 + lado2 + base) / 2;
+            // const desestruc = [lado1, lado2, base];
+            // const [a,b,c] = desestruc.sort((a,b) => b - a);
+            const process =  (2 / base) * Math.sqrt((semiPerimeter * (semiPerimeter - lado1) * (semiPerimeter - lado2) * (semiPerimeter - base)));
+            const result =  process;
+            grupFuncLog("altura");
+            alturaWin1Vr.classList.add("resultColor");
+            alturaWin2Vr.classList.add("resultColor");
+            alturaWin3Vr.classList.add("resultColor");
+            printResult("altura", result);
         }else{
-            pResultH.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
+            windowResultAltura.innerHTML = elegirCmMtMsgFn();
         }
     }else{
-        pResultH.innerHTML = mesValH();
-    }
+        windowResultAltura.innerHTML = valorMayorMsgFc();
+    };
 }
 // --- Trapecio ---
 function hTrapecio(){
-    const w1Trap = Number(winH1.value);
-    const w2Trap = Number(winH2.value);
-    const w3Trap = Number(winH3.value);
-    if(w1Trap > 0 && w2Trap > 0 && w3Trap > 0){
-        if(w2Trap < w3Trap){
-            if(inputRadioHC.checked || inputRadioHM.checked){
-                const lado = w1Trap;
-                const base = w2Trap;
-                const Base = w3Trap;
-                const baseParcial = (Base - base) / 2;
-                const result = Math.sqrt( Math.pow(lado,2) - Math.pow(baseParcial,2) )
-                medEnableDisable()
-                disableOptions();
-                winH1.classList.add("resultColor");
-                winH2.classList.add("resultColor");
-                winH3.classList.add("resultColor");
-                pResultH.classList.add("bgChange");
-                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
-            }else{
-                pResultH.innerHTML = mesCmM();
-            }
+    if(alturaWin1Vr.value > 0 && alturaWin2Vr.value > 0 && alturaWin3Vr.value > 0){
+        if(radAlturaCmVr.checked || radAlturaMtVr.checked){
+            const lado = Number(alturaWin1Vr.value);
+            const base = Number(alturaWin2Vr.value);
+            const Base = Number(alturaWin3Vr.value);
+            const baseParcial = (Base - base) / 2;
+            const result = Math.sqrt( Math.pow(lado,2) - Math.pow(baseParcial,2) )
+            grupFuncLog("altura");
+            alturaWin1Vr.classList.add("resultColor");
+            alturaWin2Vr.classList.add("resultColor");
+            alturaWin3Vr.classList.add("resultColor");
+            printResult("altura", result);
         }else{
-            pResultH.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
+            windowResultAltura.innerHTML = elegirCmMtMsgFn();
         }
     }else{
-        pResultH.innerHTML = mesValH();
+        windowResultAltura.innerHTML = valorMayorMsgFc();
     }
 }
 // ---Inicio ---
 renderIntroduccion();
-
-
-
-
-// function asignacionesWindows(){
-//     if(idFig == "triángulo_equilátero"){
-//         winH1 = document.querySelector("#winHTriEquiSide");
-//     }else if(idFig == "triángulo_isósceles"){
-//         winH1 = document.querySelector("#winHTriIsoSideEq");
-//         winH2 = document.querySelector("#winHTriIsoBase");
-//     }else if(idFig == "triángulo_escaleno"){
-//         winH1 = document.querySelector("#winHTriEscSide1");
-//         winH2 = document.querySelector("#winHTriEscSide2");
-//         winH3 = document.querySelector("#winHTriEscBase");
-//     }else if(idFig == "trapecio"){
-//         winH1 = document.querySelector("#winHTrapecioSide1");
-//         winH2 = document.querySelector("#winHTrapeciobase");
-//         winH3 = document.querySelector("#winHTrapecioBase");
-//     }
-// };
-
-function cborrar(){
-    // ---- Limpieza de valor de medida ----
-    mensAltura = "";
-    // ----  ----
-    sectionHmiddle.innerHTML = "";
-    // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
-    pResultH.innerHTML = "";
-    pResultH.classList.remove(pResultHReg);
-    pResultH.classList.remove("bgChange");
-    // ---- Borrado de clases y abilitar botones ----
-    btnResultH.classList.remove(btnResultHReg);
-    btnClearH.classList.remove(btnClearHReg);
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
-    // ----  ----
-    containerFiguras.innerHTML = "";
-    divAltura.innerHTML = "";
-    // ---- Deseleccionar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
-}
-function cdisableOptions(){
-    if(idFig == "triángulo_equilátero"){
-        winH1.disabled = true;
-    }else if(idFig == "triángulo_isósceles"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-        winH3.disabled = true;
-    }
-    btnResultH.disabled = true;
-    btnResultH.classList.remove("btnResult");
-    btnResultH.classList.add("btnInactive");
-}
-function cclearHFig(){
-    pResultH.classList.remove("bgChange");
-    if(idFig == "triángulo_equilátero"){
-        winH1.disabled = false;
-        winH1.value = "";
-        winH1.classList.remove("resultColor");
-    }else if(idFig == "triángulo_isósceles"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH3.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH3.value = "";  
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-        winH3.classList.remove("resultColor");     
-    };
-    medDisableUnchecked();
-    abilitarIntercambiar();
-    pResultH.innerHTML = itrValH(); 
-};
-function cmedDisableUnchecked(){
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
-    // ---- Limpiar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-};
-function cabilitarIntercambiar(){
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
-    btnResultH.classList.add("btnResult");
-};
-
-function cmedSeleccion() {
-    if(inputRadioHC.checked) {
-        return "cm";
-    }else if(inputRadioHM.checked) {
-        return "m";
-    };
-};
-function cmedEnableDisable(){
-    if(inputRadioHC.checked){
-        inputRadioHM.disabled = true;
-    }else if(inputRadioHM.checked){
-        inputRadioHC.disabled = true;
-    };
-};
-function cmesCmM(){
-    return "Elegir centímetros o metros";
-};
-function cmesValH(){
-    if(mensAltura == "s"){
-        return "Valor debe de ser mayor a 0";
-    }else if(mensAltura == "p"){
-        return "Valores deben de ser<br>mayores a 0";
-    }
-};
-function citrValH(){
-    if(mensAltura == "s"){
-        return "Intruducir valor requerido";
-    }else if(mensAltura == "p"){
-        return "Intruducir valores requeridos";
-    }
-};
-
-
-
-
-
 

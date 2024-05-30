@@ -1,30 +1,258 @@
-
+//==============================  variables y constantes ==================================
 const body = document.querySelector(".body");
-const nCaso = document.querySelector(".nCaso");
-const listIndex = document.querySelector(".listIndex");
 const blurC = document.querySelector(".blurC");
-
-nCaso.addEventListener("click", casoFnc);
-blurC.addEventListener("click", blurFnc);
-
+const menuMobile = document.querySelector("#moblilCont");
+const topL = document.querySelector("#top");
+const middleL = document.querySelector("#middle");
+const bottomL = document.querySelector("#bottom");
+const listIndex = document.querySelector(".listIndex");
+const aMenu = document.querySelector(".aMenu");
+const textMenu = document.querySelector(".textMenu");
+const calcText = document.querySelector(".calcText");
+const calcDesktop = document.querySelector(".calcDesktop");
+const contactText = document.querySelector(".contactText");
+const contDesktop = document.querySelector(".contDesktop");
+const containerFiguras = document.querySelector(".containerFiguras");
+const containerIntro = document.createElement("section");
+const containerResponsive = document.createElement("section");
+const titlesIndexText = document.querySelector(".titlesIndexText");
+const email = document.querySelectorAll(".email");
 const seleccion = document.querySelectorAll(".seleccion");
+const socMedDesktop = document.querySelector(".socMedDesktop");
+const socMedMainCont =  document.querySelector(".socMedMainCont");
+
+
+// const nCaso = document.querySelector(".nCaso");
+// const sectionDtop = document.createElement("div");
+// const defTitulo = document.createElement("h2");
+// const defImg = document.createElement("img");
+// const sectionDmiddle = document.createElement("div");
+// const defPorcentajeTitulo = document.createElement("p");
+// const defPorcentaje = document.createElement("p");
+// const defPorcentaje2Titulo = document.createElement("p");
+// const defPorcentaje2 = document.createElement("p");
+// const sectionDbottom = document.createElement("div");
+// const defNotaTitulo = document.createElement("p");
+// const defNota = document.createElement("p");
+// const defGuiaTitulo = document.createElement("p");
+// const defGuia = document.createElement("p");
+// const simpleDirectaImg = document.createElement("div");
+// const titleFig = document.createElement("h2");
+// const imgSD = document.createElement("img");
+// const containerPorcentaje = document.createElement("div");
+// const divPorcentaje = document.createElement("div");
+// const sectionPCtop = document.createElement("section");
+// const pTitlePC = document.createElement("p");
+// const pformulaPC = document.createElement("p");
+// const sectionPCmiddleTop = document.createElement("section");
+// const sectionPCmiddle = document.createElement("section");
+// const sectionPCbottom = document.createElement("section");
+// const pResultPC = document.createElement("p");
+// const btnResultPC = document.createElement("button");
+// const btnClearPC = document.createElement("button");
+// const mesParr = document.createElement("p");
+
+let porcDescWindow; 
+let precListWindow;
+let descCantWindow;
+let totalPagWindow;
+let winA = null;
+let winB = null;
+let winC = null;
+let winW = null;
+let winY = null;
+let winZ = null;
+let loadVar = null;
+let magnitud1 = null;
+let magnitud2 = null;
+let resultR3C = null;
+let XL = null;
+let DL = null;
+let IL = null;
+let XC = null;
+let DC = null;
+let IC = null;
+let XR = null;
+let DR = null;
+let IR = null;
+let SD = null;
+let SI = null;
+let btnResultPCReg;
+let btnClearPCReg;
+let pResultPCReg;
+let pMesParrReg;
+let rutaFPC;
+let rutaFClear;
+
+let classSimpCompDesc;
+let incognitaSC;
+let result;
+//===============================  asignacion de valores ==================================
+socMedDesktop.innerHTML = socialMedImg;
+socMedMainCont.append(socialMedCont);
+//====================================  Escuchadores ======================================
+blurC.addEventListener("click", blurFnc);
+menuMobile.addEventListener("click", showHideCalc);
+aMenu.addEventListener("click", menuPrinc);
+textMenu.addEventListener("click", menuPrinc);
+calcText.addEventListener("click", showHideCalc);
+contactText.addEventListener("click", showHideCalc);
+//=======================================  Ciclos =========================================
+email.forEach((itemClass) => {
+    itemClass.addEventListener("click", dispContactanos);
+})
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
-
-function casoFnc(){
-    listIndex.scrollTop = 0;
-    listIndex.classList.toggle("listIndexShow");
-    blurC.classList.toggle("off");
-    body.classList.toggle("noMove");
+//================================  funciones anonimas ====================================
+const formato = (number) => {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    let arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp,rep);
+    return arr[1] ? arr.join('.'): arr[0];
 };
-//----Funcion opacar background---------------------------------------------------------
+//=====================================  funciones ========================================
+// --- opacar pantalla ---
 function blurFnc(){
     listIndex.classList.remove("listIndexShow");
-    blurC.classList.add("off");
+    calcDesktop.classList.remove("calcDesktopShow");
+    contDesktop.classList.remove("contDesktopShow");
+    topL.classList.remove("cross2");
+    middleL.classList.remove("cross");
+    bottomL.classList.remove("cross3");
     body.classList.remove("noMove");
+    blurC.classList.add("off");
 }
-//----Funcion de seleccion en menu------------------------------------------------------
+// --- Mostrar, esconder, opacar, aclarar ---
+function showHideCalc(event){
+
+    if(event.srcElement.innerHTML == "Calculadoras"){
+        calcDesktop.classList.toggle("calcDesktopShow");
+        if(calcDesktop.classList.contains("calcDesktopShow")){
+            contDesktop.classList.remove("contDesktopShow");
+            abrirOpc();
+        }
+        else{
+            cerrarOpc();
+        }
+    }
+    else if(event.srcElement.innerHTML == "Contáctanos"){
+        contDesktop.classList.toggle("contDesktopShow");
+        if(contDesktop.classList.contains("contDesktopShow")){
+            calcDesktop.classList.remove("calcDesktopShow");
+            abrirOpc();
+        }
+        else{
+            cerrarOpc();
+        }
+    }
+    else{
+        listIndex.classList.toggle("listIndexShow");
+        if(listIndex.classList.contains("listIndexShow")){
+            contDesktop.classList.remove("contDesktopShow");
+            calcDesktop.classList.add("calcDesktopShow");
+            abrirOpc();
+        }
+        else{
+            contDesktop.classList.remove("contDesktopShow");
+            calcDesktop.classList.remove("calcDesktopShow");
+            cerrarOpc();
+        }
+    }
+};
+function abrirOpc(){
+    listIndex.classList.add("listIndexShow");
+    body.classList.add("noMove");
+    blurC.classList.remove("off");
+    topL.classList.add("cross2");
+    middleL.classList.add("cross");
+    bottomL.classList.add("cross3");
+    listIndex.scrollTop = 0;
+}
+function cerrarOpc(){
+    listIndex.classList.remove("listIndexShow");
+    body.classList.remove("noMove");
+    blurC.classList.add("off");
+    topL.classList.remove("cross2");
+    middleL.classList.remove("cross");
+    bottomL.classList.remove("cross3");
+}
+// --- Retornar a menu principal ---
+function menuPrinc(){
+    blurFnc();
+    setTimeout(menuPrincFnc, 600);
+}
+function menuPrincFnc(){
+    // location.href="../../index.html";
+    location.href="/JS_Formulas/index.html";
+}
+// --- Selección ---
+function selecFnc(event){
+    listIndex.classList.remove("listIndexShow");
+    const figura = event.target.innerText.toLowerCase();
+
+    const figSelect = formulasArray.find(obj => obj.idDb === figura);
+    if(figSelect){
+        renderFigura(figSelect);
+    }else{
+        renderIntroduccion();
+    };
+    blurFnc();
+}
+function dispContactanos(){
+    listIndex.classList.remove("listIndexShow");
+    blurFnc();
+    cleanCont();
+    containerFiguras.append(emailForm());
+
+    winEmail = document.querySelector("#inputEmail");
+    winNombre = document.querySelector("#inputName");
+    winDescripcion = document.querySelector("#labelTexArea");
+
+    const btnBorrar = document.querySelector(".btnBorrar");
+    btnBorrar.addEventListener("click", dataClear);
+    btnSubmit = document.querySelector(".btnSubmit");
+    btnSubmit.addEventListener("click", dataSend);
+}
+// --- Funciones renderizado ---
+function renderIntroduccion(){
+    cleanCont();
+    titlesIndexText.innerText = "Porcentajes";
+    containerFiguras.appendChild(containerIntro);
+    containerIntro.classList.add("containerIntro");
+
+    intro.forEach((value, index) => {
+        const valueLength = value["value" + index].length;
+        const defTitulo = document.createElement("p");
+        const selectionCont = document.createElement("div");
+
+        defTitulo.classList.add("tituloIntro");
+        defTitulo.innerText = value["value" + index][0];
+        selectionCont.classList.add("defParrafo");
+        selectionCont.append(defTitulo);
+
+        for(let i=1; i<valueLength; i++){
+            const defSelection = document.createElement("P");
+            defSelection.classList.add("defIntro");
+            defSelection.innerHTML = value["value"+ index][i];
+            selectionCont.append(defSelection);
+        };
+        containerIntro.append(selectionCont);
+    });
+    document.documentElement.scrollTop = 0;
+};
+
+
+// --- Limpieza de div ---
+function cleanCont(){
+    containerFiguras.innerHTML = "";
+    containerIntro.innerHTML = "";
+    containerResponsive.innerHTML = "";
+};
+
+
+
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const target = event.target.innerText.toLowerCase();
@@ -37,7 +265,6 @@ function selecFnc(event){
     };
     blurFnc();
 };
-//----Funciones de borrado, activacion y desactivacion de bentanas y radios-------------
 function borrar(){
     loadVar = "";
     incognitaSC = "";
@@ -213,15 +440,6 @@ function clearSCD(){
     enableButtonResultado();
     pTitlePC.classList.remove("titleImg");
 };
-//----Funcion formato-------------------------------------------------
-const formato = (number) => {
-    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
-    const rep = '$1,';
-    let arr = number.toString().split('.');
-    arr[0] = arr[0].replace(exp,rep);
-    return arr[1] ? arr.join('.'): arr[0];
-};
-//----Funcion asignaciones y renderizado-------------------------------------------------
 function asignacionesWindowsRadios(){
     if(loadVar == "SDI"){
         SD = document.querySelector("#radPCD");
@@ -500,8 +718,6 @@ function bottomContainer(objeto){
         divPorcentaje.append(pTitlePC,  imgDefinicion);
     };
 }
-//----Operaciones -----------------------------------------------------------------------
-//----Operaciones Simple-----------------------------------------------------------------
 function inc_Simple(){
     if(SD.checked || SI.checked){
         if(winA.value == ""){
@@ -551,7 +767,6 @@ function inc_Simple(){
         pResultPC.innerHTML = "Elegir directa o inversa";
     };
 };
-//----Operaciones Compuesta--------------------------------------------------------------
 function incognitaAW (){
     if(DC.checked && DR.checked){
         magnitud1 = winB.value * winC.value;
@@ -672,7 +887,6 @@ function incognitaCZ(){
         disableButtonResultado();
     };
 };
-//----Desactivar radios en relacion a X compuesta---------------------------------------
 function leftDisabledR(){
     XL.checked = true;
     DL.disabled = true;
@@ -694,45 +908,6 @@ function rightDisabledR(){
     DR.disabled = true;
     IR.disabled = true;
 };
-//----Funciones renderizado-------------------------------------------------------------
-function renderIntroduccion(){
-    borrar();
-    containerFiguras.appendChild(containerIntro);
-
-    containerIntro.classList.add("containerIntro");
-
-    defTitulo.classList.add("tituloIntro");
-    defTitulo.innerHTML = introPorcentajeArray[0].defTitulo;
-    defImg.classList.add("imgIntro");
-    defImg.setAttribute("src", introPorcentajeArray[0].defImg);
-    sectionDtop.classList.add("sectionDtop", "secD");
-    sectionDtop.append(defTitulo, defImg);
-
-    defPorcentajeTitulo.classList.add("defPorcentajeTitulo", "defT");
-    defPorcentajeTitulo.innerHTML = introPorcentajeArray[0].defPorcentajeTitulo;
-    defPorcentaje.classList.add("defPorcentaje", "defC");
-    defPorcentaje.innerHTML = introPorcentajeArray[0].defPorcentaje;
-    defPorcentaje2Titulo.classList.add("defPorcentaje2Titulo", "defT");
-    defPorcentaje2Titulo.innerHTML = introPorcentajeArray[0].defPorcentaje2Titulo;
-    defPorcentaje2.classList.add("defPorcentaje2", "defC");
-    defPorcentaje2.innerHTML = introPorcentajeArray[0].defPorcentaje2;
-    sectionDmiddle.classList.add("sectionDmiddle", "secD");
-    sectionDmiddle.append(defPorcentajeTitulo, defPorcentaje, defPorcentaje2Titulo, defPorcentaje2);
-
-    defNotaTitulo.classList.add("defNotaTitulo", "defT");
-    defNotaTitulo.innerHTML = introPorcentajeArray[0].defNotaTitulo;
-    defNota.classList.add("defNota", "defC");
-    defNota.innerHTML = introPorcentajeArray[0].defNota;
-    defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
-    defGuiaTitulo.innerHTML = introPorcentajeArray[0].defGuiaTitulo;
-    defGuia.classList.add("defGuia", "defC");
-    defGuia.innerHTML = introPorcentajeArray[0].defGuia;
-    sectionDbottom.classList.add("sectionDbottom", "secD");
-    sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
-
-    containerIntro.append(sectionDtop, sectionDmiddle, sectionDbottom);
-    document.documentElement.scrollTop = 0;
-};
 function renderFigura(objeto){
     borrar();
     containerFiguras.appendChild(containerResponsive);
@@ -742,12 +917,9 @@ function renderFigura(objeto){
     asignacionesWindowsRadios()    
     document.documentElement.scrollTop = 0;
 };
-// ---Mensajes---
-// --- simple --
 function simpleValores(){
     pResultPC.innerHTML = "Introduce 3 valores mayores<br> a 0 y deja vacia la incógnita.";
 };
-// --- compuesta ---
 function compuestaValores(){
     pResultPC.innerHTML = "Introduce 5 valores mayores<br> a 0 y deja vacia la incógnita.";
 };
@@ -760,7 +932,6 @@ function mensajeIncognita(){
 function descuentoValores(){
     mesParr.innerHTML = "Introduce porcentaje y <br>precio de lista ";
 };
-//----Funciones Logica de calculadoras--------------------------------------------------
 function pcSDI(){
     if(winA.value == "" && winB.value > 0 && winW.value > 0 && (winY.value > 0 )){
         inc_Simple();
@@ -838,100 +1009,6 @@ function pcDescuento(){
         mesParr.innerHTML = "Porcentaje y precio requeridos";
     }
 };
-// ================================= Constantes ========================================
-// =========================== Constantes Container fig ================================
-const containerFiguras = document.querySelector(".containerFiguras");
-//----containerIntro--------------------------------------------------------------------
-const containerIntro = document.createElement("section");
-//----sectionDtop-----------------------------------------------------------------------
-const sectionDtop = document.createElement("div");
-const defTitulo = document.createElement("h2");
-const defImg = document.createElement("img");
-//----sectionDmiddle--------------------------------------------------------------------
-const sectionDmiddle = document.createElement("div");
-const defPorcentajeTitulo = document.createElement("p");
-const defPorcentaje = document.createElement("p");
-const defPorcentaje2Titulo = document.createElement("p");
-const defPorcentaje2 = document.createElement("p");
-//----sectionDbottom--------------------------------------------------------------------
-const sectionDbottom = document.createElement("div");
-const defNotaTitulo = document.createElement("p");
-const defNota = document.createElement("p");
-const defGuiaTitulo = document.createElement("p");
-const defGuia = document.createElement("p");
-//----containerResponsive---------------------------------------------------------------
-const containerResponsive = document.createElement("section");
-//----simpleDirectaImg------------------------------------------------------------------
-const simpleDirectaImg = document.createElement("div");
-const titleFig = document.createElement("h2");
-const imgSD = document.createElement("img");
-//----containerAltura-------------------------------------------------------------------
-const containerPorcentaje = document.createElement("div");
-//----divPorcentaje---------------------------------------------------------------------
-const divPorcentaje = document.createElement("div");
-//----sectionPCtop ---------------------------------------------------------------------
-const sectionPCtop = document.createElement("section");
-const pTitlePC = document.createElement("p");
-const pformulaPC = document.createElement("p");
-//----sectionPCmiddle ------------------------------------------------------------------
-const sectionPCmiddleTop = document.createElement("section");
-const sectionPCmiddle = document.createElement("section");
-//----sectionHbottom -------------------------------------------------------------------
-const sectionPCbottom = document.createElement("section");
-//--- Ventana de resultado---------------
-const pResultPC = document.createElement("p");
-//---Boton resultado----------------------
-const btnResultPC = document.createElement("button");
-// boton limpiar-----------------------
-const btnClearPC = document.createElement("button");
-// --- ventana mensajes descuento ---
-const mesParr = document.createElement("p");
-// ====================================== variables ====================================
-// -------------------------------------------------
-let porcDescWindow; 
-let precListWindow;
-let descCantWindow;
-let totalPagWindow;
-//----inputs windows -------------------------------------------------------------------
-let winA = null;
-let winB = null;
-let winC = null;
-let winW = null;
-let winY = null;
-let winZ = null;
-//----Selector de SDI CDIM DESC----
-let loadVar = null;
-//----Magnitudes------------------------------------------------------------------------
-let magnitud1 = null;
-let magnitud2 = null;
-//----window mensaje resultado----------------------------------------------------------
-let resultR3C = null;
-//----inputs radios---------------------------------------------------------------------
-//----compuesta-------------------------------------------------------------------------
-let XL = null;
-let DL = null;
-let IL = null;
-let XC = null;
-let DC = null;
-let IC = null;
-let XR = null;
-let DR = null;
-let IR = null;
-//----simple----------------------------------------------------------------------------
-let SD = null;
-let SI = null;
-//----Buttons y window result-----------------------------------------------------------
-let btnResultPCReg;
-let btnClearPCReg;
-let pResultPCReg;
-let pMesParrReg;
-// ---- Variables de redireccion para funciones de areas y perimetros ------------------
-let rutaFPC;
-let rutaFClear;
-
-let classSimpCompDesc;
-let incognitaSC;
-let result;
 //----Inicio----------------------------------------------------------------------------
 renderIntroduccion();
 

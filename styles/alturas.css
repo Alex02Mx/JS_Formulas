@@ -313,7 +313,7 @@ span {
     gap: 10px;
     margin: 0 auto;
     max-width: 1020px;
-    padding: 20px 10px 81px 10px;
+    padding: 10px 10px 71px 10px;
 }
 /* === bloque 1 === */
 .titleFigCl{
@@ -362,6 +362,8 @@ span {
     margin-bottom: 8px;
 }
 .radioLabelsContCl label {
+    font-size: 18px;
+    font-weight: 500;
     color: var(--black);
     padding-right: 30px;
 }
@@ -445,7 +447,7 @@ span {
 .secMiddleCalcCl {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 .calCl {
     display: flex;
