@@ -7,23 +7,23 @@ const intro = [
         
             "<span class='formulaSpan'>1. Porcentaje de una cantidad </span>",
             "Ejemplo: Si tienes 30 manzanas de un total de 150:",
-            "<img class='imgFormula' src='../../assets2/porc_formula.png' alt=''>",
+            "<img class='imgFormula' src='../assets2/porc_formula.png' alt=''>",
 
             "<span class='formulaSpan'>2. Porcentaje de aumento o disminución</span>",
             "Ejemplo: Si un producto pasa de costar $50 a $70:",
-            "<img class='imgFormula' src='../../assets2/porc_aumento_formula.png' alt=''>",
+            "<img class='imgFormula' src='../assets2/porc_aumento_formula.png' alt=''>",
 
             "<span class='formulaSpan'>3. Conversión de un decimal a porcentaje</span>",
             "Ejemplo: Para convertir 0.75 a porcentaje:",
-            "<img class='imgFormula' src='../../assets2/decim_porc_formula.png' alt=''>",
+            "<img class='imgFormula' src='../assets2/decim_porc_formula.png' alt=''>",
 
             "<span class='formulaSpan'>4. Conversión de un porcentaje a decimal</span>",
             "Ejemplo: Para convertir 25% a decimal:",
-            "<img class='imgFormula' src='../../assets2/porc_decim_formula.png' alt=''>",
+            "<img class='imgFormula' src='../assets2/porc_decim_formula.png' alt=''>",
 
             "<span class='formulaSpan'>5. Hallar el valor que corresponde a un porcentaje de una cantidad</span>",
             "Ejemplo: Para encontrar el 15% de 200:",
-            "<img class='imgFormula' src='../../assets2/valor_corres.png' alt=''>",
+            "<img class='imgFormula' src='../assets2/valor_corres.png' alt=''>",
             "El porcentaje se usa ampliamente en diversos contextos, como en estadísticas, economía, finanzas, y para calcular descuentos en compras, tasas de interés, entre otros.",
 
         ],
@@ -31,21 +31,7 @@ const intro = [
 
 ] ;
 const introPorcentajeArray = [];
-//--------------Intro----------------
-const introPorcentaje = {
-    defImg: "../assets/porcentaje_img.svg",
-    defTitulo: "introducción",
 
-    defPorcentajeTitulo: "Qué es porcentaje ?",
-    defPorcentaje: "Es la forma de expresar un número como una fracción tiene como denominador el número 100, conocido, como tanto por ciento. ",
-    defPorcentaje2Titulo: "Regla de tres",
-    defPorcentaje2: "La regla de tres es una forma de resolver problemas de proporcionalidad entre tres valores conocidos y una incógnita. En ella se establece una relación de linealidad, proporcionalidad, entre los valores involucrados.",
-
-    defNotaTitulo: "Directa o Inversa",
-    defNota: "La relación de proporcionalidad puede ser directa o inversa. Será directa cuando a un mayor valor de A habrá un mayor valor de B, y será inversa cuando a un mayor valor de A corresponda un menor valor de B.",
-    defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el botón de <span>Más..</span> mostrará calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el botón <span>Menú</span> regresarás al menú principal."
-};
 //-----------Calculadoras------------
 const RD3SDICalculadoraObj = {
     definicion: "on",
@@ -222,6 +208,9 @@ const RD3SDescCalculadoraObj = {
     // funcionPorcentaje: "pcDescuento",
     // clearWindow: "clearSCD"
 };
+
+
+
 //--------------Ejemplos--------------
 const RD3SimpleDirectaObj = {
     definicion: "off",

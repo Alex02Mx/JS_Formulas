@@ -33,7 +33,7 @@ const trianguloEquilateroObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Tríangulo Equilátero",
-            imgFiguraDb: "../../assets2/triangulo_equilatero_altura.png",
+            imgFiguraDb: "../assets2/triangulo_equilatero_altura.png",
 
             titleDb: "Altura Triángulo Equilátero",
 
@@ -60,7 +60,7 @@ const trianguloIsoscelesObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Tríangulo Isósceles",
-            imgFiguraDb: "../../assets2/triangulo_isosceles_altura.png",
+            imgFiguraDb: "../assets2/triangulo_isosceles_altura.png",
 
             titleDb: "Altura Triángulo Isósceles",
 
@@ -91,7 +91,7 @@ const trianguloEscalenoObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Tríangulo Escaleno",
-            imgFiguraDb: "../../assets2/triangulo_escaleno_altura.png",
+            imgFiguraDb: "../assets2/triangulo_escaleno_altura.png",
 
             titleDb: "Atura Triángulo Escaleno",
 
@@ -126,7 +126,7 @@ const trapecioObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Trapecio",
-            imgFiguraDb: "../../assets2/trapecio_altura.png",
+            imgFiguraDb: "../assets2/trapecio_altura.png",
 
             titleDb: "Atura Trapecio",
 
