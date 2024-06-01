@@ -333,9 +333,6 @@ function asignacionesWindows(objeto){
             if(index1 == 0){
                 window[alturaName] = document.getElementById(claseWin);
             }
-            // else if(index1 == 1){
-            //     window[perimName] = document.getElementById(claseWin);
-            // }
         })
     })
 };
@@ -345,7 +342,6 @@ function asignacionWinResult(){
 function asignacionBtns(){
     btnClearAltura = document.querySelector(".btnClearAlturaCl");
     btnClearAltura.addEventListener("click", clearValCalc );
-
     btnResultAltura = document.querySelector(".btnResultAlturaCl");
     btnResultAltura.addEventListener("click", window[funcion1Fn]);
 };
@@ -381,11 +377,6 @@ function enableBtnResult(eventForward){
         btnResultAltura.classList.remove("btnInactive");
         btnResultAltura.classList.add("btnResultCl");
     }
-    // else if (eventForward.target.classList[1] == "btnClearPerimCl"){
-    //     btnResultPerim.disabled = false;
-    //     btnResultPerim.classList.remove("btnInactive");
-    //     btnResultPerim.classList.add("btnResultCl");
-    // };
 };
 // --- seleccion de medida de centinmetros o metros ---
 function medSel(string) {
@@ -396,13 +387,6 @@ function medSel(string) {
             return "m";
         };
     }
-    // else if(string == "perim"){
-    //     if(radPerimCmVr.checked) {
-    //         return "cm";
-    //     }else if(radPerimMtVr.checked) {
-    //         return "m";
-    //     };
-    // }
 };
 // --- borrado de valores de calculadora ---
 function clearValCalc(eventOrigin){
@@ -416,10 +400,6 @@ function clearValCalc(eventOrigin){
         arrayWin = figValues["datosDb"][0]["inputDb"];
         name = "alturaWin";
     }
-    // else if (eventOrigin.target.classList[1] == "btnClearPerimCl"){
-    //     arrayWin = figValues["datosDb"][1]["inputDb"];
-    //     name = "perimWin";
-    // };
     for(let i=0; i<arrayWin.length; i++){
         winInput = name + (i + 1) +"Vr";
         window[winInput].disabled = false;
@@ -438,13 +418,6 @@ function radEnableUncheck(eventForward){
         radAlturaCmVr.checked = false;
         radAlturaMtVr.checked = false;
     }
-    // else if (eventForward.target.classList[1] == "btnClearPerimCl"){
-    //     radPerimCmVr.disabled = false;
-    //     radPerimMtVr.disabled = false;
-    //     radPerimCmVr.checked = false;
-    //     radPerimMtVr.checked = false;
-    // };
-
 };
 // --- selecciona que radio se desactiva ---
 function radSelectDisable(string){
@@ -462,10 +435,6 @@ function disablWindowResult(eventForward){
         windowResultAltura.classList.remove("bgChange");
         windowResultAltura.innerHTML = introducirValMsgFn();
     }
-    // else if (eventForward.target.classList[1] == "btnClearPerimCl"){
-    //     windowResultPerim.classList.remove("bgChange");
-    //     windowResultPerim.innerHTML = introducirValMsgFn();
-    // };
 };
 // --- desactiva las ventanas inputs ---
 function disableWinInp(string){

@@ -264,6 +264,9 @@ body {
     padding: 10px;
     background-color: var(--white);
 }
+.imgFormula{
+    width: 300px;
+}
 .tituloIntro {
     font-family: "Roboto", sans-serif;
     font-size: 26px;
@@ -307,14 +310,208 @@ body {
 }
 /* ############# containerResponsive #############  */
 .containerResponsive {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr) );
     gap: 10px;
-    justify-content: center;
-    min-width: 340px;
-    padding: 20px 10px 30px 10px;
+    margin: 0 auto;
+    max-width: 1020px;
+    padding: 10px 10px 71px 10px;
 }
-.simpleDirectaImg,
+/* === bloque 1 === */
+.titleFigCl{
+    color: var(--white);
+    text-align: center;
+}
+.tituloImgCl{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tituloImgCl img {
+    width: 340px;
+    height: auto;
+}
+.tituloImgContCl {
+    width: 100%;
+    height: 390px;
+    background-image: var(--background_radial_2);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+/*================ */
+/* === bloque 2 === */
+.calcTitleCl {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0px;
+    color: var(--black);
+    margin: 0px;
+}
+.calSubTitleCl {
+    font-size: 20px;
+    color: var(--black);
+    font-weight: 700;
+    margin: 0px 0px;
+}
+.secTopCalcCl {
+    text-align: center;
+}
+.radioLabelsContCl {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.radioLabelsContCl label {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black);
+    padding-right: 30px;
+}
+.radioLabelsContCl label:hover,
+.radioLabelsContCl input:hover {
+    cursor: pointer;
+}
+.windLabelContCl {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.windLabelContCl label {
+    color: var(--black);
+    margin-left: 20px;
+}
+.inputStyleCl {
+    background-color: var(--white);
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    font-weight: 700;
+    margin-right: 30px;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+.resultColor {
+    background-color: var(--lightGrey);
+    color: var(--darkGrey);
+}
+.winStyleCl {
+    background-color: var(--lightGrey);
+    border: 1px solid var(--darkGrey);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 298px;
+    height: 50px;
+    color: var(--darkGrey);
+    font-weight: 700;
+    font-size: 18px;
+}
+.bgChange{
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--blue);
+}
+.btnClearCl,
+.btnResultCl {
+    cursor: pointer;
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--naranja);
+    background: var(--background_linear_1);
+    color: var(--naranja);
+    font-size: 18px;
+    font-weight: 700;
+}
+.btnClearCl{
+    margin-right: 10px;
+}
+.btnClearCl:active,
+.btnResultCl:active {
+    background-color: var(--terciario);
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+.btnInactive {
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+    background: var(--secundario);
+    color: var(--blue);
+    font-size: 18px;
+    font-weight: 700;
+}
+.secMiddleCalcCl {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.calCl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 350px;
+}
+.CalcContCl {
+    width: 100%;
+    height: 390px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
+    background-color: rgb(192, 192, 192);
+}
+/* ################# footer ################# */
+.footer {
+    position: absolute;
+    left: 0px;
+    bottom:0px;
+    width: 100%;
+    height: 60px;
+    background-color: var(--secundario);
+    z-index: -2;
+}
+/* ############## media queries ############## */
+@media screen and (min-width: 830px) {
+    .listIndex{
+        display: none;
+    }
+    .textFiguras{
+        display: none;
+    }
+    .menuDesktop{
+        width: 100%;
+        display: flex;
+        justify-content:left;
+        align-items: center;
+        gap: 20px;
+        padding-left: 50px;
+    }
+    .menuMobile{
+        display: none;
+    }
+    .textMenu{
+        display: block;
+    }
+    .socMediconsCont{
+        width: 150px;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 20px;
+        padding: 5px 0px;
+    }
+}
+
+
+
+
+
+/* .simpleDirectaImg,
 .containerImage2 {
     background-image: var(--background_radial_2);
     border-radius: 10px;
@@ -333,7 +530,7 @@ body {
     flex-direction: row;
     gap: 10px;
 } */
-.containerFormules {
+/* .containerFormules {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -559,10 +756,10 @@ body {
 }
 .resultColor {
     background-color: var(--naranja);
-}
+}  */
 /* ------ PerimeterSquare ------ */
 /* -------- AreaSquare --------- */
-.blurC {
+/* .blurC {
     position:fixed;
     top: 61px;
     left: 0px;
@@ -585,7 +782,7 @@ body {
     width: 100%;
     height: 60px;
     background-color: var(--secundario);
-}
+} */
 /* @media screen and (max-width: 1060px) {
     .containerResponsive {
         flex-direction: column;

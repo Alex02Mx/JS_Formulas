@@ -37,7 +37,7 @@ const trianguloObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Área",
+            titleFigDb: "Triángulo",
             imgFiguraDb: "../assets2/triangulo_equilatero_area.png",
 
             titleDb: "Área Triángulo",
@@ -63,7 +63,7 @@ const trianguloObj = {
         },
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Triángulo",
             imgFiguraDb: "../assets2/triangulo_equilatero_perim.png",
             
             titleDb: "Perímetro Triángulo",
@@ -98,7 +98,7 @@ const cuadradoObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
-            titleFigDb: "Área",
+            titleFigDb: "Cuadrado",
             imgFiguraDb: "../assets2/cuadrado_area.png",
 
             titleDb: "Área Cuadrado",
@@ -120,7 +120,7 @@ const cuadradoObj = {
         },
         {
             mensajeSigPlurDb: "s",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Cuadrado",
             imgFiguraDb: "../assets2/cuadrado_perim.png",
             
             titleDb: "Perímetro Cuadrado",
@@ -147,7 +147,7 @@ const rectanguloObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Área",
+            titleFigDb: "Rectángulo",
             imgFiguraDb: "../assets2/rectangulo_area.png",
 
             titleDb: "Área Rectángulo",
@@ -173,7 +173,7 @@ const rectanguloObj = {
         },
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Rectángulo",
             imgFiguraDb: "../assets2/rectangulo_perimetro.png",
             
             titleDb: "Perímetro Rectángulo",
@@ -204,7 +204,7 @@ const paralelogramoObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Área",
+            titleFigDb: "Paralelogramo",
             imgFiguraDb: "../assets2/paralelogramo_area.png",
 
             titleDb: "Área Paralelogramo",
@@ -230,7 +230,7 @@ const paralelogramoObj = {
         },
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Paralelogramo",
             imgFiguraDb: "../assets2/paralelogramo_perimetro.png",
             
             titleDb: "Perímetro Paralelogramo",
@@ -261,7 +261,7 @@ const trapecioObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Área",
+            titleFigDb: "Trapecio",
             imgFiguraDb: "../assets2/trapecio_area.png",
 
             titleDb: "Área Trapecio",
@@ -291,7 +291,7 @@ const trapecioObj = {
         },
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Trapecio",
             imgFiguraDb: "../assets2/trapecio_perim.png",
             
             titleDb: "Perímetro Trapecio",
@@ -330,7 +330,7 @@ const romboObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Área",
+            titleFigDb: "Rombo",
             imgFiguraDb: "../assets2/rombo_area.png",
 
             titleDb: "Área Rombo",
@@ -356,7 +356,7 @@ const romboObj = {
         },
         {
             mensajeSigPlurDb: "s",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Rombo",
             imgFiguraDb: "../assets2/rombo_perim.png",
             
             titleDb: "Perímetro Rombo",
@@ -383,7 +383,7 @@ const pentagonoObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Área",
+            titleFigDb: "Pentágono",
             imgFiguraDb: "../assets2/pentagono_area.png",
 
             titleDb: "Área Pentágono",
@@ -409,7 +409,7 @@ const pentagonoObj = {
         },
         {
             mensajeSigPlurDb: "s",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Pentágono",
             imgFiguraDb:  "../assets2/pentagono_perim.png",
             
             titleDb: "Perímetro Pentágono",
@@ -436,7 +436,7 @@ const hexagonoObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Área",
+            titleFigDb: "Hexágono",
             imgFiguraDb: "../assets2/hexagono_area.png",
 
             titleDb: "Área Hexágono",
@@ -462,7 +462,7 @@ const hexagonoObj = {
         },
         {
             mensajeSigPlurDb: "s",
-            titleFigDb: "Perímetro",
+            titleFigDb: "Hexágono",
             imgFiguraDb:  "../assets2/hexagono_perim.png",
             
             titleDb: "Perímetro Hexágono",
@@ -489,7 +489,7 @@ const circuloObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
-            titleFigDb: "Área",
+            titleFigDb: "Círculo",
             imgFiguraDb: "../assets2/circulo_area.png",
 
             titleDb: "Área Círculo",

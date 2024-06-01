@@ -2,76 +2,33 @@
 const intro = [
     {
         value0 : [
-            "Qué es porcentaje ?",
-            "El porcentaje es una forma de expresar una cantidad como una fracción de 100. Se utiliza comúnmente para comparar y representar proporciones. La palabra 'porcentaje' proviene del latín 'per centum', que significa 'por cada cien'. Para calcular el porcentaje de una cantidad, se utiliza la fórmula:",
-            "<span class='formulaSpan'>Porcentaje = ( Parte / Total ) x 100.</span>",
-            "Ejemplos:",
-            "Si tienes 25 manzanas de un total de 100 manzanas, el porcentaje de manzanas que tienes es:",
-            "<span class='formulaSpan'>( 25 / 100 ) x 100 = 25%.</span>",
-            "Si en una clase de 30 estudiantes, 15 son mujeres, el porcentaje de mujeres en la clase es:",
-            "<span class='formulaSpan'>( 15 / 30 ) x 100 = 50%.</span>",
-        ],
-    },
-    {
-        value1 : [
-            "Regla de tres",
-            "La regla de tres es un método matemático utilizado para resolver problemas de proporcionalidad. Consiste en encontrar un cuarto valor cuando se conocen tres valores y se sabe que las dos parejas de valores tienen la misma proporción. Existen dos tipos de regla de tres: ",
-            "<span class='tipoSpan'>Regla de tres simple</span><br>La cual puede ser <span class='tipoSpan'>directa</span> o <span class='tipoSpan'>inversa.</span>",
-            "<span class='tipoSpan'>Regla de tres compuesta.</span><br>La cual puede ser <span class='tipoSpan'>directa</span> o <span class='tipoSpan'>inversa.</span>",
-        ],
-    },
-    {
-        value2 : [
-            "Regla de tres simple directa:",
-            "La regla de tres simple directa, se usa cuando dos magnitudes son directamente proporcionales. Si una magnitud aumenta, la otra también aumenta en la misma proporción.",
-            "Por ejemplo, si sabemos que 3 manzanas cuestan 6 pesos, ¿cuánto costarán 5 manzanas?",
-            "<span class='tipoSpan'>3 Manzanas -> 6 Pesos.<br>5 Manzanas -> x Pesos.</span>",
-            "Se resuelve de la siguiente manera:",
-            "<span class='tipoSpan'>5 Manzanas x 6 Pesos / 3 Manzanas<br>x = 10 Pesos.</span>",
-        ],
-    },
-    {
-        value3 : [
-            "Regla de tres simple inversa:",
-            "La regla de tres simple inversa, se usa cuando dos magnitudes son inversamente proporcionales. Si una magnitud aumenta, la otra disminuye en la misma proporción.",
-            "Por ejemplo, si 4 trabajadores tardan 10 días en hacer un trabajo, ¿cuántos días tardarían 8 trabajadores?",
-            "<span class='tipoSpan'>4 Trabajadores -> 10 días<br>8 Trabajadores -> x días</span>",
-            "Se resuelve de la siguiente manera:",
-            "<span class='tipoSpan'>4 Trabajadores x 10 días / 8 Trabajadores<br>x = 5 días.</span>",
-        ],
-    },
-    {
-        value4 : [
-            "Regla de tres compuesta directa:",
-            "La regla de tres compuesta se utiliza cuando se tienen más de dos magnitudes relacionadas proporcionalmente. Se resuelve de forma similar a la regla de tres simple, pero tomando en cuenta todas las magnitudes implicadas.",
-            "Por ejemplo, si 5 máquinas pueden producir 200 unidades en 8 horas, ¿cuántas unidades pueden producir 3 máquinas en 12 horas?",
-            "Se estructura así:",
-            
-            "<span class='tipoSpan'>5 Maquinas -> 200 Unidades -> 8 Horas<br>3 Maquinas -> x Unidades -> 12 Horas</span>",
+            "Porcentaje :",
+            "Existen varias maneras de obtener un porcentaje dependiendo del contexto y del tipo de datos con los que estés trabajando. Algunas formas comunes de calcular porcentajes:",
+        
+            "<span class='formulaSpan'>1. Porcentaje de una cantidad </span>",
+            "Ejemplo: Si tienes 30 manzanas de un total de 150:",
+            "<img class='imgFormula' src='../../assets2/porc_formula.png' alt=''>",
 
-            "Para resolverlo:",
+            "<span class='formulaSpan'>2. Porcentaje de aumento o disminución</span>",
+            "Ejemplo: Si un producto pasa de costar $50 a $70:",
+            "<img class='imgFormula' src='../../assets2/porc_aumento_formula.png' alt=''>",
 
-            "1-. Primero calculamos la producción de una sola máquina en una hora:",
-            "Unidades por máquina por hora = 200 unidades / 5 máquinas x 8 horas = 5 unidades por máquina",
-            
-            "2-. Luego, calculamos cuántas unidades producen 3 máquinas en 12 horas:",
-            "x = 3 máquinas x 12 horas x 5 unidades por máquina por hora = 180 unidades",
-            
-            "Estas reglas son herramientas útiles para resolver problemas de proporcionalidad de manera rápida y sencilla.",
-        ],
-    },
-    {
-        value5 : [
-            "Regla de tres compuesta inversa:",
-     
-        ],
-    },
-    {
-        value6 : [
-            "Conclución :",
+            "<span class='formulaSpan'>3. Conversión de un decimal a porcentaje</span>",
+            "Ejemplo: Para convertir 0.75 a porcentaje:",
+            "<img class='imgFormula' src='../../assets2/decim_porc_formula.png' alt=''>",
+
+            "<span class='formulaSpan'>4. Conversión de un porcentaje a decimal</span>",
+            "Ejemplo: Para convertir 25% a decimal:",
+            "<img class='imgFormula' src='../../assets2/porc_decim_formula.png' alt=''>",
+
+            "<span class='formulaSpan'>5. Hallar el valor que corresponde a un porcentaje de una cantidad</span>",
+            "Ejemplo: Para encontrar el 15% de 200:",
+            "<img class='imgFormula' src='../../assets2/valor_corres.png' alt=''>",
             "El porcentaje se usa ampliamente en diversos contextos, como en estadísticas, economía, finanzas, y para calcular descuentos en compras, tasas de interés, entre otros.",
+
         ],
     },
+
 ] ;
 const introPorcentajeArray = [];
 //--------------Intro----------------
@@ -208,33 +165,62 @@ const RD3CDIMCalculadoraObj = {
     clearWindow: "clearSCD"
 };
 const RD3SDescCalculadoraObj = {
-    definicion: "on",
-    radios: "Descuento",
-    id: "calcular_descuento",
-    titleFig: "Instrucciones",
-    imgFig: "../assets/calculadora_descuento.png",
-    secMid: "sectionPCmiddleDesc",
-    winPos: "winPosDesc",
-    // mesCont : "mesDivDisc",
-    mesParr: "messageDiscount",
+    idDb: "calcular_descuento",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Descuento",
+            imgFiguraDb: "../assets/calculadora_descuento.png",
 
-    titlePorcentaje: "Porcentaje y Descuento",
-    formulaPorcentaje: "Calculadora",
-    inputPorcentaje: [
-        {
-            inputLabel: "Precio ",
-            inputId: "winPrecio"
+            titleDb: "Descuento",
+
+            grupoDb: "grupoporcentaje",
+            inputRadCmDb: "radPorcentajeCmId",
+            inputRadMtDb: "radPorcentajeMtId",
+
+            inputDb: [
+                {
+                    inputLabel: "Precio ",
+                    inputId: "winPrecio"
+                },
+                {
+                    inputLabel: "Descuento",
+                    inputId: "winDescuento"
+                },
+            ],
+            winResMensDb: "winResMensPorcentajeCl",
+            btnClearDb: "btnClearPorcentajeCl",
+            btnResultDb: "btnResultPorcentajeCl",
+            logicaDb: "pcDescuento",
         },
-        {
-            inputLabel: "Descuento",
-            inputId: "winDescuento"
-        }
-    ],
-    resultClPC: "resultPCDESC",
-    btnClPC: "btnResultPCDESC",
-    btn2ClPC: "btnClearPCDESC",
-    funcionPorcentaje: "pcDescuento",
-    clearWindow: "clearSCD"
+    ]
+
+    // definicion: "on",
+    // radios: "Descuento",
+    // id: "calcular_descuento",
+    // titleFig: "Instrucciones",
+    // imgFig: "../assets/calculadora_descuento.png",
+    // secMid: "sectionPCmiddleDesc",
+    // winPos: "winPosDesc",
+    // mesParr: "messageDiscount",
+
+    // titlePorcentaje: "Porcentaje y Descuento",
+    // formulaPorcentaje: "Calculadora",
+    // inputPorcentaje: [
+    //     {
+    //         inputLabel: "Precio ",
+    //         inputId: "winPrecio"
+    //     },
+    //     {
+    //         inputLabel: "Descuento",
+    //         inputId: "winDescuento"
+    //     }
+    // ],
+    // resultClPC: "resultPCDESC",
+    // btnClPC: "btnResultPCDESC",
+    // btn2ClPC: "btnClearPCDESC",
+    // funcionPorcentaje: "pcDescuento",
+    // clearWindow: "clearSCD"
 };
 //--------------Ejemplos--------------
 const RD3SimpleDirectaObj = {
@@ -286,14 +272,14 @@ const RD3DescuentoObj = {
     titlePorcentaje: "Procedimiento"
 };
 //-----------Agregar al array---------
-introPorcentajeArray.push(introPorcentaje);
-introPorcentajeArray.push(RD3SDICalculadoraObj);
-introPorcentajeArray.push(RD3CDIMCalculadoraObj);
+// introPorcentajeArray.push(RD3SDICalculadoraObj);
+// introPorcentajeArray.push(RD3CDIMCalculadoraObj);
 introPorcentajeArray.push(RD3SDescCalculadoraObj);
-introPorcentajeArray.push(RD3SimpleDirectaObj);
-introPorcentajeArray.push(RD3SimpleInversaObj);
-introPorcentajeArray.push(RD3CompuestaDirectaObj);
-introPorcentajeArray.push(RD3CompuestaInversaObj);
-introPorcentajeArray.push(RD3CompuestaMixtaObj);
-introPorcentajeArray.push(RD3DescuentoObj);
+
+// introPorcentajeArray.push(RD3SimpleDirectaObj);
+// introPorcentajeArray.push(RD3SimpleInversaObj);
+// introPorcentajeArray.push(RD3CompuestaDirectaObj);
+// introPorcentajeArray.push(RD3CompuestaInversaObj);
+// introPorcentajeArray.push(RD3CompuestaMixtaObj);
+// introPorcentajeArray.push(RD3DescuentoObj);
 
