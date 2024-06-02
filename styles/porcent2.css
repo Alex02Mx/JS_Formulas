@@ -168,10 +168,12 @@ body {
     position: relative;
 }
 .calcDesktop{
-    width: 178px;
+    width: 300px;
+    /* width: 178px; */
     position: absolute;
     top: -400px;
-    left: -30px;
+    /* left: -30px; */
+    left: -90px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
     padding: 20px 0px;
@@ -186,10 +188,10 @@ body {
     position: relative;
 }
 .contDesktop{
-    width: 178px;
+    width: 300px;
     position: absolute;
     top: -260px;
-    left: -30px;
+    left: -90px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
     padding: 20px 0px;
@@ -499,11 +501,11 @@ body {
         display: block;
     }
     .socMediconsCont{
-        width: 150px;
-        flex-wrap: wrap;
+        width: 300px;
         justify-content: center;
         column-gap: 20px;
-        padding: 5px 0px;
+        gap: 5px;
+        padding: 0px;
     }
 }
 
