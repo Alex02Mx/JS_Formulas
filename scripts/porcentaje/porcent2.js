@@ -27,8 +27,20 @@ let indPorcentajeVr;
 let radPorcentajeCmVr;
 let radPorcentajeMtVr;
 let windowResultPorcentaje;
+let windowResultCantidad;
+
 let btnClearPorcentaje;
 let btnResultPorcentaje;
+
+let btnClearCantidad;
+let btnResultCantidad;
+
+let btnClearDecimPorcen;
+let btnResultDecimPorcen;
+
+let btnClearPorcenDecim;
+let btnResultPorcenDecim;
+
 let winEmail;
 let winNombre;
 let winDescripcion;
@@ -37,7 +49,11 @@ var funcion1Fn;
 var funcion2Fn;
 var porcentajeWin1Vr;
 var porcentajeWin2Vr;
-var porcentajeWin3Vr;
+var cantidadWin1Vr;
+var cantidadWin2Vr;
+var cantidadWin3Vr;
+var cantidadWin4Vr;
+
 var btnSubmit;
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
@@ -136,8 +152,8 @@ function menuPrinc(){
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
-    // location.href="../../index.html";
-    location.href="/JS_Formulas/index.html";
+    location.href="../../index.html";
+    // location.href="/JS_Formulas/index.html";
 }
 // --- Selección ---
 function selecFnc(event){
@@ -200,30 +216,43 @@ function renderFigura(objeto){
     titlesIndexText.innerText = "Porcentajes";
     // --- id del objeto en proceso ---
     idFigVr = objeto["idDb"];
+
     // --- ciclo de repeticion del objeto ---
+
+
     objeto["datosDb"].forEach((obj, index) => {
         // --- variable del singular o plural y variable de area o perimetro --- 
         mensajeSigPlurVr = obj["mensajeSigPlurDb"];
+
         indPorcentajeVr = obj["titleFigDb"];
+
         // --- asigna valor de funcion para la logica del objeto en proceso ---
         let funcionFgra = "funcion" + (index + 1) + "Fn";
         window[funcionFgra] = obj["logicaDb"];
         // --- bloque 1 ---
         // --- titulo procedimiento ---
+
         const titleFigCn = document.createElement("h2");
         titleFigCn.classList.add("titleFigCl");
         titleFigCn.innerHTML = obj["titleFigDb"];
+
         // --- imagen procedimiento ---
+
         const imgFiguraCn = document.createElement("img");
         imgFiguraCn.setAttribute("src", obj["imgFiguraDb"]);
+
         // --- contenedor del titulo y la imagen ---
+
         const tituloImgCn = document.createElement("div");
         tituloImgCn.classList.add("tituloImgCl");
         tituloImgCn.append(titleFigCn, imgFiguraCn);
+
         // --- contenedor BG del cont/titulo/imagen ---
+
         const tituloImgContCn = document.createElement("div");
         tituloImgContCn.classList.add("tituloImgContCl");
         tituloImgContCn.append(tituloImgCn);
+
         // --- bloque 2 ---
         // --- titulo Calculadora ---
         const calcTitleCn = document.createElement("p");
@@ -238,29 +267,29 @@ function renderFigura(objeto){
         secTopCalcCn.classList.add("secTopCalcCl");
         secTopCalcCn.append(calcTitleCn, calSubTitleCn);
         // --- Radios Areas y sus labels CM---
-        const inputRadCmCn = document.createElement("input");
-        inputRadCmCn.setAttribute("type", "radio");
-        inputRadCmCn.setAttribute("name", obj["grupoDb"]);
-        inputRadCmCn.setAttribute("id", obj["inputRadCmDb"]);
-        const inputLabelCmCn = document.createElement("label");
-        inputLabelCmCn.setAttribute("for", obj["inputRadCmDb"]);
-        inputLabelCmCn.innerHTML = "centímetros";
+        // const inputRadCmCn = document.createElement("input");
+        // inputRadCmCn.setAttribute("type", "radio");
+        // inputRadCmCn.setAttribute("name", obj["grupoDb"]);
+        // inputRadCmCn.setAttribute("id", obj["inputRadCmDb"]);
+        // const inputLabelCmCn = document.createElement("label");
+        // inputLabelCmCn.setAttribute("for", obj["inputRadCmDb"]);
+        // inputLabelCmCn.innerHTML = "centímetros";
         // --- Radios Areas y sus labels MT---
-        const inputRadioMtCn = document.createElement("input");
-        inputRadioMtCn.setAttribute("type", "radio");
-        inputRadioMtCn.setAttribute("name", obj["grupoDb"]);
-        inputRadioMtCn.setAttribute("id", obj["inputRadMtDb"]);
-        const inputLabelMtCn = document.createElement("label");
-        inputLabelMtCn.setAttribute("for", obj["inputRadMtDb"]);
-        inputLabelMtCn.innerHTML = "metros";
+        // const inputRadioMtCn = document.createElement("input");
+        // inputRadioMtCn.setAttribute("type", "radio");
+        // inputRadioMtCn.setAttribute("name", obj["grupoDb"]);
+        // inputRadioMtCn.setAttribute("id", obj["inputRadMtDb"]);
+        // const inputLabelMtCn = document.createElement("label");
+        // inputLabelMtCn.setAttribute("for", obj["inputRadMtDb"]);
+        // inputLabelMtCn.innerHTML = "metros";
         // --- Contenedor de radios y labels ---
-        const radioLabelsContCn = document.createElement("div");
-        radioLabelsContCn.classList.add("radioLabelsContCl");
-        radioLabelsContCn.append(inputRadCmCn, inputLabelCmCn, inputRadioMtCn, inputLabelMtCn);
+        // const radioLabelsContCn = document.createElement("div");
+        // radioLabelsContCn.classList.add("radioLabelsContCl");
+        // radioLabelsContCn.append(inputRadCmCn, inputLabelCmCn, inputRadioMtCn, inputLabelMtCn);
 
         const secMiddleCalcCn = document.createElement("section");
         secMiddleCalcCn.classList.add("secMiddleCalcCl");
-        secMiddleCalcCn.appendChild(radioLabelsContCn);
+        // secMiddleCalcCn.appendChild(radioLabelsContCn);
         // --- windows Areas ---
         obj["inputDb"].forEach(winInput => {
             const labelWinInpCn = document.createElement("label");
@@ -306,24 +335,14 @@ function renderFigura(objeto){
 
         containerResponsive.classList.add("containerResponsive");
         containerResponsive.append(tituloImgContCn, CalcContCn);
+        // containerResponsive.append(CalcContCn);
         containerFiguras.append(containerResponsive);
     });
-    asignacionesRadios();
+    // asignacionesRadios();
     asignacionesWindows(objeto);
     asignacionWinResult();
     asignacionBtns();
     document.documentElement.scrollTop = 0;
-
-
-
-
-    // borrar();
-    // containerFiguras.appendChild(containerResponsive);
-    // containerResponsive.classList.add("containerResponsive");
-    // topContainer(objeto);
-    // bottomContainer(objeto);   
-    // asignacionesWindowsRadios()    
-    // document.documentElement.scrollTop = 0;
 };
 // --- Limpieza de div ---
 function cleanCont(){
@@ -339,22 +358,50 @@ function asignacionesRadios(){
 function asignacionesWindows(objeto){
     objeto["datosDb"].forEach((obj1, index1) => {
         obj1["inputDb"].forEach((obj2,index2) =>{
-            let porcentajeName = "porcentajeWin" + (index2 + 1) + "Vr";
-            let claseWin = obj2["inputIdDb"];
+
+            let opcionName;
+            let claseWin;
+
             if(index1 == 0){
-                window[porcentajeName] = document.getElementById(claseWin);
+                opcionName = "porcentajeWin" + (index2 + 1) + "Vr";
+                claseWin = obj2["inputIdDb"];
+                window[opcionName] = document.getElementById(claseWin);
+            }
+            else if(index1 == 1){
+                opcionName = "cantidadWin" + (index2 + 3) + "Vr";
+                claseWin = obj2["inputIdDb"];
+                window[opcionName] = document.getElementById(claseWin);
             }
         })
     })
 };
 function asignacionWinResult(){
     windowResultPorcentaje = document.querySelector(".winResMensPorcentajeCl");
+    windowResultCantidad = document.querySelector(".winResMensCantidadCl");
 };
 function asignacionBtns(){
-    btnClearPorcentaje = document.querySelector(".btnClearPorcentajeCl");
-    btnClearPorcentaje.addEventListener("click", clearValCalc );
-    btnResultPorcentaje = document.querySelector(".btnResultPorcentajeCl");
-    btnResultPorcentaje.addEventListener("click", window[funcion1Fn]);
+   if(idFigVr == "porcentaje_de_una_cantidad_cantidad_de_un_porcentaje"){
+        btnClearPorcentaje = document.querySelector(".btnClearPorcentajeCl");
+        btnClearPorcentaje.addEventListener("click", clearValCalc );
+        btnResultPorcentaje = document.querySelector(".btnResultPorcentajeCl");
+        btnResultPorcentaje.addEventListener("click", window[funcion1Fn]);
+
+        btnClearCantidad = document.querySelector(".btnClearCantidadCl");
+        btnClearCantidad.addEventListener("click", clearValCalc );
+        btnResultCantidad = document.querySelector(".btnResultCantidadCl");
+        btnResultCantidad.addEventListener("click", window[funcion2Fn]);
+   }
+   else if(idFigVr == "decimal_a_porcentaje_porcentaje_a_decimal"){
+        btnClearDecimPorcen = document.querySelector(".btnClearDecimPorcenCl");
+        btnClearDecimPorcen.addEventListener("click", clearValCalc );
+        btnResultDecimPorcen = document.querySelector(".btnResultDecimPorcenCl");
+        btnResultDecimPorcen.addEventListener("click", window[funcion1Fn]);
+
+        btnClearPorcenDecim = document.querySelector(".btnClearPorcenDecimCl");
+        btnClearPorcenDecim.addEventListener("click", clearValCalc );
+        btnResultPorcenDecim = document.querySelector(".btnResultPorcenDecimCl");
+        btnResultPorcenDecim.addEventListener("click", window[funcion2Fn]);
+   }
 };
 // --- funciones de mensajes ---
 function introducirValMsgFn(){
@@ -381,6 +428,11 @@ function disableBtnResult(string){
         btnResultPorcentaje.classList.remove("btnResultCl");
         btnResultPorcentaje.classList.add("btnInactive");
     }
+    if(string == "cantidad"){
+        btnResultCantidad.disabled = true;
+        btnResultCantidad.classList.remove("btnResultCl");
+        btnResultCantidad.classList.add("btnInactive");
+    }
 };
 function enableBtnResult(eventForward){ 
     if(eventForward.target.classList[1] == "btnClearPorcentajeCl"){
@@ -388,19 +440,24 @@ function enableBtnResult(eventForward){
         btnResultPorcentaje.classList.remove("btnInactive");
         btnResultPorcentaje.classList.add("btnResultCl");
     }
+    if(eventForward.target.classList[1] == "btnClearCantidadCl"){
+        btnResultCantidad.disabled = false;
+        btnResultCantidad.classList.remove("btnInactive");
+        btnResultCantidad.classList.add("btnResultCl");
+    }
 };
 // --- seleccion de medida de centinmetros o metros ---
 function medSel(string) {
     if(string == "porcentaje"){
-        if(radPorcentajeCmVr.checked) {
-            return "%";
-        }
+        return "%";
+    }
+    else if(string == "cantidad"){
+        return "";
     }
 };
 // --- borrado de valores de calculadora ---
 function clearValCalc(eventOrigin){
-    radEnableUncheck(eventOrigin);
-
+    // radEnableUncheck(eventOrigin);
     let figValues = PorcentajeArray.find((obj) => obj["idDb"] == idFigVr);
     let arrayWin;
     let name;
@@ -408,14 +465,23 @@ function clearValCalc(eventOrigin){
     if(eventOrigin.target.classList[1] == "btnClearPorcentajeCl"){
         arrayWin = figValues["datosDb"][0]["inputDb"];
         name = "porcentajeWin";
+        for(let i=0; i<arrayWin.length; i++){
+            winInput = name + (i + 1) +"Vr";
+            window[winInput].disabled = false;
+            window[winInput].value = "";
+            window[winInput].classList.remove("resultColor");
+        }
     }
-    for(let i=0; i<arrayWin.length; i++){
-        winInput = name + (i + 1) +"Vr";
-        window[winInput].disabled = false;
-        window[winInput].value = "";
-        window[winInput].classList.remove("resultColor");
+    else if(eventOrigin.target.classList[1] == "btnClearCantidadCl"){
+        arrayWin = figValues["datosDb"][1]["inputDb"];
+        name = "cantidadWin";
+        for(let i=0; i<arrayWin.length; i++){
+            winInput = name + (i + 3) +"Vr";
+            window[winInput].disabled = false;
+            window[winInput].value = "";
+            window[winInput].classList.remove("resultColor");
+        }
     }
-
     disablWindowResult(eventOrigin);
     enableBtnResult(eventOrigin);
 };
@@ -444,6 +510,10 @@ function disablWindowResult(eventForward){
         windowResultPorcentaje.classList.remove("bgChange");
         windowResultPorcentaje.innerHTML = introducirValMsgFn();
     }
+    else if(eventForward.target.classList[1] == "btnClearCantidadCl"){
+        windowResultCantidad.classList.remove("bgChange");
+        windowResultCantidad.innerHTML = introducirValMsgFn();
+    }
 };
 // --- desactiva las ventanas inputs ---
 function disableWinInp(string){
@@ -454,14 +524,23 @@ function disableWinInp(string){
     if(string == "porcentaje"){
         arrayWin = currentObj["datosDb"][0]["inputDb"];
         name = "porcentajeWin";
+        for(let i=0; i<arrayWin.length; i++){
+            winInput = name + (i + 1) +"Vr";
+            window[winInput].disabled = true;
+        }
     }
-    for(let i=0; i<arrayWin.length; i++){
-        winInput = name + (i + 1) +"Vr";
-        window[winInput].disabled = true;
+    else if(string == "cantidad"){
+        arrayWin = currentObj["datosDb"][0]["inputDb"];
+        name = "cantidadWin";
+        for(let i=0; i<arrayWin.length; i++){
+            winInput = name + (i + 3) +"Vr";
+            window[winInput].disabled = true;
+        }
     }
+  
 };
 function grupFuncLog(string){
-    radSelectDisable(string);
+    // radSelectDisable(string);
     disableWinInp(string);
     disableBtnResult(string);
 }
@@ -470,10 +549,15 @@ function printResult(string, result){
         windowResultPorcentaje.classList.add("bgChange");
         windowResultPorcentaje.innerHTML = `Porcentaje = ${formato(result.toFixed(2))} ${medSel(string)}`;
     }
+    else if(string == "cantidad"){
+        windowResultCantidad.classList.add("bgChange");
+        windowResultCantidad.innerHTML = `Cantidad = ${formato(result.toFixed(2))} ${medSel(string)}`;
+    }
 };
-function PorcentajeFn(){
+
+
+function porcentajeFn(){
     if(porcentajeWin1Vr.value > 0 && porcentajeWin2Vr.value > 0){
-        if(radPorcentajeCmVr.checked || radPorcentajeMtVr.checked){
             const precList = Number(porcentajeWin1Vr.value);
             const descuento = Number(porcentajeWin2Vr.value);
             const result = (descuento/precList) * 100;
@@ -481,11 +565,35 @@ function PorcentajeFn(){
             porcentajeWin1Vr.classList.add("resultColor");
             porcentajeWin2Vr.classList.add("resultColor");
             printResult("porcentaje", result);
-        }else{
-            windowResultPorcentaje.innerHTML = elegirCmMtMsgFn();
-        };
+
     }else{
         windowResultPorcentaje.innerHTML = valorMayorMsgFc();
+    }
+};
+function cantidadFn(){
+    if(cantidadWin3Vr.value > 0 && cantidadWin4Vr.value > 0){
+            const precList = Number(cantidadWin3Vr.value);
+            const descuento = Number(cantidadWin4Vr.value);
+            const result = (descuento/100) * precList;
+            grupFuncLog("cantidad");
+            cantidadWin3Vr.classList.add("resultColor");
+            cantidadWin4Vr.classList.add("resultColor");
+            printResult("cantidad", result);
+
+    }else{
+        windowResultCantidad.innerHTML = valorMayorMsgFc();
+    }
+};
+function decimPorcFn(){
+    if(cantidadWin1Vr.value > 0){
+            const decimal = Number(cantidadWin1Vr.value);
+            const result = decimal * 100;
+            grupFuncLog("cantidad");
+            cantidadWin1Vr.classList.add("resultColor");
+            printResult("cantidad", result);
+
+    }else{
+        windowResultCantidad.innerHTML = valorMayorMsgFc();
     }
 };
 //----Inicio----------------------------------------------------------------------------

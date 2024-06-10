@@ -266,6 +266,14 @@ body {
     padding: 10px;
     background-color: var(--white);
 }
+.contImgForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightGrey);
+    border-radius: 10px;
+    border: 1px solid var(--black);
+}
 .imgFormula{
     width: 300px;
 }
@@ -354,7 +362,7 @@ body {
     font-size: 20px;
     color: var(--black);
     font-weight: 700;
-    margin: 0px 0px;
+    margin: 20px 0px;
 }
 .secTopCalcCl {
     text-align: center;
@@ -378,20 +386,22 @@ body {
 .windLabelContCl {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 .windLabelContCl label {
     color: var(--black);
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 .inputStyleCl {
     background-color: var(--white);
     text-align: center;
-    width: 60px;
+    width: 100px;
+    /* width: 60px; */
     height: 25px;
     font-weight: 700;
-    margin-right: 30px;
+    /* margin-right: 30px; */
+    margin-left: 30px;
     border: 1px solid rgba(0,0,0,0.3);
 }
 .resultColor {
@@ -451,7 +461,10 @@ body {
 .secMiddleCalcCl {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    /* gap: 5px; */
+    gap: 15px;
+
 }
 .calCl {
     display: flex;

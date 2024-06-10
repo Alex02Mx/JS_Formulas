@@ -276,8 +276,6 @@ function asignacionesWindowsRadios(){
         winZ.classList.remove("resultColor");
     };
 };
-
-
 function borrar(){
     loadVar = "";
     incognitaSC = "";
