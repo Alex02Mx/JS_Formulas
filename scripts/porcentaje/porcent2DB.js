@@ -53,9 +53,9 @@ const porcCantData = {
                     inputIdDb: "winCanParc"
                 },
             ],
-            winResMensDb: "winResMensPorcentajeCl",
-            btnClearDb: "btnClearPorcentajeCl",
-            btnResultDb: "btnResultPorcentajeCl",
+            winResMensDb: "winResMensCalcTopCl",
+            btnClearDb: "btnClearCalcTopCl",
+            btnResultDb: "btnResultCalcTopCl",
             logicaDb: "porcentajeFn",
         },
         {
@@ -75,15 +75,60 @@ const porcCantData = {
                     inputIdDb: "winPorc"
                 },
             ],
-            winResMensDb: "winResMensCantidadCl",
-            btnClearDb: "btnClearCantidadCl",
-            btnResultDb: "btnResultCantidadCl",
+            winResMensDb: "winResMensCalcBottomCl",
+            btnClearDb: "btnClearCalcBottomCl",
+            btnResultDb: "btnResultCalcBottomCl",
             logicaDb: "cantidadFn",
         },
     ]
 
 };
 const decPorcData = {
+    idDb: "decimal_a_porcentaje_porcentaje_a_decimal",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "s",
+            titleFigDb: "Decimal a Porcentaje",
+            imgFiguraDb: "../../assets2/dec_porc_img.png",
+
+            titleDb: "Decimal a Porcentaje",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Decimal",
+                    inputIdDb: "winCantTotP"
+                },
+            ],
+            winResMensDb: "winResMensCalcTopCl",
+            btnClearDb: "btnClearCalcTopCl",
+            btnResultDb: "btnResultCalcTopCl",
+            logicaDb: "decimPorcFn",
+        },
+        {
+            mensajeSigPlurDb: "s",
+            titleFigDb: "Porcentaje a Decimal",
+            imgFiguraDb: "../../assets2/porc_dec_img.png",
+
+            titleDb: "Porcentaje a Decimal",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Porcentaje",
+                    inputIdDb: "winCantTotC"
+                },
+            ],
+            winResMensDb: "winResMensCalcBottomCl",
+            btnClearDb: "btnClearCalcBottomCl",
+            btnResultDb: "btnResultCalcBottomCl",
+            logicaDb: "porcDecimFn",
+        },
+    ]
+};
+
+
+
+
+const aumDismData = {
     idDb: "decimal_a_porcentaje_porcentaje_a_decimal",
     datosDb : [
         {
@@ -133,12 +178,9 @@ const decPorcData = {
     ]
 };
 
-
-
-
 PorcentajeArray.push(porcCantData);
 PorcentajeArray.push(decPorcData);
-
+// PorcentajeArray.push(aumDismData);
 
 
 

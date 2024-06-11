@@ -24,22 +24,23 @@ const socMedMainCont =  document.querySelector(".socMedMainCont");
 let idFigVr;
 let mensajeSigPlurVr;
 let indPorcentajeVr;
+
 let radPorcentajeCmVr;
 let radPorcentajeMtVr;
-let windowResultPorcentaje;
-let windowResultCantidad;
 
-let btnClearPorcentaje;
-let btnResultPorcentaje;
+let windowResultCalcTop;
+let windowResultCalcBottom;
 
-let btnClearCantidad;
-let btnResultCantidad;
+let btnClearCalcTop;
+let btnResultCalcTop;
+let btnClearCalcBottom;
+let btnResultCalcBottom;
 
-let btnClearDecimPorcen;
-let btnResultDecimPorcen;
+// let btnClearDecimPorcen;
+// let btnResultDecimPorcen;
 
-let btnClearPorcenDecim;
-let btnResultPorcenDecim;
+// let btnClearPorcenDecim;
+// let btnResultPorcenDecim;
 
 let winEmail;
 let winNombre;
@@ -47,12 +48,14 @@ let winDescripcion;
 
 var funcion1Fn;
 var funcion2Fn;
-var porcentajeWin1Vr;
-var porcentajeWin2Vr;
-var cantidadWin1Vr;
-var cantidadWin2Vr;
-var cantidadWin3Vr;
-var cantidadWin4Vr;
+
+var calcWin1Vr;
+var calcWin2Vr;
+var calcWin3Vr;
+var calcWin4Vr;
+
+// var cantidadWin3Vr;
+// var cantidadWin4Vr;
 
 var btnSubmit;
 //===============================  asignacion de valores ==================================
@@ -152,8 +155,8 @@ function menuPrinc(){
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
-    location.href="../../index.html";
-    // location.href="/JS_Formulas/index.html";
+    // location.href="../../index.html";
+    location.href="/JS_Formulas/index.html";
 }
 // --- Selección ---
 function selecFnc(event){
@@ -363,12 +366,12 @@ function asignacionesWindows(objeto){
             let claseWin;
 
             if(index1 == 0){
-                opcionName = "porcentajeWin" + (index2 + 1) + "Vr";
+                opcionName = "calcWin" + (index2 + 1) + "Vr";
                 claseWin = obj2["inputIdDb"];
                 window[opcionName] = document.getElementById(claseWin);
             }
             else if(index1 == 1){
-                opcionName = "cantidadWin" + (index2 + 3) + "Vr";
+                opcionName = "calcWin" + (index2 + 3) + "Vr";
                 claseWin = obj2["inputIdDb"];
                 window[opcionName] = document.getElementById(claseWin);
             }
@@ -376,31 +379,20 @@ function asignacionesWindows(objeto){
     })
 };
 function asignacionWinResult(){
-    windowResultPorcentaje = document.querySelector(".winResMensPorcentajeCl");
-    windowResultCantidad = document.querySelector(".winResMensCantidadCl");
+    windowResultCalcTop = document.querySelector(".winResMensCalcTopCl");
+    windowResultCalcBottom = document.querySelector(".winResMensCalcBottomCl");
 };
 function asignacionBtns(){
-   if(idFigVr == "porcentaje_de_una_cantidad_cantidad_de_un_porcentaje"){
-        btnClearPorcentaje = document.querySelector(".btnClearPorcentajeCl");
-        btnClearPorcentaje.addEventListener("click", clearValCalc );
-        btnResultPorcentaje = document.querySelector(".btnResultPorcentajeCl");
-        btnResultPorcentaje.addEventListener("click", window[funcion1Fn]);
+   if(idFigVr == "porcentaje_de_una_cantidad_cantidad_de_un_porcentaje" || idFigVr == "decimal_a_porcentaje_porcentaje_a_decimal"){
+        btnClearCalcTop = document.querySelector(".btnClearCalcTopCl");
+        btnClearCalcTop.addEventListener("click", clearValCalc );
+        btnResultCalcTop = document.querySelector(".btnResultCalcTopCl");
+        btnResultCalcTop.addEventListener("click", window[funcion1Fn]);
 
-        btnClearCantidad = document.querySelector(".btnClearCantidadCl");
-        btnClearCantidad.addEventListener("click", clearValCalc );
-        btnResultCantidad = document.querySelector(".btnResultCantidadCl");
-        btnResultCantidad.addEventListener("click", window[funcion2Fn]);
-   }
-   else if(idFigVr == "decimal_a_porcentaje_porcentaje_a_decimal"){
-        btnClearDecimPorcen = document.querySelector(".btnClearDecimPorcenCl");
-        btnClearDecimPorcen.addEventListener("click", clearValCalc );
-        btnResultDecimPorcen = document.querySelector(".btnResultDecimPorcenCl");
-        btnResultDecimPorcen.addEventListener("click", window[funcion1Fn]);
-
-        btnClearPorcenDecim = document.querySelector(".btnClearPorcenDecimCl");
-        btnClearPorcenDecim.addEventListener("click", clearValCalc );
-        btnResultPorcenDecim = document.querySelector(".btnResultPorcenDecimCl");
-        btnResultPorcenDecim.addEventListener("click", window[funcion2Fn]);
+        btnClearCalcBottom = document.querySelector(".btnClearCalcBottomCl");
+        btnClearCalcBottom.addEventListener("click", clearValCalc );
+        btnResultCalcBottom = document.querySelector(".btnResultCalcBottomCl");
+        btnResultCalcBottom.addEventListener("click", window[funcion2Fn]);
    }
 };
 // --- funciones de mensajes ---
@@ -423,35 +415,35 @@ function valorMayorMsgFc(){
 };
 // --- habilitar y deshabilitar boton de resultado ---
 function disableBtnResult(string){
-    if(string == "porcentaje"){
-        btnResultPorcentaje.disabled = true;
-        btnResultPorcentaje.classList.remove("btnResultCl");
-        btnResultPorcentaje.classList.add("btnInactive");
+    if(string == "porcentaje" || string == "decimalP"){
+        btnResultCalcTop.disabled = true;
+        btnResultCalcTop.classList.remove("btnResultCl");
+        btnResultCalcTop.classList.add("btnInactive");
     }
-    if(string == "cantidad"){
-        btnResultCantidad.disabled = true;
-        btnResultCantidad.classList.remove("btnResultCl");
-        btnResultCantidad.classList.add("btnInactive");
+    if(string == "cantidad" || string == "porcentajeD"){
+        btnResultCalcBottom.disabled = true;
+        btnResultCalcBottom.classList.remove("btnResultCl");
+        btnResultCalcBottom.classList.add("btnInactive");
     }
 };
 function enableBtnResult(eventForward){ 
-    if(eventForward.target.classList[1] == "btnClearPorcentajeCl"){
-        btnResultPorcentaje.disabled = false;
-        btnResultPorcentaje.classList.remove("btnInactive");
-        btnResultPorcentaje.classList.add("btnResultCl");
+    if(eventForward.target.classList[1] == "btnClearCalcTopCl"){
+        btnResultCalcTop.disabled = false;
+        btnResultCalcTop.classList.remove("btnInactive");
+        btnResultCalcTop.classList.add("btnResultCl");
     }
-    if(eventForward.target.classList[1] == "btnClearCantidadCl"){
-        btnResultCantidad.disabled = false;
-        btnResultCantidad.classList.remove("btnInactive");
-        btnResultCantidad.classList.add("btnResultCl");
+    if(eventForward.target.classList[1] == "btnClearCalcBottomCl"){
+        btnResultCalcBottom.disabled = false;
+        btnResultCalcBottom.classList.remove("btnInactive");
+        btnResultCalcBottom.classList.add("btnResultCl");
     }
 };
 // --- seleccion de medida de centinmetros o metros ---
 function medSel(string) {
-    if(string == "porcentaje"){
+    if(string == "porcentaje" || string == "decimalP"){
         return "%";
     }
-    else if(string == "cantidad"){
+    else if(string == "cantidad" || string == "porcentajeD"){
         return "";
     }
 };
@@ -462,9 +454,9 @@ function clearValCalc(eventOrigin){
     let arrayWin;
     let name;
     var winInput;
-    if(eventOrigin.target.classList[1] == "btnClearPorcentajeCl"){
+    if(eventOrigin.target.classList[1] == "btnClearCalcTopCl"){
         arrayWin = figValues["datosDb"][0]["inputDb"];
-        name = "porcentajeWin";
+        name = "calcWin";
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 1) +"Vr";
             window[winInput].disabled = false;
@@ -472,9 +464,9 @@ function clearValCalc(eventOrigin){
             window[winInput].classList.remove("resultColor");
         }
     }
-    else if(eventOrigin.target.classList[1] == "btnClearCantidadCl"){
+    else if(eventOrigin.target.classList[1] == "btnClearCalcBottomCl"){
         arrayWin = figValues["datosDb"][1]["inputDb"];
-        name = "cantidadWin";
+        name = "calcWin";
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 3) +"Vr";
             window[winInput].disabled = false;
@@ -487,7 +479,7 @@ function clearValCalc(eventOrigin){
 };
 // --- radios activos y desmarcados ---
 function radEnableUncheck(eventForward){
-    if(eventForward.target.classList[1] == "btnClearPorcentajeCl"){
+    if(eventForward.target.classList[1] == "btnClearCalcTopCl"){
         radPorcentajeCmVr.disabled = false;
         radPorcentajeMtVr.disabled = false;
         radPorcentajeCmVr.checked = false;
@@ -506,32 +498,33 @@ function radSelectDisable(string){
 };
 // --- desactiva la ventana de resultados y mensajes ---
 function disablWindowResult(eventForward){
-    if(eventForward.target.classList[1] == "btnClearPorcentajeCl"){
-        windowResultPorcentaje.classList.remove("bgChange");
-        windowResultPorcentaje.innerHTML = introducirValMsgFn();
+    if(eventForward.target.classList[1] == "btnClearCalcTopCl"){
+        windowResultCalcTop.classList.remove("bgChange");
+        windowResultCalcTop.innerHTML = introducirValMsgFn();
     }
-    else if(eventForward.target.classList[1] == "btnClearCantidadCl"){
-        windowResultCantidad.classList.remove("bgChange");
-        windowResultCantidad.innerHTML = introducirValMsgFn();
+    else if(eventForward.target.classList[1] == "btnClearCalcBottomCl"){
+        windowResultCalcBottom.classList.remove("bgChange");
+        windowResultCalcBottom.innerHTML = introducirValMsgFn();
     }
 };
 // --- desactiva las ventanas inputs ---
 function disableWinInp(string){
+
     let currentObj = PorcentajeArray.find((obj) => obj["idDb"] == idFigVr);
     let arrayWin;
     let name;
     var winInput;
-    if(string == "porcentaje"){
+    if(string == "porcentaje" || string == "decimalP"){
         arrayWin = currentObj["datosDb"][0]["inputDb"];
-        name = "porcentajeWin";
+        name = "calcWin";
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 1) +"Vr";
             window[winInput].disabled = true;
         }
     }
-    else if(string == "cantidad"){
+    else if(string == "cantidad" || string == "porcentajeD"){
         arrayWin = currentObj["datosDb"][0]["inputDb"];
-        name = "cantidadWin";
+        name = "calcWin";
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 3) +"Vr";
             window[winInput].disabled = true;
@@ -545,55 +538,68 @@ function grupFuncLog(string){
     disableBtnResult(string);
 }
 function printResult(string, result){
-    if(string == "porcentaje"){
-        windowResultPorcentaje.classList.add("bgChange");
-        windowResultPorcentaje.innerHTML = `Porcentaje = ${formato(result.toFixed(2))} ${medSel(string)}`;
+    if(string == "porcentaje" || string == "decimalP"){
+        windowResultCalcTop.classList.add("bgChange");
+        windowResultCalcTop.innerHTML = `Porcentaje = ${formato(result.toFixed(2))} ${medSel(string)}`;
     }
-    else if(string == "cantidad"){
-        windowResultCantidad.classList.add("bgChange");
-        windowResultCantidad.innerHTML = `Cantidad = ${formato(result.toFixed(2))} ${medSel(string)}`;
+    else if(string == "cantidad" || string == "porcentajeD"){
+        windowResultCalcBottom.classList.add("bgChange");
+        windowResultCalcBottom.innerHTML = `Cantidad = ${formato(result.toFixed(2))} ${medSel(string)}`;
     }
 };
 
 
 function porcentajeFn(){
-    if(porcentajeWin1Vr.value > 0 && porcentajeWin2Vr.value > 0){
-            const precList = Number(porcentajeWin1Vr.value);
-            const descuento = Number(porcentajeWin2Vr.value);
-            const result = (descuento/precList) * 100;
+    if(calcWin1Vr.value > 0 && calcWin2Vr.value > 0){
+            const cantTotal = Number(calcWin1Vr.value);
+            const cantParcial = Number(calcWin2Vr.value);
+            const result = (cantParcial/cantTotal) * 100;
             grupFuncLog("porcentaje");
-            porcentajeWin1Vr.classList.add("resultColor");
-            porcentajeWin2Vr.classList.add("resultColor");
+            calcWin1Vr.classList.add("resultColor");
+            calcWin2Vr.classList.add("resultColor");
             printResult("porcentaje", result);
 
     }else{
-        windowResultPorcentaje.innerHTML = valorMayorMsgFc();
+        windowResultCalcTop.innerHTML = valorMayorMsgFc();
     }
 };
 function cantidadFn(){
-    if(cantidadWin3Vr.value > 0 && cantidadWin4Vr.value > 0){
-            const precList = Number(cantidadWin3Vr.value);
-            const descuento = Number(cantidadWin4Vr.value);
-            const result = (descuento/100) * precList;
+    if(calcWin3Vr.value > 0 && calcWin4Vr.value > 0){
+            const cantTotal = Number(calcWin3Vr.value);
+            const porcentaje = Number(calcWin4Vr.value);
+            const result = (porcentaje/100) * cantTotal;
             grupFuncLog("cantidad");
-            cantidadWin3Vr.classList.add("resultColor");
-            cantidadWin4Vr.classList.add("resultColor");
+            calcWin3Vr.classList.add("resultColor");
+            calcWin4Vr.classList.add("resultColor");
             printResult("cantidad", result);
 
     }else{
-        windowResultCantidad.innerHTML = valorMayorMsgFc();
+        windowResultCalcBottom.innerHTML = valorMayorMsgFc();
     }
 };
+
 function decimPorcFn(){
-    if(cantidadWin1Vr.value > 0){
-            const decimal = Number(cantidadWin1Vr.value);
+    if(calcWin1Vr.value > 0){
+            const decimal = Number(calcWin1Vr.value);
             const result = decimal * 100;
-            grupFuncLog("cantidad");
-            cantidadWin1Vr.classList.add("resultColor");
-            printResult("cantidad", result);
+            grupFuncLog("decimalP");
+            calcWin1Vr.classList.add("resultColor");
+            printResult("decimalP", result);
 
     }else{
-        windowResultCantidad.innerHTML = valorMayorMsgFc();
+        windowResultCalcTop.innerHTML = valorMayorMsgFc();
+    }
+};
+function porcDecimFn(){
+    if(calcWin3Vr.value > 0){
+            const porcentaje = Number(calcWin3Vr.value);
+            const result = porcentaje / 100;
+            grupFuncLog("porcentajeD");
+            calcWin1Vr.classList.add("resultColor");
+            printResult("porcentajeD", result);
+
+    }else{
+        windowResultCalcBottom.innerHTML = valorMayorMsgFc();
     }
 };
 //----Inicio----------------------------------------------------------------------------
