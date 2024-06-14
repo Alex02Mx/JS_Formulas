@@ -221,8 +221,6 @@ function renderFigura(objeto){
     idFigVr = objeto["idDb"];
 
     // --- ciclo de repeticion del objeto ---
-
-
     objeto["datosDb"].forEach((obj, index) => {
         // --- variable del singular o plural y variable de area o perimetro --- 
         mensajeSigPlurVr = obj["mensajeSigPlurDb"];
@@ -269,30 +267,8 @@ function renderFigura(objeto){
         const secTopCalcCn = document.createElement("section");
         secTopCalcCn.classList.add("secTopCalcCl");
         secTopCalcCn.append(calcTitleCn, calSubTitleCn);
-        // --- Radios Areas y sus labels CM---
-        // const inputRadCmCn = document.createElement("input");
-        // inputRadCmCn.setAttribute("type", "radio");
-        // inputRadCmCn.setAttribute("name", obj["grupoDb"]);
-        // inputRadCmCn.setAttribute("id", obj["inputRadCmDb"]);
-        // const inputLabelCmCn = document.createElement("label");
-        // inputLabelCmCn.setAttribute("for", obj["inputRadCmDb"]);
-        // inputLabelCmCn.innerHTML = "centímetros";
-        // --- Radios Areas y sus labels MT---
-        // const inputRadioMtCn = document.createElement("input");
-        // inputRadioMtCn.setAttribute("type", "radio");
-        // inputRadioMtCn.setAttribute("name", obj["grupoDb"]);
-        // inputRadioMtCn.setAttribute("id", obj["inputRadMtDb"]);
-        // const inputLabelMtCn = document.createElement("label");
-        // inputLabelMtCn.setAttribute("for", obj["inputRadMtDb"]);
-        // inputLabelMtCn.innerHTML = "metros";
-        // --- Contenedor de radios y labels ---
-        // const radioLabelsContCn = document.createElement("div");
-        // radioLabelsContCn.classList.add("radioLabelsContCl");
-        // radioLabelsContCn.append(inputRadCmCn, inputLabelCmCn, inputRadioMtCn, inputLabelMtCn);
-
         const secMiddleCalcCn = document.createElement("section");
         secMiddleCalcCn.classList.add("secMiddleCalcCl");
-        // secMiddleCalcCn.appendChild(radioLabelsContCn);
         // --- windows Areas ---
         obj["inputDb"].forEach(winInput => {
             const labelWinInpCn = document.createElement("label");
@@ -338,7 +314,6 @@ function renderFigura(objeto){
 
         containerResponsive.classList.add("containerResponsive");
         containerResponsive.append(tituloImgContCn, CalcContCn);
-        // containerResponsive.append(CalcContCn);
         containerFiguras.append(containerResponsive);
     });
     // asignacionesRadios();
@@ -352,11 +327,6 @@ function cleanCont(){
     containerFiguras.innerHTML = "";
     containerIntro.innerHTML = "";
     containerResponsive.innerHTML = "";
-};
-// -- funciones de asignacion ---
-function asignacionesRadios(){
-    radPorcentajeCmVr = document.getElementById("radPorcentajeCmId");
-    radPorcentajeMtVr = document.getElementById("radPorcentajeMtId");
 };
 function asignacionesWindows(objeto){
     objeto["datosDb"].forEach((obj1, index1) => {
@@ -383,17 +353,15 @@ function asignacionWinResult(){
     windowResultCalcBottom = document.querySelector(".winResMensCalcBottomCl");
 };
 function asignacionBtns(){
-   if(idFigVr == "porcentaje_de_una_cantidad_cantidad_de_un_porcentaje" || idFigVr == "decimal_a_porcentaje_porcentaje_a_decimal"){
-        btnClearCalcTop = document.querySelector(".btnClearCalcTopCl");
-        btnClearCalcTop.addEventListener("click", clearValCalc );
-        btnResultCalcTop = document.querySelector(".btnResultCalcTopCl");
-        btnResultCalcTop.addEventListener("click", window[funcion1Fn]);
+    btnClearCalcTop = document.querySelector(".btnClearCalcTopCl");
+    btnClearCalcTop.addEventListener("click", clearValCalc );
+    btnResultCalcTop = document.querySelector(".btnResultCalcTopCl");
+    btnResultCalcTop.addEventListener("click", window[funcion1Fn]);
 
-        btnClearCalcBottom = document.querySelector(".btnClearCalcBottomCl");
-        btnClearCalcBottom.addEventListener("click", clearValCalc );
-        btnResultCalcBottom = document.querySelector(".btnResultCalcBottomCl");
-        btnResultCalcBottom.addEventListener("click", window[funcion2Fn]);
-   }
+    btnClearCalcBottom = document.querySelector(".btnClearCalcBottomCl");
+    btnClearCalcBottom.addEventListener("click", clearValCalc );
+    btnResultCalcBottom = document.querySelector(".btnResultCalcBottomCl");
+    btnResultCalcBottom.addEventListener("click", window[funcion2Fn]);
 };
 // --- funciones de mensajes ---
 function introducirValMsgFn(){
@@ -414,13 +382,13 @@ function valorMayorMsgFc(){
     }
 };
 // --- habilitar y deshabilitar boton de resultado ---
-function disableBtnResult(string){
-    if(string == "porcentaje" || string == "decimalP"){
+function disableBtnResult(pos){
+    if(pos == "top"){
         btnResultCalcTop.disabled = true;
         btnResultCalcTop.classList.remove("btnResultCl");
         btnResultCalcTop.classList.add("btnInactive");
     }
-    if(string == "cantidad" || string == "porcentajeD"){
+    if(pos == "bottom"){
         btnResultCalcBottom.disabled = true;
         btnResultCalcBottom.classList.remove("btnResultCl");
         btnResultCalcBottom.classList.add("btnInactive");
@@ -439,11 +407,11 @@ function enableBtnResult(eventForward){
     }
 };
 // --- seleccion de medida de centinmetros o metros ---
-function medSel(string) {
-    if(string == "porcentaje" || string == "decimalP"){
+function medSel(id) {
+    if(id == "porcentaje" || id == "aumento" || id == "disminucion"){
         return "%";
     }
-    else if(string == "cantidad" || string == "porcentajeD"){
+    else if(id == "cantidad" || id == "decimal"){
         return "";
     }
 };
@@ -477,25 +445,6 @@ function clearValCalc(eventOrigin){
     disablWindowResult(eventOrigin);
     enableBtnResult(eventOrigin);
 };
-// --- radios activos y desmarcados ---
-function radEnableUncheck(eventForward){
-    if(eventForward.target.classList[1] == "btnClearCalcTopCl"){
-        radPorcentajeCmVr.disabled = false;
-        radPorcentajeMtVr.disabled = false;
-        radPorcentajeCmVr.checked = false;
-        radPorcentajeMtVr.checked = false;
-    }
-};
-// --- selecciona que radio se desactiva ---
-function radSelectDisable(string){
-    if(string == "porcentaje"){
-        if(radPorcentajeCmVr.checked){
-            radPorcentajeMtVr.disabled = true;
-        }else if(radPorcentajeMtVr.checked){
-            radPorcentajeCmVr.disabled = true;
-        };
-    }
-};
 // --- desactiva la ventana de resultados y mensajes ---
 function disablWindowResult(eventForward){
     if(eventForward.target.classList[1] == "btnClearCalcTopCl"){
@@ -508,43 +457,35 @@ function disablWindowResult(eventForward){
     }
 };
 // --- desactiva las ventanas inputs ---
-function disableWinInp(string){
-
+function disableWinInp(pos){
     let currentObj = PorcentajeArray.find((obj) => obj["idDb"] == idFigVr);
-    let arrayWin;
-    let name;
+
+    let arrayWin = currentObj["datosDb"][0]["inputDb"];
+    let name = "calcWin";
+
     var winInput;
-    if(string == "porcentaje" || string == "decimalP"){
-        arrayWin = currentObj["datosDb"][0]["inputDb"];
-        name = "calcWin";
+
+    if(pos == "top"){
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 1) +"Vr";
             window[winInput].disabled = true;
         }
     }
-    else if(string == "cantidad" || string == "porcentajeD"){
-        arrayWin = currentObj["datosDb"][0]["inputDb"];
-        name = "calcWin";
+    else if(pos == "bottom"){
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 3) +"Vr";
             window[winInput].disabled = true;
         }
     }
-  
 };
-function grupFuncLog(string){
-    // radSelectDisable(string);
-    disableWinInp(string);
-    disableBtnResult(string);
-}
-function printResult(string, result){
-    if(string == "porcentaje" || string == "decimalP"){
+function printResult(pos, id, result){
+    if(pos == "top"){
         windowResultCalcTop.classList.add("bgChange");
-        windowResultCalcTop.innerHTML = `Porcentaje = ${formato(result.toFixed(2))} ${medSel(string)}`;
+        windowResultCalcTop.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
     }
-    else if(string == "cantidad" || string == "porcentajeD"){
+    else if(pos == "bottom"){
         windowResultCalcBottom.classList.add("bgChange");
-        windowResultCalcBottom.innerHTML = `Cantidad = ${formato(result.toFixed(2))} ${medSel(string)}`;
+        windowResultCalcBottom.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
     }
 };
 
@@ -554,10 +495,11 @@ function porcentajeFn(){
             const cantTotal = Number(calcWin1Vr.value);
             const cantParcial = Number(calcWin2Vr.value);
             const result = (cantParcial/cantTotal) * 100;
-            grupFuncLog("porcentaje");
+            disableWinInp("top");
+            disableBtnResult("top");
             calcWin1Vr.classList.add("resultColor");
             calcWin2Vr.classList.add("resultColor");
-            printResult("porcentaje", result);
+            printResult("top", "porcentaje", result);
 
     }else{
         windowResultCalcTop.innerHTML = valorMayorMsgFc();
@@ -568,23 +510,24 @@ function cantidadFn(){
             const cantTotal = Number(calcWin3Vr.value);
             const porcentaje = Number(calcWin4Vr.value);
             const result = (porcentaje/100) * cantTotal;
-            grupFuncLog("cantidad");
+            disableWinInp("bottom");
+            disableBtnResult("bottom");
             calcWin3Vr.classList.add("resultColor");
             calcWin4Vr.classList.add("resultColor");
-            printResult("cantidad", result);
+            printResult("bottom", "cantidad", result);
 
     }else{
         windowResultCalcBottom.innerHTML = valorMayorMsgFc();
     }
 };
-
 function decimPorcFn(){
     if(calcWin1Vr.value > 0){
             const decimal = Number(calcWin1Vr.value);
             const result = decimal * 100;
-            grupFuncLog("decimalP");
+            disableWinInp("top");
+            disableBtnResult("top");
             calcWin1Vr.classList.add("resultColor");
-            printResult("decimalP", result);
+            printResult("top", "porcentaje", result);
 
     }else{
         windowResultCalcTop.innerHTML = valorMayorMsgFc();
@@ -594,14 +537,48 @@ function porcDecimFn(){
     if(calcWin3Vr.value > 0){
             const porcentaje = Number(calcWin3Vr.value);
             const result = porcentaje / 100;
-            grupFuncLog("porcentajeD");
-            calcWin1Vr.classList.add("resultColor");
-            printResult("porcentajeD", result);
+            disableWinInp("bottom");
+            disableBtnResult("bottom");
+            calcWin3Vr.classList.add("resultColor");
+            printResult("bottom", "decimal", result);
 
     }else{
         windowResultCalcBottom.innerHTML = valorMayorMsgFc();
     }
 };
+function aumentoFn(){
+    if(calcWin1Vr.value > 0 || calcWin2Vr.value > 0){
+            const cantInicial = Number(calcWin1Vr.value);
+            const cantConAument = Number(calcWin2Vr.value);
+            const oper1 = Number((cantConAument - cantInicial) / cantInicial);
+            const result = Number(oper1 * 100);
+            disableWinInp("top");
+            disableBtnResult("top");
+            calcWin1Vr.classList.add("resultColor");
+            calcWin2Vr.classList.add("resultColor");
+            printResult("top", "aumento", result);
+
+    }else{
+        windowResultCalcTop.innerHTML = valorMayorMsgFc();
+    }
+};
+function disminucionFn(){
+    if(calcWin3Vr.value > 0 || calcWin4Vr.value > 0){
+            const cantInicial = Number(calcWin3Vr.value);
+            const cantConDismin = Number(calcWin4Vr.value);
+            const oper1 = Number( (cantInicial - cantConDismin) / cantInicial);
+            const result = Number(oper1 * 100);
+            disableWinInp("bottom");
+            disableBtnResult("bottom");
+            calcWin3Vr.classList.add("resultColor");
+            calcWin4Vr.classList.add("resultColor");
+            printResult("bottom", "disminucion", result);
+
+    }else{
+        windowResultCalcBottom.innerHTML = valorMayorMsgFc();
+    }
+};
+
 //----Inicio----------------------------------------------------------------------------
 renderIntroduccion();
 

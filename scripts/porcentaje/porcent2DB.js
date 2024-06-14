@@ -17,8 +17,11 @@ const intro = [
             "<span class='formulaSpan'>4. Conversión de un porcentaje a decimal</span><br>Ejemplo: Para convertir 25% a decimal:</br>",
             "<div class='contImgForm'><img class='imgFormula' src='../assets2/porc_dec.png' alt=''></div>",
 
-            "<span class='formulaSpan'>5. Porcentaje de aumento o disminución</span><br>Ejemplo: Si un producto pasa de costar $50 a $70:</br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/aumen_dism.png' alt=''></div>",
+            "<span class='formulaSpan'>5. Porcentaje de aumento</span><br>Ejemplo: Si un producto pasa de costar $50 a $70:</br>",
+            "<div class='contImgForm'><img class='imgFormula' src='../assets2/aumento.png' alt=''></div>",
+
+            "<span class='formulaSpan'>6. Porcentaje de disminución</span><br>Ejemplo: Si un producto pasa de costar $70 a $50:</br>",
+            "<div class='contImgForm'><img class='imgFormula' src='../assets2/disminución.png' alt=''></div>",
         ],
     },
     {
@@ -39,7 +42,7 @@ const porcCantData = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Porcentaje de una cantidad",
-            imgFiguraDb: "../../assets2/porc_cant_img.png",
+            imgFiguraDb: "../assets2/porc_cant_img.png",
 
             titleDb: "Porcentaje de una cantidad",
 
@@ -61,7 +64,7 @@ const porcCantData = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Cantidad de un porcentaje",
-            imgFiguraDb: "../../assets2/cant_porc_img.png",
+            imgFiguraDb: "../assets2/cant_porc_img.png",
 
             titleDb: "Cantidad de un porcentaje",
 
@@ -89,7 +92,7 @@ const decPorcData = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Decimal a Porcentaje",
-            imgFiguraDb: "../../assets2/dec_porc_img.png",
+            imgFiguraDb: "../assets2/dec_porc_img.png",
 
             titleDb: "Decimal a Porcentaje",
 
@@ -107,7 +110,7 @@ const decPorcData = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Porcentaje a Decimal",
-            imgFiguraDb: "../../assets2/porc_dec_img.png",
+            imgFiguraDb: "../assets2/porc_dec_img.png",
 
             titleDb: "Porcentaje a Decimal",
 
@@ -124,63 +127,59 @@ const decPorcData = {
         },
     ]
 };
-
-
-
-
 const aumDismData = {
-    idDb: "decimal_a_porcentaje_porcentaje_a_decimal",
+    idDb: "%_de_aumento_disminución",
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Decimal a Porcentaje",
-            imgFiguraDb: "../../assets2/dec_porc_img.png",
+            titleFigDb: "Porcentaje de Aumento",
+            imgFiguraDb: "../assets2/aumento_img.png",
 
-            titleDb: "Decimal a Porcentaje",
-
-            // grupoDb: "grupoporcentaje",
-            // inputRadCmDb: "radPorcentajeCmId",
-            // inputRadMtDb: "radPorcentajeMtId",
+            titleDb: "Porcentaje de Aumento",
 
             inputDb: [
                 {
-                    inputLabelDb: "Decimal",
-                    inputIdDb: "winCantTotP"
+                    inputLabelDb: "Cantidad inicial",
+                    inputIdDb: "winCantTotA"
+                },
+                {
+                    inputLabelDb: "Cantidad con Aumento",
+                    inputIdDb: "winCantCnAumen"
                 },
             ],
-            winResMensDb: "winResMensDecPorcCl",
-            btnClearDb: "btnClearDecimPorcenCl",
-            btnResultDb: "btnResultDecimPorcenCl",
-            logicaDb: "decimPorcFn",
+            winResMensDb: "winResMensCalcTopCl",
+            btnClearDb: "btnClearCalcTopCl",
+            btnResultDb: "btnResultCalcTopCl",
+            logicaDb: "aumentoFn",
         },
         {
             mensajeSigPlurDb: "p",
-            titleFigDb: "Porcentaje a Decimal",
-            imgFiguraDb: "../../assets2/porc_dec_img.png",
+            titleFigDb: "Porcentaje de Disminución",
+            imgFiguraDb: "../assets2/disminución_img.png",
 
-            titleDb: "Porcentaje a Decimal",
-
-            // grupoDb: "grupoporcentaje",
-            // inputRadCmDb: "radPorcentajeCmId",
-            // inputRadMtDb: "radPorcentajeMtId",
+            titleDb: "Porcentaje de Disminución",
 
             inputDb: [
                 {
-                    inputLabelDb: "Porcentaje",
-                    inputIdDb: "winCantTotC"
+                    inputLabelDb: "Cantidad inicial",
+                    inputIdDb: "winCantTotD"
+                },
+                {
+                    inputLabelDb: "Cantidad con Disminución",
+                    inputIdDb: "winCantCnDismin"
                 },
             ],
-            winResMensDb: "winResMensPorcDecCl",
-            btnClearDb: "btnClearPorcenDecimCl",
-            btnResultDb: "btnResultPorcenDecimCl",
-            logicaDb: "porcDecFn",
+            winResMensDb: "winResMensCalcBottomCl",
+            btnClearDb: "btnClearCalcBottomCl",
+            btnResultDb: "btnResultCalcBottomCl",
+            logicaDb: "disminucionFn",
         },
     ]
 };
 
 PorcentajeArray.push(porcCantData);
 PorcentajeArray.push(decPorcData);
-// PorcentajeArray.push(aumDismData);
+PorcentajeArray.push(aumDismData);
 
 
 
