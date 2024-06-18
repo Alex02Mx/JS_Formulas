@@ -25,9 +25,6 @@ let idFigVr;
 let mensajeSigPlurVr;
 let indPorcentajeVr;
 
-let radPorcentajeCmVr;
-let radPorcentajeMtVr;
-
 let windowResultCalcTop;
 let windowResultCalcBottom;
 
@@ -35,12 +32,6 @@ let btnClearCalcTop;
 let btnResultCalcTop;
 let btnClearCalcBottom;
 let btnResultCalcBottom;
-
-// let btnClearDecimPorcen;
-// let btnResultDecimPorcen;
-
-// let btnClearPorcenDecim;
-// let btnResultPorcenDecim;
 
 let winEmail;
 let winNombre;
@@ -53,9 +44,6 @@ var calcWin1Vr;
 var calcWin2Vr;
 var calcWin3Vr;
 var calcWin4Vr;
-
-// var cantidadWin3Vr;
-// var cantidadWin4Vr;
 
 var btnSubmit;
 //===============================  asignacion de valores ==================================
@@ -97,7 +85,6 @@ function blurFnc(){
 }
 // --- Mostrar, esconder, opacar, aclarar ---
 function showHideCalc(event){
-
     if(event.srcElement.innerHTML == "Calculadoras"){
         calcDesktop.classList.toggle("calcDesktopShow");
         if(calcDesktop.classList.contains("calcDesktopShow")){
@@ -224,36 +211,26 @@ function renderFigura(objeto){
     objeto["datosDb"].forEach((obj, index) => {
         // --- variable del singular o plural y variable de area o perimetro --- 
         mensajeSigPlurVr = obj["mensajeSigPlurDb"];
-
         indPorcentajeVr = obj["titleFigDb"];
-
         // --- asigna valor de funcion para la logica del objeto en proceso ---
         let funcionFgra = "funcion" + (index + 1) + "Fn";
         window[funcionFgra] = obj["logicaDb"];
         // --- bloque 1 ---
         // --- titulo procedimiento ---
-
         const titleFigCn = document.createElement("h2");
         titleFigCn.classList.add("titleFigCl");
         titleFigCn.innerHTML = obj["titleFigDb"];
-
         // --- imagen procedimiento ---
-
         const imgFiguraCn = document.createElement("img");
         imgFiguraCn.setAttribute("src", obj["imgFiguraDb"]);
-
         // --- contenedor del titulo y la imagen ---
-
         const tituloImgCn = document.createElement("div");
         tituloImgCn.classList.add("tituloImgCl");
         tituloImgCn.append(titleFigCn, imgFiguraCn);
-
         // --- contenedor BG del cont/titulo/imagen ---
-
         const tituloImgContCn = document.createElement("div");
         tituloImgContCn.classList.add("tituloImgContCl");
         tituloImgContCn.append(tituloImgCn);
-
         // --- bloque 2 ---
         // --- titulo Calculadora ---
         const calcTitleCn = document.createElement("p");
@@ -302,7 +279,6 @@ function renderFigura(objeto){
         const secBottomCalcCn = document.createElement("section");
         secBottomCalcCn.classList.add("secBottomCalcCl");
         secBottomCalcCn.append(winResMensCn, btnClearCn, btnResultCn);
-
         // --- Agregando a containerFiguras ---
         const calCn = document.createElement("div");
         calCn.classList.add("calCl");
@@ -316,7 +292,6 @@ function renderFigura(objeto){
         containerResponsive.append(tituloImgContCn, CalcContCn);
         containerFiguras.append(containerResponsive);
     });
-    // asignacionesRadios();
     asignacionesWindows(objeto);
     asignacionWinResult();
     asignacionBtns();
@@ -406,7 +381,7 @@ function enableBtnResult(eventForward){
         btnResultCalcBottom.classList.add("btnResultCl");
     }
 };
-// --- seleccion de medida de centinmetros o metros ---
+// --- seleccion de medida ---
 function medSel(id) {
     if(id == "porcentaje" || id == "aumento" || id == "disminucion"){
         return "%";
@@ -417,7 +392,6 @@ function medSel(id) {
 };
 // --- borrado de valores de calculadora ---
 function clearValCalc(eventOrigin){
-    // radEnableUncheck(eventOrigin);
     let figValues = PorcentajeArray.find((obj) => obj["idDb"] == idFigVr);
     let arrayWin;
     let name;
@@ -459,10 +433,8 @@ function disablWindowResult(eventForward){
 // --- desactiva las ventanas inputs ---
 function disableWinInp(pos){
     let currentObj = PorcentajeArray.find((obj) => obj["idDb"] == idFigVr);
-
     let arrayWin = currentObj["datosDb"][0]["inputDb"];
     let name = "calcWin";
-
     var winInput;
 
     if(pos == "top"){
@@ -488,8 +460,7 @@ function printResult(pos, id, result){
         windowResultCalcBottom.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
     }
 };
-
-
+// --- logica funciones ---
 function porcentajeFn(){
     if(calcWin1Vr.value > 0 && calcWin2Vr.value > 0){
             const cantTotal = Number(calcWin1Vr.value);
@@ -547,7 +518,7 @@ function porcDecimFn(){
     }
 };
 function aumentoFn(){
-    if(calcWin1Vr.value > 0 || calcWin2Vr.value > 0){
+    if(calcWin1Vr.value > 0 && calcWin2Vr.value > 0){
             const cantInicial = Number(calcWin1Vr.value);
             const cantConAument = Number(calcWin2Vr.value);
             const oper1 = Number((cantConAument - cantInicial) / cantInicial);
@@ -563,7 +534,7 @@ function aumentoFn(){
     }
 };
 function disminucionFn(){
-    if(calcWin3Vr.value > 0 || calcWin4Vr.value > 0){
+    if(calcWin3Vr.value > 0 && calcWin4Vr.value > 0){
             const cantInicial = Number(calcWin3Vr.value);
             const cantConDismin = Number(calcWin4Vr.value);
             const oper1 = Number( (cantInicial - cantConDismin) / cantInicial);

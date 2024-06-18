@@ -61,7 +61,7 @@ contactText.addEventListener("click", showHideCalc);
 //=======================================  Ciclos =========================================
 email.forEach((itemClass) => {
     itemClass.addEventListener("click", dispContactanos);
-})
+});
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
@@ -84,10 +84,9 @@ function blurFnc(){
     bottomL.classList.remove("cross3");
     body.classList.remove("noMove");
     blurC.classList.add("off");
-}
+};
 // --- Mostrar, esconder, opacar, aclarar ---
 function showHideCalc(event){
-
     if(event.srcElement.innerHTML == "Calculadoras"){
         calcDesktop.classList.toggle("calcDesktopShow");
         if(calcDesktop.classList.contains("calcDesktopShow")){
@@ -130,7 +129,7 @@ function abrirOpc(){
     middleL.classList.add("cross");
     bottomL.classList.add("cross3");
     listIndex.scrollTop = 0;
-}
+};
 function cerrarOpc(){
     listIndex.classList.remove("listIndexShow");
     body.classList.remove("noMove");
@@ -138,16 +137,16 @@ function cerrarOpc(){
     topL.classList.remove("cross2");
     middleL.classList.remove("cross");
     bottomL.classList.remove("cross3");
-}
+};
 // --- Retornar a menu principal ---
 function menuPrinc(){
     blurFnc();
     setTimeout(menuPrincFnc, 600);
-}
+};
 function menuPrincFnc(){
     // location.href="../../index.html";
     location.href="/JS_Formulas/index.html";
-}
+};
 // --- Selección ---
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
