@@ -409,18 +409,18 @@ body {
     color: var(--darkGrey);
 }
 .winStyleCl {
-    background-color: var(--lightGrey);
-    border: 1px solid var(--darkGrey);
-    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 298px;
-    height: 50px;
     color: var(--darkGrey);
+    background-color: var(--lightGrey);
     font-weight: 700;
     font-size: 18px;
+    width: 298px;
+    height: 50px;
+    border: 1px solid var(--darkGrey);
+    border-radius: 10px;
 }
 .bgChange{
     background-color: var(--white);

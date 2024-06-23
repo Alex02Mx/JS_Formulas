@@ -12,7 +12,7 @@ const calcText = document.querySelector(".calcText");
 const calcDesktop = document.querySelector(".calcDesktop");
 const contactText = document.querySelector(".contactText");
 const contDesktop = document.querySelector(".contDesktop");
-const containerFiguras = document.querySelector(".containerFiguras");
+const containerElement = document.querySelector(".containerElement");
 const containerIntro = document.createElement("section");
 const containerResponsive = document.createElement("section");
 const titlesIndexText = document.querySelector(".titlesIndexText");
@@ -24,27 +24,22 @@ const socMedMainCont =  document.querySelector(".socMedMainCont");
 let idFigVr;
 let mensajeSigPlurVr;
 let indPorcentajeVr;
-
 let windowResultCalcTop;
 let windowResultCalcBottom;
-
 let btnClearCalcTop;
 let btnResultCalcTop;
 let btnClearCalcBottom;
 let btnResultCalcBottom;
-
 let winEmail;
 let winNombre;
 let winDescripcion;
 
 var funcion1Fn;
 var funcion2Fn;
-
 var calcWin1Vr;
 var calcWin2Vr;
 var calcWin3Vr;
 var calcWin4Vr;
-
 var btnSubmit;
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
@@ -163,7 +158,7 @@ function dispContactanos(){
     listIndex.classList.remove("listIndexShow");
     blurFnc();
     cleanCont();
-    containerFiguras.append(emailForm());
+    containerElement.append(emailForm());
 
     winEmail = document.querySelector("#inputEmail");
     winNombre = document.querySelector("#inputName");
@@ -178,7 +173,7 @@ function dispContactanos(){
 function renderIntroduccion(){
     cleanCont();
     titlesIndexText.innerText = "Porcentajes";
-    containerFiguras.appendChild(containerIntro);
+    containerElement.appendChild(containerIntro);
     containerIntro.classList.add("containerIntro");
 
     intro.forEach((value, index) => {
@@ -279,7 +274,7 @@ function renderFigura(objeto){
         const secBottomCalcCn = document.createElement("section");
         secBottomCalcCn.classList.add("secBottomCalcCl");
         secBottomCalcCn.append(winResMensCn, btnClearCn, btnResultCn);
-        // --- Agregando a containerFiguras ---
+        // --- Agregando a containerElement ---
         const calCn = document.createElement("div");
         calCn.classList.add("calCl");
         calCn.append(secTopCalcCn, secMiddleCalcCn, secBottomCalcCn);
@@ -290,7 +285,7 @@ function renderFigura(objeto){
 
         containerResponsive.classList.add("containerResponsive");
         containerResponsive.append(tituloImgContCn, CalcContCn);
-        containerFiguras.append(containerResponsive);
+        containerElement.append(containerResponsive);
     });
     asignacionesWindows(objeto);
     asignacionWinResult();
@@ -299,7 +294,7 @@ function renderFigura(objeto){
 };
 // --- Limpieza de div ---
 function cleanCont(){
-    containerFiguras.innerHTML = "";
+    containerElement.innerHTML = "";
     containerIntro.innerHTML = "";
     containerResponsive.innerHTML = "";
 };

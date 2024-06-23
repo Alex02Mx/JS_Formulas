@@ -77,97 +77,110 @@ const mediaMedianaObj = {
                 },
             ],
             winMainInputDb: "winMainInputDb",
-            btnClearDb: "btnClearCalcBottomCl",
-            btnResultDb: "btnResultCalcBottomCl",
+            btnClearDb: "btnClearCalcCl",
+            btnResultDb: "btnResultCalcCl",
             logicaDb: "mediaMedianaFc",
         }
     ],
-
-
 };
-const modaCalObj = {
-    definicion: "on",
-    id: "moda_cal",
-    titleMM: "Instrucciones",
-    imgMM: "../assets/calculadora_moda.png",
-
-    titleMM2: "Moda",
-    titleMMSub: "Calculadora",
-    windowMod: [
+const modaObj = {
+    // definicion: "on",
+    idDb: "moda",
+    datosDb : [
         {
-            titleW: "Moda",
-            resultEst: "resultEstModa",
+            mensajeSigPlurDb: "p", 
+            titleFigDb: "Moda",
+            imgFiguraDb: "../assets/calculadora_moda.png",
+
+            titleDb: "Moda",
+
+            windowMM: [
+                {
+                    titleW: "Moda",
+                    resultEst: "resultEstModa",
+                },
+            ],
+            winMainInputDb: "winMainInputDb",
+            btnClearDb: "btnClearCalcCl",
+            btnResultDb: "btnResultCalcCl",
+            logicaDb: "modaFc",
         }
     ],
-    btnClEst: "btnResultEst",
-    btn2ClEst: "btnClearEst",
-    funcionEst: "estModa",
-    clearWindowEst: "clearEstOpt",
 };
-const rangoCalObj = {
-    definicion: "on",
-    id: "rango_cal",
-    titleMM: "Instrucciones",
-    imgMM: "../assets/calculadora_rango.png",
-
-    titleMM2: "Rango",
-    titleMMSub: "Calculadora",
-    windowI: [
-        {
-            titleW: "Tamaño",
-            resultEst: "resultEstTam",
-        },
-        {
-            titleW: "Máximo",
-            resultEst: "resultEstMax",
-        },
-        {
-            titleW: "Mínimo",
-            resultEst: "resultEstMin",
-        }
-    ],
-    windowR: [
-        {
-            titleW: "Rango",
-            resultEst: "resultEstRango",
-        }
-    ],
-    btnClEst: "btnResultEst",
-    btn2ClEst: "btnClearEst",
-    funcionEst: "estRango",
-    clearWindowEst: "clearEstOpt",
+const rangoObj = {
+        // definicion: "on",
+        idDb: "rango",
+        datosDb : [
+            {
+                mensajeSigPlurDb: "p", 
+                titleFigDb: "Rango",
+                imgFiguraDb: "../assets/calculadora_rango.png",
+    
+                titleDb: "Rango",
+    
+                windowI: [
+                    {
+                        titleW: "Tamaño",
+                        resultEst: "resultEstTam",
+                    },
+                    {
+                        titleW: "Máximo",
+                        resultEst: "resultEstMax",
+                    },
+                    {
+                        titleW: "Mínimo",
+                        resultEst: "resultEstMin",
+                    }
+                ],
+                windowR: [
+                    {
+                        titleW: "Rango",
+                        resultEst: "resultEstRango",
+                    }
+                ],
+                winMainInputDb: "winMainInputDb",
+                btnClearDb: "btnClearCalcCl",
+                btnResultDb: "btnResultCalcCl",
+                logicaDb: "rangoFc",
+            }
+        ],
 };
-const desviacionMediaCalObj = {
-    definicion: "on",
-    id: "desviación_media_cal",
-    titleMM: "Instrucciones",
-    imgMM: "../assets/calculadora_desviacion_media.png",
-
-    titleMM2: "Desviación Media",
-    titleMMSub: "Calculadora",
-    windowI: [
-        {
-            titleW: "Tamaño",
-            resultEst: "resultEstTamDM",
-        },
-        {
-            titleW: "Media",
-            resultEst: "resultEstMedDM",
-        }
-    ],
-    windowR: [
-        {
-            titleW: "Desv. Media",
-            resultEst: "resultEstDM",
-        }
-    ],
-    btnClEst: "btnResultEst",
-    btn2ClEst: "btnClearEst",
-    funcionEst: "estDesviacionMedia",
-    clearWindowEst: "clearEstOpt",
+const desviacionMediaObj = {
+            // definicion: "on",
+            idDb: "desviación_media",
+            datosDb : [
+                {
+                    mensajeSigPlurDb: "p", 
+                    titleFigDb: "Desviación Media",
+                    imgFiguraDb: "../assets/calculadora_desviacion_media.png",
+        
+                    titleDb: "Desviación Media",
+        
+                    windowI: [
+                        {
+                            titleW: "Tamaño",
+                            resultEst: "resultEstTamDM",
+                        },
+                        {
+                            titleW: "Media",
+                            resultEst: "resultEstMedDM",
+                        }
+                    ],
+                    windowR: [
+                        {
+                            titleW: "Desv. Media",
+                            resultEst: "resultEstDM",
+                        }
+                    ],
+                    winMainInputDb: "winMainInputDb",
+                    btnClearDb: "btnClearCalcCl",
+                    btnResultDb: "btnResultCalcCl",
+                    logicaDb: "desviacionMediaFc",
+                }
+            ],
 };
 // --- Calculadoras ---
 estadisticaArray.push(mediaMedianaObj);
-// estadisticaArray.push(modaCalObj);
-// estadisticaArray.push(rangoCalObj);
-// estadisticaArray.push(desviacionMediaCalObj);
+estadisticaArray.push(modaObj);
+estadisticaArray.push(rangoObj);
+estadisticaArray.push(desviacionMediaObj);

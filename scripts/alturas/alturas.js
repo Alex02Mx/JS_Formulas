@@ -12,7 +12,7 @@ const calcText = document.querySelector(".calcText");
 const calcDesktop = document.querySelector(".calcDesktop");
 const contactText = document.querySelector(".contactText");
 const contDesktop = document.querySelector(".contDesktop");
-const containerFiguras = document.querySelector(".containerFiguras");
+const containerElement = document.querySelector(".containerElement");
 const containerIntro = document.createElement("section");
 const containerResponsive = document.createElement("section");
 const titlesIndexText = document.querySelector(".titlesIndexText");
@@ -157,7 +157,7 @@ function dispContactanos(){
     listIndex.classList.remove("listIndexShow");
     blurFnc();
     cleanCont();
-    containerFiguras.append(emailForm());
+    containerElement.append(emailForm());
 
     winEmail = document.querySelector("#inputEmail");
     winNombre = document.querySelector("#inputName");
@@ -172,7 +172,7 @@ function dispContactanos(){
 function renderIntroduccion(){
     cleanCont();
     titlesIndexText.innerText = "Alturas";
-    containerFiguras.appendChild(containerIntro);
+    containerElement.appendChild(containerIntro);
     containerIntro.classList.add("containerIntro");
 
     intro.forEach((value, index) => {
@@ -295,7 +295,7 @@ function renderFigura(objeto){
         secBottomCalcCn.classList.add("secBottomCalcCl");
         secBottomCalcCn.append(winResMensCn, btnClearCn, btnResultCn);
 
-        // --- Agregando a containerFiguras ---
+        // --- Agregando a containerElement ---
         const calCn = document.createElement("div");
         calCn.classList.add("calCl");
         calCn.append(secTopCalcCn, secMiddleCalcCn, secBottomCalcCn);
@@ -306,7 +306,7 @@ function renderFigura(objeto){
 
         containerResponsive.classList.add("containerResponsive");
         containerResponsive.append(tituloImgContCn, CalcContCn);
-        containerFiguras.append(containerResponsive);
+        containerElement.append(containerResponsive);
     });
     asignacionesRadios();
     asignacionesWindows(objeto);
@@ -316,7 +316,7 @@ function renderFigura(objeto){
 };
 // --- Limpieza de div ---
 function cleanCont(){
-    containerFiguras.innerHTML = "";
+    containerElement.innerHTML = "";
     containerIntro.innerHTML = "";
     containerResponsive.innerHTML = "";
 };

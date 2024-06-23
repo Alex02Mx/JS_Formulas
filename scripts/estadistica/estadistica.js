@@ -12,7 +12,7 @@ const calcText = document.querySelector(".calcText");
 const calcDesktop = document.querySelector(".calcDesktop");
 const contactText = document.querySelector(".contactText");
 const contDesktop = document.querySelector(".contDesktop");
-const containerEstadistica = document.querySelector(".containerEstadistica");
+const containerElement = document.querySelector(".containerElement");
 const containerIntro = document.createElement("section");
 const containerResponsive = document.createElement("section");
 const titlesIndexText = document.querySelector(".titlesIndexText");
@@ -24,146 +24,26 @@ const socMedMainCont =  document.querySelector(".socMedMainCont");
 let idFigVr;
 let mensajeSigPlurVr;
 let indEstadisticaVr;
+let pResultEstMedia;
+let pResultEstMediana;
+let taResultEstModa;
+let pResultEstTam;
+let pResultEstMax;
+let pResultEstMin;
+let pResultEstRango;
+let pResultEstTamDM;
+let pResultEstMedDM;
+let pResultEstDM;
+let btnClearCalc;
+let btnResultCalc;
+let winMessEst;
+let winInputEst;
+let winEmail;
+let winNombre;
+let winDescripcion;
 
 var funcion1Fn;
-var funcion2Fn;
-
-
-
-// const instrMMImg = document.createElement("div");
-// const titleMM = document.createElement("h2");
-// const imgMM = document.createElement("img");
-// const containerEstCal = document.createElement("div");
-// const divCalculadora = document.createElement("div");
-// const pTitlesEstadistica = document.createElement("p");
-// const pEstadistica = document.createElement("p");
-// const sectionEsttop = document.createElement("section");
-// const sectionEstmiddle = document.createElement("section");
-// const divEntryWin = document.createElement("div");
-// const labelArea = document.createElement("p");
-// const textarea = document.createElement("textarea");
-// const contSectEstBottom = document.createElement("div");
-// const btnClearEst = document.createElement("button");
-// const btnResultEst = document.createElement("button");
-// const sectionEstbottom = document.createElement("section");
-
-// let rutaFEstClear;
-// let rutaFEst;
-
-// function mensajeInsertarValores(){
-//     labelArea.innerHTML = "Introduce números separados<br>por una coma ( , ) y sin espacios";
-// };
-// function clearEstOpt(){
-//     winEstVar.disabled = false;
-//     winEstVar.value = "";
-//     winEstVar.classList.remove("resultColor");
-//     habilitarIntercambiar();
-//     labelArea.innerHTML = "";
-
-//     if(idFig == "media_y_mediana"){
-//         mensajeInsertarValores();
-//         pResultEstMedia.innerHTML = ""; 
-//         pResultEstMediana.innerHTML = ""; 
-//         pResultEstMedia.classList.add("resultColor");
-//         pResultEstMediana.classList.add("resultColor");
-//     }
-//     else if(idFig == "moda_cal"){
-//         mensajeInsertarValoresM();
-//         taResultEstModa.value = ""; 
-//         taResultEstModa.classList.add("resultColor");
-//     }
-//     else if(idFig == "rango_cal"){
-//         mensajeInsertarValores();
-//         pResultEstTam.innerHTML = "";
-//         pResultEstMax.innerHTML = "";
-//         pResultEstMin.innerHTML = "";
-//         pResultEstRango.innerHTML = ""; 
-//         pResultEstTam.classList.add("resultColor");
-//         pResultEstMax.classList.add("resultColor");
-//         pResultEstMin.classList.add("resultColor");
-//         pResultEstRango.classList.add("resultColor");
-//     }
-//     else if(idFig == "desviación_media_cal"){
-//         mensajeInsertarValores();
-//         pResultEstTamDM.innerHTML = "";
-//         pResultEstMedDM.innerHTML = "";
-//         pResultEstDM.innerHTML = "";
-//         pResultEstTamDM.classList.add("resultColor");
-//         pResultEstMedDM.classList.add("resultColor");
-//         pResultEstDM.classList.add("resultColor");
-//     }
-//     pTitlesEstadistica.classList.remove("titleImg");
-// };
-// function asignacionesWindows(){
-//     winEstVar = document.querySelector("#textAreaId");
-//     if(idFig == "media_y_mediana"){
-//         pResultEstMedia = document.querySelector(".resultEstMedia");
-//         pResultEstMediana = document.querySelector(".resultEstMediana");
-//     }
-//     else if(idFig == "moda_cal"){
-//         taResultEstModa = document.querySelector(".resultEstModa");
-//         taResultEstModa.disabled = true;
-//     }
-//     else if(idFig == "rango_cal"){
-//         pResultEstTam = document.querySelector(".resultEstTam");
-//         pResultEstMax = document.querySelector(".resultEstMax");
-//         pResultEstMin = document.querySelector(".resultEstMin");
-//         pResultEstRango = document.querySelector(".resultEstRango");
-//     }
-//     else if(idFig == "desviación_media_cal"){
-//         pResultEstTamDM = document.querySelector(".resultEstTamDM");
-//         pResultEstMedDM = document.querySelector(".resultEstMedDM");
-//         pResultEstDM = document.querySelector(".resultEstDM");
-//     };
-// };
-
-
-//const sectionDmiddle = document.createElement("div");
-
-
-// const medida = document.querySelector(".medida");
-// const sectionDtop = document.createElement("div");
-// const defTitulo = document.createElement("h2");
-// const defImg = document.createElement("img");
-// const defEstadisticaTitulo = document.createElement("p");
-// const defEstadistica = document.createElement("p");
-// const sectionDbottom = document.createElement("div");
-// const defCategoriaTitulo = document.createElement("p");
-// const defCategoria = document.createElement("p");
-// const defGuiaTitulo = document.createElement("p");
-// const defGuia = document.createElement("p");
-// const EstBottomA = document.createElement("div");
-// const contPResultEstMedia = document.createElement("div");
-// const contPResultEstMediana = document.createElement("div");
-// const contPResultEstModa = document.createElement("div");
-// const contPResultEstTam = document.createElement("div");
-// const contPResultEstMax = document.createElement("div");
-// const contPResultEstMin = document.createElement("div");
-// const contPResultEstRango = document.createElement("div");
-// const titleResultEstMedia = document.createElement("p");
-// const titleResultEstMediana = document.createElement("p");
-// const titleResultEstModa = document.createElement("p");
-// const titleResultEstTam = document.createElement("p");
-// const titleResultEstMax = document.createElement("p");
-// const titleResultEstMin = document.createElement("p");
-// const titleResultEstRango = document.createElement("p");
-// const titleResultEstDesviacionMedia = document.createElement("p");
-// const pResultEstDesviacionMedia = document.createElement("p");
-
-// let btnClearEstReg;
-// let btnResultEstReg;
-// let winEstVar = null;
-// let pResultEstMedia = null;
-// let pResultEstMediana = null;
-// let taResultEstModa = null;
-// let pResultEstTam = null;
-// let pResultEstMax = null;
-// let pResultEstMin = null;
-// let pResultEstRango = null;
-// let pResultEstTamDM = null;
-// let pResultEstMedDM = null;
-// let pResultEstDM = null;
-
+var btnSubmit;
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
 socMedMainCont.append(socialMedCont);
@@ -181,7 +61,6 @@ email.forEach((itemClass) => {
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
-// medida.addEventListener("click", figurasFnc);
 //================================  funciones anonimas ====================================
 const formato = (number) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
@@ -201,7 +80,7 @@ function blurFnc(){
     bottomL.classList.remove("cross3");
     body.classList.remove("noMove");
     blurC.classList.add("off");
-}
+};
 // --- Mostrar, esconder, opacar, aclarar ---
 function showHideCalc(event){
     if(event.srcElement.innerHTML == "Calculadoras"){
@@ -281,7 +160,7 @@ function dispContactanos(){
     listIndex.classList.remove("listIndexShow");
     blurFnc();
     cleanCont();
-    containerEstadistica.append(emailForm());
+    containerElement.append(emailForm());
 
     winEmail = document.querySelector("#inputEmail");
     winNombre = document.querySelector("#inputName");
@@ -296,7 +175,7 @@ function dispContactanos(){
 function renderIntroduccion(){
     cleanCont();
     titlesIndexText.innerText = "Estadística";
-    containerEstadistica.appendChild(containerIntro);
+    containerElement.appendChild(containerIntro);
     containerIntro.classList.add("containerIntro");
 
     intro.forEach((value, index) => {
@@ -363,50 +242,70 @@ function renderFigura(objeto){
         const secTopCalcCn = document.createElement("section");
         secTopCalcCn.classList.add("secTopCalcCl");
         secTopCalcCn.append(calcTitleCn, calSubTitleCn);
-
-
-
-        const secMiddleCalcCn = document.createElement("section");
-        secMiddleCalcCn.classList.add("secMiddleCalcCl");
-
-
-        const divTopMiddleCalc = document.createElement("div");
-        divTopMiddleCalc.classList.add("divTopMiddleCalc");
-
-        const divEntryWin = document.createElement("div");
-        divEntryWin.classList.add("EntryWin");
-
+        // --- window mensaje ---
         const labelArea = document.createElement("p");
         labelArea.classList.add("outputMessage");
-
+        // --- textarea window ---
         const textarea = document.createElement("textarea");
         textarea.setAttribute("id", "textAreaId");
-        textarea.classList.add("textAreaCl");
-
+        textarea.classList.add("textAreaCl", "resultColor");
+        // --- window mens. y textArea container ---
+        const divEntryWin = document.createElement("div");
+        divEntryWin.classList.add("EntryWin");
         divEntryWin.append(labelArea, textarea);
+        // --- div middle top ---
+        const divTopMiddleCalc = document.createElement("div");
+        divTopMiddleCalc.classList.add("divTopMiddleCalc");
         divTopMiddleCalc.append(divEntryWin);
-
 
         const divBottomMiddleCalc = document.createElement("div");
         divBottomMiddleCalc.classList.add("divBottomMiddleCalc");
 
+        const secMiddleCalcCn = document.createElement("section");
+        secMiddleCalcCn.classList.add("secMiddleCalcCl");
         secMiddleCalcCn.append(divTopMiddleCalc, divBottomMiddleCalc);
+        const divContInfo = document.createElement("div");
 
         // --- windows Areas ---
-        obj["windowMM"].forEach(winInput => {
-            const labelResultCn = document.createElement("p");
-            labelResultCn.innerHTML = winInput["titleW"];
-            const winResultCn = document.createElement("p");
-            winResultCn.classList.add(winInput["resultEst"]);
-            const divContLabWin = document.createElement("div");
-            divContLabWin.classList.add("contLabRes");
-            divContLabWin.append(labelResultCn, winResultCn);
-            divBottomMiddleCalc.append(divContLabWin);
-        });
-        // --- window resultados y mensajes ---
-        // const winResMensCn = document.createElement("p");
-        // winResMensCn.classList.add("winStyleCl", obj["winResMensDb"]);
-        // winResMensCn.innerText = introducirValMsgFn();
+        if(objeto.idDb == "media_y_mediana" || objeto.idDb == "moda"){
+            obj["windowMM"].forEach(winInput => {
+                const labelResultCn = document.createElement("p");
+                labelResultCn.innerHTML = winInput["titleW"];
+                const winResultCn = document.createElement("p");
+                winResultCn.classList.add(winInput["resultEst"]);
+                const divContLabWin = document.createElement("div");
+                divContLabWin.classList.add("contLabRes");
+                divContLabWin.append(labelResultCn, winResultCn);
+                divBottomMiddleCalc.append(divContLabWin);
+            });
+        }
+        else if(objeto.idDb == "rango" || objeto.idDb == "desviación_media"){
+            obj.windowI.forEach(winExit =>{
+                const titlePR = document.createElement("p");
+                titlePR.innerHTML = winExit.titleW;
+                titlePR.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const pResultR = document.createElement("p");
+                pResultR.classList.add("winStyleS", pResultReg);
+                const containerR = document.createElement("div");
+                containerR.classList.add("contPResultA");
+                containerR.append(titlePR, pResultR);
+                divContInfo.classList.add("divContInfo");
+                divContInfo.append(containerR);
+            });
+            obj.windowR.forEach(winExit =>{
+                const titlePR = document.createElement("p");
+                titlePR.innerHTML = winExit.titleW;
+                titlePR.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const pResultR = document.createElement("p");
+                pResultR.classList.add("winStyleL", pResultReg);
+                const containerR = document.createElement("div");
+                containerR.classList.add("contPResult");
+                containerR.append(titlePR, pResultR);
+                divBottomMiddleCalc.append(divContInfo, containerR);
+            });
+        }
         // --- Boton Borrar ---
         const btnClearCn = document.createElement("button");
         btnClearCn.classList.add("btnClearCl", obj["btnClearDb"]);
@@ -431,10 +330,17 @@ function renderFigura(objeto){
 
         containerResponsive.classList.add("containerResponsive");
         containerResponsive.append(tituloImgContCn, CalcContCn);
-        containerEstadistica.append(containerResponsive);
+        containerElement.append(containerResponsive);
     });
+    asignacionesWindows();
+    asignacionMensajes();
+    asignacionBtns();
+    funcion1Fn = objeto["logicaDb"];
+    document.documentElement.scrollTop = 0;
 
-    // containerEstadistica.appendChild(containerResponsive);
+
+
+    // containerElement.appendChild(containerResponsive);
     // containerResponsive.classList.add("containerResponsive");
     // -- Top Container ---
     // containerResponsive.appendChild(instrMMImg);
@@ -593,191 +499,215 @@ function renderFigura(objeto){
 };
 // --- Limpieza de div ---
 function cleanCont(){
-    containerEstadistica.innerHTML = "";
+    containerElement.innerHTML = "";
     containerIntro.innerHTML = "";
     containerResponsive.innerHTML = "";
 };
+function disableOptions(){
+    winInputEst.disabled = true;
+    winInputEst.classList.remove("resultColor");
+    if(idFigVr == "media_y_mediana"){
+        pResultEstMedia.classList.add("resultColor");
+        pResultEstMediana.classList.add("resultColor");
+    }else if(idFigVr == "moda"){
+        taResultEstModa.classList.add("resultColor");
+    }else if(idFigVr == "rango"){
+        pResultEstTam.classList.add("resultColor");
+        pResultEstMax.classList.add("resultColor");
+        pResultEstMin.classList.add("resultColor");
+        pResultEstRango.classList.add("resultColor");
+    }else if(idFigVr == "desviación_media"){
+        pResultEstTamDM.classList.add("resultColor");
+        pResultEstMedDM.classList.add("resultColor");
+        pResultEstDM.classList.add("resultColor");
+    };
+    enableBtnResult();
+}
+function asignacionesWindows(){
+    winMessEst = document.querySelector(".outputMessage")
+    winInputEst = document.querySelector("#textAreaId");
+    if(idFigVr == "media_y_mediana"){
+        pResultEstMedia = document.querySelector(".resultEstMedia");
+        pResultEstMediana = document.querySelector(".resultEstMediana");
+    }
+    else if(idFigVr == "moda"){
+        taResultEstModa = document.querySelector(".resultEstModa");
+    }
+    else if(idFigVr == "rango"){
+        pResultEstTam = document.querySelector(".resultEstTam");
+        pResultEstMax = document.querySelector(".resultEstMax");
+        pResultEstMin = document.querySelector(".resultEstMin");
+        pResultEstRango = document.querySelector(".resultEstRango");
+    }
+    else if(idFigVr == "desviación_media"){
+        pResultEstTamDM = document.querySelector(".resultEstTamDM");
+        pResultEstMedDM = document.querySelector(".resultEstMedDM");
+        pResultEstDM = document.querySelector(".resultEstDM");
+    };
+};
+function asignacionMensajes(){
+    if(idFigVr == "media_y_mediana" || idFigVr == "rango" || idFigVr == "desviación_media"){
+        mensajeInsertarValores();
+    }
+    else if(idFigVr == "moda"){
+        mensajeInsertarValoresM();
+    }
+};
+function asignacionBtns(){
+    btnClearCalc = document.querySelector(".btnClearCalcCl");
+    btnClearCalc.addEventListener("click", clearValCalc );
+    btnResultCalc = document.querySelector(".btnResultCalcCl");
+    btnResultCalc.addEventListener("click", window[funcion1Fn]);
+};
+// --- funciones de mensajes ---
+function mensajeInsertarValoresM(){
+    winMessEst.innerHTML = "Introduce caracteres separados<br>por una coma ( , ) y sin espacios";
+};
+function mensajeInsertarValores(){
+    winMessEst.innerHTML = "Introduce números separados<br>por una coma ( , ) y sin espacios";
+};
+function mensajeSoloNum(){
+    winMessEst.innerHTML = "Solo números separados por<br>comas sin espacios son permitidos";
+};
+function mensajeResultadoExitosoMM(){
+    winMessEst.innerHTML = "Calculación de Media y Mediana<br>con éxito";
+};
+function mensajeSoloCarac(){
+    winMessEst.innerHTML = "Orden debe ser caracter separado<br>por una coma y sin espacios";
+};
+function mensajeSinDuplicados(){
+    winMessEst.innerHTML = "No existe Moda ya que no se<br>encontraron Duplicados";
+};
+function mensajeResultadoExitosoModa(){
+    winMessEst.innerHTML = "Calculación de Moda<br>con éxito";
+};
+function mensajeResultadoExitosoRango(){
+    winMessEst.innerHTML = "Calculación de Rango<br>con éxito";
+};
+// --- habilitar y deshabilitar boton de resultado ---
+function disableBtnResult(){
+    btnResultCalc.disabled = false;
+    btnResultCalc.classList.remove("btnInactive");
+    btnResultCalc.classList.add("btnResultCl");
+};
+function enableBtnResult(){ 
+    btnResultCalc.disabled = true;
+    btnResultCalc.classList.remove("btnResultCl");
+    btnResultCalc.classList.add("btnInactive");
+};
+// --- borrado de valores de calculadora ---
+function clearValCalc(){
+    winInputEst.value = "";
+    winInputEst.classList.add("resultColor");
+    winInputEst.disabled = false;
+    disableBtnResult();
 
+    if(idFigVr == "media_y_mediana"){
+        pResultEstMedia.innerHTML = "";
+        pResultEstMedia.classList.remove("resultColor");
+        pResultEstMediana.innerHTML = "";
+        pResultEstMediana.classList.remove("resultColor");
+        mensajeInsertarValores();
+    }
+    else if(idFigVr == "moda"){
+        taResultEstModa.innerHTML = "";
+        taResultEstModa.classList.remove("resultColor");
+        mensajeInsertarValoresM();
+    }
+    else if(idFigVr == "rango"){
+        pResultEstTam.innerHTML = "";
+        pResultEstTam.classList.remove("resultColor");
+        pResultEstMax.innerHTML = "";
+        pResultEstMax.classList.remove("resultColor");
+        pResultEstMin.innerHTML = "";
+        pResultEstMin.classList.remove("resultColor");
+        pResultEstRango.innerHTML = "";
+        pResultEstRango.classList.remove("resultColor");
+        mensajeInsertarValores();
+    }
+    else if(idFigVr == "desviación_media"){
+        pResultEstTamDM.innerHTML = "";
+        pResultEstTamDM.classList.remove("resultColor");
+        pResultEstMedDM.innerHTML = "";
+        pResultEstMedDM.classList.remove("resultColor");
+        pResultEstDM.innerHTML = "";
+        pResultEstDM.classList.remove("resultColor");
+        mensajeInsertarValores();
+    };
+};
+// --- sublogia funciones ---
+function promedio(arrayStr){
+    // --- Creando un nuevo array cambiando los strings a numbers ---
+    const arrayNum = [];
+    arrayStr.forEach(element => {
+        arrayNum.push(Number(element));
+    });
+    const suma = arrayNum.reduce((add,num) => add+=num);
+    const cantidad = arrayNum.length;
+    const resPromedio = suma / cantidad;
+    return resPromedio;
+};
+function mediana(arrayStr){
+    const arrayNum = [];
+    arrayStr.forEach(element => {
+        arrayNum.push(Number(element));
+    });
+    const orden = arrayNum.sort((a,b) => a-b);
+    const cantidad = arrayNum.length;
 
-
-// function figurasFnc(){
-//     listIndex.scrollTop = 0;
-//     listIndex.classList.toggle("listIndexShow");
-//     blurC.classList.toggle("off");
-//     body.classList.toggle("noMove");
-// }
-// function borrar(){
-//     // ---- Limpieza de valor de sectionEstmiddle ----
-//     sectionEstmiddle.innerHTML = "";
-//     labelArea.innerHTML = "";
-//     textarea.value = "";
-//     textarea.disabled = false;
-//     textarea.classList.remove("resultColor");
-
-//     contSectEstBottom.innerHTML = "";
-//     EstBottomA.innerHTML = "";
-//     // ---- Borrado de clases y abilitar botones ----
-//     btnResultEst.classList.remove(btnResultEstReg);
-//     btnClearEst.classList.remove(btnClearEstReg);
-//     btnResultEst.disabled = false;
-//     btnResultEst.classList.remove("btnInactive");
-//     // ----  ----
-//     containerEstadistica.innerHTML = "";
-//     divCalculadora.innerHTML = "";
-//     //---- ----
-//     pTitlesEstadistica.classList.remove("titleImg");
-// }
-// function disableOptions(){
-//     winEstVar.disabled = true;
-//     winEstVar.classList.add("resultColor");
-//     if(idFig == "media_y_mediana"){
-//         pResultEstMedia.classList.remove("resultColor");
-//         pResultEstMediana.classList.remove("resultColor");
-//     }else if(idFig == "moda_cal"){
-//         taResultEstModa.classList.remove("resultColor");
-//     }else if(idFig == "rango_cal"){
-//         pResultEstTam.classList.remove("resultColor");
-//         pResultEstMax.classList.remove("resultColor");
-//         pResultEstMin.classList.remove("resultColor");
-//         pResultEstRango.classList.remove("resultColor");
-//     }else if(idFig == "desviación_media_cal"){
-//         pResultEstTamDM.classList.remove("resultColor");
-//         pResultEstMedDM.classList.remove("resultColor");
-//         pResultEstDM.classList.remove("resultColor");
-//     };
-//     btnResultEst.disabled = true;
-//     btnResultEst.classList.remove("btnResult");
-//     btnResultEst.classList.add("btnInactive");
-// }
-
-// function habilitarIntercambiar(){
-//     btnResultEst.disabled = false;
-//     btnResultEst.classList.remove("btnInactive");
-//     btnResultEst.classList.add("btnResult");
-// };
-
-
-// function mensajeSoloNum(){
-//     labelArea.innerHTML = "Solo números separados por<br>comas sin espacios son permitidos";
-// };
-// function mensajeInsertarValoresM(){
-//     labelArea.innerHTML = "Introduce caracteres separados<br>por una coma ( , ) y sin espacios";
-// };
-// function mensajeSoloCarac(){
-//     labelArea.innerHTML = "Orden debe ser caracter separado<br>por una coma y sin espacios";
-// };
-// function mensajeSinDuplicados(){
-//     labelArea.innerHTML = "No existe Moda ya que no se<br>encontraron Duplicados";
-// };
-// function mensajeResultadoExitosoMM(){
-//     labelArea.innerHTML = "Calculación de Media y Mediana<br>con éxito";
-// };
-// function mensajeResultadoExitosoRango(){
-//     labelArea.innerHTML = "Calculación de Rango<br>con éxito";
-// };
-// function mensajeResultadoExitosoDm(){
-//     labelArea.innerHTML = "Calculación de Desviación Media<br>con éxito";
-// };
-// function mensajeResultadoExitosoModa(){
-//     labelArea.innerHTML = "Calculación de Moda<br>con éxito";
-// };
-// function promedio(arrayString){
-//     // --- Creando un nuevo array cambiando los strings a numbers ---
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     const suma = arrayNum.reduce((add,num) => add+=num);
-//     const cantidad = arrayNum.length;
-//     const resPromedio = suma / cantidad;
-//     return resPromedio;
-// }
-// function mediana(arrayString){
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     const orden = arrayNum.sort((a,b) => a-b);
-//     const cantidad = arrayNum.length;
-
-//     let resMediana;
-//     if(cantidad % 2 == 0){
-//         const mitadP = cantidad / 2;
-//         resMediana = (orden[mitadP - 1] + orden[mitadP]) / 2;
-//     }else{
-//         const mitadI = (cantidad - 1) / 2;
-//         resMediana = orden[mitadI];
-//     }
-//     return resMediana;
-// }
-// function moda(arrayString){
-//     // --- Creando un objeto con los elementos y cuantas veces se repiten cada uno ---
-//     const objDuplicados = arrayString.reduce((a,i) => (a[i] ? a[i] += 1 : a[i] = 1, a),{});
-//     // --- Comvirtiendo el objeto a un array de arrays ---
-//     const objArray = Object.entries(objDuplicados);
-//     // --- Ordenando de mayor a menor el array de arrays respecto a el numero de repeticiones ---
-//     objArray.sort((a,b) => b[1]-a[1]);
-//     // --- creando un nuevo array de arrays con solo el o los que tienen el valor mas alto ---
-//     const arrayFiltrado = [];
-//     let vt = 1;
-//     objArray.forEach(rep => {
-//         if(rep[1] > vt){
-//            arrayFiltrado.push([rep[0],rep[1]]);
-//            vt = (rep[1]-1);
-//         } 
-//     });
-//     return arrayFiltrado;
-// };
-// function rango(arrayString){
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     arrayNum.sort((a,b) => b - a);
-//     const tam = arrayNum.length;
-//     const max = arrayNum[0];
-//     const min = arrayNum[(tam - 1)];
-//     const resRango = max - min;
-//     return {
-//         "tamano": tam,
-//         "maxima": max,
-//         "minima": min,
-//         "resultRango": resRango
-//     };
-// }
-// function desviacionMedia(arrayString){
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     const tam = arrayNum.length;
-//     const media = promedio(arrayString);
-//     // --- ---
-//     const arrayAbs = [];
-//     arrayNum.forEach(element => {
-//         const numAbs = Math.abs(element - media);
-//         arrayAbs.push(Number(numAbs));
-//     })
-//     // --- ---
-//     const addAbs = arrayAbs.reduce((a,b) => a += b);
-//     const resDM = addAbs/tam;
-//     return {
-//         "tamano": tam,
-//         "media": media,
-//         "resDM": resDM
-//     }
-// }
-
-
-
-//--- funciones calculadoras ---
+    let resMediana;
+    if(cantidad % 2 == 0){
+        const mitadP = cantidad / 2;
+        resMediana = (orden[mitadP - 1] + orden[mitadP]) / 2;
+    }else{
+        const mitadI = (cantidad - 1) / 2;
+        resMediana = orden[mitadI];
+    }
+    return resMediana;
+};
+function moda(arrayString){
+    // --- Creando un objeto con los elementos y cuantas veces se repiten cada uno ---
+    const objDuplicados = arrayString.reduce((a,i) => (a[i] ? a[i] += 1 : a[i] = 1, a),{});
+    // --- Comvirtiendo el objeto a un array de arrays ---
+    const objArray = Object.entries(objDuplicados);
+    // --- Ordenando de mayor a menor el array de arrays respecto a el numero de repeticiones ---
+    objArray.sort((a,b) => b[1]-a[1]);
+    // --- creando un nuevo array de arrays con solo el o los que tienen el valor mas alto ---
+    const arrayFiltrado = [];
+    let vt = 1;
+    objArray.forEach(rep => {
+        if(rep[1] > vt){
+           arrayFiltrado.push([rep[0],rep[1]]);
+           vt = (rep[1]-1);
+        } 
+    });
+    return arrayFiltrado;
+};
+function rango(arrayString){
+    const arrayNum = [];
+    arrayString.forEach(element => {
+        arrayNum.push(Number(element));
+    });
+    arrayNum.sort((a,b) => b - a);
+    const tam = arrayNum.length;
+    const max = arrayNum[0];
+    const min = arrayNum[(tam - 1)];
+    const resRango = max - min;
+    return {
+        "tamano": tam,
+        "maxima": max,
+        "minima": min,
+        "resultRango": resRango
+    };
+}
+// --- logica funciones ---
 function mediaMedianaFc(){
     // --- Expresion regular solo numeros puntos y comas son aceptados ---
-    if(!(textarea.value == "")){
+    if(!(winInputEst.value == "")){
         var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
-        if(regex.test(textarea.value)){
+        if(regex.test(winInputEst.value)){
             // --- Obteniendo datos de ventana de entrada como un solo strig ---
-            const infoWindow = textarea.value;
+            const infoWindow = winInputEst.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWindow.split(",");
             // --- resultados ---
@@ -795,13 +725,13 @@ function mediaMedianaFc(){
         mensajeInsertarValores();
     }
 };
-function estModa(){
-    if(!(textarea.value == "")){
+function modaFc(){
+    if(!(winInputEst.value == "")){
         // --- Expresion regular solo numeros puntos y comas son aceptados ---
         var regex = /^[^,\s]+(?:,[^,\s]+)*$/;
-        if(regex.test(textarea.value)){
+        if(regex.test(winInputEst.value)){
             // --- Obteniendo datos de ventana de entrada como un solo strig ---
-            const infoWinModa = textarea.value;
+            const infoWinModa = winInputEst.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWinModa.split(",");
             // --- Variable con array filtrado despues de la funcion moda ----
@@ -809,13 +739,13 @@ function estModa(){
             // --- impresion ---
             if(arrayFiltro.length == 0){
                 mensajeSinDuplicados();
-                taResultEstModa.value = "Ningun elemento se repitío";
+                taResultEstModa.innerHTML = "Ningun elemento se repitío";
             }else{
                 arrayFiltro.forEach((res, iter) => {
                     if(iter < arrayFiltro.length -1){
-                        taResultEstModa.value += res[0] + ", ";
+                        taResultEstModa.innerHTML += res[0] + ", ";
                     }else{
-                        taResultEstModa.value += res[0];
+                        taResultEstModa.innerHTML += res[0];
                     }
                 })
                 mensajeResultadoExitosoModa();
@@ -828,13 +758,13 @@ function estModa(){
         mensajeInsertarValoresM();
     }
 };
-function estRango(){
-    if(!(textarea.value == "")){
+function rangoFc(){
+    if(!(winInputEst.value == "")){
         // --- Expresion regular solo numeros puntos y comas son aceptados ---
         var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
-        if(regex.test(textarea.value)){
+        if(regex.test(winInputEst.value)){
             // --- Obteniendo datos de ventana de entrada como un solo strig ---
-            const infoWinModa = textarea.value;
+            const infoWinModa = winInputEst.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWinModa.split(",");
             // --- variable con info en objeto ---
@@ -849,7 +779,6 @@ function estRango(){
             pResultEstMax.innerHTML = formato(max.toFixed(2));
             pResultEstMin.innerHTML = formato(min.toFixed(2));
             pResultEstRango.innerHTML = formato(resRng.toFixed(2));
-
             disableOptions();
             mensajeResultadoExitosoRango();
         }else{
@@ -889,4 +818,195 @@ function estDesviacionMedia(){
 };
 // ---Inicio ---
 renderIntroduccion();
+
+
+// const instrMMImg = document.createElement("div");
+// const titleMM = document.createElement("h2");
+// const imgMM = document.createElement("img");
+// const containerEstCal = document.createElement("div");
+// const divCalculadora = document.createElement("div");
+// const pTitlesEstadistica = document.createElement("p");
+// const pEstadistica = document.createElement("p");
+// const sectionEsttop = document.createElement("section");
+// const sectionEstmiddle = document.createElement("section");
+// const divEntryWin = document.createElement("div");
+// const labelArea = document.createElement("p");
+// const textarea = document.createElement("textarea");
+// const contSectEstBottom = document.createElement("div");
+// const btnClearEst = document.createElement("button");
+// const btnResultEst = document.createElement("button");
+// const sectionEstbottom = document.createElement("section");
+
+// let rutaFEstClear;
+// let rutaFEst;
+
+// function mensajeInsertarValores(){
+//     labelArea.innerHTML = "Introduce números separados<br>por una coma ( , ) y sin espacios";
+// };
+// function clearEstOpt(){
+//     winEstVar.disabled = false;
+//     winEstVar.value = "";
+//     winEstVar.classList.remove("resultColor");
+//     habilitarIntercambiar();
+//     labelArea.innerHTML = "";
+
+//     if(idFig == "media_y_mediana"){
+//         mensajeInsertarValores();
+//         pResultEstMedia.innerHTML = ""; 
+//         pResultEstMediana.innerHTML = ""; 
+//         pResultEstMedia.classList.add("resultColor");
+//         pResultEstMediana.classList.add("resultColor");
+//     }
+//     else if(idFig == "moda_cal"){
+//         mensajeInsertarValoresM();
+//         taResultEstModa.value = ""; 
+//         taResultEstModa.classList.add("resultColor");
+//     }
+//     else if(idFig == "rango_cal"){
+//         mensajeInsertarValores();
+//         pResultEstTam.innerHTML = "";
+//         pResultEstMax.innerHTML = "";
+//         pResultEstMin.innerHTML = "";
+//         pResultEstRango.innerHTML = ""; 
+//         pResultEstTam.classList.add("resultColor");
+//         pResultEstMax.classList.add("resultColor");
+//         pResultEstMin.classList.add("resultColor");
+//         pResultEstRango.classList.add("resultColor");
+//     }
+//     else if(idFig == "desviación_media_cal"){
+//         mensajeInsertarValores();
+//         pResultEstTamDM.innerHTML = "";
+//         pResultEstMedDM.innerHTML = "";
+//         pResultEstDM.innerHTML = "";
+//         pResultEstTamDM.classList.add("resultColor");
+//         pResultEstMedDM.classList.add("resultColor");
+//         pResultEstDM.classList.add("resultColor");
+//     }
+//     pTitlesEstadistica.classList.remove("titleImg");
+// };
+
+
+
+//const sectionDmiddle = document.createElement("div");
+
+
+// const medida = document.querySelector(".medida");
+// const sectionDtop = document.createElement("div");
+// const defTitulo = document.createElement("h2");
+// const defImg = document.createElement("img");
+// const defEstadisticaTitulo = document.createElement("p");
+// const defEstadistica = document.createElement("p");
+// const sectionDbottom = document.createElement("div");
+// const defCategoriaTitulo = document.createElement("p");
+// const defCategoria = document.createElement("p");
+// const defGuiaTitulo = document.createElement("p");
+// const defGuia = document.createElement("p");
+// const EstBottomA = document.createElement("div");
+// const contPResultEstMedia = document.createElement("div");
+// const contPResultEstMediana = document.createElement("div");
+// const contPResultEstModa = document.createElement("div");
+// const contPResultEstTam = document.createElement("div");
+// const contPResultEstMax = document.createElement("div");
+// const contPResultEstMin = document.createElement("div");
+// const contPResultEstRango = document.createElement("div");
+// const titleResultEstMedia = document.createElement("p");
+// const titleResultEstMediana = document.createElement("p");
+// const titleResultEstModa = document.createElement("p");
+// const titleResultEstTam = document.createElement("p");
+// const titleResultEstMax = document.createElement("p");
+// const titleResultEstMin = document.createElement("p");
+// const titleResultEstRango = document.createElement("p");
+// const titleResultEstDesviacionMedia = document.createElement("p");
+// const pResultEstDesviacionMedia = document.createElement("p");
+
+// let btnClearEstReg;
+// let btnResultEstReg;
+// let winEstVar = null;
+// let pResultEstMedia = null;
+// let pResultEstMediana = null;
+// let taResultEstModa = null;
+// let pResultEstTam = null;
+// let pResultEstMax = null;
+// let pResultEstMin = null;
+// let pResultEstRango = null;
+// let pResultEstTamDM = null;
+// let pResultEstMedDM = null;
+// let pResultEstDM = null;
+
+// --- Limpieza de div ---
+// function figurasFnc(){
+//     listIndex.scrollTop = 0;
+//     listIndex.classList.toggle("listIndexShow");
+//     blurC.classList.toggle("off");
+//     body.classList.toggle("noMove");
+// }
+// function borrar(){
+//     // ---- Limpieza de valor de sectionEstmiddle ----
+//     sectionEstmiddle.innerHTML = "";
+//     labelArea.innerHTML = "";
+//     textarea.value = "";
+//     textarea.disabled = false;
+//     textarea.classList.remove("resultColor");
+
+//     contSectEstBottom.innerHTML = "";
+//     EstBottomA.innerHTML = "";
+//     // ---- Borrado de clases y abilitar botones ----
+//     btnResultEst.classList.remove(btnResultEstReg);
+//     btnClearEst.classList.remove(btnClearEstReg);
+//     btnResultEst.disabled = false;
+//     btnResultEst.classList.remove("btnInactive");
+//     // ----  ----
+//     containerElement.innerHTML = "";
+//     divCalculadora.innerHTML = "";
+//     //---- ----
+//     pTitlesEstadistica.classList.remove("titleImg");
+// }
+
+
+// function habilitarIntercambiar(){
+//     btnResultEst.disabled = false;
+//     btnResultEst.classList.remove("btnInactive");
+//     btnResultEst.classList.add("btnResult");
+// };
+
+
+
+
+
+
+
+// function mensajeResultadoExitosoDm(){
+//     labelArea.innerHTML = "Calculación de Desviación Media<br>con éxito";
+// };
+
+
+
+
+
+// function desviacionMedia(arrayString){
+//     const arrayNum = [];
+//     arrayString.forEach(element => {
+//         arrayNum.push(Number(element));
+//     });
+//     const tam = arrayNum.length;
+//     const media = promedio(arrayString);
+//     // --- ---
+//     const arrayAbs = [];
+//     arrayNum.forEach(element => {
+//         const numAbs = Math.abs(element - media);
+//         arrayAbs.push(Number(numAbs));
+//     })
+//     // --- ---
+//     const addAbs = arrayAbs.reduce((a,b) => a += b);
+//     const resDM = addAbs/tam;
+//     return {
+//         "tamano": tam,
+//         "media": media,
+//         "resDM": resDM
+//     }
+// }
+
+
+
+
 

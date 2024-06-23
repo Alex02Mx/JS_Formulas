@@ -55,7 +55,6 @@ function emailForm(){
 };
 function dataSend(){
     if(!(winEmail.value == "") && !(winNombre.value == "") && !(winDescripcion.value == "")){
-        console.log("enviado");
         winMesgSend();
     } ;
 };
@@ -75,7 +74,7 @@ function winMesgSend(){
     `
     winMesSendInfoCont.innerHTML = winMesSendInfo;
     cleanCont();
-    containerFiguras.append(winMesSendInfoCont);
+    containerElement.append(winMesSendInfoCont);
 };
 
 // --- Redes Sociales Imagenes ---
