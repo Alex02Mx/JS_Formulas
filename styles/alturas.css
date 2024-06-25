@@ -170,8 +170,8 @@ body {
 .calcDesktop{
     width: 250px;
     position: absolute;
-    top: -260px;
-    left: -90px;
+    top: -160px;
+    left: -65px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
     padding: 20px 0px;
@@ -188,7 +188,7 @@ body {
 .contDesktop{
     width: 300px;
     position: absolute;
-    top: -260px;
+    top: -140px;
     left: -90px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;

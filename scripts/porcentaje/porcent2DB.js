@@ -36,7 +36,6 @@ const PorcentajeArray = [];
 
 //-----------Calculadoras------------
 const porcCantData = {
-
     idDb: "porcentaje_de_una_cantidad_cantidad_de_un_porcentaje",
     datosDb : [
         {

@@ -170,7 +170,7 @@ body {
 .calcDesktop{
     width: 220px;
     position: absolute;
-    top: -400px;
+    top: -160px;
     left: -50px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
@@ -188,7 +188,7 @@ body {
 .contDesktop{
     width: 300px;
     position: absolute;
-    top: -260px;
+    top: -140px;
     left: -90px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
@@ -497,119 +497,6 @@ textarea{
     background-color: var(--blue);
     color: var(--white);
 }
-
-/* .containerImage2,
-.instrMMImg {
-    background-image: var(--background_radial_2);
-    border-radius: 10px;
-    width: 340px;
-    height: 383px;
-}
-.titleMM {
-    color: var(--naranja);
-    text-align: center;
-}
-.instrMMImg img {
-    width: 340px;
-}
-.perimeterArea {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-.containerCalculadora {
-    display: flex;
-    flex-direction: column;
-    background: var(--background_radial_2);
-    width: 300px;
-    height: 343px;
-    border-radius: 10px;
-    padding: 20px;
-}
-.sectionEsttop {
-    text-align: center;
-}
-.titlesEstadistica {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--white);
-    text-align: center;
-    margin: 0px;
-    padding: 0px 0px;
-    color: var(--naranja);
-}
-.titleImg {
-    padding: 20px 0px;
-}
-.textEstadistica {
-    font-size: 21px;
-    color: var(--naranja);
-    font-weight: 700;
-    margin: 0px 0px 5px 0px;
-}
-.contSectEstBottom{
-    display: flex;
-    justify-content: center;
-    margin: 10px 0px;
-    width: 300px;
-    height: 100px;
-}
-.EstBottomA{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    gap: 3px;
-}
-
-
-.contPResultA p,
-.contPResult p{
-    margin: 0px;
-    padding: 5px 5px;
-}
-.resultEstTamDM,
-.resultEstMedDM{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 20px;
-}
- */
-/* .selMod {
-    color: var(--naranja);
-}
-.selMod:hover {
-    color: var(--white);
-} */
-/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
-/* .btnImg {
-    padding: 3px 10px 3px 10px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--naranja);
-    border-radius: 8px;
-    margin: 0px;
-}
-.defT {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0px;
-    color: var(--black);
-}
-.defC {
-    border-radius: 10px;
-    padding: 10px;
-    background-color: var(--white);
-    color: var(--black);
-}
-span {
-    padding: 3px 3px;
-    border-radius: 3px;
-    background-color: var(--secundario);
-    color: var(--naranja);
-} */
-
 /* ################# footer ################# */
 .footer {
     position: absolute;

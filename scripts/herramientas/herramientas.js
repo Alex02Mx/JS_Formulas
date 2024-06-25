@@ -1,30 +1,166 @@
-
+//==============================  variables y constantes ==================================
 const body = document.querySelector(".body");
-const medida = document.querySelector(".medida");
-const listIndex = document.querySelector(".listIndex");
 const blurC = document.querySelector(".blurC");
-
-medida.addEventListener("click", figurasFnc);
-blurC.addEventListener("click", blurFnc);
-
+const menuMobile = document.querySelector("#moblilCont");
+const topL = document.querySelector("#top");
+const middleL = document.querySelector("#middle");
+const bottomL = document.querySelector("#bottom");
+const listIndex = document.querySelector(".listIndex");
+const aMenu = document.querySelector(".aMenu");
+const textMenu = document.querySelector(".textMenu");
+const calcText = document.querySelector(".calcText");
+const calcDesktop = document.querySelector(".calcDesktop");
+const contactText = document.querySelector(".contactText");
+const contDesktop = document.querySelector(".contDesktop");
+const containerElement = document.querySelector(".containerElement");
+const containerIntro = document.createElement("section");
+const containerResponsive = document.createElement("section");
+const titlesIndexText = document.querySelector(".titlesIndexText");
+const email = document.querySelectorAll(".email");
 const seleccion = document.querySelectorAll(".seleccion");
+const socMedDesktop = document.querySelector(".socMedDesktop");
+const socMedMainCont =  document.querySelector(".socMedMainCont");
+
+
+
+// const medida = document.querySelector(".medida");
+// const sectionDtop = document.createElement("div");
+// const defTitulo = document.createElement("h2");
+// const defImg = document.createElement("img");
+// const sectionDmiddle = document.createElement("div");
+// const defHerramientaTitulo = document.createElement("p");
+// const defHerramienta = document.createElement("p");
+// const sectionDbottom = document.createElement("div");
+// const defCategoriaTitulo = document.createElement("p");
+// const defCategoria = document.createElement("p");
+// const defGuiaTitulo = document.createElement("p");
+// const defGuia = document.createElement("p");
+// const instrHerrImg = document.createElement("div");
+// const titleHerr = document.createElement("h2");
+// const imgHerr = document.createElement("img");
+// const containerHerrCal = document.createElement("div");
+// const divCalculadora = document.createElement("div");
+// const sectionHerrtop = document.createElement("section");
+// const pTitlesHerramienta = document.createElement("p");
+// const pHerramienta = document.createElement("p");
+// const sectionHerramiddle = document.createElement("section");
+// const divEntryWin = document.createElement("div");
+// const sectionHerrbottom = document.createElement("section");
+// const contSectHerrBottom = document.createElement("div");
+// const btnResultHerr = document.createElement("button");
+// const btnClearHerr = document.createElement("button");
+// const labelArea = document.createElement("p");
+// const textarea = document.createElement("textarea");
+// const titleSuelNet = document.createElement("label");
+// const pResultSuelNet = document.createElement("input");
+// const titleIngTot = document.createElement("label");
+// const pResultIngTot = document.createElement("input");
+// const titleGasFij = document.createElement("label");
+// const pResultGasFij = document.createElement("input");
+// let winNesBas;
+// let winGasPer;
+// let winAhoInv;
+// let winCapEnd;
+// let btnClearHerrReg;
+// let btnResultHerrReg;
+// let rutaFHerr;
+// let rutaFHerrClear;
+// let varId = "";
+
+//===============================  asignacion de valores ==================================
+socMedDesktop.innerHTML = socialMedImg;
+socMedMainCont.append(socialMedCont);
+//====================================  Escuchadores ======================================
+blurC.addEventListener("click", blurFnc);
+menuMobile.addEventListener("click", showHideCalc);
+aMenu.addEventListener("click", menuPrinc);
+textMenu.addEventListener("click", menuPrinc);
+calcText.addEventListener("click", showHideCalc);
+contactText.addEventListener("click", showHideCalc);
+//=======================================  Ciclos =========================================
+email.forEach((itemClass) => {
+    itemClass.addEventListener("click", dispContactanos);
+});
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
-
-function figurasFnc(){
-    listIndex.scrollTop = 0;
-    listIndex.classList.toggle("listIndexShow");
-    blurC.classList.toggle("off");
-    body.classList.toggle("noMove");
-}
-//----Funcion opacar background----------------------------------------------------------
+//================================  funciones anonimas ====================================
+const formato = (number) => {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    let arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp,rep);
+    return arr[1] ? arr.join('.'): arr[0];
+};
+//=====================================  funciones ========================================
+// --- opacar pantalla ---
 function blurFnc(){
     listIndex.classList.remove("listIndexShow");
     blurC.classList.add("off");
     body.classList.remove("noMove");
+};
+function showHideCalc(event){
+    if(event.srcElement.innerHTML == "Calculadoras"){
+        calcDesktop.classList.toggle("calcDesktopShow");
+        if(calcDesktop.classList.contains("calcDesktopShow")){
+            contDesktop.classList.remove("contDesktopShow");
+            abrirOpc();
+        }
+        else{
+            cerrarOpc();
+        }
+    }
+    else if(event.srcElement.innerHTML == "Contáctanos"){
+        contDesktop.classList.toggle("contDesktopShow");
+        if(contDesktop.classList.contains("contDesktopShow")){
+            calcDesktop.classList.remove("calcDesktopShow");
+            abrirOpc();
+        }
+        else{
+            cerrarOpc();
+        }
+    }
+    else{
+        listIndex.classList.toggle("listIndexShow");
+        if(listIndex.classList.contains("listIndexShow")){
+            contDesktop.classList.remove("contDesktopShow");
+            calcDesktop.classList.add("calcDesktopShow");
+            abrirOpc();
+        }
+        else{
+            contDesktop.classList.remove("contDesktopShow");
+            calcDesktop.classList.remove("calcDesktopShow");
+            cerrarOpc();
+        }
+    }
+};
+function abrirOpc(){
+    listIndex.classList.add("listIndexShow");
+    body.classList.add("noMove");
+    blurC.classList.remove("off");
+    topL.classList.add("cross2");
+    middleL.classList.add("cross");
+    bottomL.classList.add("cross3");
+    listIndex.scrollTop = 0;
 }
-//----Funcion de seleccion en menu-------------------------------------------------------
+function cerrarOpc(){
+    listIndex.classList.remove("listIndexShow");
+    body.classList.remove("noMove");
+    blurC.classList.add("off");
+    topL.classList.remove("cross2");
+    middleL.classList.remove("cross");
+    bottomL.classList.remove("cross3");
+};
+// --- Retornar a menu principal ---
+function menuPrinc(){
+    blurFnc();
+    setTimeout(menuPrincFnc, 600);
+};
+function menuPrincFnc(){
+    // location.href="../../index.html";
+    location.href="/JS_Formulas/index.html";
+};
+// --- Selección ---
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const target = event.target.innerText.toLowerCase();
@@ -37,161 +173,46 @@ function selecFnc(event){
     };
     blurFnc();
 }
-//----Funciones de borrado, activacion y desactivacion de bentanas y radios--------------
-function borrar(){
-    // ---- Limpieza de valor de sectionHerramiddle ----
-    sectionHerramiddle.innerHTML = "";
-    labelArea.innerHTML = "";
-    // --- ---
-    pResultSuelNet.value = "";
-    pResultSuelNet.disabled = false;
-    pResultSuelNet.classList.remove("resultColor");
-    // --- ---
-    pResultIngTot.value = "";
-    pResultIngTot.disabled = false;
-    pResultIngTot.classList.remove("resultColor");
-    pResultGasFij.value = "";
-    pResultGasFij.disabled = false;
-    pResultGasFij.classList.remove("resultColor");
-    // --- ---
-    contSectHerrBottom.innerHTML = "";
-    // ---- Borrado de clases y abilitar botones ----
-    btnResultHerr.classList.remove(btnResultHerrReg);
-    btnClearHerr.classList.remove(btnClearHerrReg);
-    btnResultHerr.disabled = false;
-    btnResultHerr.classList.remove("btnInactive");
-    // ----  ----
-    containerHerramienta.innerHTML = "";
-    divCalculadora.innerHTML = "";
-    //---- ----
-    pTitlesHerramienta.classList.remove("titleImg");
-}
-//--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
-function disableOptions(){
-    if(varId == "regla_50-30-20_cal"){
-        pResultSuelNet.disabled = true;
-        pResultSuelNet.classList.add("resultColor");
-        winNesBas.classList.remove("resultColor");
-        winGasPer.classList.remove("resultColor");
-        winAhoInv.classList.remove("resultColor");
-    }else if(varId == "endeudamiento_cal"){
-        pResultIngTot.disabled = true;
-        pResultIngTot.classList.add("resultColor");
-        pResultGasFij.disabled = true;
-        pResultGasFij.classList.add("resultColor");
-        winCapEnd.classList.remove("resultColor");
-    };
-    btnResultHerr.disabled = true;
-    btnResultHerr.classList.remove("btnResult");
-    btnResultHerr.classList.add("btnInactive");
-}
-//--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
-function clearHerrOpt(){
-    habilitarIntercambiar();
-    labelArea.innerHTML = "";
-    if(varId == "regla_50-30-20_cal"){
-        mensajeInsertarValores();
-        pResultSuelNet.setAttribute("type", "number");
-        pResultSuelNet.disabled = false;
-        pResultSuelNet.value = "";
-        pResultSuelNet.classList.remove("resultColor");
-        winNesBas.innerHTML = ""; 
-        winGasPer.innerHTML = ""; 
-        winAhoInv.innerHTML = ""; 
-        winNesBas.classList.add("resultColor");
-        winGasPer.classList.add("resultColor");
-        winAhoInv.classList.add("resultColor");
-    }
-    else if(varId == "endeudamiento_cal"){
-        mensajeInsertarValoresCE();
-        pResultIngTot.setAttribute("type", "number");
-        pResultIngTot.disabled = false;
-        pResultIngTot.value = "";
-        pResultIngTot.classList.remove("resultColor");
-        pResultGasFij.setAttribute("type", "number");
-        pResultGasFij.disabled = false;
-        pResultGasFij.value = "";
-        pResultGasFij.classList.remove("resultColor");
-        winCapEnd.innerHTML = ""; 
-        winCapEnd.classList.add("resultColor");
-    };
-    pTitlesHerramienta.classList.remove("titleImg");
-};
-function habilitarIntercambiar(){
-    btnResultHerr.disabled = false;
-    btnResultHerr.classList.remove("btnInactive");
-    btnResultHerr.classList.add("btnResult");
-};
-//----Funcion asignaciones --------------------------------------------------------------
-function asignacionesWindows(){
-    if(varId == "regla_50-30-20_cal"){
-        winNesBas = document.querySelector(".resultHerrNecBas");
-        winGasPer = document.querySelector(".resultHerrGasPer");
-        winAhoInv = document.querySelector(".resultHerrAhoInv");
-    }
-    else if(varId == "endeudamiento_cal"){
-        winCapEnd = document.querySelector(".resultHerrCapEnd");
-    };
-};
-//----Funciones mensajes-----------------------------------------------------------------
-function mensajeInsertarValores(){
-    labelArea.innerHTML = "Introduce Sueldo Neto<br>para aplicar la regla";
-};
-function mensajeResultadoExitosoRegla(){
-    labelArea.innerHTML = "Calculación de Regla 50-30-20<br>con éxito";
-};
-function mensajeSoloNum(){
-    labelArea.innerHTML = "Solo números mayores<br>a 0 son permitidos";
-};
-// --- ---
-function mensajeInsertarValoresCE(){
-    labelArea.innerHTML = "Introduce Ingresos Totales para<br>la Capacidad de Endeudamiento";
-};
-function mensajeResultadoExitosoCE(){
-    labelArea.innerHTML = "Calculación de Capacidad de<br>Endeudamiento con éxito";
-};
-//----Funcion formato-------------------------------------------------
-const formato = (number) => {
-    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
-    const rep = '$1,';
-    let arr = number.toString().split('.');
-    arr[0] = arr[0].replace(exp,rep);
-    return arr[1] ? arr.join('.'): arr[0];
-};
-//----Funciones renderizado--------------------------------------------------------------
-function renderIntroduccion(){
-    borrar();
-    containerHerramienta.appendChild(containerIntro);
+function dispContactanos(){
+    listIndex.classList.remove("listIndexShow");
+    blurFnc();
+    cleanCont();
+    containerElement.append(emailForm());
 
+    winEmail = document.querySelector("#inputEmail");
+    winNombre = document.querySelector("#inputName");
+    winDescripcion = document.querySelector("#labelTexArea");
+
+    const btnBorrar = document.querySelector(".btnBorrar");
+    btnBorrar.addEventListener("click", dataClear);
+    btnSubmit = document.querySelector(".btnSubmit");
+    btnSubmit.addEventListener("click", dataSend);
+}
+// --- Funciones renderizado ---
+function renderIntroduccion(){
+    cleanCont();
+    titlesIndexText.innerText = "Herramientas";
+    containerElement.appendChild(containerIntro);
     containerIntro.classList.add("containerIntro");
 
-    defTitulo.classList.add("tituloIntro");
-    defTitulo.innerHTML = herramientasArray[0].defTitulo;
-    defImg.classList.add("imgIntro");
-    defImg.setAttribute("src", herramientasArray[0].defImg);
-    sectionDtop.classList.add("sectionDtop", "secD");
-    sectionDtop.append(defTitulo, defImg);
+    intro.forEach((value, index) => {
+        const valueLength = value["value" + index].length;
+        const defTitulo = document.createElement("p");
+        const selectionCont = document.createElement("div");
 
-    defHerramientaTitulo.classList.add("defHerramientaTitulo", "defT");
-    defHerramientaTitulo.innerHTML = herramientasArray[0].defHerramientaTitulo;
-    defHerramienta.classList.add("defHerramienta", "defC");
-    defHerramienta.innerHTML = herramientasArray[0].defHerramienta;
-    sectionDmiddle.classList.add("sectionDmiddle", "secD");
-    sectionDmiddle.append(defHerramientaTitulo, defHerramienta);
+        defTitulo.classList.add("tituloIntro");
+        defTitulo.innerText = value["value" + index][0];
+        selectionCont.classList.add("defParrafo");
+        selectionCont.append(defTitulo);
 
-    defCategoriaTitulo.classList.add("defCategoriaTitulo", "defT");
-    defCategoriaTitulo.innerHTML = herramientasArray[0].defCategoriaTitulo;
-    defCategoria.classList.add("defResumen", "defC");
-    defCategoria.innerHTML = herramientasArray[0].defCategoria;
-    
-    defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
-    defGuiaTitulo.innerHTML = herramientasArray[0].defGuiaTitulo;
-    defGuia.classList.add("defGuia", "defC");
-    defGuia.innerHTML = herramientasArray[0].defGuia;
-    sectionDbottom.classList.add("sectionDbottom", "secD");
-    sectionDbottom.append(defCategoriaTitulo, defCategoria, defGuiaTitulo, defGuia);
-
-    containerIntro.append(sectionDtop, sectionDmiddle, sectionDbottom);
+        for(let i=1; i<valueLength; i++){
+            const defSelection = document.createElement("P");
+            defSelection.classList.add("defIntro");
+            defSelection.innerHTML = value["value"+ index][i];
+            selectionCont.append(defSelection);
+        };
+        containerIntro.append(selectionCont);
+    });
     document.documentElement.scrollTop = 0;
 };
 function renderFigura(objeto){
@@ -325,7 +346,129 @@ function renderFigura(objeto){
     asignacionesWindows();
     document.documentElement.scrollTop = 0;
 };
-// ------------------------ Operaciones -----------------------------------------------------
+// --- Limpieza de div ---
+function cleanCont(){
+    containerElement.innerHTML = "";
+    containerIntro.innerHTML = "";
+    containerResponsive.innerHTML = "";
+};
+
+
+
+function figurasFnc(){
+    listIndex.scrollTop = 0;
+    listIndex.classList.toggle("listIndexShow");
+    blurC.classList.toggle("off");
+    body.classList.toggle("noMove");
+}
+
+
+// function borrar(){
+//     sectionHerramiddle.innerHTML = "";
+//     labelArea.innerHTML = "";
+//     pResultSuelNet.value = "";
+//     pResultSuelNet.disabled = false;
+//     pResultSuelNet.classList.remove("resultColor");
+//     pResultIngTot.value = "";
+//     pResultIngTot.disabled = false;
+//     pResultIngTot.classList.remove("resultColor");
+//     pResultGasFij.value = "";
+//     pResultGasFij.disabled = false;
+//     pResultGasFij.classList.remove("resultColor");
+//     contSectHerrBottom.innerHTML = "";
+//     btnResultHerr.classList.remove(btnResultHerrReg);
+//     btnClearHerr.classList.remove(btnClearHerrReg);
+//     btnResultHerr.disabled = false;
+//     btnResultHerr.classList.remove("btnInactive");
+//     containerHerramienta.innerHTML = "";
+//     divCalculadora.innerHTML = "";
+//     pTitlesHerramienta.classList.remove("titleImg");
+// }
+//--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
+function disableOptions(){
+    if(varId == "regla_50-30-20_cal"){
+        pResultSuelNet.disabled = true;
+        pResultSuelNet.classList.add("resultColor");
+        winNesBas.classList.remove("resultColor");
+        winGasPer.classList.remove("resultColor");
+        winAhoInv.classList.remove("resultColor");
+    }else if(varId == "endeudamiento_cal"){
+        pResultIngTot.disabled = true;
+        pResultIngTot.classList.add("resultColor");
+        pResultGasFij.disabled = true;
+        pResultGasFij.classList.add("resultColor");
+        winCapEnd.classList.remove("resultColor");
+    };
+    btnResultHerr.disabled = true;
+    btnResultHerr.classList.remove("btnResult");
+    btnResultHerr.classList.add("btnInactive");
+}
+//--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
+function clearHerrOpt(){
+    habilitarIntercambiar();
+    labelArea.innerHTML = "";
+    if(varId == "regla_50-30-20_cal"){
+        mensajeInsertarValores();
+        pResultSuelNet.setAttribute("type", "number");
+        pResultSuelNet.disabled = false;
+        pResultSuelNet.value = "";
+        pResultSuelNet.classList.remove("resultColor");
+        winNesBas.innerHTML = ""; 
+        winGasPer.innerHTML = ""; 
+        winAhoInv.innerHTML = ""; 
+        winNesBas.classList.add("resultColor");
+        winGasPer.classList.add("resultColor");
+        winAhoInv.classList.add("resultColor");
+    }
+    else if(varId == "endeudamiento_cal"){
+        mensajeInsertarValoresCE();
+        pResultIngTot.setAttribute("type", "number");
+        pResultIngTot.disabled = false;
+        pResultIngTot.value = "";
+        pResultIngTot.classList.remove("resultColor");
+        pResultGasFij.setAttribute("type", "number");
+        pResultGasFij.disabled = false;
+        pResultGasFij.value = "";
+        pResultGasFij.classList.remove("resultColor");
+        winCapEnd.innerHTML = ""; 
+        winCapEnd.classList.add("resultColor");
+    };
+    pTitlesHerramienta.classList.remove("titleImg");
+};
+function habilitarIntercambiar(){
+    btnResultHerr.disabled = false;
+    btnResultHerr.classList.remove("btnInactive");
+    btnResultHerr.classList.add("btnResult");
+};
+//----Funcion asignaciones --------------------------------------------------------------
+function asignacionesWindows(){
+    if(varId == "regla_50-30-20_cal"){
+        winNesBas = document.querySelector(".resultHerrNecBas");
+        winGasPer = document.querySelector(".resultHerrGasPer");
+        winAhoInv = document.querySelector(".resultHerrAhoInv");
+    }
+    else if(varId == "endeudamiento_cal"){
+        winCapEnd = document.querySelector(".resultHerrCapEnd");
+    };
+};
+//----Funciones mensajes-----------------------------------------------------------------
+function mensajeInsertarValores(){
+    labelArea.innerHTML = "Introduce Sueldo Neto<br>para aplicar la regla";
+};
+function mensajeResultadoExitosoRegla(){
+    labelArea.innerHTML = "Calculación de Regla 50-30-20<br>con éxito";
+};
+function mensajeSoloNum(){
+    labelArea.innerHTML = "Solo números mayores<br>a 0 son permitidos";
+};
+// --- ---
+function mensajeInsertarValoresCE(){
+    labelArea.innerHTML = "Introduce Ingresos Totales para<br>la Capacidad de Endeudamiento";
+};
+function mensajeResultadoExitosoCE(){
+    labelArea.innerHTML = "Calculación de Capacidad de<br>Endeudamiento con éxito";
+};
+
 //--- funciones calculadoras ---
 function herr503020(){
     if(pResultSuelNet.value > 0){
@@ -367,68 +510,6 @@ function herrCapEnd(){
             mensajeSoloNum();
     };
 };
-// ================================= Constantes =========================================
-// =========================== Constantes Container fig =================================
-const containerHerramienta = document.querySelector(".containerHerramienta");
-// -------------------------------- containerIntro --------------------------------------
-const containerIntro = document.createElement("section");
-// ---------------------------------- sectionDtop ---------------------------------------
-const sectionDtop = document.createElement("div");
-const defTitulo = document.createElement("h2");
-const defImg = document.createElement("img");
-// --------------------------------- sectionDmiddle -------------------------------------
-const sectionDmiddle = document.createElement("div");
-const defHerramientaTitulo = document.createElement("p");
-const defHerramienta = document.createElement("p");
-// --------------------------------- sectionDbottom -------------------------------------
-const sectionDbottom = document.createElement("div");
-const defCategoriaTitulo = document.createElement("p");
-const defCategoria = document.createElement("p");
-const defGuiaTitulo = document.createElement("p");
-const defGuia = document.createElement("p");
-// ------------------------------ containerResponsive -----------------------------------
-const containerResponsive = document.createElement("section");
-// ---------------------------------- instrHerrImg ----------------------------------------
-const instrHerrImg = document.createElement("div");
-const titleHerr = document.createElement("h2");
-const imgHerr = document.createElement("img");
-// ------------------------------ containerHerrCal ----------------------------------------
-const containerHerrCal = document.createElement("div");
-// ----------------------------------- divCalculadora -----------------------------------------
-const divCalculadora = document.createElement("div");
-// --------------------------------- sectionHerrtop -----------------------------------------
-const sectionHerrtop = document.createElement("section");
-const pTitlesHerramienta = document.createElement("p");
-const pHerramienta = document.createElement("p");
-// -------------------------------- sectionHerramiddle ---------------------------------------
-const sectionHerramiddle = document.createElement("section");
-const divEntryWin = document.createElement("div");
-// -------------------------------- sectionHerrbottom ---------------------------------------
-const sectionHerrbottom = document.createElement("section");
-const contSectHerrBottom = document.createElement("div");
-const btnResultHerr = document.createElement("button");
-const btnClearHerr = document.createElement("button");
-const labelArea = document.createElement("p");
-const textarea = document.createElement("textarea");
-// --- regla 50-30-20 ---
-const titleSuelNet = document.createElement("label");
-const pResultSuelNet = document.createElement("input");
-let winNesBas;
-let winGasPer;
-let winAhoInv;
-// --- capacidad de endeudamiento ---
-const titleIngTot = document.createElement("label");
-const pResultIngTot = document.createElement("input");
-const titleGasFij = document.createElement("label");
-const pResultGasFij = document.createElement("input");
-let winCapEnd;
-// --- ---
-let btnClearHerrReg;
-let btnResultHerrReg;
-// --- ---
-let rutaFHerr;
-let rutaFHerrClear;
-// --- Variable de identificacion de figura ----------------------------------------------
-let varId = "";
+
 renderIntroduccion();
 

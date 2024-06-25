@@ -53,7 +53,6 @@ const intro = [
 ] ;
 // --- Array de estadistica ---
 const estadisticaArray = [];
-
 // -- Calculadoras --
 const mediaMedianaObj = {
     // definicion: "on",
@@ -62,7 +61,7 @@ const mediaMedianaObj = {
         {
             mensajeSigPlurDb: "p", 
             titleFigDb: "Media y Mediana",
-            imgFiguraDb: "../assets/calculadora_media_mediana.png",
+            imgFiguraDb: "../assets2/media_mediana_img.png",
 
             titleDb: "Media y Mediana",
 
@@ -90,7 +89,7 @@ const modaObj = {
         {
             mensajeSigPlurDb: "p", 
             titleFigDb: "Moda",
-            imgFiguraDb: "../assets/calculadora_moda.png",
+            imgFiguraDb: "../assets2/moda_img.png",
 
             titleDb: "Moda",
 
@@ -114,7 +113,7 @@ const rangoObj = {
             {
                 mensajeSigPlurDb: "p", 
                 titleFigDb: "Rango",
-                imgFiguraDb: "../assets/calculadora_rango.png",
+                imgFiguraDb: "../assets2/rango_img.png",
     
                 titleDb: "Rango",
     
@@ -146,38 +145,38 @@ const rangoObj = {
         ],
 };
 const desviacionMediaObj = {
-            // definicion: "on",
-            idDb: "desviación_media",
-            datosDb : [
-                {
-                    mensajeSigPlurDb: "p", 
-                    titleFigDb: "Desviación Media",
-                    imgFiguraDb: "../assets/calculadora_desviacion_media.png",
-        
-                    titleDb: "Desviación Media",
-        
-                    windowI: [
-                        {
-                            titleW: "Tamaño",
-                            resultEst: "resultEstTamDM",
-                        },
-                        {
-                            titleW: "Media",
-                            resultEst: "resultEstMedDM",
-                        }
-                    ],
-                    windowR: [
-                        {
-                            titleW: "Desv. Media",
-                            resultEst: "resultEstDM",
-                        }
-                    ],
-                    winMainInputDb: "winMainInputDb",
-                    btnClearDb: "btnClearCalcCl",
-                    btnResultDb: "btnResultCalcCl",
-                    logicaDb: "desviacionMediaFc",
-                }
-            ],
+        // definicion: "on",
+        idDb: "desviación_media",
+        datosDb : [
+            {
+                mensajeSigPlurDb: "p", 
+                titleFigDb: "Desviación Media",
+                imgFiguraDb: "../assets2/desviacion_media_img.png",
+    
+                titleDb: "Desviación Media",
+    
+                windowI: [
+                    {
+                        titleW: "Tamaño",
+                        resultEst: "resultEstTamDM",
+                    },
+                    {
+                        titleW: "Media",
+                        resultEst: "resultEstMedDM",
+                    }
+                ],
+                windowR: [
+                    {
+                        titleW: "Desv. Media",
+                        resultEst: "resultEstDM",
+                    }
+                ],
+                winMainInputDb: "winMainInputDb",
+                btnClearDb: "btnClearCalcCl",
+                btnResultDb: "btnResultCalcCl",
+                logicaDb: "desviacionMediaFc",
+            }
+        ],
 };
 // --- Calculadoras ---
 estadisticaArray.push(mediaMedianaObj);

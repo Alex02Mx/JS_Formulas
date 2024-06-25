@@ -544,7 +544,6 @@ function disminucionFn(){
         windowResultCalcBottom.innerHTML = valorMayorMsgFc();
     }
 };
-
 //----Inicio----------------------------------------------------------------------------
 renderIntroduccion();
 

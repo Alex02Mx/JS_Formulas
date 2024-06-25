@@ -169,10 +169,8 @@ body {
 }
 .calcDesktop{
     width: 300px;
-    /* width: 178px; */
     position: absolute;
-    top: -400px;
-    /* left: -30px; */
+    top: -160px;
     left: -90px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
@@ -190,7 +188,7 @@ body {
 .contDesktop{
     width: 300px;
     position: absolute;
-    top: -260px;
+    top: -140px;
     left: -90px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
@@ -391,16 +389,13 @@ body {
 }
 .windLabelContCl label {
     color: var(--black);
-    /* margin-left: 20px; */
 }
 .inputStyleCl {
     background-color: var(--white);
     text-align: center;
     width: 100px;
-    /* width: 60px; */
     height: 25px;
     font-weight: 700;
-    /* margin-right: 30px; */
     margin-left: 30px;
     border: 1px solid rgba(0,0,0,0.3);
 }
@@ -464,7 +459,6 @@ body {
     justify-content: space-between;
     /* gap: 5px; */
     gap: 15px;
-
 }
 .calCl {
     display: flex;
@@ -522,300 +516,3 @@ body {
     }
 }
 
-
-
-
-
-/* .simpleDirectaImg,
-.containerImage2 {
-    background-image: var(--background_radial_2);
-    border-radius: 10px;
-    width: 340px;
-    height: 383px;
-}
-.titleFig {
-    color: var(--naranja);
-    text-align: center;
-}
-.simpleDirectaImg img {
-    width: 340px;
-}
-/* .perimeterArea {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-} */
-/* .containerFormules {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: var(--background_radial_2);
-    width: 300px;
-    height: 343px;
-    border-radius: 10px;
-    padding: 20px;
-}
-.sectionPCtop {
-    text-align: center;
-}
-.sectionPCmiddleTop {
-    display: flex;
-    justify-content: center;
-}
-.sectionPCmiddleS {
-    display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    max-width: 100%;
-}
-.sectionPCmiddleC {
-    display: grid;
-    row-gap: 5px;
-    grid-template-rows: 34px 34px;
-    grid-template-columns: 100px 100px 100px;
-    max-width: 100%;
-}
-.sectionPCmiddleDesc {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-.messageDiscount{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid var(--naranja);
-    border-radius: 10px;
-    padding: 10px;
-    width: 278px; 
-    height: 30px;
-    margin: 5px 0px 0px 0px;
-    background-color: var(--darkGrey);
-    color: var(--naranja);
-    margin: 0px;
-    font-weight: 700;
-    font-size: 18px; 
-}
-.containerWindows {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 270px;
-    padding: 5px 15px;
-    border-radius: 10px;
-    border: 1px solid var(--naranja);
-}
-.pcRow {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    gap: 5px;
-}
-.pcRow label {
-    font-size: 18px;
-    color: var(--white);
-}
-.porcDescWindow {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    width: 50px;
-    height: 25px;
-}
-.desWindows {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    width: 120px;
-    height: 25px;
-}
-.greenBG {
-    color: var(--white);
-    background-color: var(--background_linear_1);
-}
-.whiteBG {
-    color: var(--black);
-    background-color: var(--white);
-}
-.titlesFormules {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0px;
-    color: var(--white);
-    text-align: center;
-    padding: 0px 0px 0px 0px;
-    color: var(--naranja);
-}
-.titleImg {
-    padding: 20px 20px;
-}
-.textFormule {
-    font-size: 20px;
-    color: var(--naranja);
-    font-weight: 700;
-    margin: 0px;
-}
-.divRadioPC {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 8px;
-}
-.divRadioPC label {
-    color: var(--white);
-    padding-right: 30px;
-}
-.colSty {
-    display: flex;
-    justify-content: center;
-    width: 68px;
-    gap: 3px;
-    margin: 0px 10px 10px 22px;
-}
-.rowSty{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.rowSty label{
-    color: var(--white);
-    margin-bottom: 3px;
-}
-.winStyle {
-    background-color: var(--darkGrey);
-    border: 1px solid var(--naranja);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    width: 278px; 
-    height: 30px;
-    color: var(--naranja);
-    font-weight: 700;
-    font-size: 18px;
-}
-.bgChange{
-    background-color: var(--lightGrey);
-    color: var(--black);
-    border: 1px solid var(--blue);
-
-}
-.btnClear,
-.btnResult {
-    width: 145px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid var(--naranja);
-    background: var(--background_linear_1);
-    color: var(--naranja);
-    font-size: 18px;
-    font-weight: 700;
-}
-.btnClear{
-    margin-right: 10px;
-}
-.btnClear:hover,
-.btnResult:hover {
-    cursor: pointer;
-    background-color: var(--terciario);
-    border: 1px solid var(--white);
-    color: var(--white);
-}
-.btnInactive {
-    width: 145px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid var(--blue);
-    background: var(--secundario);
-    color: var(--blue);
-    font-size: 18px;
-    font-weight: 700;
-}
-.winPosDirInv {
-    display: flex;
-    gap: 5px;
-    justify-content:center;
-    align-items: center;
-}
-.winPosDesc {
-    display: flex;
-    flex-direction: column;
-}
-.winPosDesc label,
-.winPosDirInv label {
-    color: var(--white);
-}
-.winPosDesc label{
-    text-align: center;
-    margin-bottom: 10px;
-}
-.infoDesc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--white);
-    padding: 3px;
-}
-.infoDesc p {
-    margin: 0px 0px 10px 0px;
-}
-.inputStyle {
-    background-color: var(--white);
-    text-align: center;
-    width: 70px;
-    height: 25px;
-    font-weight: 700;
-}
-.resultColor {
-    background-color: var(--naranja);
-}  */
-/* ------ PerimeterSquare ------ */
-/* -------- AreaSquare --------- */
-/* .blurC {
-    position:fixed;
-    top: 61px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    background-color:  rgba(0, 0, 0, 0.5);
-    transition: 600ms ease-in-out;
-}
-.noMove {
-    overflow: hidden;
-}
-.off {
-    display: none;
-    transition: 600ms ease-in-out;
-}
-.footer {
-    position: absolute;
-    left: 0px;
-    bottom:0px;
-    width: 100%;
-    height: 60px;
-    background-color: var(--secundario);
-} */
-/* @media screen and (max-width: 1060px) {
-    .containerResponsive {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 10px 81px 10px;
-    }
-    .containerIntro {
-        flex-direction: column;
-        padding: 20px 10px 81px 10px;
-        align-items: center;
-    }
-    .perimetroYArea {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-@media screen and (min-width: 425px) {
-    .listIndex {
-        width: 300px; 
-    }
-} */
