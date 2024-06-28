@@ -246,16 +246,13 @@ function renderFigura(objeto){
             const labelWinInpCn = document.createElement("label");
             labelWinInpCn.setAttribute("for", winInput["inputIdDb"]);
             labelWinInpCn.innerHTML = winInput["inputLabelDb"];
-
             const inputWinCn = document.createElement("input");
             inputWinCn.setAttribute("type", "number");
             inputWinCn.setAttribute("id", winInput["inputIdDb"]);
             inputWinCn.classList.add("inputStyleCl");
             const windLabelContCn = document.createElement("div");
-
             windLabelContCn.classList.add("windLabelContCl");
             windLabelContCn.append(labelWinInpCn, inputWinCn);
-
             secMiddleCalcCn.appendChild(windLabelContCn);
         });
         // --- window resultados y mensajes ---

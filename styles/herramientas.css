@@ -266,11 +266,22 @@ body {
 }
 .tituloIntro {
     font-family: "Roboto", sans-serif;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
     padding: 10px 0px 5px 0px;
     margin: 0px;
     color: var(--black);
+}
+.subTitleIntro {
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0px;
+    color: var(--blue);
+}
+.formulaIntro{
+    font-size: 18px;
+    color: var(--verde);
 }
 .defIntro {
     font-family: "Roboto", sans-serif;
@@ -288,7 +299,139 @@ body {
     max-width: 1020px;
     padding: 10px 10px 71px 10px;
 }
-.containerImage2,
+/* === bloque 1 === */
+.tituloImgContCl {
+    width: 100%;
+    height: 390px;
+    background-image: var(--background_radial_2);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+.tituloImgCl{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titleFigCl{
+    color: var(--white);
+    text-align: center;
+}
+.tituloImgCl img {
+    width: 340px;
+    height: auto;
+}
+/* === bloque 2 === */
+.CalcContCl {
+    width: 100%;
+    height: 390px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
+    background-color: rgb(192, 192, 192);
+}
+.calCl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 350px;
+}
+.calcTitleCl {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0px;
+    color: var(--black);
+    margin: 0px;
+}
+.calSubTitleCl {
+    font-size: 20px;
+    color: var(--black);
+    font-weight: 700;
+    margin: 0px 0px;
+    text-align: center;
+}
+.divTopMiddleCalc{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.EntryWin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.outputMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--lightGrey);
+    font-weight: bold;
+    margin: 0px;
+    padding: 8px;
+    width: 282px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--darkGrey);
+}
+.divContLW{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.divContLW label{
+    font-weight: bold;
+}
+
+.divContLW input{
+    width: 170px;
+    height: 30px;
+    border: none;
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+.divBottomMiddleCalc{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.contLabRes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contLabRes p:nth-child(1){
+    font-weight: bold;
+    margin: 0;
+}
+.contLabRes p:nth-child(2){
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--black);
+    border: 1px solid var(--grey);
+    margin: 0px;
+    border-radius: 5px;
+    width: 140px;
+    height: 30px;
+    background-color: var(--lightGrey);
+}
+.resultColor {
+    background-color: var(--white);
+}
+
+
+
+/* .containerImage2,
 .instrHerrImg {
     background-image: var(--background_radial_2);
     border-radius: 10px;
@@ -369,9 +512,12 @@ body {
     color: var(--black);
     font-weight: 700;
     font-size: 16px;
-}
-.btnClear,
-.btnResult {
+} */
+
+/* --- buttons --- */
+.btnClearCl,
+.btnResultCl {
+    cursor: pointer;
     width: 145px;
     height: 40px;
     border-radius: 10px;
@@ -381,12 +527,11 @@ body {
     font-size: 18px;
     font-weight: 700;
 }
-.btnClear{
+.btnClearCl{
     margin-right: 10px;
 }
-.btnClear:hover,
-.btnResult:hover {
-    cursor: pointer;
+.btnClearCl:active,
+.btnResultCl:active {
     background-color: var(--terciario);
     border: 1px solid var(--white);
     color: var(--white);
@@ -401,34 +546,11 @@ body {
     font-size: 18px;
     font-weight: 700;
 }
-.EntryWin {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.outputMessage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--naranja);
-    background-color: var(--darkGrey);
-    font-weight: bold;
-    margin: 0px 0px 5px 0px;
-    padding: 8px 8px 8px 8px ;
-    width: 282px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid var(--naranja);
-}
-.resultColor {
-    background-color: var(--background_linear_2);
+.disableMode{
+    background-color: var(--blue);
     color: var(--white);
 }
-/* ------ PerimeterSquare ------ */
-/* -------- AreaSquare --------- */
-
+/* ################# footer ################# */
 .footer {
     position: absolute;
     left: 0px;
@@ -436,6 +558,7 @@ body {
     width: 100%;
     height: 60px;
     background-color: var(--secundario);
+    z-index: -2;
 }
 /* ############## media queries ############## */
 @media screen and (min-width: 830px) {

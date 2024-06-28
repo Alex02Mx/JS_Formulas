@@ -21,51 +21,16 @@ const seleccion = document.querySelectorAll(".seleccion");
 const socMedDesktop = document.querySelector(".socMedDesktop");
 const socMedMainCont =  document.querySelector(".socMedMainCont");
 
+let idFigVr;
+let winMessHerr;
+let pResultHerrWin1;
+let pResultHerrWin2;
+let pResultHerrWin3;
+let pInputWin1;
+let pInputWin2;
+let btnClearCalc;
+let btnResultCalc;
 
-
-// const medida = document.querySelector(".medida");
-// const sectionDtop = document.createElement("div");
-// const defTitulo = document.createElement("h2");
-// const defImg = document.createElement("img");
-// const sectionDmiddle = document.createElement("div");
-// const defHerramientaTitulo = document.createElement("p");
-// const defHerramienta = document.createElement("p");
-// const sectionDbottom = document.createElement("div");
-// const defCategoriaTitulo = document.createElement("p");
-// const defCategoria = document.createElement("p");
-// const defGuiaTitulo = document.createElement("p");
-// const defGuia = document.createElement("p");
-// const instrHerrImg = document.createElement("div");
-// const titleHerr = document.createElement("h2");
-// const imgHerr = document.createElement("img");
-// const containerHerrCal = document.createElement("div");
-// const divCalculadora = document.createElement("div");
-// const sectionHerrtop = document.createElement("section");
-// const pTitlesHerramienta = document.createElement("p");
-// const pHerramienta = document.createElement("p");
-// const sectionHerramiddle = document.createElement("section");
-// const divEntryWin = document.createElement("div");
-// const sectionHerrbottom = document.createElement("section");
-// const contSectHerrBottom = document.createElement("div");
-// const btnResultHerr = document.createElement("button");
-// const btnClearHerr = document.createElement("button");
-// const labelArea = document.createElement("p");
-// const textarea = document.createElement("textarea");
-// const titleSuelNet = document.createElement("label");
-// const pResultSuelNet = document.createElement("input");
-// const titleIngTot = document.createElement("label");
-// const pResultIngTot = document.createElement("input");
-// const titleGasFij = document.createElement("label");
-// const pResultGasFij = document.createElement("input");
-// let winNesBas;
-// let winGasPer;
-// let winAhoInv;
-// let winCapEnd;
-// let btnClearHerrReg;
-// let btnResultHerrReg;
-// let rutaFHerr;
-// let rutaFHerrClear;
-// let varId = "";
 
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
@@ -165,7 +130,7 @@ function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const target = event.target.innerText.toLowerCase();
     const figura = target.replaceAll(" ","_");
-    const figSelect = herramientasArray.find(obj => obj.id === figura);
+    const figSelect = herramientasArray.find(obj => obj.idDb === figura);
     if(figSelect){
         renderFigura(figSelect);
     }else{
@@ -216,134 +181,130 @@ function renderIntroduccion(){
     document.documentElement.scrollTop = 0;
 };
 function renderFigura(objeto){
-    borrar();
-    varId = objeto.id;
-    containerHerramienta.appendChild(containerResponsive);
-    containerResponsive.classList.add("containerResponsive");
-    // -- Top Container ---
-    containerResponsive.appendChild(instrHerrImg);
-    instrHerrImg.classList.add("instrHerrImg");
-    instrHerrImg.appendChild(titleHerr);
-    titleHerr.classList.add("titleHerr");
-    titleHerr.innerHTML = objeto.titleHerr;
-    instrHerrImg.appendChild(imgHerr);
-    imgHerr.setAttribute("src", objeto.imgHerr);
-    // -- Bottom Container --
-    containerResponsive.appendChild(containerHerrCal);
-    containerHerrCal.classList.add("containerHerrCal");
-    containerHerrCal.appendChild(divCalculadora);
-    //-- Top --
-    pTitlesHerramienta.classList.add("ptitlesHerramienta");
-    pTitlesHerramienta.innerHTML = objeto.titleHerr2;
-    if(objeto.definicion == "on"){
-        divCalculadora.classList.remove("containerImage2");
-        divCalculadora.classList.add("containerCalculadora");
-        pHerramienta.classList.add("textHerramienta");
-        pHerramienta.innerHTML = objeto.titleHerrSub;
-        sectionHerrtop.classList.add("sectionHerrtop");
-        sectionHerrtop.append(pTitlesHerramienta, pHerramienta);
-        // ----Top middle------------------------------------------------------------------------   
-        sectionHerramiddle.classList.add("sectionHerramiddle");
-        divEntryWin.classList.add("EntryWin");
+    cleanCont();
+    titlesIndexText.innerText = "Herramientas";
+    // --- id del objeto en proceso ---
+    idFigVr = objeto["idDb"];
+
+    // --- ciclo de repeticion del objeto ---
+    objeto["datosDb"].forEach((obj, index) => {
+        // --- variable del singular o plural y variable de area o perimetro --- 
+        mensajeSigPlurVr = obj["mensajeSigPlurDb"];
+        indEstadisticaVr = obj["titleFigDb"];
+        // --- asigna valor de funcion para la logica del objeto en proceso ---
+        let funcionFgra = "funcion" + (index + 1) + "Fn";
+        window[funcionFgra] = obj["logicaDb"];
+        // --- bloque 1 ---
+        // --- titulo procedimiento ---
+        const titleFigCn = document.createElement("h2");
+        titleFigCn.classList.add("titleFigCl");
+        titleFigCn.innerHTML = obj["titleFigDb"];
+        // --- imagen procedimiento ---
+        const imgFiguraCn = document.createElement("img");
+        imgFiguraCn.setAttribute("src", obj["imgFiguraDb"]);
+        // --- contenedor del titulo y la imagen ---
+        const tituloImgCn = document.createElement("div");
+        tituloImgCn.classList.add("tituloImgCl");
+        tituloImgCn.append(titleFigCn, imgFiguraCn);
+        // --- contenedor BG del cont/titulo/imagen ---
+        const tituloImgContCn = document.createElement("div");
+        tituloImgContCn.classList.add("tituloImgContCl");
+        tituloImgContCn.append(tituloImgCn);
+
+        // --- bloque 2 ---
+        // --- titulo Calculadora ---
+        const calcTitleCn = document.createElement("h2");
+        calcTitleCn.classList.add("calcTitleCl");
+        calcTitleCn.innerHTML = obj["titleDb"];
+        // --- subtitulo Calculadora ---
+        const calSubTitleCn = document.createElement("p");
+        calSubTitleCn.classList.add("calSubTitleCl");
+        calSubTitleCn.innerHTML = "Calculadora";
+        // --- contenedor de titulo y subtitulo calculadora ---
+        const secTopCalcCn = document.createElement("section");
+        secTopCalcCn.classList.add("secTopCalcCl");
+        secTopCalcCn.append(calcTitleCn, calSubTitleCn);
+
+        // --- window mensaje ---
+        const labelArea = document.createElement("p");
         labelArea.classList.add("outputMessage");
+
+        // --- window mens. y textArea container ---
+        const divEntryWin = document.createElement("div");
+        divEntryWin.classList.add("EntryWin");
         divEntryWin.append(labelArea);
-        sectionHerramiddle.append(divEntryWin);
-        contSectHerrBottom.classList.add("contSectHerrBottom");
-         
-        if(objeto.id == "regla_50-30-20_cal"){
-            titleSuelNet.innerHTML = objeto.titleLabSN;
-            titleSuelNet.setAttribute("for", "suelNet");
-            titleSuelNet.classList.add("titleResults");
-            pResultSuelNet.setAttribute("type", "number");
-            pResultSuelNet.setAttribute("id", "suelNet");
-            pResultSuelNet.classList.add(objeto.resultSN);
-            const containerRes1 = document.createElement("div");
-            containerRes1.classList.add("contPResult");
-            containerRes1.append(titleSuelNet, pResultSuelNet);
-            contSectHerrBottom.append(containerRes1);
 
-            objeto.windowHerr.forEach(winExit =>{
-                const titleNecBas = document.createElement("p");
-                titleNecBas.innerHTML = winExit.titleW;
-                titleNecBas.classList.add("titleResults");
-                const pResultReg = winExit.resultHerr;
-                const pResultHerr = document.createElement("p");
-                pResultHerr.classList.add("winStyle", "resultColor", pResultReg);
-                const containerRes = document.createElement("div");
-                containerRes.classList.add("contPResult");
-                containerRes.append(titleNecBas, pResultHerr);
-                contSectHerrBottom.append(containerRes);
-            });
-            mensajeInsertarValores();
-        };
-        // ----Top middle------------------------------------------------------------------------   
-        if(objeto.id == "endeudamiento_cal"){
-            titleIngTot.innerHTML = objeto.titleLabIT;
-            titleIngTot.setAttribute("for", "ingrTot");
-            titleIngTot.classList.add("titleResults");
-            pResultIngTot.setAttribute("type", "number");
-            pResultIngTot.setAttribute("id", "ingrTot");
-            pResultIngTot.classList.add(objeto.resultIT, "winStyle");
+        // --- div middle top ---
+        const divTopMiddleCalc = document.createElement("div");
+        divTopMiddleCalc.classList.add("divTopMiddleCalc");
+        divTopMiddleCalc.append(divEntryWin);
 
-            titleGasFij.innerHTML = objeto.titleLabGF;
-            titleGasFij.setAttribute("for", "gasFij");
-            titleGasFij.classList.add("titleResults");
-            pResultGasFij.setAttribute("type", "number");
-            pResultGasFij.setAttribute("id", "gasFij");
-            pResultGasFij.classList.add(objeto.resultGF, "winStyle");
+        const divBottomMiddleCalc = document.createElement("div");
+        divBottomMiddleCalc.classList.add("divBottomMiddleCalc");
 
-            const containerRes1 = document.createElement("div");
-            const containerRes2 = document.createElement("div");
-            containerRes1.classList.add("contPResult");
-            containerRes2.classList.add("contPResult");
-            containerRes1.append(titleIngTot, pResultIngTot);
-            containerRes2.append(titleGasFij, pResultGasFij);
-            contSectHerrBottom.append(containerRes1, containerRes2);
+        obj["windowHI"].forEach(winInput => {
+            const labelW = document.createElement("label");
+            labelW.setAttribute("for", winInput["idWin"])
+            labelW.innerHTML = winInput["labelWin"];
 
-            objeto.windowHerr.forEach(winExit =>{
-                const titleCapEnd = document.createElement("p");
-                titleCapEnd.innerHTML = winExit.titleW;
-                titleCapEnd.classList.add("titleResults");
-                const pResultReg = winExit.resultHerr;
-                const pResultHerr = document.createElement("p");
-                pResultHerr.classList.add("winStyle", "resultColor", pResultReg);
-                const containerRes = document.createElement("div");
-                containerRes.classList.add("contPResult");
-                containerRes.append(titleCapEnd, pResultHerr);
-                contSectHerrBottom.append(containerRes);
-            });
-            mensajeInsertarValoresCE();
-        };
-        btnClearHerrReg = objeto.btn2ClHerr;
-        btnClearHerr.classList.add("btnClear", btnClearHerrReg);
-        btnClearHerr.innerHTML = "Borrar";
-    
-        btnResultHerrReg = objeto.btnClHerr;
-        btnResultHerr.classList.add("btnResult", btnResultHerrReg);
-        btnResultHerr.innerHTML = "Resultado";
-    
-        btnClearHerr.removeEventListener("click", rutaFHerrClear);
-        rutaFHerrClear = (eval(objeto.clearWindowHerr));
-        btnClearHerr.addEventListener("click", rutaFHerrClear);
-    
-        btnResultHerr.removeEventListener("click", rutaFHerr);
-        rutaFHerr = (eval(objeto.funcionHerr));
-        btnResultHerr.addEventListener("click", rutaFHerr);
-    
-        sectionHerrbottom.classList.add("sectionHerrbottom");
-        sectionHerrbottom.append(contSectHerrBottom, btnClearHerr, btnResultHerr);
-        divCalculadora.append(sectionHerrtop, sectionHerramiddle, sectionHerrbottom);
-    }
-    else if(objeto.definicion == "off"){
-        pTitlesHerramienta.classList.add("titleImg");
-        divCalculadora.classList.remove("containerCalculadora");
-        divCalculadora.classList.add("containerImage2");
-        const imgDefinicion = document.createElement("img");
-        imgDefinicion.classList.add("imagenDefinicion");
-        imgDefinicion.setAttribute("src", objeto.imgMM2);
-        divCalculadora.append(pTitlesHerramienta, imgDefinicion);
-    };
+            const inputWin = document.createElement("input");
+            inputWin.setAttribute("type", "number");
+            inputWin.setAttribute("id", winInput["idWin"]);
+            inputWin.classList.add(winInput["classWin"]);
+
+            const divContLW = document.createElement("div");
+            divContLW.classList.add("divContLW");
+            divContLW.append(labelW, inputWin);
+            divTopMiddleCalc.append(divContLW);
+        });
+
+        const secMiddleCalcCn = document.createElement("section");
+        secMiddleCalcCn.classList.add("secMiddleCalcCl");
+        secMiddleCalcCn.append(divTopMiddleCalc, divBottomMiddleCalc);
+        const divContInfo = document.createElement("div");
+
+        // --- windows Areas ---
+        obj["windowHM"].forEach(winInput => {
+            const labelResultCn = document.createElement("p");
+            labelResultCn.innerHTML = winInput["titleW"];
+            const winResultCn = document.createElement("p");
+            winResultCn.classList.add(winInput["resultHerr"]);
+            const divContLabWin = document.createElement("div");
+            divContLabWin.classList.add("contLabRes");
+            divContLabWin.append(labelResultCn, winResultCn);
+            divBottomMiddleCalc.append(divContLabWin);
+        });
+   
+        // --- Boton Borrar ---
+        const btnClearCn = document.createElement("button");
+        btnClearCn.classList.add("btnClearCl", obj["btnClearDb"]);
+        btnClearCn.innerHTML = "Borrar";
+        // --- Boton Resultado ---
+        const btnResultCn = document.createElement("button");
+        btnResultCn.classList.add("btnResultCl", obj["btnResultDb"]);
+        btnResultCn.innerHTML = "Resultado";
+
+        const secBottomCalcCn = document.createElement("section");
+        secBottomCalcCn.classList.add("secBottomCalcCl");
+        secBottomCalcCn.append(btnClearCn, btnResultCn);
+
+        // --- Agregando a containerFiguras ---
+        const calCn = document.createElement("div");
+        calCn.classList.add("calCl");
+        calCn.append(secTopCalcCn, secMiddleCalcCn, secBottomCalcCn);
+
+        const CalcContCn = document.createElement("div");
+        CalcContCn.classList.add("CalcContCl");
+        CalcContCn.appendChild(calCn);
+
+        containerResponsive.classList.add("containerResponsive");
+        containerResponsive.append(tituloImgContCn, CalcContCn);
+        containerElement.append(containerResponsive);
+    });
     asignacionesWindows();
+    asignacionMensajes();
+    asignacionBtns();
+    funcion1Fn = objeto["logicaDb"];
     document.documentElement.scrollTop = 0;
 };
 // --- Limpieza de div ---
@@ -352,7 +313,106 @@ function cleanCont(){
     containerIntro.innerHTML = "";
     containerResponsive.innerHTML = "";
 };
+function disableOptions(){
+    if(idFigVr == "regla_50-30-20"){
+        pInputWin1.disabled = true;
+        pInputWin1.classList.remove("resultColor");
+        pResultHerrWin1.classList.add("resultColor");
+        pResultHerrWin2.classList.add("resultColor");
+        pResultHerrWin3.classList.add("resultColor");
+    }else if(idFigVr == "capacidad_endeudamiento"){
+        pInputWin1.disabled = true;
+        pInputWin2.disabled = true;
+        pInputWin1.classList.remove("resultColor");
+        pInputWin2.classList.remove("resultColor");
+        pResultHerrWin1.classList.add("resultColor");
+    }
+    // enableBtnResult();
+}
+function asignacionesWindows(){
+    winMessHerr = document.querySelector(".outputMessage")
+    if(idFigVr == "regla_50-30-20"){
+        pInputWin1 = document.getElementById("sueldoNI");
+        pResultHerrWin1 = document.querySelector(".resultHerrNecBas");
+        pResultHerrWin2 = document.querySelector(".resultHerrGasPer");
+        pResultHerrWin3 = document.querySelector(".resultHerrAhoInv");
+    }
+    else if(idFigVr == "capacidad_endeudamiento"){
+        pInputWin1 = document.getElementById("ingresoTI");
+        pInputWin2 = document.getElementById("gastosFI");
+        pResultHerrWin1 = document.querySelector(".resultHerrCapEnd");
+    };
+};
+function asignacionMensajes(){
+    if(idFigVr == "regla_50-30-20"){
+        mensajeInsertarValores();
+    }
+    else if(idFigVr == "capacidad_endeudamiento"){
+        mensajeInsertarValoresCE();
+    }
+};
+function asignacionBtns(){
+    btnClearCalc = document.querySelector(".btnClearCalcCl");
+    btnClearCalc.addEventListener("click", clearValCalc );
+    btnResultCalc = document.querySelector(".btnResultCalcCl");
+    btnResultCalc.addEventListener("click", window[funcion1Fn]);
+};
+// --- funciones de mensajes ---
+function mensajeInsertarValores(){
+    winMessHerr.innerHTML = "Introduce Sueldo Neto<br>para aplicar la regla";
+};
+function mensajeResultadoExitosoRegla(){
+    winMessHerr.innerHTML = "Calculación de Regla 50-30-20<br>con éxito";
+};
+function mensajeSoloNum(){
+    winMessHerr.innerHTML = "Solo números mayores<br>a 0 son permitidos";
+};
+// --- ---
+function mensajeInsertarValoresCE(){
+    winMessHerr.innerHTML = "Introduce Ingresos Totales<br>y Gastos Fijos";
+};
+function mensajeResultadoExitosoCE(){
+    labelArea.innerHTML = "Calculación de Capacidad de<br>Endeudamiento con éxito";
+};
+// --- habilitar y deshabilitar boton de resultado ---
+function disableBtnResult(){
+    btnResultCalc.disabled = false;
+    btnResultCalc.classList.remove("btnInactive");
+    btnResultCalc.classList.add("btnResultCl");
+};
+function enableBtnResult(){ 
+    btnResultCalc.disabled = true;
+    btnResultCalc.classList.remove("btnResultCl");
+    btnResultCalc.classList.add("btnInactive");
+};
+// --- borrado de valores de calculadora ---
+function clearValCalc(){
+    pInputWin1.setAttribute("type", "number");
+    pInputWin1.value = "";
+    pInputWin1.classList.add("resultColor");
+    pInputWin1.disabled = false;
 
+    // disableBtnResult();
+
+    if(idFigVr == "regla_50-30-20"){
+        pResultHerrWin1.innerHTML = "";
+        pResultHerrWin1.classList.remove("resultColor");
+        pResultHerrWin2.innerHTML = "";
+        pResultHerrWin2.classList.remove("resultColor");
+        pResultHerrWin3.innerHTML = "";
+        pResultHerrWin3.classList.remove("resultColor");
+        mensajeInsertarValores();
+    }
+    else if(idFigVr == "capacidad_endeudamiento"){
+        pInputWin2.value = "";
+        pInputWin2.classList.add("resultColor");
+        pInputWin2.disabled = false;
+        
+        pResultHerrWin1.innerHTML = "";
+        pResultHerrWin1.classList.remove("resultColor");
+        mensajeInsertarValoresCE();
+    };
+};
 
 
 function figurasFnc(){
@@ -385,112 +445,97 @@ function figurasFnc(){
 //     pTitlesHerramienta.classList.remove("titleImg");
 // }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
-function disableOptions(){
-    if(varId == "regla_50-30-20_cal"){
-        pResultSuelNet.disabled = true;
-        pResultSuelNet.classList.add("resultColor");
-        winNesBas.classList.remove("resultColor");
-        winGasPer.classList.remove("resultColor");
-        winAhoInv.classList.remove("resultColor");
-    }else if(varId == "endeudamiento_cal"){
-        pResultIngTot.disabled = true;
-        pResultIngTot.classList.add("resultColor");
-        pResultGasFij.disabled = true;
-        pResultGasFij.classList.add("resultColor");
-        winCapEnd.classList.remove("resultColor");
-    };
-    btnResultHerr.disabled = true;
-    btnResultHerr.classList.remove("btnResult");
-    btnResultHerr.classList.add("btnInactive");
-}
+// function disableOptions(){
+//     if(varId == "regla_50-30-20_cal"){
+//         pResultSuelNet.disabled = true;
+//         pResultSuelNet.classList.add("resultColor");
+//         winNesBas.classList.remove("resultColor");
+//         winGasPer.classList.remove("resultColor");
+//         winAhoInv.classList.remove("resultColor");
+//     }else if(varId == "endeudamiento_cal"){
+//         pResultIngTot.disabled = true;
+//         pResultIngTot.classList.add("resultColor");
+//         pResultGasFij.disabled = true;
+//         pResultGasFij.classList.add("resultColor");
+//         winCapEnd.classList.remove("resultColor");
+//     };
+//     btnResultHerr.disabled = true;
+//     btnResultHerr.classList.remove("btnResult");
+//     btnResultHerr.classList.add("btnInactive");
+// }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
-function clearHerrOpt(){
-    habilitarIntercambiar();
-    labelArea.innerHTML = "";
-    if(varId == "regla_50-30-20_cal"){
-        mensajeInsertarValores();
-        pResultSuelNet.setAttribute("type", "number");
-        pResultSuelNet.disabled = false;
-        pResultSuelNet.value = "";
-        pResultSuelNet.classList.remove("resultColor");
-        winNesBas.innerHTML = ""; 
-        winGasPer.innerHTML = ""; 
-        winAhoInv.innerHTML = ""; 
-        winNesBas.classList.add("resultColor");
-        winGasPer.classList.add("resultColor");
-        winAhoInv.classList.add("resultColor");
-    }
-    else if(varId == "endeudamiento_cal"){
-        mensajeInsertarValoresCE();
-        pResultIngTot.setAttribute("type", "number");
-        pResultIngTot.disabled = false;
-        pResultIngTot.value = "";
-        pResultIngTot.classList.remove("resultColor");
-        pResultGasFij.setAttribute("type", "number");
-        pResultGasFij.disabled = false;
-        pResultGasFij.value = "";
-        pResultGasFij.classList.remove("resultColor");
-        winCapEnd.innerHTML = ""; 
-        winCapEnd.classList.add("resultColor");
-    };
-    pTitlesHerramienta.classList.remove("titleImg");
-};
+// function clearHerrOpt(){
+//     habilitarIntercambiar();
+//     labelArea.innerHTML = "";
+//     if(varId == "regla_50-30-20_cal"){
+//         mensajeInsertarValores();
+//         pResultSuelNet.setAttribute("type", "number");
+//         pResultSuelNet.disabled = false;
+//         pResultSuelNet.value = "";
+//         pResultSuelNet.classList.remove("resultColor");
+//         winNesBas.innerHTML = ""; 
+//         winGasPer.innerHTML = ""; 
+//         winAhoInv.innerHTML = ""; 
+//         winNesBas.classList.add("resultColor");
+//         winGasPer.classList.add("resultColor");
+//         winAhoInv.classList.add("resultColor");
+//     }
+//     else if(varId == "endeudamiento_cal"){
+//         mensajeInsertarValoresCE();
+//         pResultIngTot.setAttribute("type", "number");
+//         pResultIngTot.disabled = false;
+//         pResultIngTot.value = "";
+//         pResultIngTot.classList.remove("resultColor");
+//         pResultGasFij.setAttribute("type", "number");
+//         pResultGasFij.disabled = false;
+//         pResultGasFij.value = "";
+//         pResultGasFij.classList.remove("resultColor");
+//         winCapEnd.innerHTML = ""; 
+//         winCapEnd.classList.add("resultColor");
+//     };
+//     pTitlesHerramienta.classList.remove("titleImg");
+// };
 function habilitarIntercambiar(){
     btnResultHerr.disabled = false;
     btnResultHerr.classList.remove("btnInactive");
     btnResultHerr.classList.add("btnResult");
 };
 //----Funcion asignaciones --------------------------------------------------------------
-function asignacionesWindows(){
-    if(varId == "regla_50-30-20_cal"){
-        winNesBas = document.querySelector(".resultHerrNecBas");
-        winGasPer = document.querySelector(".resultHerrGasPer");
-        winAhoInv = document.querySelector(".resultHerrAhoInv");
-    }
-    else if(varId == "endeudamiento_cal"){
-        winCapEnd = document.querySelector(".resultHerrCapEnd");
-    };
-};
-//----Funciones mensajes-----------------------------------------------------------------
-function mensajeInsertarValores(){
-    labelArea.innerHTML = "Introduce Sueldo Neto<br>para aplicar la regla";
-};
-function mensajeResultadoExitosoRegla(){
-    labelArea.innerHTML = "Calculación de Regla 50-30-20<br>con éxito";
-};
-function mensajeSoloNum(){
-    labelArea.innerHTML = "Solo números mayores<br>a 0 son permitidos";
-};
-// --- ---
-function mensajeInsertarValoresCE(){
-    labelArea.innerHTML = "Introduce Ingresos Totales para<br>la Capacidad de Endeudamiento";
-};
-function mensajeResultadoExitosoCE(){
-    labelArea.innerHTML = "Calculación de Capacidad de<br>Endeudamiento con éxito";
-};
+// function asignacionesWindows(){
+//     if(varId == "regla_50-30-20_cal"){
+//         winNesBas = document.querySelector(".resultHerrNecBas");
+//         winGasPer = document.querySelector(".resultHerrGasPer");
+//         winAhoInv = document.querySelector(".resultHerrAhoInv");
+//     }
+//     else if(varId == "endeudamiento_cal"){
+//         winCapEnd = document.querySelector(".resultHerrCapEnd");
+//     };
+// };
+
+
 
 //--- funciones calculadoras ---
-function herr503020(){
-    if(pResultSuelNet.value > 0){
+function regla503020Fc(){
+    if(pInputWin1.value > 0){
         // --- Obteniendo datos de ventana de entrada  ---
-        const infoWinSN = Number(pResultSuelNet.value);
+        const infoWinSN = Number(pInputWin1.value);
         // --- resultados ---
         const necBas = infoWinSN * 50 / 100;
         const gasPer = infoWinSN * 30 / 100;
         const ahoInv = infoWinSN * 20 / 100;
         // --- impresion --- 
-        pResultSuelNet.removeAttribute("type", "number");
-        pResultSuelNet.value = formato(infoWinSN.toFixed(2));
-        winNesBas.innerHTML = formato(necBas.toFixed(2));
-        winGasPer.innerHTML = formato(gasPer.toFixed(2));
-        winAhoInv.innerHTML = formato(ahoInv.toFixed(2));
+        pInputWin1.removeAttribute("type", "number");
+        pInputWin1.value = formato(infoWinSN.toFixed(2));
+        pResultHerrWin1.innerHTML = formato(necBas.toFixed(2));
+        pResultHerrWin2.innerHTML = formato(gasPer.toFixed(2));
+        pResultHerrWin3.innerHTML = formato(ahoInv.toFixed(2));
         disableOptions();
         mensajeResultadoExitosoRegla();
     }else{
             mensajeSoloNum();
     };
 };
-function herrCapEnd(){
+function endeudamientoFc(){
     if(pResultIngTot.value > 0 && pResultGasFij.value > 0){
         // --- Obteniendo datos de ventana de entrada  ---
         const infoWinIT = Number(pResultIngTot.value);
