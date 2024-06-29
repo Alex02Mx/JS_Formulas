@@ -370,6 +370,7 @@ body {
     align-items: center;
     text-align: center;
     background-color: var(--lightGrey);
+    color: var(--darkGrey);
     font-weight: bold;
     margin: 0px;
     padding: 8px;
@@ -377,6 +378,20 @@ body {
     height: 40px;
     border-radius: 10px;
     border: 1px solid var(--darkGrey);
+}
+.divRadios{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border: 1px solid var(--grey);
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+.labClass{
+    font-weight: 500;
+}
+.radClass{
+    cursor: pointer;
 }
 .divContLW{
     display: flex;
@@ -387,12 +402,11 @@ body {
 .divContLW label{
     font-weight: bold;
 }
-
-.divContLW input{
-    width: 170px;
+.winInp{
+    width: 150px;
     height: 30px;
     border: none;
-    background-color: var(--white);
+    background-color: var(--lightGrey);
     border-radius: 5px;
     border: 1px solid var(--grey);
     text-align: center;
@@ -413,7 +427,7 @@ body {
     font-weight: bold;
     margin: 0;
 }
-.contLabRes p:nth-child(2){
+.winOut{
     text-align: center;
     font-weight: bold;
     font-size: 16px;
@@ -421,99 +435,14 @@ body {
     border: 1px solid var(--grey);
     margin: 0px;
     border-radius: 5px;
-    width: 140px;
+    width: 128px;
     height: 30px;
     background-color: var(--lightGrey);
+    align-content: center;
 }
 .resultColor {
     background-color: var(--white);
 }
-
-
-
-/* .containerImage2,
-.instrHerrImg {
-    background-image: var(--background_radial_2);
-    border-radius: 10px;
-    width: 340px;
-    height: 383px;
-}
-.titleHerr {
-    color: var(--naranja);
-    text-align: center;
-}
-.instrHerrImg img {
-    width: 340px;
-}
-.containerCalculadora {
-    display: flex;
-    flex-direction: column;
-    background: var(--background_radial_2);
-    width: 300px;
-    height: 343px;
-    border-radius: 10px;
-    padding: 20px;
-}
-.ptitlesHerramienta {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--white);
-    text-align: center;
-    margin: 0px;
-    padding: 0px 0px;
-    color: var(--naranja);
-}
-.titleImg {
-    padding: 20px 0px;
-}
-.textHerramienta {
-    font-size: 21px;
-    color: var(--naranja);
-    font-weight: 700;
-    margin: 0px 0px 5px 0px;
-    text-align: center;
-}
-.contSectHerrBottom{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    width: 300px;
-    height: 170px;
-    margin: 10px 0px;
-}
-.contPResult{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-    gap: 5px;
-}
-.contPResult p{
-    margin: 0px;
-}
-.titleResults{
-    font-size: 18px;
-    color: var(--white);
-    padding: 0px 5px;
-}
-.resultHerrSuelNet,
-.winStyle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100px;
-    height: 20px;
-    padding: 5px;
-    background-color: var(--white);
-    border: 1px solid var(--grey);
-    border-radius: 5px;
-    color: var(--black);
-    font-weight: 700;
-    font-size: 16px;
-} */
-
 /* --- buttons --- */
 .btnClearCl,
 .btnResultCl {

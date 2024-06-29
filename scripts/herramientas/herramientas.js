@@ -31,7 +31,6 @@ let pInputWin2;
 let btnClearCalc;
 let btnResultCalc;
 
-
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
 socMedMainCont.append(socialMedCont);
@@ -61,8 +60,13 @@ const formato = (number) => {
 // --- opacar pantalla ---
 function blurFnc(){
     listIndex.classList.remove("listIndexShow");
-    blurC.classList.add("off");
+    calcDesktop.classList.remove("calcDesktopShow");
+    contDesktop.classList.remove("contDesktopShow");
+    topL.classList.remove("cross2");
+    middleL.classList.remove("cross");
+    bottomL.classList.remove("cross3");
     body.classList.remove("noMove");
+    blurC.classList.add("off");
 };
 function showHideCalc(event){
     if(event.srcElement.innerHTML == "Calculadoras"){
@@ -210,7 +214,6 @@ function renderFigura(objeto){
         const tituloImgContCn = document.createElement("div");
         tituloImgContCn.classList.add("tituloImgContCl");
         tituloImgContCn.append(tituloImgCn);
-
         // --- bloque 2 ---
         // --- titulo Calculadora ---
         const calcTitleCn = document.createElement("h2");
@@ -237,10 +240,36 @@ function renderFigura(objeto){
         // --- div middle top ---
         const divTopMiddleCalc = document.createElement("div");
         divTopMiddleCalc.classList.add("divTopMiddleCalc");
-        divTopMiddleCalc.append(divEntryWin);
+        divTopMiddleCalc.append( divEntryWin);
 
         const divBottomMiddleCalc = document.createElement("div");
         divBottomMiddleCalc.classList.add("divBottomMiddleCalc");
+
+        if(idFigVr == "capacidad_endeudamiento"){
+            const divRadios = document.createElement("div");
+            divRadios.classList.add("divRadios");
+            divTopMiddleCalc.append(divRadios);
+
+            obj["windowHR"].forEach(winInput => {
+                // --- label radio ---
+                const radioLabel = document.createElement("label");
+                radioLabel.setAttribute("for", winInput["radioI"]);
+                radioLabel.innerHTML = winInput["radioL"];
+                radioLabel.classList.add("labClass");
+                // -- radio input ---
+                const radioInput = document.createElement("input");
+                radioInput.setAttribute("type", "radio");
+                radioInput.setAttribute("name", "grupoRadio");
+                radioInput.setAttribute("id", winInput["radioI"]);
+                radioInput.classList.add("radClass");
+                // --- agregar a div ---
+                const divContRadio = document.createElement("div");
+                divContRadio.classList.add("contLabelRadio");
+                divContRadio.append(radioLabel, radioInput);
+                divRadios.append(divContRadio);
+            });
+
+        };
 
         obj["windowHI"].forEach(winInput => {
             const labelW = document.createElement("label");
@@ -250,7 +279,7 @@ function renderFigura(objeto){
             const inputWin = document.createElement("input");
             inputWin.setAttribute("type", "number");
             inputWin.setAttribute("id", winInput["idWin"]);
-            inputWin.classList.add(winInput["classWin"]);
+            inputWin.classList.add(winInput["classWin"], "resultColor");
 
             const divContLW = document.createElement("div");
             divContLW.classList.add("divContLW");
@@ -268,7 +297,7 @@ function renderFigura(objeto){
             const labelResultCn = document.createElement("p");
             labelResultCn.innerHTML = winInput["titleW"];
             const winResultCn = document.createElement("p");
-            winResultCn.classList.add(winInput["resultHerr"]);
+            winResultCn.classList.add(winInput["resultHerr"], "winOut");
             const divContLabWin = document.createElement("div");
             divContLabWin.classList.add("contLabRes");
             divContLabWin.append(labelResultCn, winResultCn);
@@ -321,13 +350,19 @@ function disableOptions(){
         pResultHerrWin2.classList.add("resultColor");
         pResultHerrWin3.classList.add("resultColor");
     }else if(idFigVr == "capacidad_endeudamiento"){
+        if(pRadioB.checked){
+            pRadioN.disabled = true;
+        }
+        else if(pRadioN.checked){
+            pRadioB.disabled = true;
+        }
         pInputWin1.disabled = true;
         pInputWin2.disabled = true;
         pInputWin1.classList.remove("resultColor");
         pInputWin2.classList.remove("resultColor");
         pResultHerrWin1.classList.add("resultColor");
     }
-    // enableBtnResult();
+    enableBtnResult();
 }
 function asignacionesWindows(){
     winMessHerr = document.querySelector(".outputMessage")
@@ -338,6 +373,8 @@ function asignacionesWindows(){
         pResultHerrWin3 = document.querySelector(".resultHerrAhoInv");
     }
     else if(idFigVr == "capacidad_endeudamiento"){
+        pRadioB = document.getElementById("radioBtoID");
+        pRadioN = document.getElementById("radioNtoID");
         pInputWin1 = document.getElementById("ingresoTI");
         pInputWin2 = document.getElementById("gastosFI");
         pResultHerrWin1 = document.querySelector(".resultHerrCapEnd");
@@ -367,12 +404,14 @@ function mensajeResultadoExitosoRegla(){
 function mensajeSoloNum(){
     winMessHerr.innerHTML = "Solo números mayores<br>a 0 son permitidos";
 };
-// --- ---
 function mensajeInsertarValoresCE(){
     winMessHerr.innerHTML = "Introduce Ingresos Totales<br>y Gastos Fijos";
 };
 function mensajeResultadoExitosoCE(){
-    labelArea.innerHTML = "Calculación de Capacidad de<br>Endeudamiento con éxito";
+    winMessHerr.innerHTML = "Calculación de Capacidad de<br>Endeudamiento con éxito";
+};
+function mensajeBrutoNeto(){
+    winMessHerr.innerHTML = "Elegir Ingreso Bruto<br>o Ingreso Neto";
 };
 // --- habilitar y deshabilitar boton de resultado ---
 function disableBtnResult(){
@@ -391,8 +430,7 @@ function clearValCalc(){
     pInputWin1.value = "";
     pInputWin1.classList.add("resultColor");
     pInputWin1.disabled = false;
-
-    // disableBtnResult();
+    disableBtnResult();
 
     if(idFigVr == "regla_50-30-20"){
         pResultHerrWin1.innerHTML = "";
@@ -404,116 +442,19 @@ function clearValCalc(){
         mensajeInsertarValores();
     }
     else if(idFigVr == "capacidad_endeudamiento"){
+        pRadioN.disabled = false;
+        pRadioB.disabled = false;
+        pRadioB.checked = false;
+        pRadioN.checked = false;
+        pInputWin2.setAttribute("type", "number");
         pInputWin2.value = "";
         pInputWin2.classList.add("resultColor");
         pInputWin2.disabled = false;
-        
         pResultHerrWin1.innerHTML = "";
         pResultHerrWin1.classList.remove("resultColor");
         mensajeInsertarValoresCE();
     };
 };
-
-
-function figurasFnc(){
-    listIndex.scrollTop = 0;
-    listIndex.classList.toggle("listIndexShow");
-    blurC.classList.toggle("off");
-    body.classList.toggle("noMove");
-}
-
-
-// function borrar(){
-//     sectionHerramiddle.innerHTML = "";
-//     labelArea.innerHTML = "";
-//     pResultSuelNet.value = "";
-//     pResultSuelNet.disabled = false;
-//     pResultSuelNet.classList.remove("resultColor");
-//     pResultIngTot.value = "";
-//     pResultIngTot.disabled = false;
-//     pResultIngTot.classList.remove("resultColor");
-//     pResultGasFij.value = "";
-//     pResultGasFij.disabled = false;
-//     pResultGasFij.classList.remove("resultColor");
-//     contSectHerrBottom.innerHTML = "";
-//     btnResultHerr.classList.remove(btnResultHerrReg);
-//     btnClearHerr.classList.remove(btnClearHerrReg);
-//     btnResultHerr.disabled = false;
-//     btnResultHerr.classList.remove("btnInactive");
-//     containerHerramienta.innerHTML = "";
-//     divCalculadora.innerHTML = "";
-//     pTitlesHerramienta.classList.remove("titleImg");
-// }
-//--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
-// function disableOptions(){
-//     if(varId == "regla_50-30-20_cal"){
-//         pResultSuelNet.disabled = true;
-//         pResultSuelNet.classList.add("resultColor");
-//         winNesBas.classList.remove("resultColor");
-//         winGasPer.classList.remove("resultColor");
-//         winAhoInv.classList.remove("resultColor");
-//     }else if(varId == "endeudamiento_cal"){
-//         pResultIngTot.disabled = true;
-//         pResultIngTot.classList.add("resultColor");
-//         pResultGasFij.disabled = true;
-//         pResultGasFij.classList.add("resultColor");
-//         winCapEnd.classList.remove("resultColor");
-//     };
-//     btnResultHerr.disabled = true;
-//     btnResultHerr.classList.remove("btnResult");
-//     btnResultHerr.classList.add("btnInactive");
-// }
-//--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
-// function clearHerrOpt(){
-//     habilitarIntercambiar();
-//     labelArea.innerHTML = "";
-//     if(varId == "regla_50-30-20_cal"){
-//         mensajeInsertarValores();
-//         pResultSuelNet.setAttribute("type", "number");
-//         pResultSuelNet.disabled = false;
-//         pResultSuelNet.value = "";
-//         pResultSuelNet.classList.remove("resultColor");
-//         winNesBas.innerHTML = ""; 
-//         winGasPer.innerHTML = ""; 
-//         winAhoInv.innerHTML = ""; 
-//         winNesBas.classList.add("resultColor");
-//         winGasPer.classList.add("resultColor");
-//         winAhoInv.classList.add("resultColor");
-//     }
-//     else if(varId == "endeudamiento_cal"){
-//         mensajeInsertarValoresCE();
-//         pResultIngTot.setAttribute("type", "number");
-//         pResultIngTot.disabled = false;
-//         pResultIngTot.value = "";
-//         pResultIngTot.classList.remove("resultColor");
-//         pResultGasFij.setAttribute("type", "number");
-//         pResultGasFij.disabled = false;
-//         pResultGasFij.value = "";
-//         pResultGasFij.classList.remove("resultColor");
-//         winCapEnd.innerHTML = ""; 
-//         winCapEnd.classList.add("resultColor");
-//     };
-//     pTitlesHerramienta.classList.remove("titleImg");
-// };
-function habilitarIntercambiar(){
-    btnResultHerr.disabled = false;
-    btnResultHerr.classList.remove("btnInactive");
-    btnResultHerr.classList.add("btnResult");
-};
-//----Funcion asignaciones --------------------------------------------------------------
-// function asignacionesWindows(){
-//     if(varId == "regla_50-30-20_cal"){
-//         winNesBas = document.querySelector(".resultHerrNecBas");
-//         winGasPer = document.querySelector(".resultHerrGasPer");
-//         winAhoInv = document.querySelector(".resultHerrAhoInv");
-//     }
-//     else if(varId == "endeudamiento_cal"){
-//         winCapEnd = document.querySelector(".resultHerrCapEnd");
-//     };
-// };
-
-
-
 //--- funciones calculadoras ---
 function regla503020Fc(){
     if(pInputWin1.value > 0){
@@ -536,25 +477,36 @@ function regla503020Fc(){
     };
 };
 function endeudamientoFc(){
-    if(pResultIngTot.value > 0 && pResultGasFij.value > 0){
-        // --- Obteniendo datos de ventana de entrada  ---
-        const infoWinIT = Number(pResultIngTot.value);
-        const infoWinGF = Number(pResultGasFij.value);
-        // --- resultados ---
-        const opRest = infoWinIT - infoWinGF;
-        const opMult = opRest * 0.35;
-        // --- impresion --- 
-        pResultIngTot.removeAttribute("type", "number");
-        pResultIngTot.value = formato(infoWinIT.toFixed(2));
-        pResultGasFij.removeAttribute("type", "number");
-        pResultGasFij.value = formato(infoWinGF.toFixed(2));
-        winCapEnd.innerHTML = formato(opMult.toFixed(2));
-        disableOptions();
-        mensajeResultadoExitosoCE();
+    if(pInputWin1.value > 0 && pInputWin2.value > 0){
+        if(pRadioB.checked || pRadioN.checked){
+            // --- Obteniendo datos de ventana de entrada  ---
+            const infoWinIT = Number(pInputWin1.value);
+            const infoWinGF = Number(pInputWin2.value);
+            // --- resultados ---
+            const opRest = infoWinIT - infoWinGF;
+            let opMult;
+            // --- seleccion de porcentaje ---
+            if(pRadioB.checked){
+                opMult = opRest * 0.35;
+            }
+            else if(pRadioN){
+                opMult = opRest * 0.40;
+            }
+            // --- impresion --- 
+            pInputWin1.removeAttribute("type", "number");
+            pInputWin1.value = formato(infoWinIT.toFixed(2));
+            pInputWin2.removeAttribute("type", "number");
+            pInputWin2.value = formato(infoWinGF.toFixed(2));
+            pResultHerrWin1.innerHTML = formato(opMult.toFixed(2));
+            disableOptions();
+            mensajeResultadoExitosoCE();
+        }else{
+            mensajeBrutoNeto();
+        }
     }else{
             mensajeSoloNum();
     };
 };
-
+// ---Inicio ---
 renderIntroduccion();
 

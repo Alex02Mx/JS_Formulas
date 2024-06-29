@@ -26,13 +26,12 @@ const intro = [
 const herramientasArray = [];
 // -- Calculadoras --
 const regla503020Obj = {
-    // definicion: "on",
     idDb: "regla_50-30-20",
     datosDb : [
         {
             mensajeSigPlurDb: "p", 
             titleFigDb: "Regla 50-30-20",
-            imgFiguraDb: "../assets/503020_cal.png",
+            imgFiguraDb: "../assets2/regla_503020_img.png",
 
             titleDb: "Regla 50-30-20",
             windowHI: [
@@ -44,7 +43,7 @@ const regla503020Obj = {
             ],
             windowHM: [
                 {
-                    titleW: "Necesidades Bas. $",
+                    titleW: "Necesidades Basicas $",
                     resultHerr: "resultHerrNecBas",
                 },
                 {
@@ -52,7 +51,7 @@ const regla503020Obj = {
                     resultHerr: "resultHerrGasPer",
                 },
                 {
-                    titleW: "Ahorro Inversión $",
+                    titleW: "Ahorro o Inversión $",
                     resultHerr: "resultHerrAhoInv",
                 }
             ],
@@ -64,15 +63,24 @@ const regla503020Obj = {
     ],
 };
 const capEndeudamientoObj = {
-        // definicion: "on",
         idDb: "capacidad_endeudamiento",
         datosDb : [
             {
                 mensajeSigPlurDb: "p", 
                 titleFigDb: "Capacidad Endeudamiento",
-                imgFiguraDb: "../assets/endeudamiento_cal.png",
+                imgFiguraDb: "../assets2/capacidad_endeudamiento_img.png",
     
                 titleDb: "Capacidad Endeudamiento",
+                windowHR: [
+                    {
+                        radioL: "Ingreso Bruto",
+                        radioI: "radioBtoID",
+                    },
+                    {
+                        radioL: "Ingreso Neto",
+                        radioI: "radioNtoID",
+                    },
+                ],
                 windowHI: [
                     {
                         labelWin: "Ingreso Total $",
@@ -97,29 +105,6 @@ const capEndeudamientoObj = {
                 logicaDb: "endeudamientoFc",
             }
         ],
-
-
-    // definicion: "on",
-    // id: "endeudamiento_cal",
-    // titleHerr: "Instrucciones",
-    // imgHerr: "../assets/endeudamiento_cal.png",
-
-    // titleHerr2: "Endeudamiento",
-    // titleHerrSub: "Calculadora",
-    // titleLabIT: "Ingresos Totales $",
-    // resultIT: "resultHerrIngTot",
-    // titleLabGF: "Gastos Fijos $",
-    // resultGF: "resultHerrGasFij",
-    // windowHerr: [
-    //     {
-    //         titleW: "Endeudamiento $",
-    //         resultHerr: "resultHerrCapEnd",
-    //     }
-    // ],
-    // btnClHerr: "btnResultHerr",
-    // btn2ClHerr: "btnClearHerr",
-    // funcionHerr: "herrCapEnd",
-    // clearWindowHerr: "clearHerrOpt",
 };
 // --- Calculadoras ---
 herramientasArray.push(regla503020Obj);
