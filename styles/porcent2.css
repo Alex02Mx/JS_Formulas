@@ -170,7 +170,7 @@ body {
 .calcDesktop{
     width: 300px;
     position: absolute;
-    top: -160px;
+    top: -220px;
     left: -90px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
@@ -290,32 +290,6 @@ body {
     padding: 10px;
     margin: 0px;
 }
-.btnImg {
-    padding: 3px 10px 3px 10px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--naranja);
-    border-radius: 8px;
-    margin: 0px;
-}
-.defT {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0px;
-    color: var(--black);
-}
-.defC {
-    border-radius: 10px;
-    padding: 10px;
-    background-color: var(--white);
-    color: var(--black);
-}
-.formulaSpan {
-    color: var(--blue);
-}
-.tipoSpan {
-    color: var(--blue);
-}
 /* ############# containerResponsive #############  */
 .containerResponsive {
     display: grid;
@@ -364,22 +338,6 @@ body {
 .secTopCalcCl {
     text-align: center;
 }
-.radioLabelsContCl {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 8px;
-}
-.radioLabelsContCl label {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--black);
-    padding-right: 30px;
-}
-.radioLabelsContCl label:hover,
-.radioLabelsContCl input:hover {
-    cursor: pointer;
-}
 .windLabelContCl {
     width: 100%;
     display: flex;
@@ -388,6 +346,7 @@ body {
 }
 .windLabelContCl label {
     color: var(--black);
+    font-weight: bold;
 }
 .inputStyleCl {
     background-color: var(--white);

@@ -22,6 +22,9 @@ const intro = [
 
             "<span class='formulaSpan'>6. Porcentaje de disminución</span><br>Ejemplo: Si un producto pasa de costar $70 a $50:</br>",
             "<div class='contImgForm'><img class='imgFormula' src='../assets2/disminución.png' alt=''></div>",
+
+            "<span class='formulaSpan'>7. Descuento</span><br>Ejemplo: Para calcular el precio a pagar después de aplicar un descuento del 20% al precio de $ 3500</br>",
+            "<div class='contImgForm'><img class='imgFormula' src='../assets2/descuento.png' alt=''></div>",
         ],
     },
     {
@@ -127,7 +130,7 @@ const decPorcData = {
     ]
 };
 const aumDismData = {
-    idDb: "%_de_aumento_disminución",
+    idDb: "porcentaje_de_aumento_porcentaje_de_disminución",
     datosDb : [
         {
             mensajeSigPlurDb: "p",
@@ -175,10 +178,37 @@ const aumDismData = {
         },
     ]
 };
+const descuentoData = {
+    idDb: "descuento",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Descuento",
+            imgFiguraDb: "../assets2/descuento_img.png",
 
+            titleDb: "Descuento",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Precio $",
+                    inputIdDb: "winPrecio"
+                },
+                {
+                    inputLabelDb: "Descuento %",
+                    inputIdDb: "winDescuento"
+                },
+            ],
+            winResMensDb: "winResMensCalcTopCl",
+            btnClearDb: "btnClearCalcTopCl",
+            btnResultDb: "btnResultCalcTopCl",
+            logicaDb: "descuentoFn",
+        },
+    ]
+};
 PorcentajeArray.push(porcCantData);
 PorcentajeArray.push(decPorcData);
 PorcentajeArray.push(aumDismData);
+PorcentajeArray.push(descuentoData);
 
 
 

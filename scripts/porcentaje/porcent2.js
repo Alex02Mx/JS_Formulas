@@ -325,10 +325,12 @@ function asignacionBtns(){
     btnResultCalcTop = document.querySelector(".btnResultCalcTopCl");
     btnResultCalcTop.addEventListener("click", window[funcion1Fn]);
 
-    btnClearCalcBottom = document.querySelector(".btnClearCalcBottomCl");
-    btnClearCalcBottom.addEventListener("click", clearValCalc );
-    btnResultCalcBottom = document.querySelector(".btnResultCalcBottomCl");
-    btnResultCalcBottom.addEventListener("click", window[funcion2Fn]);
+    if(!(idFigVr == "descuento")){
+        btnClearCalcBottom = document.querySelector(".btnClearCalcBottomCl");
+        btnClearCalcBottom.addEventListener("click", clearValCalc );
+        btnResultCalcBottom = document.querySelector(".btnResultCalcBottomCl");
+        btnResultCalcBottom.addEventListener("click", window[funcion2Fn]);
+    }
 };
 // --- funciones de mensajes ---
 function introducirValMsgFn(){
@@ -337,9 +339,6 @@ function introducirValMsgFn(){
     }else if(mensajeSigPlurVr == "p"){
         return "Intruducir valores requeridos";
     }
-};
-function elegirCmMtMsgFn(){
-    return "Elegir centímetros o metros";
 };
 function valorMayorMsgFc(){
     if(mensajeSigPlurVr == "s"){
@@ -375,10 +374,10 @@ function enableBtnResult(eventForward){
 };
 // --- seleccion de medida ---
 function medSel(id) {
-    if(id == "porcentaje" || id == "aumento" || id == "disminucion"){
+    if(id == "Cantidad Parcial" || id == "Decimal" || id == "Aumento" || id == "Disminución"){
         return "%";
     }
-    else if(id == "cantidad" || id == "decimal"){
+    else if(id == "Porcentaje" || id == "Total a pagar"){
         return "";
     }
 };
@@ -393,6 +392,7 @@ function clearValCalc(eventOrigin){
         name = "calcWin";
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 1) +"Vr";
+            window[winInput].setAttribute("type", "number");
             window[winInput].disabled = false;
             window[winInput].value = "";
             window[winInput].classList.remove("resultColor");
@@ -403,6 +403,7 @@ function clearValCalc(eventOrigin){
         name = "calcWin";
         for(let i=0; i<arrayWin.length; i++){
             winInput = name + (i + 3) +"Vr";
+            window[winInput].setAttribute("type", "number");
             window[winInput].disabled = false;
             window[winInput].value = "";
             window[winInput].classList.remove("resultColor");
@@ -458,11 +459,15 @@ function porcentajeFn(){
             const cantTotal = Number(calcWin1Vr.value);
             const cantParcial = Number(calcWin2Vr.value);
             const result = (cantParcial/cantTotal) * 100;
-            disableWinInp("top");
-            disableBtnResult("top");
             calcWin1Vr.classList.add("resultColor");
             calcWin2Vr.classList.add("resultColor");
-            printResult("top", "porcentaje", result);
+            printResult("top", "Cantidad Parcial", result);
+            calcWin1Vr.removeAttribute("type", "number");
+            calcWin1Vr.value = formato(cantTotal.toFixed(2));
+            calcWin2Vr.removeAttribute("type", "number");
+            calcWin2Vr.value = formato(cantParcial.toFixed(2));
+            disableWinInp("top");
+            disableBtnResult("top");
 
     }else{
         windowResultCalcTop.innerHTML = valorMayorMsgFc();
@@ -473,11 +478,15 @@ function cantidadFn(){
             const cantTotal = Number(calcWin3Vr.value);
             const porcentaje = Number(calcWin4Vr.value);
             const result = (porcentaje/100) * cantTotal;
-            disableWinInp("bottom");
-            disableBtnResult("bottom");
             calcWin3Vr.classList.add("resultColor");
             calcWin4Vr.classList.add("resultColor");
-            printResult("bottom", "cantidad", result);
+            printResult("bottom", "Porcentaje", result);
+            calcWin3Vr.removeAttribute("type", "number");
+            calcWin3Vr.value = formato(cantTotal.toFixed(2));
+            calcWin4Vr.removeAttribute("type", "number");
+            calcWin4Vr.value = formato(porcentaje.toFixed(2));
+            disableWinInp("bottom");
+            disableBtnResult("bottom");
 
     }else{
         windowResultCalcBottom.innerHTML = valorMayorMsgFc();
@@ -487,10 +496,12 @@ function decimPorcFn(){
     if(calcWin1Vr.value > 0){
             const decimal = Number(calcWin1Vr.value);
             const result = decimal * 100;
+            calcWin1Vr.classList.add("resultColor");
+            printResult("top", "Decimal", result);
+            calcWin1Vr.removeAttribute("type", "number");
+            calcWin1Vr.value = formato(decimal.toFixed(3));
             disableWinInp("top");
             disableBtnResult("top");
-            calcWin1Vr.classList.add("resultColor");
-            printResult("top", "porcentaje", result);
 
     }else{
         windowResultCalcTop.innerHTML = valorMayorMsgFc();
@@ -500,10 +511,12 @@ function porcDecimFn(){
     if(calcWin3Vr.value > 0){
             const porcentaje = Number(calcWin3Vr.value);
             const result = porcentaje / 100;
+            calcWin3Vr.classList.add("resultColor");
+            printResult("bottom", "Porcentaje", result);
+            calcWin3Vr.removeAttribute("type", "number");
+            calcWin3Vr.value = formato(porcentaje.toFixed(2));
             disableWinInp("bottom");
             disableBtnResult("bottom");
-            calcWin3Vr.classList.add("resultColor");
-            printResult("bottom", "decimal", result);
 
     }else{
         windowResultCalcBottom.innerHTML = valorMayorMsgFc();
@@ -515,11 +528,15 @@ function aumentoFn(){
             const cantConAument = Number(calcWin2Vr.value);
             const oper1 = Number((cantConAument - cantInicial) / cantInicial);
             const result = Number(oper1 * 100);
-            disableWinInp("top");
-            disableBtnResult("top");
             calcWin1Vr.classList.add("resultColor");
             calcWin2Vr.classList.add("resultColor");
-            printResult("top", "aumento", result);
+            printResult("top", "Aumento", result);
+            calcWin1Vr.removeAttribute("type", "number");
+            calcWin1Vr.value = formato(cantInicial.toFixed(2));
+            calcWin2Vr.removeAttribute("type", "number");
+            calcWin2Vr.value = formato(cantConAument.toFixed(2));
+            disableWinInp("top");
+            disableBtnResult("top");
 
     }else{
         windowResultCalcTop.innerHTML = valorMayorMsgFc();
@@ -531,15 +548,38 @@ function disminucionFn(){
             const cantConDismin = Number(calcWin4Vr.value);
             const oper1 = Number( (cantInicial - cantConDismin) / cantInicial);
             const result = Number(oper1 * 100);
-            disableWinInp("bottom");
-            disableBtnResult("bottom");
             calcWin3Vr.classList.add("resultColor");
             calcWin4Vr.classList.add("resultColor");
-            printResult("bottom", "disminucion", result);
+            printResult("bottom", "Disminución", result);
+            calcWin3Vr.removeAttribute("type", "number");
+            calcWin3Vr.value = formato(cantInicial.toFixed(2));
+            calcWin4Vr.removeAttribute("type", "number");
+            calcWin4Vr.value = formato(cantConDismin.toFixed(2));
+            disableWinInp("bottom");
+            disableBtnResult("bottom");
 
     }else{
         windowResultCalcBottom.innerHTML = valorMayorMsgFc();
     }
+};
+function descuentoFn(){
+    if(calcWin1Vr.value > 0 && calcWin2Vr.value > 0){
+        const precList = Number(calcWin1Vr.value);
+        const porcDesc = Number(calcWin2Vr.value);
+        const resultDescuento = precList * ( porcDesc / 100 );
+        const totalApagar = precList - resultDescuento;
+        calcWin1Vr.classList.add("resultColor");
+        calcWin2Vr.classList.add("resultColor");
+        printResult("top", "Total a pagar", totalApagar);
+        calcWin1Vr.removeAttribute("type", "number");
+        calcWin1Vr.value = formato(precList.toFixed(2));
+        calcWin2Vr.removeAttribute("type", "number");
+        calcWin2Vr.value = formato(porcDesc.toFixed(2));
+        disableWinInp("top");
+        disableBtnResult("top");
+    }else{
+        windowResultCalcTop.innerHTML = valorMayorMsgFc();
+    };
 };
 //----Inicio----------------------------------------------------------------------------
 renderIntroduccion();
