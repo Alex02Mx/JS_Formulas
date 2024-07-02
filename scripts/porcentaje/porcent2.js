@@ -443,18 +443,14 @@ function disableWinInp(pos){
         }
     }
 };
-function printResult(pos, id, result, med){
+function printResult(pos, def, result, med){
     if(pos == "top"){
         windowResultCalcTop.classList.add("bgChange");
-        // windowResultCalcTop.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
-        windowResultCalcTop.innerHTML = `${id} ${result} ${med}`;
-
+        windowResultCalcTop.innerHTML = `${def} ${result} ${med}`;
     }
     else if(pos == "bottom"){
         windowResultCalcBottom.classList.add("bgChange");
-        // windowResultCalcBottom.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
-        windowResultCalcBottom.innerHTML = `${id} ${result} ${med}`;
-
+        windowResultCalcBottom.innerHTML = `${def} ${result} ${med}`;
     }
 };
 // --- logica funciones ---
@@ -485,8 +481,6 @@ function cantidadFn(){
             calcWin3Vr.classList.add("resultColor");
             calcWin4Vr.classList.add("resultColor");
             printResult("bottom", "Porcentaje =", `${formato(result.toFixed(2))}`, "Cant." );
-
-            // printResult("bottom", "Cantidad Buscada", result);
             calcWin3Vr.removeAttribute("type", "number");
             calcWin3Vr.value = formato(cantTotal.toFixed(2));
             calcWin4Vr.removeAttribute("type", "number");
@@ -503,12 +497,11 @@ function decimPorcFn(){
             const decimal = Number(calcWin1Vr.value);
             const result = decimal * 100;
             calcWin1Vr.classList.add("resultColor");
-            printResult("top", "Decimal", result);
+            printResult("top", "Decimal =", `${formato(result.toFixed(2))}`, "%" );
             calcWin1Vr.removeAttribute("type", "number");
             calcWin1Vr.value = formato(decimal.toFixed(3));
             disableWinInp("top");
             disableBtnResult("top");
-
     }else{
         windowResultCalcTop.innerHTML = valorMayorMsgFc();
     }
@@ -518,12 +511,11 @@ function porcDecimFn(){
             const porcentaje = Number(calcWin3Vr.value);
             const result = porcentaje / 100;
             calcWin3Vr.classList.add("resultColor");
-            printResult("bottom", "Porcentaje", result);
+            printResult("bottom", "Porcentaje =", `${formato(result.toFixed(2))}`, "" );
             calcWin3Vr.removeAttribute("type", "number");
             calcWin3Vr.value = formato(porcentaje.toFixed(2));
             disableWinInp("bottom");
             disableBtnResult("bottom");
-
     }else{
         windowResultCalcBottom.innerHTML = valorMayorMsgFc();
     }
@@ -536,14 +528,13 @@ function aumentoFn(){
             const result = Number(oper1 * 100);
             calcWin1Vr.classList.add("resultColor");
             calcWin2Vr.classList.add("resultColor");
-            printResult("top", "Aumento", result);
+            printResult("top", "Aumento =", `${formato(result.toFixed(2))}`, "%" );
             calcWin1Vr.removeAttribute("type", "number");
             calcWin1Vr.value = formato(cantInicial.toFixed(2));
             calcWin2Vr.removeAttribute("type", "number");
             calcWin2Vr.value = formato(cantConAument.toFixed(2));
             disableWinInp("top");
             disableBtnResult("top");
-
     }else{
         windowResultCalcTop.innerHTML = valorMayorMsgFc();
     }
@@ -556,7 +547,7 @@ function disminucionFn(){
             const result = Number(oper1 * 100);
             calcWin3Vr.classList.add("resultColor");
             calcWin4Vr.classList.add("resultColor");
-            printResult("bottom", "Disminución", result);
+            printResult("bottom", "Disminución =", `${formato(result.toFixed(2))}`, "%" );
             calcWin3Vr.removeAttribute("type", "number");
             calcWin3Vr.value = formato(cantInicial.toFixed(2));
             calcWin4Vr.removeAttribute("type", "number");
@@ -576,7 +567,7 @@ function descuentoFn(){
         const totalApagar = precList - resultDescuento;
         calcWin1Vr.classList.add("resultColor");
         calcWin2Vr.classList.add("resultColor");
-        printResult("top", "Total a pagar", totalApagar);
+        printResult("top", "Total a pagar $", `${formato(totalApagar.toFixed(2))}`, "" );
         calcWin1Vr.removeAttribute("type", "number");
         calcWin1Vr.value = formato(precList.toFixed(2));
         calcWin2Vr.removeAttribute("type", "number");
