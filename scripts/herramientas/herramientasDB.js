@@ -43,7 +43,7 @@ const regla503020Obj = {
             ],
             windowHM: [
                 {
-                    titleW: "Necesidades Basicas $",
+                    titleW: "Necesidades Básicas $",
                     resultHerr: "resultHerrNecBas",
                 },
                 {

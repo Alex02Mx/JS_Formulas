@@ -290,6 +290,10 @@ body {
     padding: 10px;
     margin: 0px;
 }
+.formulaSpan{
+    font-size: 22px;
+    color: var(--blue);
+}
 /* ############# containerResponsive #############  */
 .containerResponsive {
     display: grid;

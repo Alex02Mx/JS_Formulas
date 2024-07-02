@@ -5,7 +5,7 @@ const intro = [
             "Porcentaje :",
             "Existen varias maneras de obtener un porcentaje dependiendo del contexto y del tipo de datos con los que estés trabajando. Algunas formas comunes de calcular porcentajes:",
         
-            "<span class='formulaSpan'>1. Porcentaje de una cantidad </span><br>Ejemplo: Si tienes 30 manzanas de un total de 150:</br>",
+            "<span class='formulaSpan'>1. Porcentaje de una cantidad </span><br><br>Ejemplo: Si tienes 30 manzanas de una cantidad total de 150 manzanas.<br>Qué porcentaje del total de 150 representan 30 manzanas ? </br>",
             "<div class='contImgForm'><img class='imgFormula' src='../assets2/porc_cant.png' alt=''></div>",
 
             "<span class='formulaSpan'>2. Cantidad de un porcentaje</span><br>Ejemplo: Para encontrar el 15% de 200:</br>",
@@ -54,7 +54,7 @@ const porcCantData = {
                     inputIdDb: "winCantTotP"
                 },
                 {
-                    inputLabelDb: "Cantidad Parcial",
+                    inputLabelDb: "Cantidad Parcial ",
                     inputIdDb: "winCanParc"
                 },
             ],

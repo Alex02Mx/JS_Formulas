@@ -374,10 +374,10 @@ function enableBtnResult(eventForward){
 };
 // --- seleccion de medida ---
 function medSel(id) {
-    if(id == "Cantidad Parcial" || id == "Decimal" || id == "Aumento" || id == "Disminución"){
+    if(id == "Porcentaje Buscado" || id == "Decimal" || id == "Aumento" || id == "Disminución"){
         return "%";
     }
-    else if(id == "Porcentaje" || id == "Total a pagar"){
+    else if(id == "Cantidad Buscada" || id == "Total a pagar"){
         return "";
     }
 };
@@ -443,14 +443,18 @@ function disableWinInp(pos){
         }
     }
 };
-function printResult(pos, id, result){
+function printResult(pos, id, result, med){
     if(pos == "top"){
         windowResultCalcTop.classList.add("bgChange");
-        windowResultCalcTop.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
+        // windowResultCalcTop.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
+        windowResultCalcTop.innerHTML = `${id} ${result} ${med}`;
+
     }
     else if(pos == "bottom"){
         windowResultCalcBottom.classList.add("bgChange");
-        windowResultCalcBottom.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
+        // windowResultCalcBottom.innerHTML = `${id} = ${formato(result.toFixed(2))} ${medSel(id)}`;
+        windowResultCalcBottom.innerHTML = `${id} ${result} ${med}`;
+
     }
 };
 // --- logica funciones ---
@@ -461,7 +465,7 @@ function porcentajeFn(){
             const result = (cantParcial/cantTotal) * 100;
             calcWin1Vr.classList.add("resultColor");
             calcWin2Vr.classList.add("resultColor");
-            printResult("top", "Cantidad Parcial", result);
+            printResult("top", "Cantidad Parcial =", `${formato(result.toFixed(2))}`, "%" );
             calcWin1Vr.removeAttribute("type", "number");
             calcWin1Vr.value = formato(cantTotal.toFixed(2));
             calcWin2Vr.removeAttribute("type", "number");
@@ -480,7 +484,9 @@ function cantidadFn(){
             const result = (porcentaje/100) * cantTotal;
             calcWin3Vr.classList.add("resultColor");
             calcWin4Vr.classList.add("resultColor");
-            printResult("bottom", "Porcentaje", result);
+            printResult("bottom", "Porcentaje =", `${formato(result.toFixed(2))}`, "Cant." );
+
+            // printResult("bottom", "Cantidad Buscada", result);
             calcWin3Vr.removeAttribute("type", "number");
             calcWin3Vr.value = formato(cantTotal.toFixed(2));
             calcWin4Vr.removeAttribute("type", "number");
