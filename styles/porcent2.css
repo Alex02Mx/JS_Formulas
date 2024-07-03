@@ -350,7 +350,7 @@ body {
 }
 .windLabelContCl label {
     color: var(--black);
-    font-weight: 500;
+    font-weight: bold;
 }
 .inputStyleCl {
     background-color: var(--white);
