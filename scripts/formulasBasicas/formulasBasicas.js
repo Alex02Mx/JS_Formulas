@@ -145,7 +145,6 @@ function menuPrinc(){
 };
 function menuPrincFnc(){
     location.href="/index.html";
-
     // location.href="../../index.html";
     // location.href="/JS_Formulas/index.html";
 };
