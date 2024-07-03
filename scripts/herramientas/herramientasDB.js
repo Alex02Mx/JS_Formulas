@@ -31,7 +31,7 @@ const regla503020Obj = {
         {
             mensajeSigPlurDb: "p", 
             titleFigDb: "Regla 50-30-20",
-            imgFiguraDb: "../assets2/regla_503020_img.png",
+            imgFiguraDb: "https://i.ibb.co/BTvS73g/regla-503020-img.png",
 
             titleDb: "Regla 50-30-20",
             windowHI: [
@@ -68,7 +68,7 @@ const capEndeudamientoObj = {
             {
                 mensajeSigPlurDb: "p", 
                 titleFigDb: "Capacidad Endeudamiento",
-                imgFiguraDb: "../assets2/capacidad_endeudamiento_img.png",
+                imgFiguraDb: "https://i.ibb.co/HnQPHFg/capacidad-endeudamiento-img.png",
     
                 titleDb: "Capacidad Endeudamiento",
                 windowHR: [

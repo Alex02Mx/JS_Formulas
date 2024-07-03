@@ -78,7 +78,6 @@ function blurFnc(){
 }
 // --- Mostrar, esconder, opacar, aclarar ---
 function showHideCalc(event){
-
     if(event.srcElement.innerHTML == "Calculadoras"){
         calcDesktop.classList.toggle("calcDesktopShow");
         if(calcDesktop.classList.contains("calcDesktopShow")){
@@ -144,7 +143,6 @@ function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const target = event.target.innerText.toLowerCase();
     const figura = target.replaceAll(" ","_");
-
     const figSelect = AlturasArray.find(obj => obj.idDb === figura);
     if(figSelect){
         renderFigura(figSelect);
@@ -391,7 +389,6 @@ function medSel(string) {
 // --- borrado de valores de calculadora ---
 function clearValCalc(eventOrigin){
     radEnableUncheck(eventOrigin);
-
     let figValues = AlturasArray.find((obj) => obj["idDb"] == idFigVr);
     let arrayWin;
     let name;
@@ -406,7 +403,6 @@ function clearValCalc(eventOrigin){
         window[winInput].value = "";
         window[winInput].classList.remove("resultColor");
     }
-
     disablWindowResult(eventOrigin);
     enableBtnResult(eventOrigin);
 };

@@ -61,7 +61,7 @@ const mediaMedianaObj = {
         {
             mensajeSigPlurDb: "p", 
             titleFigDb: "Media y Mediana",
-            imgFiguraDb: "../assets2/media_mediana_img.png",
+            imgFiguraDb: "https://i.ibb.co/fCj5Jps/media-mediana-img.png",
 
             titleDb: "Media y Mediana",
 
@@ -89,7 +89,7 @@ const modaObj = {
         {
             mensajeSigPlurDb: "p", 
             titleFigDb: "Moda",
-            imgFiguraDb: "../assets2/moda_img.png",
+            imgFiguraDb: "https://i.ibb.co/zHbNfR0/moda-img.png",
 
             titleDb: "Moda",
 
@@ -113,7 +113,7 @@ const rangoObj = {
             {
                 mensajeSigPlurDb: "p", 
                 titleFigDb: "Rango",
-                imgFiguraDb: "../assets2/rango_img.png",
+                imgFiguraDb: "https://i.ibb.co/QrnTqQQ/rango-img.png",
     
                 titleDb: "Rango",
     
@@ -151,7 +151,7 @@ const desviacionMediaObj = {
             {
                 mensajeSigPlurDb: "p", 
                 titleFigDb: "Desviación Media",
-                imgFiguraDb: "../assets2/desviacion_media_img.png",
+                imgFiguraDb: "https://i.ibb.co/X7RRrDZ/desviacion-media-img.png",
     
                 titleDb: "Desviación Media",
     

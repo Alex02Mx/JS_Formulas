@@ -38,7 +38,7 @@ const trianguloObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Triángulo",
-            imgFiguraDb: "../assets2/triangulo_equilatero_area.png",
+            imgFiguraDb: "https://i.ibb.co/JRgKNwy/triangulo-equilatero-area.png",
 
             titleDb: "Área Triángulo",
 
@@ -64,7 +64,7 @@ const trianguloObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Triángulo",
-            imgFiguraDb: "../assets2/triangulo_equilatero_perim.png",
+            imgFiguraDb: "https://i.ibb.co/nBSjR2x/triangulo-equilatero-perim.png",
             
             titleDb: "Perímetro Triángulo",
 
@@ -99,7 +99,7 @@ const cuadradoObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Cuadrado",
-            imgFiguraDb: "../assets2/cuadrado_area.png",
+            imgFiguraDb: "https://i.ibb.co/cDP4f9q/cuadrado-area.png",
 
             titleDb: "Área Cuadrado",
 
@@ -121,7 +121,7 @@ const cuadradoObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Cuadrado",
-            imgFiguraDb: "../assets2/cuadrado_perim.png",
+            imgFiguraDb: "https://i.ibb.co/nfZ8QYf/cuadrado-perim.png",
             
             titleDb: "Perímetro Cuadrado",
 
@@ -148,7 +148,7 @@ const rectanguloObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Rectángulo",
-            imgFiguraDb: "../assets2/rectangulo_area.png",
+            imgFiguraDb: "https://i.ibb.co/qN25cKp/rectangulo-area.png",
 
             titleDb: "Área Rectángulo",
 
@@ -174,7 +174,7 @@ const rectanguloObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Rectángulo",
-            imgFiguraDb: "../assets2/rectangulo_perimetro.png",
+            imgFiguraDb: "https://i.ibb.co/N1djt0C/rectangulo-perimetro.png",
             
             titleDb: "Perímetro Rectángulo",
 
@@ -205,7 +205,7 @@ const paralelogramoObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Paralelogramo",
-            imgFiguraDb: "../assets2/paralelogramo_area.png",
+            imgFiguraDb: "https://i.ibb.co/vQtP9ZK/paralelogramo-area.png",
 
             titleDb: "Área Paralelogramo",
 
@@ -231,7 +231,7 @@ const paralelogramoObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Paralelogramo",
-            imgFiguraDb: "../assets2/paralelogramo_perimetro.png",
+            imgFiguraDb: "https://i.ibb.co/0MXNjjf/paralelogramo-perimetro.png",
             
             titleDb: "Perímetro Paralelogramo",
 
@@ -262,7 +262,7 @@ const trapecioObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Trapecio",
-            imgFiguraDb: "../assets2/trapecio_area.png",
+            imgFiguraDb: "https://i.ibb.co/HYNrKh1/trapecio-area.png",
 
             titleDb: "Área Trapecio",
 
@@ -292,7 +292,7 @@ const trapecioObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Trapecio",
-            imgFiguraDb: "../assets2/trapecio_perim.png",
+            imgFiguraDb: "https://i.ibb.co/LvQphPc/trapecio-perim.png",
             
             titleDb: "Perímetro Trapecio",
 
@@ -331,7 +331,7 @@ const romboObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Rombo",
-            imgFiguraDb: "../assets2/rombo_area.png",
+            imgFiguraDb: "https://i.ibb.co/rsGMrJX/rombo-area.png",
 
             titleDb: "Área Rombo",
 
@@ -357,7 +357,7 @@ const romboObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Rombo",
-            imgFiguraDb: "../assets2/rombo_perim.png",
+            imgFiguraDb: "https://i.ibb.co/8NKjWPX/rombo-perim.png",
             
             titleDb: "Perímetro Rombo",
 
@@ -384,7 +384,7 @@ const pentagonoObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Pentágono",
-            imgFiguraDb: "../assets2/pentagono_area.png",
+            imgFiguraDb: "https://i.ibb.co/TLyh8mz/pentagono-area.png",
 
             titleDb: "Área Pentágono",
 
@@ -410,7 +410,7 @@ const pentagonoObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Pentágono",
-            imgFiguraDb:  "../assets2/pentagono_perim.png",
+            imgFiguraDb:  "https://i.ibb.co/XWtFmN1/pentagono-perim.png",
             
             titleDb: "Perímetro Pentágono",
 
@@ -437,7 +437,7 @@ const hexagonoObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Hexágono",
-            imgFiguraDb: "../assets2/hexagono_area.png",
+            imgFiguraDb: "https://i.ibb.co/PhbSw5y/hexagono-area.png",
 
             titleDb: "Área Hexágono",
 
@@ -463,7 +463,7 @@ const hexagonoObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Hexágono",
-            imgFiguraDb:  "../assets2/hexagono_perim.png",
+            imgFiguraDb:  "https://i.ibb.co/25qxQc2/hexagono-perim.png",
             
             titleDb: "Perímetro Hexágono",
 
@@ -490,7 +490,7 @@ const circuloObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Círculo",
-            imgFiguraDb: "../assets2/circulo_area.png",
+            imgFiguraDb: "https://i.ibb.co/QHD0t0k/circulo-area.png",
 
             titleDb: "Área Círculo",
 
@@ -512,7 +512,7 @@ const circuloObj = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Circunferencia",
-            imgFiguraDb: "../assets2/circunferencia.png",
+            imgFiguraDb: "https://i.ibb.co/p1978hy/circunferencia.png",
             
             titleDb: "Circunferencia",
 

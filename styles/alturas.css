@@ -279,32 +279,6 @@ body {
     padding: 10px;
     margin: 0px;
 }
-.btnImg {
-    padding: 3px 10px 3px 10px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--naranja);
-    border-radius: 8px;
-    margin: 0px;
-}
-.defT {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0px;
-    color: var(--black);
-}
-.defC {
-    border-radius: 10px;
-    padding: 10px;
-    background-color: var(--white);
-    color: var(--black);
-}
-span {
-    padding: 3px 3px;
-    border-radius: 3px;
-    background-color: var(--secundario);
-    color: var(--naranja);
-}
 /* ########## containerResponsive #########  */
 /* --- Areas-Perimetro  / imagen-formula --- */
 .containerResponsive {
@@ -380,6 +354,7 @@ span {
 .windLabelContCl label {
     color: var(--black);
     margin-left: 20px;
+    font-weight: 500;
 }
 .inputStyleCl {
     background-color: var(--white);

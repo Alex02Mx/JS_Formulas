@@ -6,25 +6,25 @@ const intro = [
             "Existen varias maneras de obtener un porcentaje dependiendo del contexto y del tipo de datos con los que estés trabajando. Algunas formas comunes de calcular porcentajes:",
         
             "<span class='formulaSpan'>1. Porcentaje de una cantidad </span><br><br>Ejemplo: Si tienes 30 manzanas de una cantidad total de 150 manzanas.<br>Qué porcentaje del total de 150 representan 30 manzanas ? </br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/porc_cant.png' alt=''></div>",
+            "<div class='contImgForm'><img class='imgFormula' src='https://i.ibb.co/JjbgF4F/porc-cant.png' alt=''></div>",
 
             "<span class='formulaSpan'>2. Cantidad de un porcentaje</span><br>Ejemplo: Para encontrar el 15% de 200:</br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/cant_porc.png' alt=''></div>",
+            "<div class='contImgForm'><img class='imgFormula' src='https://i.ibb.co/V9P3YW1/cant-porc.png' alt=''></div>",
 
             "<span class='formulaSpan'>3. Conversión de un decimal a porcentaje</span><br>Ejemplo: Para convertir 0.75 a porcentaje:</br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/dec_porc.png' alt=''></div>",
+            "<div class='contImgForm'><img class='imgFormula' src='https://i.ibb.co/p3p1QTG/dec-porc.png' alt=''></div>",
 
             "<span class='formulaSpan'>4. Conversión de un porcentaje a decimal</span><br>Ejemplo: Para convertir 25% a decimal:</br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/porc_dec.png' alt=''></div>",
+            "<div class='contImgForm'><img class='imgFormula' src='https://i.ibb.co/CQ7Df5J/porc-dec.png' alt=''></div>",
 
             "<span class='formulaSpan'>5. Porcentaje de aumento</span><br>Ejemplo: Si un producto pasa de costar $50 a $70:</br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/aumento.png' alt=''></div>",
+            "<div class='contImgForm'><img class='imgFormula' src='https://i.ibb.co/F0dwqdn/aumento.png' alt=''></div>",
 
             "<span class='formulaSpan'>6. Porcentaje de disminución</span><br>Ejemplo: Si un producto pasa de costar $70 a $50:</br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/disminución.png' alt=''></div>",
+            "<div class='contImgForm'><img class='imgFormula' src='https://i.ibb.co/q0V2xy9/disminuci-n.png' alt=''></div>",
 
             "<span class='formulaSpan'>7. Descuento</span><br>Ejemplo: Para calcular el precio a pagar después de aplicar un descuento del 20% al precio de $ 3500</br>",
-            "<div class='contImgForm'><img class='imgFormula' src='../assets2/descuento.png' alt=''></div>",
+            "<div class='contImgForm'><img class='imgFormula' src='https://i.ibb.co/YL0ggW3/descuento.png' alt=''></div>",
         ],
     },
     {
@@ -44,7 +44,7 @@ const porcCantData = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Porcentaje de una cantidad",
-            imgFiguraDb: "../assets2/porc_cant_img.png",
+            imgFiguraDb: "https://i.ibb.co/Y8gcbgt/porc-cant-img.png",
 
             titleDb: "Porcentaje de una cantidad",
 
@@ -66,7 +66,7 @@ const porcCantData = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Cantidad de un porcentaje",
-            imgFiguraDb: "../assets2/cant_porc_img.png",
+            imgFiguraDb: "https://i.ibb.co/sW1wpN1/cant-porc-img.png",
 
             titleDb: "Cantidad de un porcentaje",
 
@@ -76,7 +76,7 @@ const porcCantData = {
                     inputIdDb: "winCantTotC"
                 },
                 {
-                    inputLabelDb: "Porcentaje",
+                    inputLabelDb: "Porcentaje %",
                     inputIdDb: "winPorc"
                 },
             ],
@@ -94,7 +94,7 @@ const decPorcData = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Decimal a Porcentaje",
-            imgFiguraDb: "../assets2/dec_porc_img.png",
+            imgFiguraDb: "https://i.ibb.co/tmXddNx/dec-porc-img.png",
 
             titleDb: "Decimal a Porcentaje",
 
@@ -112,13 +112,13 @@ const decPorcData = {
         {
             mensajeSigPlurDb: "s",
             titleFigDb: "Porcentaje a Decimal",
-            imgFiguraDb: "../assets2/porc_dec_img.png",
+            imgFiguraDb: "https://i.ibb.co/9yznbRk/porc-dec-img.png",
 
             titleDb: "Porcentaje a Decimal",
 
             inputDb: [
                 {
-                    inputLabelDb: "Porcentaje",
+                    inputLabelDb: "Porcentaje %",
                     inputIdDb: "winCantTotC"
                 },
             ],
@@ -135,7 +135,7 @@ const aumDismData = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Porcentaje de Aumento",
-            imgFiguraDb: "../assets2/aumento_img.png",
+            imgFiguraDb: "https://i.ibb.co/FgVqbPF/aumento-img.png",
 
             titleDb: "Porcentaje de Aumento",
 
@@ -157,7 +157,7 @@ const aumDismData = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Porcentaje de Disminución",
-            imgFiguraDb: "../assets2/disminución_img.png",
+            imgFiguraDb: "https://i.ibb.co/6tb65sr/disminuci-n-img.png",
 
             titleDb: "Porcentaje de Disminución",
 
@@ -184,7 +184,7 @@ const descuentoData = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Descuento",
-            imgFiguraDb: "../assets2/descuento_img.png",
+            imgFiguraDb: "https://i.ibb.co/hVM1WMv/descuento-img.png",
 
             titleDb: "Descuento",
 

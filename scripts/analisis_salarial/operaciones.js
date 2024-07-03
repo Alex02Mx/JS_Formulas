@@ -1,4 +1,4 @@
-// -- funcion de formato en salida de numeros con espacios y comas
+ // -- funcion de formato en salida de numeros con espacios y comas
 const formato = (number) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
     const rep = '$1,';

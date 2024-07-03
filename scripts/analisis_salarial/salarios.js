@@ -12,20 +12,18 @@ SALARIES.push({
         { year: 2023, company: 'Industrias Mokepon', salary: 1250, },
     ],
 });
-
 SALARIES.push({
     name  : 'Alex',
     id    : 2,
     works : [
-        { year: 2018, company: 'Freelance', salary: 450, },
-        { year: 2019, company: 'Freelance', salary: 550, },
-        { year: 2020, company: 'Freelance', salary: 400, },
-        { year: 2021, company: 'Industrias Mokepon', salary: 1050, },
-        { year: 2022, company: 'Industrias Mokepon', salary: 1250, },
-        { year: 2023, company: 'Industrias Mokepon', salary: 1250, },
+        { year: 2018, company: 'Freelance', salary: 8000, },
+        { year: 2019, company: 'Freelance', salary: 8000, },
+        { year: 2020, company: 'Freelance', salary: 8000, },
+        { year: 2021, company: 'Industrias Mokepon', salary: 9200, },
+        { year: 2022, company: 'Industrias Mokepon', salary: 9200, },
+        { year: 2023, company: 'Industrias Mokepon', salary: 9200, },
     ],
 });
-
 SALARIES.push({
     name  : 'Nath',
     id    : 3,
@@ -38,7 +36,6 @@ SALARIES.push({
         { year: 2023, company: 'MarketerosCOL', salary: 1100, },
     ],
 });
-
 SALARIES.push({
     name  : 'Julia',
     id    : 4,
@@ -51,7 +48,6 @@ SALARIES.push({
         { year: 2023, company: 'MarketerosCOL', salary: 2000, },
     ],
 });
-
 SALARIES.push({
     name  : 'Jonatan',
     id    : 5,
@@ -63,7 +59,6 @@ SALARIES.push({
         { year: 2023, company: 'MarketerosCOL', salary: 1000, },
     ],
 });
-
 SALARIES.push({
     name  : 'Armando',
     id    : 6,
@@ -76,7 +71,6 @@ SALARIES.push({
         { year: 2023, company: 'Freelance', salary: 850, },
     ],
 });
-
 SALARIES.push({
     name  : 'Dilan',
     id    : 7,
@@ -89,7 +83,6 @@ SALARIES.push({
         { year: 2023, company: 'Mokepon', salary: 1100, },
     ],
 });
-
 SALARIES.push({
     name  : 'Zamir',
     id    : 8,
@@ -102,7 +95,6 @@ SALARIES.push({
         { year: 2023, company: 'Mokepon', salary: 1200, },
     ],
 });
-
 SALARIES.push({
     name  : 'Daniela',
     id    : 9,
@@ -115,7 +107,6 @@ SALARIES.push({
         { year: 2023, company: 'MarketerosCOL', salary: 850, },
     ],
 });
-
 SALARIES.push({
     name  : 'Daniel',
     id    : 10,
@@ -126,7 +117,6 @@ SALARIES.push({
         { year: 2023, company: 'Freelance', salary: 650, },
     ],
 });
-
 SALARIES.push({
     name  : 'Rigoberto',
     id    : 11,
@@ -139,7 +129,6 @@ SALARIES.push({
         { year: 2023, company: 'MarketerosCOL', salary: 750, },
     ],
 });
-
 SALARIES.push({
     name  : 'Alicia',
     id    : 12,
@@ -152,7 +141,6 @@ SALARIES.push({
         { year: 2023, company: 'Freelance', salary: 350, },
     ],
 });
-
 SALARIES.push({
     name  : 'Teodoro',
     id    : 13,
@@ -165,7 +153,6 @@ SALARIES.push({
         { year: 2023, company: 'Freelance', salary: 850, },
     ],
 });
-
 SALARIES.push({
     name  : 'Bruce',
     id    : 14,
@@ -178,7 +165,6 @@ SALARIES.push({
         { year: 2023, company: 'Wayne Enterprises', salary: 3850, },
     ],
 });
-
 SALARIES.push({
     name  : 'Alfred',
     id    : 15,
@@ -191,7 +177,6 @@ SALARIES.push({
         { year: 2023, company: 'Wayne Enterprises', salary: 1500, },
     ],
 });
-
 SALARIES.push({
     name  : 'Clark Kent',
     id    : 16,
@@ -204,7 +189,6 @@ SALARIES.push({
         { year: 2023, company: 'Daily Planet', salary: 1500, },
     ],
 });
-
 SALARIES.push({
     name  : 'Lois Lane',
     id    : 17,
@@ -217,7 +201,6 @@ SALARIES.push({
         { year: 2023, company: 'Daily Planet', salary: 2500, },
     ],
 });
-
 SALARIES.push({
     name  : 'Jimmy Olsen',
     id    : 18,
@@ -230,7 +213,6 @@ SALARIES.push({
         { year: 2023, company: 'Daily Planet', salary: 1500, },
     ],
 });
-
 SALARIES.push({
     name  : 'Perry White',
     id    : 19,
@@ -243,7 +225,6 @@ SALARIES.push({
         { year: 2023, company: 'Daily Planet', salary: 4050, },
     ],
 });
-
 SALARIES.push({
     name  : 'Lex Luthor',
     id    : 20,

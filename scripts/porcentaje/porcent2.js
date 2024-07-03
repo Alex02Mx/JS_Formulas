@@ -480,7 +480,7 @@ function cantidadFn(){
             const result = (porcentaje/100) * cantTotal;
             calcWin3Vr.classList.add("resultColor");
             calcWin4Vr.classList.add("resultColor");
-            printResult("bottom", "Porcentaje =", `${formato(result.toFixed(2))}`, "Cant." );
+            printResult("bottom", "Cantidad Parcial =", `${formato(result.toFixed(2))}`, "" );
             calcWin3Vr.removeAttribute("type", "number");
             calcWin3Vr.value = formato(cantTotal.toFixed(2));
             calcWin4Vr.removeAttribute("type", "number");
@@ -497,7 +497,7 @@ function decimPorcFn(){
             const decimal = Number(calcWin1Vr.value);
             const result = decimal * 100;
             calcWin1Vr.classList.add("resultColor");
-            printResult("top", "Decimal =", `${formato(result.toFixed(2))}`, "%" );
+            printResult("top", "Porcentaje =", `${formato(result.toFixed(2))}`, "%" );
             calcWin1Vr.removeAttribute("type", "number");
             calcWin1Vr.value = formato(decimal.toFixed(3));
             disableWinInp("top");
@@ -511,7 +511,7 @@ function porcDecimFn(){
             const porcentaje = Number(calcWin3Vr.value);
             const result = porcentaje / 100;
             calcWin3Vr.classList.add("resultColor");
-            printResult("bottom", "Porcentaje =", `${formato(result.toFixed(2))}`, "" );
+            printResult("bottom", "Decimal =", `${formato(result.toFixed(2))}`, "" );
             calcWin3Vr.removeAttribute("type", "number");
             calcWin3Vr.value = formato(porcentaje.toFixed(2));
             disableWinInp("bottom");
