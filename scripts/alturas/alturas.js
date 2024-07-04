@@ -135,8 +135,7 @@ function menuPrinc(){
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
-    location.href="/index.html";
-    // location.href="../../index.html";
+    location.href="../index.html";
     // location.href="/JS_Formulas/index.html";
 }
 // --- Selección ---

@@ -137,8 +137,7 @@ function menuPrinc(){
     setTimeout(menuPrincFnc, 600);
 }
 function menuPrincFnc(){
-    location.href="/index.html";
-    // location.href="../../index.html";
+    location.href="../index.html";
     // location.href="/JS_Formulas/index.html";
 }
 // --- Selección ---
@@ -462,7 +461,7 @@ function porcentajeFn(){
             const result = (cantParcial/cantTotal) * 100;
             calcWin1Vr.classList.add("resultColor");
             calcWin2Vr.classList.add("resultColor");
-            printResult("top", "Cantidad Parcial =", `${formato(result.toFixed(2))}`, "%" );
+            printResult("top", "Porcentaje =", `${formato(result.toFixed(2))}`, "%" );
             calcWin1Vr.removeAttribute("type", "number");
             calcWin1Vr.value = formato(cantTotal.toFixed(2));
             calcWin2Vr.removeAttribute("type", "number");
