@@ -168,10 +168,10 @@ body {
     position: relative;
 }
 .calcDesktop{
-    width: 250px;
+    width: 178px;
     position: absolute;
-    top: -160px;
-    left: -65px;
+    top: -350px;
+    left: -30px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
     padding: 20px 0px;
@@ -280,8 +280,11 @@ body {
     padding: 10px;
     margin: 0px;
 }
+.formulaSpan{
+    font-size: 22px;
+    color: var(--blue);
+}
 /* ########## containerResponsive #########  */
-/* --- Areas-Perimetro  / imagen-formula --- */
 .containerResponsive {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr) );
