@@ -152,7 +152,7 @@ function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const target = event.target.innerText.toLowerCase();
     const figura = target.replaceAll(" ","_");
-    console.log(figura);
+
     const figSelect = volumenesArray.find(obj => obj.idDb === figura);
     if(figSelect){
         renderFigura(figSelect);
@@ -179,7 +179,7 @@ function dispContactanos(){
 // --- Funciones renderizado ---
 function renderIntroduccion(){
     cleanCont();
-    titlesIndexText.innerText = "Volumenes";
+    titlesIndexText.innerText = "Áreas Totales y Volumenes";
     containerElement.appendChild(containerIntro);
     containerIntro.classList.add("containerIntro");
 

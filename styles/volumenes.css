@@ -156,6 +156,18 @@ body {
     width: 100%;
     border-bottom: 1px solid var(--verde);
 }
+.divTitle{
+    width: auto;
+    font-size: 18px;
+    color: var(--verde);
+    padding: 0px 5px;
+    margin-bottom: 0px;
+}
+.divLine {
+    margin: 10px 0px;
+    width: 100%;
+    border-bottom: 1px solid var(--verde);
+}
 /* --- menu desktop --- */
 .menuDesktop{
     display: none;
@@ -170,7 +182,7 @@ body {
 .calcDesktop{
     width: 178px;
     position: absolute;
-    top: -350px;
+    top: -220px;
     left: -30px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
