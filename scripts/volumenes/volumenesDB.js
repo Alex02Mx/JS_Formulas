@@ -67,9 +67,9 @@ const cuboObj = {
 
             titleDb: "Cubo",
 
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
 
             inputDb: [
                 {
@@ -87,10 +87,10 @@ const cuboObj = {
                     outputIdDb: "winVolumenCuboCl"
                 },
             ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aCuboFn",
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "cuboFn",
         },
     ]
 };

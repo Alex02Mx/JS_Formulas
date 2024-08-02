@@ -24,29 +24,21 @@ const socMedMainCont =  document.querySelector(".socMedMainCont");
 let idFigVr;
 let mensajeSigPlurVr;
 let indAreaVolVr;
-let radAreaCmVr;
-let radAreaMtVr;
-let radPerimCmVr;
-let radPerimMtVr;
-let windowResultArea;
-let windowResultPerim;
-let btnClearArea;
-let btnResultArea;
-let btnClearPerim;
-let btnResultPerim;
+let radAreaVolCmVr;
+let radAreaVolMtVr;
+let winMensAreaVol;
+let windowResultAreaTotal
+let windowResultVolumen
+let btnClearAreaVol;
+let btnResultAreaVol;
 let winEmail;
 let winNombre;
 let winDescripcion;
 
 var funcion1Fn;
 var funcion2Fn;
-var areaWin1Vr;
-var areaWin2Vr;
-var areaWin3Vr;
-var perimWin1Vr;
-var perimWin2Vr;
-var perimWin3Vr;
-var perimWin4Vr;
+var areaVolWin1Vr;
+var areaVolWin2Vr;
 var btnSubmit;
 //===============================  asignacion de valores ==================================
 socMedDesktop.innerHTML = socialMedImg;
@@ -348,6 +340,7 @@ function renderFigura(objeto){
     asignacionesRadios();
     asignacionesWindows(objeto);
     asignacionWinResult();
+    asignacionWinMesg();
     asignacionBtns();
     document.documentElement.scrollTop = 0;
 };
@@ -359,40 +352,31 @@ function cleanCont(){
 };
 // -- funciones de asignacion ---
 function asignacionesRadios(){
-    radAreaCmVr = document.getElementById("radAreaCmId");
-    radAreaMtVr = document.getElementById("radAreaMtId");
-    radPerimCmVr = document.getElementById("radPerimCmId");
-    radPerimMtVr = document.getElementById("radPerimMtId");
+    radAreaVolCmVr = document.getElementById("radAreaVolCmId");
+    radAreaVolMtVr = document.getElementById("radAreaVolMtId");
 };
 function asignacionesWindows(objeto){
     objeto["datosDb"].forEach((obj1, index1) => {
         obj1["inputDb"].forEach((obj2,index2) =>{
-            let areaName = "areaWin" + (index2 + 1) + "Vr";
-            let perimName = "perimWin" + (index2 + 1) + "Vr";
+            let areaVolName = "areaVolWin" + (index2 + 1) + "Vr";
             let claseWin = obj2["inputIdDb"];
-            if(index1 == 0){
-                window[areaName] = document.getElementById(claseWin);
-            }
-            else if(index1 == 1){
-                window[perimName] = document.getElementById(claseWin);
-            }
+            window[areaVolName] = document.getElementById(claseWin);
         })
     })
 };
 function asignacionWinResult(){
-    windowResultArea = document.querySelector(".winResMensAreaCl");
-    windowResultPerim = document.querySelector(".winResMensPerimCl");
+    windowResultAreaTotal = document.querySelector(".winAreaTotalCuboCl");
+    windowResultVolumen = document.querySelector(".winVolumenCuboCl");
+};
+function asignacionWinMesg(){
+    winMensAreaVol = document.querySelector(".winMensAreaVolCl");
 };
 function asignacionBtns(){
-    btnClearArea = document.querySelector(".btnClearAreaCl");
-    btnClearArea.addEventListener("click", clearValCalc );
-    // btnClearPerim = document.querySelector(".btnClearPerimCl");
-    // btnClearPerim.addEventListener("click", clearValCalc  );
+    btnClearAreaVol = document.querySelector(".btnClearAreaVolCl");
+    btnClearAreaVol.addEventListener("click", clearValCalc );
 
-    btnResultArea = document.querySelector(".btnResultAreaCl");
-    btnResultArea.addEventListener("click", window[funcion1Fn]);
-    // btnResultPerim = document.querySelector(".btnResultPerimCl");
-    // btnResultPerim.addEventListener("click", window[funcion2Fn]);
+    btnResultAreaVol = document.querySelector(".btnResultAreaVolCl");
+    btnResultAreaVol.addEventListener("click", window[funcion1Fn]);
 };
 // --- funciones de mensajes ---
 function introducirValMsgFn(){
@@ -413,163 +397,120 @@ function valorMayorMsgFc(){
     }
 };
 // --- habilitar y deshabilitar boton de resultado ---
-function disableBtnResult(string){
-    if(string == "area"){
-        btnResultArea.disabled = true;
-        btnResultArea.classList.remove("btnResultCl");
-        btnResultArea.classList.add("btnInactive");
-    }else if(string == "perim"){
-        btnResultPerim.disabled = true;
-        btnResultPerim.classList.remove("btnResultCl");
-        btnResultPerim.classList.add("btnInactive");
-    };
+function disableBtnResult(){
+    btnResultAreaVol.disabled = true;
+    btnResultAreaVol.classList.remove("btnResultCl");
+    btnResultAreaVol.classList.add("btnInactive");
 };
-function enableBtnResult(eventForward){ 
-    if(eventForward.target.classList[1] == "btnClearAreaCl"){
-        btnResultArea.disabled = false;
-        btnResultArea.classList.remove("btnInactive");
-        btnResultArea.classList.add("btnResultCl");
-    }else if (eventForward.target.classList[1] == "btnClearPerimCl"){
-        btnResultPerim.disabled = false;
-        btnResultPerim.classList.remove("btnInactive");
-        btnResultPerim.classList.add("btnResultCl");
-    };
+function enableBtnResult(){ 
+    btnResultAreaVol.disabled = false;
+    btnResultAreaVol.classList.remove("btnInactive");
+    btnResultAreaVol.classList.add("btnResultCl");
+
 };
 // --- seleccion de medida de centinmetros o metros ---
 function medSel(string) {
-    if(string == "area"){
-        if(radAreaCmVr.checked) {
-            return "cm2";
-        }else if(radAreaMtVr.checked) {
-            return "m2";
-        };
-    }else if(string == "perim"){
-        if(radPerimCmVr.checked) {
-            return "cm";
-        }else if(radPerimMtVr.checked) {
-            return "m";
-        };
-    }
+    // if(string == "areaTotal"){
+    //     if(radAreaCmVr.checked) {
+    //         return "cm2";
+    //     }else if(radAreaMtVr.checked) {
+    //         return "m2";
+    //     };
+    // }else if(string == "volumen"){
+    //     if(radPerimCmVr.checked) {
+    //         return "cm3";
+    //     }else if(radPerimMtVr.checked) {
+    //         return "m3";
+    //     };
+    // }
 };
 // --- borrado de valores de calculadora ---
-function clearValCalc(eventOrigin){
-    radEnableUncheck(eventOrigin);
+function clearValCalc(){
+    radEnableUncheck();
 
     let figValues = volumenesArray.find((obj) => obj["idDb"] == idFigVr);
     let arrayWin;
-    let name;
     var winInput;
-    if(eventOrigin.target.classList[1] == "btnClearAreaCl"){
-        arrayWin = figValues["datosDb"][0]["inputDb"];
-        name = "areaWin";
-    }else if (eventOrigin.target.classList[1] == "btnClearPerimCl"){
-        arrayWin = figValues["datosDb"][1]["inputDb"];
-        name = "perimWin";
-    };
+
+    arrayWin = figValues["datosDb"][0]["inputDb"];
+
     for(let i=0; i<arrayWin.length; i++){
-        winInput = name + (i + 1) +"Vr";
+        winInput = "areaVolWin" + (i + 1) +"Vr";
         window[winInput].disabled = false;
         window[winInput].value = "";
         window[winInput].classList.remove("resultColor");
-    }
-
-    disablWindowResult(eventOrigin);
-    enableBtnResult(eventOrigin);
+    };
+    disablWindowResult();
+    disablWindowMsg();
+    enableBtnResult();
 };
 // --- radios activos y desmarcados ---
-function radEnableUncheck(eventForward){
-    if(eventForward.target.classList[1] == "btnClearAreaCl"){
-        radAreaCmVr.disabled = false;
-        radAreaMtVr.disabled = false;
-        radAreaCmVr.checked = false;
-        radAreaMtVr.checked = false;
-    }else if (eventForward.target.classList[1] == "btnClearPerimCl"){
-        radPerimCmVr.disabled = false;
-        radPerimMtVr.disabled = false;
-        radPerimCmVr.checked = false;
-        radPerimMtVr.checked = false;
-    };
-
+function radEnableUncheck(){
+    radAreaVolCmVr.disabled = false;
+    radAreaVolMtVr.disabled = false;
+    radAreaVolCmVr.checked = false;
+    radAreaVolMtVr.checked = false;
 };
 // --- selecciona que radio se desactiva ---
-function radSelectDisable(string){
-    if(string == "area"){
-        if(radAreaCmVr.checked){
-            radAreaMtVr.disabled = true;
-        }else if(radAreaMtVr.checked){
-            radAreaCmVr.disabled = true;
-        };
-    }
-    else if(string == "perim"){
-        if(radPerimCmVr.checked){
-            radPerimMtVr.disabled = true;
-        }else if(radPerimMtVr.checked){
-            radPerimCmVr.disabled = true;
-        };
-    }
+function radSelectDisable(){
+    if(radAreaVolCmVr.checked){
+        radAreaVolMtVr.disabled = true;
+    }else if(radAreaVolMtVr.checked){
+        radAreaVolCmVr.disabled = true;
+    };
 };
 // --- desactiva la ventana de resultados y mensajes ---
-function disablWindowResult(eventForward){
-    if(eventForward.target.classList[1] == "btnClearAreaCl"){
-        windowResultArea.classList.remove("bgChange");
-        windowResultArea.innerHTML = introducirValMsgFn();
-    }else if (eventForward.target.classList[1] == "btnClearPerimCl"){
-        windowResultPerim.classList.remove("bgChange");
-        windowResultPerim.innerHTML = introducirValMsgFn();
-    };
+function disablWindowResult(){
+    windowResultAreaTotal.classList.remove("bgChange");
+    windowResultAreaTotal.innerHTML = "";
+    windowResultVolumen.classList.remove("bgChange");
+    windowResultVolumen.innerHTML = "";
 };
+function disablWindowMsg(){
+    winMensAreaVol.innerHTML = introducirValMsgFn();
+};
+    
 // --- desactiva las ventanas inputs ---
-function disableWinInp(string){
+function disableWinInp(){
     let currentObj = volumenesArray.find((obj) => obj["idDb"] == idFigVr);
     let arrayWin;
-    let name;
     var winInput;
-    if(string == "area"){
-        arrayWin = currentObj["datosDb"][0]["inputDb"];
-        name = "areaWin";
-    }else if (string == "perim"){
-        arrayWin = currentObj["datosDb"][1]["inputDb"];
-        name = "perimWin";
-    };
+    arrayWin = currentObj["datosDb"][0]["inputDb"];
     for(let i=0; i<arrayWin.length; i++){
-        winInput = name + (i + 1) +"Vr";
+        winInput = "areaVolWin" + (i + 1) +"Vr";
         window[winInput].disabled = true;
     }
 };
-function grupFuncLog(string){
-    radSelectDisable(string);
-    disableWinInp(string);
-    disableBtnResult(string);
+function grupFuncLog(){
+    radSelectDisable();
+    disableWinInp();
+    disableBtnResult();
 }
-function printResult(string, result){
-    if(string == "area"){
-        windowResultArea.classList.add("bgChange");
-        windowResultArea.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSel(string)}`;
-    }
-    else if(string == "perim"){
-        windowResultPerim.classList.add("bgChange");
-        windowResultPerim.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSel(string)}`;
-    }
+function printResult(resAT, resVol){
+        windowResultAreaTotal.classList.add("bgChange");
+        windowResultAreaTotal.innerHTML = `${formato(resAT.toFixed(2))} cm2`;
+        windowResultVolumen.classList.add("bgChange");
+        windowResultVolumen.innerHTML = `${formato(resVol.toFixed(2))} cm3`;
+
 };
-// --- Triangulo ---
-function aCuboFn(){
-    if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const base = Number(areaWin1Vr.value);
-            const height = Number(areaWin2Vr.value);
-            const result = (base * height) / 2;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            areaWin2Vr.classList.add("resultColor");
-            printResult("area", result);
+// --- funciones logica ---
+function cuboFn(){
+    if(areaVolWin1Vr.value > 0 ){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const lado = Number(areaVolWin1Vr.value);
+            const resultAreaTotal = Number((6 * Math.pow(lado, 2)));
+            const resultVol = Number((Math.pow(lado, 3)));
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            printResult(resultAreaTotal, resultVol);
         }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
         }
     }else{
-        windowResultArea.innerHTML = valorMayorMsgFc();
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
 };
-function pTriangleFn(){
+function esferaFn(){
     if(perimWin1Vr.value > 0 && perimWin2Vr.value > 0 && perimWin3Vr.value > 0 ){
         if(radPerimCmVr.checked || radPerimMtVr.checked){
             const lado1 = Number(perimWin1Vr.value);
@@ -588,8 +529,7 @@ function pTriangleFn(){
         windowResultPerim.innerHTML = valorMayorMsgFc();
     }
 }
-// --- Square ---
-function aSquareFn(){
+function cilindroFn(){
     if(areaWin1Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
             const lado = Number(areaWin1Vr.value);
@@ -604,254 +544,11 @@ function aSquareFn(){
         windowResultArea.innerHTML = valorMayorMsgFc();
     }
 }
-function pSquareFn(){
+function conoFn(){
     if(perimWin1Vr.value > 0){
         if(radPerimCmVr.checked || radPerimMtVr.checked){
             const lado = Number(perimWin1Vr.value);
             const result = lado * 4;
-            grupFuncLog("perim");
-            perimWin1Vr.classList.add("resultColor");
-            printResult("perim", result);
-        }else{
-            windowResultPerim.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultPerim.innerHTML = valorMayorMsgFc();
-    }
-}
-// --- Rectangulo ---
-function aRectanguloFn(){
-    if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const base = Number(areaWin1Vr.value);
-            const altura = Number(areaWin2Vr.value);
-            const result = base * altura;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            areaWin2Vr.classList.add("resultColor");
-            printResult("area", result);
-        }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultArea.innerHTML = valorMayorMsgFc();
-    }
-}
-function pRectanguloFn(){
-    if(perimWin1Vr.value > 0 && perimWin2Vr.value > 0) {
-        if(radPerimCmVr.checked || radPerimMtVr.checked){
-            const base = Number(perimWin1Vr.value);
-            const lado = Number(perimWin2Vr.value);
-            const result = (base * 2) + (lado * 2);
-            grupFuncLog("perim");
-            perimWin1Vr.classList.add("resultColor");
-            perimWin2Vr.classList.add("resultColor");
-            printResult("perim", result);
-        }else{
-            windowResultPerim.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultPerim.innerHTML = valorMayorMsgFc();
-    }
-}
-// --- Paralelogramo ---
-function aParalelogramoFn(){
-    if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const base = Number(areaWin1Vr.value);
-            const altura = Number(areaWin2Vr.value);
-            const result = base * altura;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            areaWin2Vr.classList.add("resultColor");
-            printResult("area", result);
-        }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultArea.innerHTML = valorMayorMsgFc();
-    }
-}
-function pParalelogramoFn(){
-    if(perimWin1Vr.value > 0 && perimWin2Vr.value > 0) {
-        if(radPerimCmVr.checked || radPerimMtVr.checked){
-            const base = Number(perimWin1Vr.value);
-            const lado = Number(perimWin2Vr.value);
-            const result = 2 * (base + lado);
-            grupFuncLog("perim");
-            perimWin1Vr.classList.add("resultColor");
-            perimWin2Vr.classList.add("resultColor");
-            printResult("perim", result);
-        }else{
-            windowResultPerim.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultPerim.innerHTML = valorMayorMsgFc();
-    }
-}
-// --- Trapecio ---
-function aTrapecioFn(){
-    if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0 && areaWin3Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const baseM = Number(areaWin1Vr.value);
-            const basem = Number(areaWin2Vr.value);
-            const altura = Number(areaWin3Vr.value);
-            const result = ((baseM + basem) /2) * altura;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            areaWin2Vr.classList.add("resultColor");
-            areaWin3Vr.classList.add("resultColor");
-            printResult("area", result);
-        }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultArea.innerHTML = valorMayorMsgFc();
-    }
-}
-function pTrapecioFn(){
-    if(perimWin1Vr.value > 0 && perimWin2Vr.value > 0 && perimWin3Vr.value > 0 && perimWin4Vr.value > 0) {
-        if(radPerimCmVr.checked || radPerimMtVr.checked){
-            const l1 = Number(perimWin1Vr.value);
-            const l2 = Number(perimWin2Vr.value);
-            const l3 = Number(perimWin3Vr.value);
-            const l4 = Number(perimWin4Vr.value);
-            const result = l1 + l2 + l3 + l4;
-            grupFuncLog("perim");
-            perimWin1Vr.classList.add("resultColor");
-            perimWin2Vr.classList.add("resultColor");
-            perimWin3Vr.classList.add("resultColor");
-            perimWin4Vr.classList.add("resultColor");
-            printResult("perim", result);
-        }else{
-            windowResultPerim.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultPerim.innerHTML = valorMayorMsgFc();
-    }
-}
-// --- Rombo ---
-function aRomboFn(){
-    if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const d1 = Number(areaWin1Vr.value);
-            const d2 = Number(areaWin2Vr.value);
-            const result = (d1 * d2) / 2;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            areaWin2Vr.classList.add("resultColor");
-            printResult("area", result);
-        }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultArea.innerHTML = valorMayorMsgFc();
-    }
-}
-function pRomboFn(){
-    if(perimWin1Vr.value > 0) {
-        if(radPerimCmVr.checked || radPerimMtVr.checked){
-            const l1 = Number(perimWin1Vr.value);
-            const result = 4 * l1;
-            grupFuncLog("perim");
-            perimWin1Vr.classList.add("resultColor");
-            printResult("perim", result);
-        }else{
-            windowResultPerim.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultPerim.innerHTML = valorMayorMsgFc();
-    }
-}
-// --- Pentagono ---
-function aPentagonoFn(){
-    if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const perim = Number(areaWin1Vr.value);
-            const apotem = Number(areaWin2Vr.value);
-            const result = (perim * apotem) / 2;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            areaWin2Vr.classList.add("resultColor");
-            printResult("area", result);
-        }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultArea.innerHTML = valorMayorMsgFc();
-    }
-}
-function pPentagonoFn(){
-    if(perimWin1Vr.value > 0) {
-        if(radPerimCmVr.checked || radPerimMtVr.checked){
-            const lado = Number(perimWin1Vr.value);
-            const result = 5 * lado;
-            grupFuncLog("perim");
-            perimWin1Vr.classList.add("resultColor");
-            printResult("perim", result);
-        }else{
-            windowResultPerim.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultPerim.innerHTML = valorMayorMsgFc();
-    }
-}
-// --- Hexagono ---
-function aHexagonoFn(){
-    if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const perim = Number(areaWin1Vr.value);
-            const apotem = Number(areaWin2Vr.value);
-            const result = (perim * apotem) / 2;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            areaWin2Vr.classList.add("resultColor");
-            printResult("area", result);
-        }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultArea.innerHTML = valorMayorMsgFc();
-    }
-}
-function pHexagonoFn(){
-    if(perimWin1Vr.value > 0) {
-        if(radPerimCmVr.checked || radPerimMtVr.checked){
-            const lado = Number(perimWin1Vr.value);
-            const result = 6 * lado;
-            grupFuncLog("perim");
-            perimWin1Vr.classList.add("resultColor");
-            printResult("perim", result);
-        }else{
-            windowResultPerim.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultPerim.innerHTML = valorMayorMsgFc();
-    }
-}
-// --- Circulo ---
-function aCirculoFn(){
-    if(areaWin1Vr.value > 0){
-        if(radAreaCmVr.checked || radAreaMtVr.checked){
-            const radio = Number(areaWin1Vr.value);
-            const PI = Math.PI.toFixed(2)
-            const result = Math.pow(radio, 2) * PI;
-            grupFuncLog("area");
-            areaWin1Vr.classList.add("resultColor");
-            printResult("area", result);
-        }else{
-            windowResultArea.innerHTML = elegirCmMtMsgFn();
-        }
-    }else{
-        windowResultArea.innerHTML = mesvalorMayorMsgFcValA();
-    }
-}
-function circunferenciaFn(){
-    if(perimWin1Vr.value > 0){
-        if(radPerimCmVr.checked || radPerimMtVr.checked){
-            const radio = Number(perimWin1Vr.value);
-            const PI = Math.PI.toFixed(2);
-            const result = PI * (radio * 2);
             grupFuncLog("perim");
             perimWin1Vr.classList.add("resultColor");
             printResult("perim", result);

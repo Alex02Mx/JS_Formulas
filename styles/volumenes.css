@@ -400,8 +400,9 @@ body {
     font-weight: bold;
 }
 .winOutput{
-    background-color: var(--white);
+    background-color: var(--lightGrey);
     text-align: center;
+    align-content: center;
     width: 150px;
     height: 30px;
     font-weight: 700;
@@ -426,6 +427,7 @@ body {
     color: var(--darkGrey);
     font-weight: 700;
     font-size: 18px;
+    margin: 10px 0px;
 }
 .bgChange{
     background-color: var(--white);
@@ -469,14 +471,14 @@ body {
     gap: 5px;
 }
 .secMiddleResultsCl {
-    padding: 10px 0px;
-    margin: 10px 0px;
-    border: 1px solid var(--lightGrey);
-    border-radius: 8px;
-    width: 296px;
     display: flex;
     flex-direction: column;
     gap: 5px; 
+    padding: 5px 0px;
+    margin: 5px 0px;
+    border: 1px solid var(--lightGrey);
+    border-radius: 8px;
+    width: 296px;
 }
 .calCl {
     display: flex;
