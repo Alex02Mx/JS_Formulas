@@ -61,9 +61,9 @@ const cuboObj = {
     idDb: "cubo",
     datosDb : [
         {
-            mensajeSigPlurDb: "p",
+            mensajeSigPlurDb: "s",
             titleFigDb: "Cubo",
-            imgFiguraDb: "../../assets2/cubo.png",
+            imgFiguraDb: "../assets2/cubo.png",
 
             titleDb: "Cubo",
 
@@ -98,26 +98,36 @@ const esferaObj = {
     idDb: "esfera",
     datosDb : [
         {
-            mensajeSigPlurDb: "p",
+            mensajeSigPlurDb: "s",
             titleFigDb: "Esfera",
-            imgFiguraDb: "../../assets2/esfera.png",
+            imgFiguraDb: "../assets2/esfera.png",
 
-            titleDb: "Volumen Esfera",
+            titleDb: "Esfera",
 
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
 
             inputDb: [
                 {
                     inputLabelDb: "Medida radio",
-                    inputIdDb: "winAreaParalBaseId"
+                    inputIdDb: "winEsferaRadioId"
                 },
             ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aParalelogramoFn",
+            outputDb: [
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotalEsferaCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolumenEsferaCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "esferaFn",
         },
     ]
 };
@@ -127,28 +137,38 @@ const cilindroObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Cilindro",
-            imgFiguraDb: "../../assets2/cilindro.png",
+            imgFiguraDb: "../assets2/cilindro.png",
 
-            titleDb: "Volumen Cilindro",
+            titleDb: "Cilindro",
 
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
 
             inputDb: [
                 {
                     inputLabelDb: "Medida radio",
-                    inputIdDb: "winAreaRecBaseId"
+                    inputIdDb: "winCilindroRadioId"
                 },
                 {
                     inputLabelDb: "Medida altura",
-                    inputIdDb: "winAreaRecAltId"
+                    inputIdDb: "winCilindroAlturaId"
                 },
             ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aRectanguloFn",
+            outputDb: [
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotalCilindroCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolumenCilindroCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "cilindroFn",
         },
     ]
 };
@@ -158,28 +178,38 @@ const conoObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Cono",
-            imgFiguraDb: "../../assets2/cono.png",
+            imgFiguraDb: "../assets2/cono.png",
 
-            titleDb: "Volumen Cono",
+            titleDb: "Cono",
 
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
 
             inputDb: [
                 {
                     inputLabelDb: "Medida radio",
-                    inputIdDb: "winAreaTrapBaseMayId"
+                    inputIdDb: "winConoRadioId"
                 },
                 {
                     inputLabelDb: "Medida altura",
-                    inputIdDb: "winAreaTrapBaseMenId"
+                    inputIdDb: "winConoAlturaId"
                 },
             ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aTrapecioFn",
+            outputDb: [
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotalConoCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolumenConoCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "conoFn",
         },
     ]
 };
