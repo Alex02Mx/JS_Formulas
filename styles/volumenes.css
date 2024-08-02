@@ -159,14 +159,21 @@ body {
 .divTitle{
     width: auto;
     font-size: 18px;
-    color: var(--verde);
-    padding: 0px 5px;
+    color: var(--white);
+    padding: 0px 10px;
     margin-bottom: 0px;
 }
 .divLine {
     margin: 10px 0px;
     width: 100%;
-    border-bottom: 1px solid var(--verde);
+    border-bottom: 2px dotted var(--white);
+}
+.calDeskFormat{
+    width: 300px;
+    padding: 10px;
+}
+.listIndexOptionCal{
+    padding: 0px;
 }
 /* --- menu desktop --- */
 .menuDesktop{
@@ -180,10 +187,12 @@ body {
     position: relative;
 }
 .calcDesktop{
-    width: 178px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 640px;
     position: absolute;
-    top: -220px;
-    left: -30px;
+    top: -430px;
+    left: -270px;
     background-color: var(--secundario);
     transition: 600ms ease-in-out;
     padding: 20px 0px;
@@ -191,7 +200,7 @@ body {
     z-index: -1;
 }
 .calcDesktopShow{
-    top: 50px;
+    top: 30px;
     transition: 600ms ease-in-out;
 }
 .contacCont{
@@ -361,12 +370,16 @@ body {
 .radioLabelsContCl input:hover {
     cursor: pointer;
 }
+
+
+
 .windLabelContCl {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .windLabelContCl label {
     color: var(--black);
     margin-left: 20px;
@@ -381,6 +394,21 @@ body {
     margin-right: 30px;
     border: 1px solid rgba(0,0,0,0.3);
 }
+.labelResult{
+    color: var(--black);
+    margin: 0px 0px 0px 20px;
+    font-weight: bold;
+}
+.winOutput{
+    background-color: var(--white);
+    text-align: center;
+    width: 150px;
+    height: 30px;
+    font-weight: 700;
+    margin: 0px 20px 0px 0px;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
 .resultColor {
     background-color: var(--lightGrey);
     color: var(--darkGrey);
@@ -439,6 +467,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+.secMiddleResultsCl {
+    padding: 10px 0px;
+    margin: 10px 0px;
+    border: 1px solid var(--lightGrey);
+    border-radius: 8px;
+    width: 296px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
 }
 .calCl {
     display: flex;

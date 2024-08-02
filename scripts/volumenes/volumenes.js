@@ -23,7 +23,7 @@ const socMedMainCont =  document.querySelector(".socMedMainCont");
 
 let idFigVr;
 let mensajeSigPlurVr;
-let indAreaPerimVr;
+let indAreaVolVr;
 let radAreaCmVr;
 let radAreaMtVr;
 let radPerimCmVr;
@@ -205,7 +205,7 @@ function renderIntroduccion(){
 };
 function renderFigura(objeto){
     cleanCont();
-    titlesIndexText.innerText = "Volumenes";
+    titlesIndexText.innerText = "Áreas y Volumenes";
     // --- id del objeto en proceso ---
     idFigVr = objeto["idDb"];
     // --- ciclo de repeticion del objeto ---
@@ -213,7 +213,7 @@ function renderFigura(objeto){
     objeto["datosDb"].forEach((obj, index) => {
         // --- variable del singular o plural y variable de area o perimetro --- 
         mensajeSigPlurVr = obj["mensajeSigPlurDb"];
-        indAreaPerimVr = obj["titleFigDb"];
+        indAreaVolVr = obj["titleFigDb"];
         // --- asigna valor de funcion para la logica del objeto en proceso ---
         let funcionFgra = "funcion" + (index + 1) + "Fn";
         window[funcionFgra] = obj["logicaDb"];
@@ -246,6 +246,12 @@ function renderFigura(objeto){
         const secTopCalcCn = document.createElement("section");
         secTopCalcCn.classList.add("secTopCalcCl");
         secTopCalcCn.append(calcTitleCn, calSubTitleCn);
+
+        // --- window resultados y mensajes ---
+        const winResMensCn = document.createElement("p");
+        winResMensCn.classList.add("winStyleCl", obj["winResMensDb"]);
+        winResMensCn.innerText = introducirValMsgFn();
+
         // --- Radios Areas y sus labels CM---
         const inputRadCmCn = document.createElement("input");
         inputRadCmCn.setAttribute("type", "radio");
@@ -269,7 +275,10 @@ function renderFigura(objeto){
 
         const secMiddleCalcCn = document.createElement("section");
         secMiddleCalcCn.classList.add("secMiddleCalcCl");
-        secMiddleCalcCn.appendChild(radioLabelsContCn);
+
+        secMiddleCalcCn.append(winResMensCn, radioLabelsContCn);
+
+
         // --- windows Areas ---
         obj["inputDb"].forEach(winInput => {
             const labelWinInpCn = document.createElement("label");
@@ -287,10 +296,28 @@ function renderFigura(objeto){
 
             secMiddleCalcCn.appendChild(windLabelContCn);
         });
-        // --- window resultados y mensajes ---
-        const winResMensCn = document.createElement("p");
-        winResMensCn.classList.add("winStyleCl", obj["winResMensDb"]);
-        winResMensCn.innerText = introducirValMsgFn();
+
+        // --- windows results --- //
+        const secMiddleResultsCn = document.createElement("section");
+        secMiddleResultsCn.classList.add("secMiddleResultsCl");
+
+        // --- windows Areas ---
+        obj["outputDb"].forEach(winOutput => {
+            const labelWinOutCn = document.createElement("p");
+            labelWinOutCn.classList.add("labelResult");
+            labelWinOutCn.innerHTML = winOutput["outputLabelDb"];
+
+            const outputWinCn = document.createElement("p");
+            outputWinCn.classList.add("winOutput", winOutput["outputIdDb"]);
+
+            const windLabelContCn = document.createElement("div");
+
+            windLabelContCn.classList.add("windLabelContCl");
+            windLabelContCn.append(labelWinOutCn, outputWinCn);
+
+            secMiddleResultsCn.append(windLabelContCn);
+        });
+
         // --- Boton Borrar ---
         const btnClearCn = document.createElement("button");
         btnClearCn.classList.add("btnClearCl", obj["btnClearDb"]);
@@ -302,12 +329,12 @@ function renderFigura(objeto){
 
         const secBottomCalcCn = document.createElement("section");
         secBottomCalcCn.classList.add("secBottomCalcCl");
-        secBottomCalcCn.append(winResMensCn, btnClearCn, btnResultCn);
+        secBottomCalcCn.append(btnClearCn, btnResultCn);
 
         // --- Agregando a containerElement ---
         const calCn = document.createElement("div");
         calCn.classList.add("calCl");
-        calCn.append(secTopCalcCn, secMiddleCalcCn, secBottomCalcCn);
+        calCn.append(secTopCalcCn, secMiddleCalcCn, secMiddleResultsCn,  secBottomCalcCn);
 
         const CalcContCn = document.createElement("div");
         CalcContCn.classList.add("CalcContCl");
@@ -317,6 +344,7 @@ function renderFigura(objeto){
         containerResponsive.append(tituloImgContCn, CalcContCn);
         containerElement.append(containerResponsive);
     });
+
     asignacionesRadios();
     asignacionesWindows(objeto);
     asignacionWinResult();
@@ -524,7 +552,7 @@ function printResult(string, result){
     }
 };
 // --- Triangulo ---
-function aTriangleFn(){
+function aCuboFn(){
     if(areaWin1Vr.value > 0 && areaWin2Vr.value > 0){
         if(radAreaCmVr.checked || radAreaMtVr.checked){
             const base = Number(areaWin1Vr.value);

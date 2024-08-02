@@ -63,9 +63,9 @@ const cuboObj = {
         {
             mensajeSigPlurDb: "p",
             titleFigDb: "Cubo",
-            imgFiguraDb: "https://i.ibb.co/JRgKNwy/triangulo-equilatero-area.png",
+            imgFiguraDb: "../../assets2/cubo.png",
 
-            titleDb: "Volumen Cubo",
+            titleDb: "Cubo",
 
             grupoDb: "grupoArea",
             inputRadCmDb: "radAreaCmId",
@@ -73,21 +73,117 @@ const cuboObj = {
 
             inputDb: [
                 {
-                    inputLabelDb: "Medida base",
-                    inputIdDb: "winAreaTriEquBaseId"
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winCuboLadoId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotalCuboCl"
                 },
                 {
-                    inputLabelDb: "Medida altura",
-                    inputIdDb: "winAreaTriEquAltId"
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolumenCuboCl"
                 },
             ],
             winResMensDb: "winResMensAreaCl",
             btnClearDb: "btnClearAreaCl",
             btnResultDb: "btnResultAreaCl",
-            logicaDb: "aTriangleFn",
+            logicaDb: "aCuboFn",
         },
     ]
 };
+const esferaObj = {
+    idDb: "esfera",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Esfera",
+            imgFiguraDb: "../../assets2/esfera.png",
+
+            titleDb: "Volumen Esfera",
+
+            grupoDb: "grupoArea",
+            inputRadCmDb: "radAreaCmId",
+            inputRadMtDb: "radAreaMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida radio",
+                    inputIdDb: "winAreaParalBaseId"
+                },
+            ],
+            winResMensDb: "winResMensAreaCl",
+            btnClearDb: "btnClearAreaCl",
+            btnResultDb: "btnResultAreaCl",
+            logicaDb: "aParalelogramoFn",
+        },
+    ]
+};
+const cilindroObj = {
+    idDb: "cilindro",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Cilindro",
+            imgFiguraDb: "../../assets2/cilindro.png",
+
+            titleDb: "Volumen Cilindro",
+
+            grupoDb: "grupoArea",
+            inputRadCmDb: "radAreaCmId",
+            inputRadMtDb: "radAreaMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida radio",
+                    inputIdDb: "winAreaRecBaseId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAreaRecAltId"
+                },
+            ],
+            winResMensDb: "winResMensAreaCl",
+            btnClearDb: "btnClearAreaCl",
+            btnResultDb: "btnResultAreaCl",
+            logicaDb: "aRectanguloFn",
+        },
+    ]
+};
+const conoObj = {
+    idDb: "cono",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Cono",
+            imgFiguraDb: "../../assets2/cono.png",
+
+            titleDb: "Volumen Cono",
+
+            grupoDb: "grupoArea",
+            inputRadCmDb: "radAreaCmId",
+            inputRadMtDb: "radAreaMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida radio",
+                    inputIdDb: "winAreaTrapBaseMayId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAreaTrapBaseMenId"
+                },
+            ],
+            winResMensDb: "winResMensAreaCl",
+            btnClearDb: "btnClearAreaCl",
+            btnResultDb: "btnResultAreaCl",
+            logicaDb: "aTrapecioFn",
+        },
+    ]
+};
+
 const prismaRectangularObj = {
     idDb: "prisma_rectangular",
     datosDb : [
@@ -115,108 +211,12 @@ const prismaRectangularObj = {
         },
     ]
 };
-const cilindroObj = {
-    idDb: "cilindro",
-    datosDb : [
-        {
-            mensajeSigPlurDb: "p",
-            titleFigDb: "Cilindro",
-            imgFiguraDb: "https://i.ibb.co/qN25cKp/rectangulo-area.png",
 
-            titleDb: "Volumen Cilindro",
-
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
-
-            inputDb: [
-                {
-                    inputLabelDb: "Medida base",
-                    inputIdDb: "winAreaRecBaseId"
-                },
-                {
-                    inputLabelDb: "Medida altura",
-                    inputIdDb: "winAreaRecAltId"
-                },
-            ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aRectanguloFn",
-        },
-    ]
-};
-const esferaObj = {
-    idDb: "esfera",
-    datosDb : [
-        {
-            mensajeSigPlurDb: "p",
-            titleFigDb: "Esfera",
-            imgFiguraDb: "https://i.ibb.co/vQtP9ZK/paralelogramo-area.png",
-
-            titleDb: "Volumen Esfera",
-
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
-
-            inputDb: [
-                {
-                    inputLabelDb: "Medida base",
-                    inputIdDb: "winAreaParalBaseId"
-                },
-                {
-                    inputLabelDb: "Medida altura",
-                    inputIdDb: "winAreaParalAltId"
-                },
-            ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aParalelogramoFn",
-        },
-    ]
-};
-const conoObj = {
-    idDb: "cono",
-    datosDb : [
-        {
-            mensajeSigPlurDb: "p",
-            titleFigDb: "Cono",
-            imgFiguraDb: "https://i.ibb.co/HYNrKh1/trapecio-area.png",
-
-            titleDb: "Volumen Cono",
-
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
-
-            inputDb: [
-                {
-                    inputLabelDb: "Medida de B",
-                    inputIdDb: "winAreaTrapBaseMayId"
-                },
-                {
-                    inputLabelDb: "Medida de b",
-                    inputIdDb: "winAreaTrapBaseMenId"
-                },
-                {
-                    inputLabelDb: "Medida de h",
-                    inputIdDb: "winAreaTrapAltId"
-                },
-            ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aTrapecioFn",
-        },
-    ]
-};
 // --- Guardado de objetos de valores al array ---
 volumenesArray.push(cuboObj);
-volumenesArray.push(prismaRectangularObj);
-volumenesArray.push(cilindroObj);
 volumenesArray.push(esferaObj);
+volumenesArray.push(cilindroObj);
 volumenesArray.push(conoObj);
+volumenesArray.push(prismaRectangularObj);
 
 
