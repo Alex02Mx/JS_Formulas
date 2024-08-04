@@ -3,6 +3,7 @@ body {
     padding: 0px;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    font-size: 16px;
     font-weight: 400;
     font-style: normal;
     background: var(--background_linear_3);
@@ -377,25 +378,24 @@ body {
     cursor: pointer;
 }
 
-
-
 .windLabelContCl {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .windLabelContCl label {
     color: var(--black);
     margin-left: 20px;
     font-weight: bold;
 }
 .inputStyleCl {
+    font-size: 16px;
     background-color: var(--white);
     text-align: center;
+    align-content: center;
     width: 60px;
-    height: 25px;
+    height: 28px;
     font-weight: 700;
     margin-right: 30px;
     border: 1px solid rgba(0,0,0,0.3);
@@ -415,7 +415,6 @@ body {
     margin: 0px 20px 0px 0px;
     border: 1px solid rgba(0,0,0,0.3);
 }
-
 .resultColor {
     background-color: var(--lightGrey);
     color: var(--darkGrey);

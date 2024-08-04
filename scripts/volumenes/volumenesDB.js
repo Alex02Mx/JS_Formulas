@@ -222,7 +222,7 @@ const pTriEquObj = {
     idDb : "triangular_equilatero",
     datosDb : [
         {
-            mensajeSigPlurDb: "p",
+            mensajeSigPlurDb: "s",
             sizeDb : "lg",
             titleFigDb: "Triangular Equilatero",
             imgFiguraDb: "../assets2/piramide_regular_triangular_equilatero.png",
@@ -272,7 +272,7 @@ const pCuadEquObj = {
     idDb: "cuadrangular_equilatero",
     datosDb : [
         {
-            mensajeSigPlurDb: "p",
+            mensajeSigPlurDb: "s",
             sizeDb : "lg",
             titleFigDb: "Cuadrangular Equilatero",
             imgFiguraDb: "../assets2/piramide_regular_cuadrangular_equilatero.png",
@@ -286,35 +286,35 @@ const pCuadEquObj = {
             inputDb: [
                 {
                     inputLabelDb: "Medida lado",
-                    inputIdDb: "winLadoPirTriEquId"
+                    inputIdDb: "winLadoPirCuadrEquId"
                 },
             ],
             outputDb: [
                 {
                     outputLabelDb: "Altura",
-                    outputIdDb: "winAltPirTriEquCl"
+                    outputIdDb: "winAltPirCuadrEquCl"
                 },
                 {
                     outputLabelDb: "Ap Piramide",
-                    outputIdDb: "winApoPirTriEquCl"
+                    outputIdDb: "winApoPirCuadrEquCl"
                 },
                 {
                     outputLabelDb: "Ap Base",
-                    outputIdDb: "winApoBasPirTriEquCl"
+                    outputIdDb: "winApoBasPirCuadrEquCl"
                 },
                 {
                     outputLabelDb: "Área Total",
-                    outputIdDb: "winAreaTotPirTriEquCl"
+                    outputIdDb: "winAreaTotPirCuadrEquCl"
                 },
                 {
                     outputLabelDb: "Volumen",
-                    outputIdDb: "winVolPirTriEquCl"
+                    outputIdDb: "winVolPirCuadrEquCl"
                 },
             ],
             winResMensDb: "winMensAreaVolCl",
             btnClearDb: "btnClearAreaVolCl",
             btnResultDb: "btnResultAreaVolCl",
-            logicaDb: "pTriEquFn",
+            logicaDb: "pCuadrEquFn",
         },
     ]
 };
@@ -336,35 +336,35 @@ const pPentEquObj = {
             inputDb: [
                 {
                     inputLabelDb: "Medida lado",
-                    inputIdDb: "winLadoPirTriEquId"
+                    inputIdDb: "winLadoPirPentEquId"
                 },
             ],
             outputDb: [
                 {
                     outputLabelDb: "Altura",
-                    outputIdDb: "winAltPirTriEquCl"
+                    outputIdDb: "winAltPirPentEquCl"
                 },
                 {
                     outputLabelDb: "Ap Piramide",
-                    outputIdDb: "winApoPirTriEquCl"
+                    outputIdDb: "winApoPirPentEquCl"
                 },
                 {
                     outputLabelDb: "Ap Base",
-                    outputIdDb: "winApoBasPirTriEquCl"
+                    outputIdDb: "winApoBasPirPentEquCl"
                 },
                 {
                     outputLabelDb: "Área Total",
-                    outputIdDb: "winAreaTotPirTriEquCl"
+                    outputIdDb: "winAreaTotPirPentEquCl"
                 },
                 {
                     outputLabelDb: "Volumen",
-                    outputIdDb: "winVolPirTriEquCl"
+                    outputIdDb: "winVolPirPentEquCl"
                 },
             ],
             winResMensDb: "winMensAreaVolCl",
             btnClearDb: "btnClearAreaVolCl",
             btnResultDb: "btnResultAreaVolCl",
-            logicaDb: "pTriEquFn",
+            logicaDb: "pPentEquFn",
         },
     ]
 };

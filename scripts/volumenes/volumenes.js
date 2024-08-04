@@ -22,14 +22,21 @@ const socMedDesktop = document.querySelector(".socMedDesktop");
 const socMedMainCont =  document.querySelector(".socMedMainCont");
 
 let idFigVr;
+let objInputVr;
+let objOuputVr;
 let sizeVr;
 let mensajeSigPlurVr;
 let indAreaVolVr;
 let radAreaVolCmVr;
 let radAreaVolMtVr;
 let winMensAreaVol;
-let windowResultAreaTotal
-let windowResultVolumen
+
+var winResult0Vr;
+var winResult1Vr;
+var winResult2Vr;
+var winResult3Vr;
+var winResult4Vr;
+
 let btnClearAreaVol;
 let btnResultAreaVol;
 let winEmail;
@@ -201,13 +208,14 @@ function renderFigura(objeto){
     titlesIndexText.innerText = "Áreas y Volumenes";
     // --- id del objeto en proceso ---
     idFigVr = objeto["idDb"];
+    objInputVr = objeto["datosDb"][0]["inputDb"];
+    objOuputVr = objeto["datosDb"][0]["outputDb"];
     sizeVr = objeto["datosDb"][0]["sizeDb"];
     // --- ciclo de repeticion del objeto ---
 
     objeto["datosDb"].forEach((obj, index) => {
         // --- variable del singular o plural y variable de area o perimetro --- 
         mensajeSigPlurVr = obj["mensajeSigPlurDb"];
-        indAreaVolVr = obj["titleFigDb"];
         // --- asigna valor de funcion para la logica del objeto en proceso ---
         let funcionFgra = "funcion" + (index + 1) + "Fn";
         window[funcionFgra] = obj["logicaDb"];
@@ -275,7 +283,6 @@ function renderFigura(objeto){
         secMiddleCalcCn.classList.add("secMiddleCalcCl");
 
         secMiddleCalcCn.append(winResMensCn, radioLabelsContCn);
-
 
         // --- windows Areas ---
         obj["inputDb"].forEach(winInput => {
@@ -379,13 +386,10 @@ function asignacionesWindows(objeto){
     })
 };
 function asignacionWinResult(){
-    let figValues = volumenesArray.find((obj) => obj["idDb"] == idFigVr);
-    let arrayOutput = figValues["datosDb"][0]["outputDb"];
-    let at = "." + arrayOutput[0]["outputIdDb"];
-    let vol = "." + arrayOutput[1]["outputIdDb"];
-
-    windowResultAreaTotal = document.querySelector(at);
-    windowResultVolumen = document.querySelector(vol);
+    for(let i=0; i<objOuputVr.length; i++){
+        let result = "winResult" + [i] + "Vr";
+        window[result] = document.querySelector("." + objOuputVr[i]["outputIdDb"]);
+    };
 };
 function asignacionWinMesg(){
     winMensAreaVol = document.querySelector(".winMensAreaVolCl");
@@ -393,7 +397,6 @@ function asignacionWinMesg(){
 function asignacionBtns(){
     btnClearAreaVol = document.querySelector(".btnClearAreaVolCl");
     btnClearAreaVol.addEventListener("click", clearValCalc );
-
     btnResultAreaVol = document.querySelector(".btnResultAreaVolCl");
     btnResultAreaVol.addEventListener("click", window[funcion1Fn]);
 };
@@ -416,7 +419,7 @@ function valorMayorMsgFc(){
     }
 };
 function valorExitoFc(){
-    return "Área Total y Volumen con éxito";
+    return "Resultados con éxito";
 };
 // --- habilitar y deshabilitar boton de resultado ---
 function disableBtnResult(){
@@ -432,17 +435,23 @@ function enableBtnResult(){
 };
 // --- seleccion de medida de centinmetros o metros ---
 function medSel(string) {
-    if(string == "areaTotal"){
+    if(string == "Área Total"){
         if(radAreaVolCmVr.checked) {
             return "cm2";
         }else if(radAreaVolMtVr.checked) {
             return "m2";
         };
-    }else if(string == "volumen"){
+    }else if(string == "Volumen"){
         if(radAreaVolCmVr.checked) {
             return "cm3";
         }else if(radAreaVolMtVr.checked) {
             return "m3";
+        };
+    }else{
+        if(radAreaVolCmVr.checked) {
+            return "cm";
+        }else if(radAreaVolMtVr.checked) {
+            return "m";
         };
     }
 };
@@ -483,10 +492,11 @@ function radSelectDisable(){
 };
 // --- desactiva la ventana de resultados y mensajes ---
 function disablWindowResult(){
-    windowResultAreaTotal.classList.remove("bgChange");
-    windowResultAreaTotal.innerHTML = "";
-    windowResultVolumen.classList.remove("bgChange");
-    windowResultVolumen.innerHTML = "";
+    for(let i = 0; i<objOuputVr.length; i++){
+        let result = "winResult" + [i] + "Vr";
+        window[result].classList.remove("bgChange");
+        window[result].innerHTML = "";
+   };
 };
 function disablWindowMsg(){
     winMensAreaVol.innerHTML = introducirValMsgFn();
@@ -507,22 +517,25 @@ function grupFuncLog(){
     disableWinInp();
     disableBtnResult();
 }
-function printResult(resAT, resVol){
-        windowResultAreaTotal.classList.add("bgChange");
-        windowResultAreaTotal.innerHTML = `${formato(resAT.toFixed(2))} ${medSel("areaTotal")}`;
-        windowResultVolumen.classList.add("bgChange");
-        windowResultVolumen.innerHTML = `${formato(resVol.toFixed(2))} ${medSel("volumen")}`;
+function printResult(array){
+    for(let i = 0; i<objOuputVr.length; i++){
+        let result = "winResult" + [i] + "Vr";
+        window[result].classList.add("bgChange");
+        window[result].innerHTML = `${formato(array[i].toFixed(2))} ${medSel(objOuputVr[i]["outputLabelDb"])}`;
+   };
 };
 // --- funciones logica ---
 function cuboFn(){
+    let arrayResults = [];
     if(areaVolWin1Vr.value > 0 ){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
             const lado = Number(areaVolWin1Vr.value);
             const resultAreaTotal = Number((6 * Math.pow(lado, 2)));
             const resultVol = Number((Math.pow(lado, 3)));
+            arrayResults.push(resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
-            printResult(resultAreaTotal, resultVol);
+            printResult(arrayResults);
             winMensAreaVol.innerHTML = valorExitoFc();
         }else{
             winMensAreaVol.innerHTML = elegirCmMtMsgFn();
@@ -532,14 +545,16 @@ function cuboFn(){
     };
 };
 function esferaFn(){
+    let arrayResults = [];
     if(areaVolWin1Vr.value > 0 ){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
             const radio = Number(areaVolWin1Vr.value);
             const resultAreaTotal = Number((4 * Math.PI) * Math.pow(radio, 2));
             const resultVol = Number((4/3) * Math.PI * Math.pow(radio, 3));
+            arrayResults.push(resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
-            printResult(resultAreaTotal, resultVol);
+            printResult(arrayResults);
             winMensAreaVol.innerHTML = valorExitoFc();
         }else{
             winMensAreaVol.innerHTML = elegirCmMtMsgFn();
@@ -549,15 +564,18 @@ function esferaFn(){
     };
 }
 function cilindroFn(){
+    let arrayResults = [];
     if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
             const radio = Number(areaVolWin1Vr.value);
             const altura = Number(areaVolWin2Vr.value);
             const resultAreaTotal = Number(((2 * Math.PI) * radio) * (radio + altura));
             const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura);
+            arrayResults.push(resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
-            printResult(resultAreaTotal, resultVol);
+            areaVolWin2Vr.classList.add("resultColor");
+            printResult(arrayResults);
             winMensAreaVol.innerHTML = valorExitoFc();
         }else{
             winMensAreaVol.innerHTML = elegirCmMtMsgFn();
@@ -567,15 +585,18 @@ function cilindroFn(){
     };
 }
 function conoFn(){
+    let arrayResults = [];
     if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
             const radio = Number(areaVolWin1Vr.value);
             const altura = Number(areaVolWin2Vr.value);
             const resultAreaTotal = Number((Math.PI * radio) * (radio + Math.sqrt((Math.pow(radio, 2) + Math.pow(altura, 2)))));
             const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura) / 3;
+            arrayResults.push(resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
-            printResult(resultAreaTotal, resultVol);
+            areaVolWin2Vr.classList.add("resultColor");
+            printResult(arrayResults);
             winMensAreaVol.innerHTML = valorExitoFc();
         }else{
             winMensAreaVol.innerHTML = elegirCmMtMsgFn();
@@ -586,23 +607,71 @@ function conoFn(){
 }
 
 function pTriEquFn(){
-    console.log("en logica piramide regular");
-    // if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
-    //     if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-    //         const radio = Number(areaVolWin1Vr.value);
-    //         const altura = Number(areaVolWin2Vr.value);
-    //         const resultAreaTotal = Number((Math.PI * radio) * (radio + Math.sqrt((Math.pow(radio, 2) + Math.pow(altura, 2)))));
-    //         const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura) / 3;
-    //         grupFuncLog();
-    //         areaVolWin1Vr.classList.add("resultColor");
-    //         printResult(resultAreaTotal, resultVol);
-    //         winMensAreaVol.innerHTML = valorExitoFc();
-    //     }else{
-    //         winMensAreaVol.innerHTML = elegirCmMtMsgFn();
-    //     }
-    // }else{
-    //     winMensAreaVol.innerHTML = valorMayorMsgFc();
-    // };
+    let arrayResults = [];
+    if(areaVolWin1Vr.value > 0){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const lado = Number(areaVolWin1Vr.value);
+            const resultAltura = Number( lado * ( Math.sqrt(6) / 3 ) );
+            const resultApPiramide = Number( lado * ( Math.sqrt(3) / 2 ) );
+            const resultApBase = Number( lado * ( Math.sqrt(3) / 6 ) );
+            const resultAreaTotal = Number( Math.pow(lado, 2) * Math.sqrt(3) );
+            const resultVol = Number( Math.pow(lado, 3) * ( Math.sqrt(2) / 12) );
+            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            printResult(arrayResults);
+            winMensAreaVol.innerHTML = valorExitoFc();
+        }else{
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+        }
+    }else{
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
+    };
+}
+function pCuadrEquFn(){
+    let arrayResults = [];
+    if(areaVolWin1Vr.value > 0){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const lado = Number(areaVolWin1Vr.value);
+            const resultAltura = Number( lado * ( 1 / Math.sqrt(2) ) );
+            const resultApPiramide = Number( lado * ( Math.sqrt(3) / 2 ) );
+            const resultApBase = Number( lado / 2 );
+            const resultAreaTotal = Number( Math.pow(lado, 2) * (1 + Math.sqrt(3) ) );
+            const resultVol = Number( Math.pow(lado, 3) * ( Math.sqrt(2) / 6) );
+            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            printResult(arrayResults);
+            winMensAreaVol.innerHTML = valorExitoFc();
+        }else{
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+        }
+    }else{
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
+    };
+}
+function pPentEquFn(){
+    let arrayResults = [];
+    if(areaVolWin1Vr.value > 0){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const lado = Number(areaVolWin1Vr.value);
+            const resultAltura = Number( lado * ( Math.sqrt( ( (5 - Math.sqrt(5) ) / 10 ) ) ) );
+            const resultApPiramide = Number( lado * ( Math.sqrt(3) / 2 ) );
+            const Angulo = Number( 365 / (2 * 5));
+            const resultApBase = Number(lado / ( 2 * Math.tan(( Angulo * Math.PI) / 180) ) );
+            const resultAreaTotal = Number( ( Math.pow(lado, 2) / 2 ) *  Math.sqrt( (5 / 2) * (10 + Math.sqrt(5) + Math.sqrt( 75 + 30 * Math.sqrt(5) ) ) ) );
+            const resultVol = Number( Math.pow(lado, 3) * ( (5 + Math.sqrt(5)) / 24 ) );
+            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            printResult(arrayResults);
+            winMensAreaVol.innerHTML = valorExitoFc();
+        }else{
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+        }
+    }else{
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
+    };
 }
 // ---Inicio ---
 renderIntroduccion();
