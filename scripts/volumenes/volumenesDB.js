@@ -62,6 +62,7 @@ const cuboObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
+            sizeDb : "sm",
             titleFigDb: "Cubo",
             imgFiguraDb: "../assets2/cubo.png",
 
@@ -99,6 +100,7 @@ const esferaObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
+            sizeDb : "sm",
             titleFigDb: "Esfera",
             imgFiguraDb: "../assets2/esfera.png",
 
@@ -136,6 +138,7 @@ const cilindroObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
+            sizeDb : "sm",
             titleFigDb: "Cilindro",
             imgFiguraDb: "../assets2/cilindro.png",
 
@@ -177,6 +180,7 @@ const conoObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
+            sizeDb : "sm",
             titleFigDb: "Cono",
             imgFiguraDb: "../assets2/cono.png",
 
@@ -214,30 +218,153 @@ const conoObj = {
     ]
 };
 
-const prismaRectangularObj = {
-    idDb: "prisma_rectangular",
+const pTriEquObj = {
+    idDb : "triangular_equilatero",
     datosDb : [
         {
-            mensajeSigPlurDb: "s",
-            titleFigDb: "Prisma Rectangular",
-            imgFiguraDb: "https://i.ibb.co/cDP4f9q/cuadrado-area.png",
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Triangular Equilatero",
+            imgFiguraDb: "../assets2/piramide_regular_triangular_equilatero.png",
 
-            titleDb: "Volumen Prisma",
+            titleDb: "Triangular Equilatero",
 
-            grupoDb: "grupoArea",
-            inputRadCmDb: "radAreaCmId",
-            inputRadMtDb: "radAreaMtId",
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
 
             inputDb: [
                 {
-                    inputLabelDb:  "Medida lado",
-                    inputIdDb: "winAreaSqr"
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirTriEquId"
                 },
             ],
-            winResMensDb: "winResMensAreaCl",
-            btnClearDb: "btnClearAreaCl",
-            btnResultDb: "btnResultAreaCl",
-            logicaDb: "aSquareFn",
+            outputDb: [
+                {
+                    outputLabelDb: "Altura",
+                    outputIdDb: "winAltPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Ap Piramide",
+                    outputIdDb: "winApoPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Ap Base",
+                    outputIdDb: "winApoBasPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirTriEquCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pTriEquFn",
+        },
+    ]
+};
+const pCuadEquObj = {
+    idDb: "cuadrangular_equilatero",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Cuadrangular Equilatero",
+            imgFiguraDb: "../assets2/piramide_regular_cuadrangular_equilatero.png",
+
+            titleDb: "Cuadrangular Equilatero",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirTriEquId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Altura",
+                    outputIdDb: "winAltPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Ap Piramide",
+                    outputIdDb: "winApoPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Ap Base",
+                    outputIdDb: "winApoBasPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirTriEquCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pTriEquFn",
+        },
+    ]
+};
+const pPentEquObj = {
+    idDb: "pentagonal_equilatero",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Pentagonal Equilatero",
+            imgFiguraDb: "../assets2/piramide_regular_pentagonal_equilatero.png",
+
+            titleDb: "Pentagonal Equilatero",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirTriEquId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Altura",
+                    outputIdDb: "winAltPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Ap Piramide",
+                    outputIdDb: "winApoPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Ap Base",
+                    outputIdDb: "winApoBasPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotPirTriEquCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirTriEquCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pTriEquFn",
         },
     ]
 };
@@ -247,6 +374,10 @@ volumenesArray.push(cuboObj);
 volumenesArray.push(esferaObj);
 volumenesArray.push(cilindroObj);
 volumenesArray.push(conoObj);
-volumenesArray.push(prismaRectangularObj);
+
+volumenesArray.push(pTriEquObj);
+volumenesArray.push(pCuadEquObj);
+volumenesArray.push(pPentEquObj);
+
 
 

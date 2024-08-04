@@ -22,6 +22,7 @@ const socMedDesktop = document.querySelector(".socMedDesktop");
 const socMedMainCont =  document.querySelector(".socMedMainCont");
 
 let idFigVr;
+let sizeVr;
 let mensajeSigPlurVr;
 let indAreaVolVr;
 let radAreaVolCmVr;
@@ -200,6 +201,7 @@ function renderFigura(objeto){
     titlesIndexText.innerText = "Áreas y Volumenes";
     // --- id del objeto en proceso ---
     idFigVr = objeto["idDb"];
+    sizeVr = objeto["datosDb"][0]["sizeDb"];
     // --- ciclo de repeticion del objeto ---
 
     objeto["datosDb"].forEach((obj, index) => {
@@ -223,7 +225,11 @@ function renderFigura(objeto){
         tituloImgCn.append(titleFigCn, imgFiguraCn);
         // --- contenedor BG del cont/titulo/imagen ---
         const tituloImgContCn = document.createElement("div");
-        tituloImgContCn.classList.add("tituloImgContCl");
+        if(sizeVr == "sm"){
+            tituloImgContCn.classList.add("tituloImgContCl");
+        }else if(sizeVr == "lg"){
+            tituloImgContCn.classList.add("tituloImgContLCl");
+        }
         tituloImgContCn.append(tituloImgCn);
         // --- bloque 2 ---
         // --- titulo Calculadora ---
@@ -325,11 +331,19 @@ function renderFigura(objeto){
 
         // --- Agregando a containerElement ---
         const calCn = document.createElement("div");
-        calCn.classList.add("calCl");
+        if(sizeVr == "sm"){
+            calCn.classList.add("calCl");
+        }else if(sizeVr == "lg"){
+            calCn.classList.add("calLCl");
+        }
         calCn.append(secTopCalcCn, secMiddleCalcCn, secMiddleResultsCn,  secBottomCalcCn);
 
         const CalcContCn = document.createElement("div");
-        CalcContCn.classList.add("CalcContCl");
+        if(sizeVr == "sm"){
+            CalcContCn.classList.add("CalcContCl");
+        }else if(sizeVr == "lg"){
+            CalcContCn.classList.add("CalcContLCl");
+        }
         CalcContCn.appendChild(calCn);
 
         containerResponsive.classList.add("containerResponsive");
@@ -498,7 +512,6 @@ function printResult(resAT, resVol){
         windowResultAreaTotal.innerHTML = `${formato(resAT.toFixed(2))} ${medSel("areaTotal")}`;
         windowResultVolumen.classList.add("bgChange");
         windowResultVolumen.innerHTML = `${formato(resVol.toFixed(2))} ${medSel("volumen")}`;
-
 };
 // --- funciones logica ---
 function cuboFn(){
@@ -570,6 +583,26 @@ function conoFn(){
     }else{
         winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
+}
+
+function pTriEquFn(){
+    console.log("en logica piramide regular");
+    // if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
+    //     if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+    //         const radio = Number(areaVolWin1Vr.value);
+    //         const altura = Number(areaVolWin2Vr.value);
+    //         const resultAreaTotal = Number((Math.PI * radio) * (radio + Math.sqrt((Math.pow(radio, 2) + Math.pow(altura, 2)))));
+    //         const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura) / 3;
+    //         grupFuncLog();
+    //         areaVolWin1Vr.classList.add("resultColor");
+    //         printResult(resultAreaTotal, resultVol);
+    //         winMensAreaVol.innerHTML = valorExitoFc();
+    //     }else{
+    //         winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+    //     }
+    // }else{
+    //     winMensAreaVol.innerHTML = valorMayorMsgFc();
+    // };
 }
 // ---Inicio ---
 renderIntroduccion();

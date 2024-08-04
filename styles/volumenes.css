@@ -329,12 +329,18 @@ body {
     width: 340px;
     height: auto;
 }
-.tituloImgContCl {
+.tituloImgContCl,
+.tituloImgContLCl {
     width: 100%;
-    height: 390px;
     background-image: var(--background_radial_2);
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
     border-radius: 10px;
+}
+.tituloImgContCl {
+    height: 390px;
+}
+.tituloImgContLCl {
+    height: 540px;
 }
 /*================ */
 /* === bloque 2 === */
@@ -480,20 +486,33 @@ body {
     border-radius: 8px;
     width: 296px;
 }
-.calCl {
+.calCl,
+.calLCl{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    height: 350px;
+    height: 360px;
 }
-.CalcContCl {
+.calCl {
+    height: 360px;
+}
+.calLCl{
+    height: 500px; 
+}
+.CalcContCl,
+.CalcContLCl {
     width: 100%;
-    height: 390px;
     border-radius: 10px;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 1);
     background-color: rgb(192, 192, 192);
+}
+.CalcContCl {
+    height: 390px;
+}
+.CalcContLCl {
+    height: 540px;
 }
 /* ################# footer ################# */
 .footer {
