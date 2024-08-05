@@ -205,7 +205,7 @@ function renderIntroduccion(){
 };
 function renderFigura(objeto){
     cleanCont();
-    titlesIndexText.innerText = "Áreas y Volumenes";
+    titlesIndexText.innerText = "Áreas Totales y Volumenes";
     // --- id del objeto en proceso ---
     idFigVr = objeto["idDb"];
     objInputVr = objeto["datosDb"][0]["inputDb"];
@@ -431,7 +431,6 @@ function enableBtnResult(){
     btnResultAreaVol.disabled = false;
     btnResultAreaVol.classList.remove("btnInactive");
     btnResultAreaVol.classList.add("btnResultCl");
-
 };
 // --- seleccion de medida de centinmetros o metros ---
 function medSel(string) {
@@ -611,11 +610,11 @@ function pTriEquFn(){
     if(areaVolWin1Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
             const lado = Number(areaVolWin1Vr.value);
-            const resultAltura = Number( lado * ( Math.sqrt(6) / 3 ) );
-            const resultApPiramide = Number( lado * ( Math.sqrt(3) / 2 ) );
-            const resultApBase = Number( lado * ( Math.sqrt(3) / 6 ) );
-            const resultAreaTotal = Number( Math.pow(lado, 2) * Math.sqrt(3) );
-            const resultVol = Number( Math.pow(lado, 3) * ( Math.sqrt(2) / 12) );
+            const resultAltura = Number(lado * (Math.sqrt(6) / 3));
+            const resultApPiramide = Number(lado * (Math.sqrt(3) / 2));
+            const resultApBase = Number(lado * (Math.sqrt(3) / 6));
+            const resultAreaTotal = Number(Math.pow(lado, 2) * Math.sqrt(3));
+            const resultVol = Number(Math.pow(lado, 3) * (Math.sqrt(2) / 12));
             arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
@@ -633,11 +632,11 @@ function pCuadrEquFn(){
     if(areaVolWin1Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
             const lado = Number(areaVolWin1Vr.value);
-            const resultAltura = Number( lado * ( 1 / Math.sqrt(2) ) );
-            const resultApPiramide = Number( lado * ( Math.sqrt(3) / 2 ) );
-            const resultApBase = Number( lado / 2 );
-            const resultAreaTotal = Number( Math.pow(lado, 2) * (1 + Math.sqrt(3) ) );
-            const resultVol = Number( Math.pow(lado, 3) * ( Math.sqrt(2) / 6) );
+            const resultAltura = Number(lado * (1 / Math.sqrt(2)));
+            const resultApPiramide = Number(lado * (Math.sqrt(3) / 2));
+            const resultApBase = Number(lado / 2);
+            const resultAreaTotal = Number(Math.pow(lado, 2) * (1 + Math.sqrt(3)));
+            const resultVol = Number(Math.pow(lado, 3) * (Math.sqrt(2) / 6));
             arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
@@ -655,12 +654,12 @@ function pPentEquFn(){
     if(areaVolWin1Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
             const lado = Number(areaVolWin1Vr.value);
-            const resultAltura = Number( lado * ( Math.sqrt( ( (5 - Math.sqrt(5) ) / 10 ) ) ) );
-            const resultApPiramide = Number( lado * ( Math.sqrt(3) / 2 ) );
-            const Angulo = Number( 365 / (2 * 5));
-            const resultApBase = Number(lado / ( 2 * Math.tan(( Angulo * Math.PI) / 180) ) );
-            const resultAreaTotal = Number( ( Math.pow(lado, 2) / 2 ) *  Math.sqrt( (5 / 2) * (10 + Math.sqrt(5) + Math.sqrt( 75 + 30 * Math.sqrt(5) ) ) ) );
-            const resultVol = Number( Math.pow(lado, 3) * ( (5 + Math.sqrt(5)) / 24 ) );
+            const resultAltura = Number( lado * (Math.sqrt(((5 - Math.sqrt(5)) / 10))));
+            const resultApPiramide = Number(lado * (Math.sqrt(3) / 2));
+            const Angulo = Number(360 / (2 * 5));
+            const resultApBase = Number(lado / (2 * Math.tan( (Angulo * (Math.PI / 180)))));
+            const resultAreaTotal = Number((Math.pow(lado, 2) / 2) *  Math.sqrt((5 / 2) * (10 + Math.sqrt(5) + Math.sqrt(75 + 30 * Math.sqrt(5)))));
+            const resultVol = Number(Math.pow(lado, 3) * ((5 + Math.sqrt(5)) / 24 ));
             arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
