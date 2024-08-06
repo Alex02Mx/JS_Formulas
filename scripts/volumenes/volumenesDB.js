@@ -538,7 +538,7 @@ const pHextIsoscObj = {
             mensajeSigPlurDb: "p",
             sizeDb : "lg",
             titleFigDb: "Hexagonal Isosceles",
-            imgFiguraDb: "../../assets2/piramide_regular_hexagonal_isosceles.png",
+            imgFiguraDb: "../assets2/piramide_regular_hexagonal_isosceles.png",
 
             titleDb: "Hexagonal Isosceles",
 
