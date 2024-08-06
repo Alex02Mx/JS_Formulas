@@ -526,9 +526,9 @@ function printResult(array){
 // --- funciones logica ---
 function cuboFn(){
     let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
     if(areaVolWin1Vr.value > 0 ){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const lado = Number(areaVolWin1Vr.value);
             const resultAreaTotal = Number((6 * Math.pow(lado, 2)));
             const resultVol = Number((Math.pow(lado, 3)));
             arrayResults.push(resultAreaTotal, resultVol);
@@ -545,9 +545,9 @@ function cuboFn(){
 };
 function esferaFn(){
     let arrayResults = [];
+    const radio = Number(areaVolWin1Vr.value);
     if(areaVolWin1Vr.value > 0 ){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const radio = Number(areaVolWin1Vr.value);
             const resultAreaTotal = Number((4 * Math.PI) * Math.pow(radio, 2));
             const resultVol = Number((4/3) * Math.PI * Math.pow(radio, 3));
             arrayResults.push(resultAreaTotal, resultVol);
@@ -561,13 +561,13 @@ function esferaFn(){
     }else{
         winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
-}
+};
 function cilindroFn(){
     let arrayResults = [];
+    const radio = Number(areaVolWin1Vr.value);
+    const altura = Number(areaVolWin2Vr.value);
     if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const radio = Number(areaVolWin1Vr.value);
-            const altura = Number(areaVolWin2Vr.value);
             const resultAreaTotal = Number(((2 * Math.PI) * radio) * (radio + altura));
             const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura);
             arrayResults.push(resultAreaTotal, resultVol);
@@ -582,13 +582,13 @@ function cilindroFn(){
     }else{
         winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
-}
+};
 function conoFn(){
     let arrayResults = [];
+    const radio = Number(areaVolWin1Vr.value);
+    const altura = Number(areaVolWin2Vr.value);
     if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const radio = Number(areaVolWin1Vr.value);
-            const altura = Number(areaVolWin2Vr.value);
             const resultAreaTotal = Number((Math.PI * radio) * (radio + Math.sqrt((Math.pow(radio, 2) + Math.pow(altura, 2)))));
             const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura) / 3;
             arrayResults.push(resultAreaTotal, resultVol);
@@ -603,13 +603,13 @@ function conoFn(){
     }else{
         winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
-}
+};
 
 function pTriEquFn(){
     let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
     if(areaVolWin1Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const lado = Number(areaVolWin1Vr.value);
             const resultAltura = Number(lado * (Math.sqrt(6) / 3));
             const resultApPiramide = Number(lado * (Math.sqrt(3) / 2));
             const resultApBase = Number(lado * (Math.sqrt(3) / 6));
@@ -626,12 +626,12 @@ function pTriEquFn(){
     }else{
         winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
-}
+};
 function pCuadrEquFn(){
     let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
     if(areaVolWin1Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const lado = Number(areaVolWin1Vr.value);
             const resultAltura = Number(lado * (1 / Math.sqrt(2)));
             const resultApPiramide = Number(lado * (Math.sqrt(3) / 2));
             const resultApBase = Number(lado / 2);
@@ -648,12 +648,12 @@ function pCuadrEquFn(){
     }else{
         winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
-}
+};
 function pPentEquFn(){
     let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
     if(areaVolWin1Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const lado = Number(areaVolWin1Vr.value);
             const resultAltura = Number( lado * (Math.sqrt(((5 - Math.sqrt(5)) / 10))));
             const resultApPiramide = Number(lado * (Math.sqrt(3) / 2));
             const Angulo = Number(360 / (2 * 5));
@@ -671,6 +671,117 @@ function pPentEquFn(){
     }else{
         winMensAreaVol.innerHTML = valorMayorMsgFc();
     };
+};
+
+function pTriIsoscFn(){
+    let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
+    const altura = Number(areaVolWin2Vr.value);
+    const apBase = Number(lado * (Math.sqrt(3) / 6));
+    const apPiramide = Number(Math.sqrt(Math.pow(altura, 2) + Math.pow(apBase, 2)));
+
+    if(areaVolWin1Vr.value > 0 && areaVolWin2Vr.value > 0){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultAltura = altura;
+            const resultApPiramide = apPiramide;
+            const resultApBase = apBase;
+            const resultAreaTotal = Number(Math.pow(lado, 2) * (Math.sqrt(3)/4) + (3*lado*apPiramide/2));
+            const resultVol = Number(Math.pow(lado, 2) * altura * (Math.sqrt(3) / 12));
+            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            areaVolWin2Vr.classList.add("resultColor");
+            printResult(arrayResults);
+            winMensAreaVol.innerHTML = valorExitoFc();
+        }else{
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+        }
+    }else{
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
+    };
 }
+function pCuadrIsoscFn(){
+    let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
+    const altura = Number(areaVolWin2Vr.value);
+    const apBase = Number(lado / 2);
+    const apPiramide = Number(Math.sqrt(Math.pow(altura, 2) + Math.pow(apBase, 2)));
+
+    if(areaVolWin1Vr.value > 0 && areaVolWin2Vr.value > 0){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultAltura = altura;
+            const resultApPiramide = apPiramide;
+            const resultApBase = apBase;
+            const resultAreaTotal = Number(Math.pow(lado, 2) + (4*lado*apPiramide / 2));
+            const resultVol = Number(altura * Math.pow(lado,2) / 3);
+            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            areaVolWin2Vr.classList.add("resultColor");
+            printResult(arrayResults);
+            winMensAreaVol.innerHTML = valorExitoFc();
+        }else{
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+        }
+    }else{
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
+    };
+}
+function pPentIsoscFn(){
+    let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
+    const altura = Number(areaVolWin2Vr.value);
+    const Angulo = Number(360 / (2 * 5));
+    const apBase = Number(lado / (2 * Math.tan( (Angulo * (Math.PI / 180)))));
+    const apPiramide = Number(Math.sqrt(Math.pow(altura,2) + Math.pow(apBase,2)));
+
+    if(areaVolWin1Vr.value > 0 && areaVolWin2Vr.value > 0){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultAltura = altura;
+            const resultApPiramide = apPiramide;
+            const resultApBase = apBase;
+            const resultAreaTotal = Number((5*lado*apBase/2) + (5*lado*apPiramide/2));
+            const resultVol = Number(altura * (5*lado*apBase/6));
+            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            areaVolWin2Vr.classList.add("resultColor");
+            printResult(arrayResults);
+            winMensAreaVol.innerHTML = valorExitoFc();
+        }else{
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+        }
+    }else{
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
+    };
+};
+function pHexIsoscFn(){
+    let arrayResults = [];
+    const lado = Number(areaVolWin1Vr.value);
+    const altura = Number(areaVolWin2Vr.value);
+    const Angulo = Number(360 / (2 * 6));
+    const apBase = Number(lado / (2 * Math.tan( (Angulo * (Math.PI / 180)))));
+    const apPiramide = Number(Math.sqrt(Math.pow(altura,2) + Math.pow(apBase,2)));
+
+    if(areaVolWin1Vr.value > 0){
+        if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultAltura = altura;
+            const resultApPiramide = apPiramide;
+            const resultApBase = apBase;
+            const resultAreaTotal = Number((6*lado*apBase/2) + (6*lado*apPiramide/2));
+            const resultVol = Number(altura * (6*lado*apBase/6));
+            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+            grupFuncLog();
+            areaVolWin1Vr.classList.add("resultColor");
+            areaVolWin2Vr.classList.add("resultColor");
+            printResult(arrayResults);
+            winMensAreaVol.innerHTML = valorExitoFc();
+        }else{
+            winMensAreaVol.innerHTML = elegirCmMtMsgFn();
+        }
+    }else{
+        winMensAreaVol.innerHTML = valorMayorMsgFc();
+    };
+};
 // ---Inicio ---
 renderIntroduccion();

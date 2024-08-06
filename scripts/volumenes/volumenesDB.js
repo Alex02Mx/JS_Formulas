@@ -369,6 +369,222 @@ const pPentEquObj = {
     ]
 };
 
+const pTriIsoscObj = {
+    idDb : "triangular_isosceles",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Triangular Isosceles",
+            imgFiguraDb: "../assets2/piramide_regular_triangular_isosceles.png",
+
+            titleDb: "Triangular Isosceles",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirTriIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida Altura",
+                    inputIdDb: "winAltPirTriIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Altura",
+                    outputIdDb: "winAltPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Piramide",
+                    outputIdDb: "winApoPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Base",
+                    outputIdDb: "winApoBasPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirTriEquCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pTriIsoscFn",
+        },
+    ]
+};
+const pCuadIsoscObj = {
+    idDb: "cuadrangular_isosceles",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Cuadrangular Isosceles",
+            imgFiguraDb: "../assets2/piramide_regular_cuadrangular_isosceles.png",
+
+            titleDb: "Cuadrangular Isosceles",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirCuadrIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAlturaPirCuadrIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Altura",
+                    outputIdDb: "winAltPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Piramide",
+                    outputIdDb: "winApoPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Base",
+                    outputIdDb: "winApoBasPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirCuadrIsoscCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pCuadrIsoscFn",
+        },
+    ]
+};
+const pPentIsoscObj = {
+    idDb: "pentagonal_isosceles",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Pentagonal Isosceles",
+            imgFiguraDb: "../assets2/piramide_regular_pentagonal_isosceles.png",
+
+            titleDb: "Pentagonal Isosceles",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirPentIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAlturaPirPentIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Altura",
+                    outputIdDb: "winAltPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Piramide",
+                    outputIdDb: "winApoPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Base",
+                    outputIdDb: "winApoBasPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirPentIsoscCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pPentIsoscFn",
+        },
+    ]
+};
+const pHextIsoscObj = {
+    idDb: "hexagonal_isosceles",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Hexagonal Isosceles",
+            imgFiguraDb: "../../assets2/piramide_regular_hexagonal_isosceles.png",
+
+            titleDb: "Hexagonal Isosceles",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirPentIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAlturaPirPentIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Altura",
+                    outputIdDb: "winAltPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Piramide",
+                    outputIdDb: "winApoPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Ap Base",
+                    outputIdDb: "winApoBasPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área Total",
+                    outputIdDb: "winAreaTotPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirPentIsoscCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pHexIsoscFn",
+        },
+    ]
+};
 // --- Guardado de objetos de valores al array ---
 volumenesArray.push(cuboObj);
 volumenesArray.push(esferaObj);
@@ -378,6 +594,11 @@ volumenesArray.push(conoObj);
 volumenesArray.push(pTriEquObj);
 volumenesArray.push(pCuadEquObj);
 volumenesArray.push(pPentEquObj);
+
+volumenesArray.push(pTriIsoscObj);
+volumenesArray.push(pCuadIsoscObj);
+volumenesArray.push(pPentIsoscObj);
+volumenesArray.push(pHextIsoscObj);
 
 
 
