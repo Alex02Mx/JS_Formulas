@@ -62,7 +62,6 @@ const cuboObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
-            sizeDb : "sm",
             titleFigDb: "Cubo",
             imgFiguraDb: "../assets2/cubo.png",
 
@@ -80,7 +79,19 @@ const cuboObj = {
             ],
             outputDb: [
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Diag. Base",
+                    outputIdDb: "winDiagBaseCuboCl"
+                },
+                {
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winAreaLateralCuboCl"
+                },
+                {
+                    outputLabelDb: "Área base",
+                    outputIdDb: "winAreaBaseCuboCl"
+                },
+                {
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotalCuboCl"
                 },
                 {
@@ -100,7 +111,6 @@ const esferaObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
-            sizeDb : "sm",
             titleFigDb: "Esfera",
             imgFiguraDb: "../assets2/esfera.png",
 
@@ -118,12 +128,24 @@ const esferaObj = {
             ],
             outputDb: [
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Diametro",
+                    outputIdDb: "winDiametroEsferaCl"
+                },
+                {
+                    outputLabelDb: "Perímetro",
+                    outputIdDb: "winPerometroEsferaCl"
+                },
+                {
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotalEsferaCl"
                 },
                 {
                     outputLabelDb: "Volumen",
                     outputIdDb: "winVolumenEsferaCl"
+                },
+                {
+                    outputLabelDb: "V. Semi Circ.",
+                    outputIdDb: "winVolumenSemiCircEsferaCl"
                 },
             ],
             winResMensDb: "winMensAreaVolCl",
@@ -138,7 +160,6 @@ const cilindroObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            sizeDb : "sm",
             titleFigDb: "Cilindro",
             imgFiguraDb: "../assets2/cilindro.png",
 
@@ -160,7 +181,19 @@ const cilindroObj = {
             ],
             outputDb: [
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Diametro",
+                    outputIdDb: "winDiametroCilindroCl"
+                },
+                {
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winAreaLateralCilindroCl"
+                },
+                {
+                    outputLabelDb: "Área base",
+                    outputIdDb: "winAreaBaseCilindroCl"
+                },
+                {
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotalCilindroCl"
                 },
                 {
@@ -180,7 +213,6 @@ const conoObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            sizeDb : "sm",
             titleFigDb: "Cono",
             imgFiguraDb: "../assets2/cono.png",
 
@@ -202,7 +234,19 @@ const conoObj = {
             ],
             outputDb: [
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Generatriz",
+                    outputIdDb: "winGeneratrizConoCl"
+                },
+                {
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winAreaLateralConoCl"
+                },
+                {
+                    outputLabelDb: "Área base",
+                    outputIdDb: "winAreaBaseConoCl"
+                },
+                {
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotalConoCl"
                 },
                 {
@@ -223,7 +267,6 @@ const pTriEquObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
-            sizeDb : "lg",
             titleFigDb: "Triangular Equilatero",
             imgFiguraDb: "../assets2/piramide_regular_triangular_equilatero.png",
 
@@ -245,15 +288,15 @@ const pTriEquObj = {
                     outputIdDb: "winAltPirTriEquCl"
                 },
                 {
-                    outputLabelDb: "Ap Piramide",
+                    outputLabelDb: "Ap. Piramide",
                     outputIdDb: "winApoPirTriEquCl"
                 },
                 {
-                    outputLabelDb: "Ap Base",
+                    outputLabelDb: "Ap. Base",
                     outputIdDb: "winApoBasPirTriEquCl"
                 },
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotPirTriEquCl"
                 },
                 {
@@ -273,7 +316,6 @@ const pCuadEquObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "s",
-            sizeDb : "lg",
             titleFigDb: "Cuadrangular Equilatero",
             imgFiguraDb: "../assets2/piramide_regular_cuadrangular_equilatero.png",
 
@@ -295,15 +337,15 @@ const pCuadEquObj = {
                     outputIdDb: "winAltPirCuadrEquCl"
                 },
                 {
-                    outputLabelDb: "Ap Piramide",
+                    outputLabelDb: "Ap. Piramide",
                     outputIdDb: "winApoPirCuadrEquCl"
                 },
                 {
-                    outputLabelDb: "Ap Base",
+                    outputLabelDb: "Ap. Base",
                     outputIdDb: "winApoBasPirCuadrEquCl"
                 },
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotPirCuadrEquCl"
                 },
                 {
@@ -323,7 +365,6 @@ const pPentEquObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            sizeDb : "lg",
             titleFigDb: "Pentagonal Equilatero",
             imgFiguraDb: "../assets2/piramide_regular_pentagonal_equilatero.png",
 
@@ -345,15 +386,15 @@ const pPentEquObj = {
                     outputIdDb: "winAltPirPentEquCl"
                 },
                 {
-                    outputLabelDb: "Ap Piramide",
+                    outputLabelDb: "Ap. Piramide",
                     outputIdDb: "winApoPirPentEquCl"
                 },
                 {
-                    outputLabelDb: "Ap Base",
+                    outputLabelDb: "Ap. Base",
                     outputIdDb: "winApoBasPirPentEquCl"
                 },
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotPirPentEquCl"
                 },
                 {
@@ -374,7 +415,6 @@ const pTriIsoscObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            sizeDb : "lg",
             titleFigDb: "Triangular Isosceles",
             imgFiguraDb: "../assets2/piramide_regular_triangular_isosceles.png",
 
@@ -390,25 +430,25 @@ const pTriIsoscObj = {
                     inputIdDb: "winLadoPirTriIsoscId"
                 },
                 {
-                    inputLabelDb: "Medida Altura",
+                    inputLabelDb: "Medida altura",
                     inputIdDb: "winAltPirTriIsoscId"
                 },
             ],
             outputDb: [
                 {
-                    outputLabelDb: "Altura",
-                    outputIdDb: "winAltPirTriIsoscCl"
+                    outputLabelDb: "Ap. Lateral",
+                    outputIdDb: "winApoLateralTriIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Piramide",
-                    outputIdDb: "winApoPirTriIsoscCl"
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winAreaLateralPirTriIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Base",
-                    outputIdDb: "winApoBasPirTriIsoscCl"
+                    outputLabelDb: "Área Base",
+                    outputIdDb: "winAreaBasePirTriIsoscCl"
                 },
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotPirTriIsoscCl"
                 },
                 {
@@ -428,7 +468,6 @@ const pCuadIsoscObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            sizeDb : "lg",
             titleFigDb: "Cuadrangular Isosceles",
             imgFiguraDb: "../assets2/piramide_regular_cuadrangular_isosceles.png",
 
@@ -454,15 +493,15 @@ const pCuadIsoscObj = {
                     outputIdDb: "winAltPirCuadrIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Piramide",
+                    outputLabelDb: "Ap. Piramide",
                     outputIdDb: "winApoPirCuadrIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Base",
+                    outputLabelDb: "Ap. Base",
                     outputIdDb: "winApoBasPirCuadrIsoscCl"
                 },
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotPirCuadrIsoscCl"
                 },
                 {
@@ -482,7 +521,6 @@ const pPentIsoscObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            sizeDb : "lg",
             titleFigDb: "Pentagonal Isosceles",
             imgFiguraDb: "../assets2/piramide_regular_pentagonal_isosceles.png",
 
@@ -508,15 +546,15 @@ const pPentIsoscObj = {
                     outputIdDb: "winAltPirPentIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Piramide",
+                    outputLabelDb: "Ap. Piramide",
                     outputIdDb: "winApoPirPentIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Base",
+                    outputLabelDb: "Ap. Base",
                     outputIdDb: "winApoBasPirPentIsoscCl"
                 },
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotPirPentIsoscCl"
                 },
                 {
@@ -536,7 +574,6 @@ const pHextIsoscObj = {
     datosDb : [
         {
             mensajeSigPlurDb: "p",
-            sizeDb : "lg",
             titleFigDb: "Hexagonal Isosceles",
             imgFiguraDb: "../assets2/piramide_regular_hexagonal_isosceles.png",
 
@@ -562,15 +599,229 @@ const pHextIsoscObj = {
                     outputIdDb: "winAltPirPentIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Piramide",
+                    outputLabelDb: "Ap. Piramide",
                     outputIdDb: "winApoPirPentIsoscCl"
                 },
                 {
-                    outputLabelDb: "Ap Base",
+                    outputLabelDb: "Ap. Base",
                     outputIdDb: "winApoBasPirPentIsoscCl"
                 },
                 {
-                    outputLabelDb: "Área Total",
+                    outputLabelDb: "Área total",
+                    outputIdDb: "winAreaTotPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirPentIsoscCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pHexIsoscFn",
+        },
+    ]
+};
+
+const prisTriObj = {
+    idDb : "triangular",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Prisma Triangular",
+            imgFiguraDb: "../assets2/prisma_regular_triangular.png",
+
+            titleDb: "Prisma Triangular",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirTriIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAltPirTriIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Altura base",
+                    outputIdDb: "winAltPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winApoPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área base",
+                    outputIdDb: "winApoBasPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área total",
+                    outputIdDb: "winAreaTotPirTriIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirTriEquCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pTriIsoscFn",
+        },
+    ]
+};
+const prisCuadObj = {
+    idDb: "cuadrangular",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            sizeDb : "lg",
+            titleFigDb: "Prisma Cuadrangular",
+            imgFiguraDb: "../assets2/prisma_regular_cuadrangular.png",
+
+            titleDb: "Prisma Cuadrangular",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirCuadrIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAlturaPirCuadrIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Ap. Base",
+                    outputIdDb: "winAltPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winApoPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área base",
+                    outputIdDb: "winApoBasPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área total",
+                    outputIdDb: "winAreaTotPirCuadrIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirCuadrIsoscCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pCuadrIsoscFn",
+        },
+    ]
+};
+const prisPentObj = {
+    idDb: "pentagonal",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Prisma Pentagonal",
+            imgFiguraDb: "../assets2/prisma_regular_pentagonal.png",
+
+            titleDb: "Prisma Pentagonal",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirPentIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAlturaPirPentIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Ap. Base",
+                    outputIdDb: "winAltPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winApoPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área base",
+                    outputIdDb: "winApoBasPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área total",
+                    outputIdDb: "winAreaTotPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Volumen",
+                    outputIdDb: "winVolPirPentIsoscCl"
+                },
+            ],
+            winResMensDb: "winMensAreaVolCl",
+            btnClearDb: "btnClearAreaVolCl",
+            btnResultDb: "btnResultAreaVolCl",
+            logicaDb: "pPentIsoscFn",
+        },
+    ]
+};
+const prisHexObj = {
+    idDb: "hexagonal",
+    datosDb : [
+        {
+            mensajeSigPlurDb: "p",
+            titleFigDb: "Prisma Hexagonal",
+            imgFiguraDb: "../assets2/prisma_regular_hexagonal.png",
+
+            titleDb: "Prisma Hexagonal",
+
+            grupoDb: "grupoAreaVolumen",
+            inputRadCmDb: "radAreaVolCmId",
+            inputRadMtDb: "radAreaVolMtId",
+
+            inputDb: [
+                {
+                    inputLabelDb: "Medida lado",
+                    inputIdDb: "winLadoPirPentIsoscId"
+                },
+                {
+                    inputLabelDb: "Medida altura",
+                    inputIdDb: "winAlturaPirPentIsoscId"
+                },
+            ],
+            outputDb: [
+                {
+                    outputLabelDb: "Ap. Base",
+                    outputIdDb: "winAltPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área lateral",
+                    outputIdDb: "winApoPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área base",
+                    outputIdDb: "winApoBasPirPentIsoscCl"
+                },
+                {
+                    outputLabelDb: "Área total",
                     outputIdDb: "winAreaTotPirPentIsoscCl"
                 },
                 {
@@ -599,6 +850,11 @@ volumenesArray.push(pTriIsoscObj);
 volumenesArray.push(pCuadIsoscObj);
 volumenesArray.push(pPentIsoscObj);
 volumenesArray.push(pHextIsoscObj);
+
+volumenesArray.push(prisTriObj);
+volumenesArray.push(prisCuadObj);
+volumenesArray.push(prisPentObj);
+volumenesArray.push(prisHexObj);
 
 
 

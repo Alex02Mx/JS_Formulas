@@ -233,11 +233,7 @@ function renderFigura(objeto){
         tituloImgCn.append(titleFigCn, imgFiguraCn);
         // --- contenedor BG del cont/titulo/imagen ---
         const tituloImgContCn = document.createElement("div");
-        if(sizeVr == "sm"){
-            tituloImgContCn.classList.add("tituloImgContCl");
-        }else if(sizeVr == "lg"){
-            tituloImgContCn.classList.add("tituloImgContLCl");
-        }
+        tituloImgContCn.classList.add("tituloImgContCl");
         tituloImgContCn.append(tituloImgCn);
         // --- bloque 2 ---
         // --- titulo Calculadora ---
@@ -338,23 +334,15 @@ function renderFigura(objeto){
 
         // --- Agregando a containerElement ---
         const calCn = document.createElement("div");
-        if(sizeVr == "sm"){
-            calCn.classList.add("calCl");
-        }else if(sizeVr == "lg"){
-            calCn.classList.add("calLCl");
-        }
+        calCn.classList.add("calCl");
         calCn.append(secTopCalcCn, secMiddleCalcCn, secMiddleResultsCn,  secBottomCalcCn);
 
-        const CalcContCn = document.createElement("div");
-        if(sizeVr == "sm"){
-            CalcContCn.classList.add("CalcContCl");
-        }else if(sizeVr == "lg"){
-            CalcContCn.classList.add("CalcContLCl");
-        }
-        CalcContCn.appendChild(calCn);
+        const calcContCn = document.createElement("div");
+        calcContCn.classList.add("CalcContCl");
+        calcContCn.appendChild(calCn);
 
         containerResponsive.classList.add("containerResponsive");
-        containerResponsive.append(tituloImgContCn, CalcContCn);
+        containerResponsive.append(tituloImgContCn, calcContCn);
         containerElement.append(containerResponsive);
     });
 
@@ -434,13 +422,13 @@ function enableBtnResult(){
 };
 // --- seleccion de medida de centinmetros o metros ---
 function medSel(string) {
-    if(string == "Área Total"){
+    if(string == "Área total" || string == "Área lateral" || string == "Área base"){
         if(radAreaVolCmVr.checked) {
             return "cm2";
         }else if(radAreaVolMtVr.checked) {
             return "m2";
         };
-    }else if(string == "Volumen"){
+    }else if(string == "Volumen" || string == "V. Semi Circ."){
         if(radAreaVolCmVr.checked) {
             return "cm3";
         }else if(radAreaVolMtVr.checked) {
@@ -529,9 +517,12 @@ function cuboFn(){
     const lado = Number(areaVolWin1Vr.value);
     if(areaVolWin1Vr.value > 0 ){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultDiagonal = Number((lado * Math.sqrt(2)));
+            const resultAreaLateral = Number((4 * Math.pow(lado, 2)));
+            const resultAreaBase = Number(Math.pow(lado, 2));
             const resultAreaTotal = Number((6 * Math.pow(lado, 2)));
             const resultVol = Number((Math.pow(lado, 3)));
-            arrayResults.push(resultAreaTotal, resultVol);
+            arrayResults.push(resultDiagonal, resultAreaLateral, resultAreaBase, resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
             printResult(arrayResults);
@@ -548,9 +539,13 @@ function esferaFn(){
     const radio = Number(areaVolWin1Vr.value);
     if(areaVolWin1Vr.value > 0 ){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultDiametro = Number(2 * radio, 2);
+            const resultPerimetro = Number( Math.PI * (radio * 2));
             const resultAreaTotal = Number((4 * Math.PI) * Math.pow(radio, 2));
             const resultVol = Number((4/3) * Math.PI * Math.pow(radio, 3));
-            arrayResults.push(resultAreaTotal, resultVol);
+            const resultVolumenSemicirculo = Number((2/3) * Math.PI * Math.pow(radio, 3));
+
+            arrayResults.push(resultDiametro, resultPerimetro, resultAreaTotal, resultVol, resultVolumenSemicirculo);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
             printResult(arrayResults);
@@ -568,9 +563,12 @@ function cilindroFn(){
     const altura = Number(areaVolWin2Vr.value);
     if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultDiametro = Number(2 * radio);
+            const resultAreaLateral = Number(((2 * Math.PI) * radio) * altura);
+            const resultAreaBase = Number( Math.PI * Math.pow(radio, 2));
             const resultAreaTotal = Number(((2 * Math.PI) * radio) * (radio + altura));
             const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura);
-            arrayResults.push(resultAreaTotal, resultVol);
+            arrayResults.push(resultDiametro, resultAreaLateral, resultAreaBase, resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
             areaVolWin2Vr.classList.add("resultColor");
@@ -589,9 +587,12 @@ function conoFn(){
     const altura = Number(areaVolWin2Vr.value);
     if(areaVolWin1Vr.value > 0  && areaVolWin2Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
+            const resultGeneratriz = Number( Math.sqrt( Math.pow(radio, 2) + Math.pow(altura, 2) ) );
+            const resultAreaLateral = Number( Math.PI * radio * (Math.sqrt( Math.pow(radio, 2) + Math.pow(altura, 2))) );
+            const resultAreaBase = Number( Math.PI * Math.pow(radio, 2));
             const resultAreaTotal = Number((Math.PI * radio) * (radio + Math.sqrt((Math.pow(radio, 2) + Math.pow(altura, 2)))));
             const resultVol = Number(Math.PI * Math.pow(radio, 2) * altura) / 3;
-            arrayResults.push(resultAreaTotal, resultVol);
+            arrayResults.push(resultGeneratriz, resultAreaLateral, resultAreaBase, resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
             areaVolWin2Vr.classList.add("resultColor");
@@ -677,17 +678,15 @@ function pTriIsoscFn(){
     let arrayResults = [];
     const lado = Number(areaVolWin1Vr.value);
     const altura = Number(areaVolWin2Vr.value);
-    const apBase = Number(lado * (Math.sqrt(3) / 6));
-    const apPiramide = Number(Math.sqrt(Math.pow(altura, 2) + Math.pow(apBase, 2)));
-
     if(areaVolWin1Vr.value > 0 && areaVolWin2Vr.value > 0){
         if(radAreaVolCmVr.checked || radAreaVolMtVr.checked){
-            const resultAltura = altura;
-            const resultApPiramide = apPiramide;
-            const resultApBase = apBase;
-            const resultAreaTotal = Number(Math.pow(lado, 2) * (Math.sqrt(3)/4) + (3*lado*apPiramide/2));
-            const resultVol = Number(Math.pow(lado, 2) * altura * (Math.sqrt(3) / 12));
-            arrayResults.push(resultAltura, resultApPiramide, resultApBase, resultAreaTotal, resultVol);
+
+            const resultApLateral = Number(Math.sqrt(Math.pow(altura, 2) + Math.pow(lado * (Math.sqrt(3) / 6),2) ));
+            const resultAreaLateral = Number( (3 * lado * resultApLateral) / 2 );
+            const resultAreaBase = Number(Math.pow(lado, 2) * (Math.sqrt(3) / 4));
+            const resultAreaTotal = Number(resultAreaLateral + resultAreaBase);
+            const resultVol = Number((resultAreaBase * altura) / 3);
+            arrayResults.push(resultApLateral, resultAreaLateral, resultAreaBase, resultAreaTotal, resultVol);
             grupFuncLog();
             areaVolWin1Vr.classList.add("resultColor");
             areaVolWin2Vr.classList.add("resultColor");
